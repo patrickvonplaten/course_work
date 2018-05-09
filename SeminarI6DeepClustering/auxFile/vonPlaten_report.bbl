@@ -1,0 +1,95 @@
+\begin{thebibliography}{10}
+
+\bibitem{HearingLoss}
+Millionslivewithhearingloss.
+\newblock
+  \url{http://www.who.int/pbd/deafness/news/Millionslivewithhearingloss.pdf}.
+\newblock Accessed: 2018-05-05.
+
+\bibitem{Bach:2006}
+Francis~R. Bach and Michael~I. Jordan.
+\newblock Learning spectral clustering, with application to speech separation.
+\newblock {\em J. Mach. Learn. Res.}, 7:1963--2001, December 2006.
+
+\bibitem{bregman1994auditory}
+A.S. Bregman.
+\newblock {\em Auditory Scene Analysis: The Perceptual Organization of Sound}.
+\newblock A Bradford book. Bradford Books, 1994.
+
+\bibitem{CocktailPartyProblem:2000}
+Adelbert Bronkhorst.
+\newblock The cocktail party phenomenon: A review of research on speech
+  intelligibility in multiple-talker conditions.
+\newblock 86:117--128, 01 2000.
+
+\bibitem{Cardoso03blindsignal}
+Jean-Francois Cardoso.
+\newblock Blind signal separation: Statistical principles, 2003.
+
+\bibitem{Cherry:1953}
+E.~Colin Cherry.
+\newblock Some experiments on the recognition of speech, with one and with two
+  ears.
+\newblock {\em The Journal of the Acoustical Society of America},
+  25(5):975--979, 1953.
+
+\bibitem{Goodfellow-et-al-2016}
+Ian Goodfellow, Yoshua Bengio, and Aaron Courville.
+\newblock {\em Deep Learning}.
+\newblock MIT Press, 2016.
+\newblock \url{http://www.deeplearningbook.org}.
+
+\bibitem{BasicDeepClustering:2016}
+J.~R. Hershey, Z.~Chen, J.~Le Roux, and S.~Watanabe.
+\newblock Deep clustering: Discriminative embeddings for segmentation and
+  separation.
+\newblock In {\em 2016 IEEE International Conference on Acoustics, Speech and
+  Signal Processing (ICASSP)}, pages 31--35, March 2016.
+
+\bibitem{Hochreiter:1997:LSM:1246443.1246450}
+Sepp Hochreiter and J\"{u}rgen Schmidhuber.
+\newblock Long short-term memory.
+\newblock {\em Neural Comput.}, 9(8):1735--1780, November 1997.
+
+\bibitem{TasNet}
+Yi~Luo and Nima Mesgarani.
+\newblock Tasnet: time-domain audio separation network for real-time,
+  single-channel speech separation.
+\newblock {\em CoRR}, abs/1711.00541, 2017.
+
+\bibitem{DBLP:journals/corr/abs-1301-3781}
+Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean.
+\newblock Efficient estimation of word representations in vector space.
+\newblock {\em CoRR}, abs/1301.3781, 2013.
+
+\bibitem{DBLP:journals/corr/Nam13}
+Sangnam Nam.
+\newblock An uncertainty principle for discrete signals.
+\newblock {\em CoRR}, abs/1307.6321, 2013.
+
+\bibitem{Pascanu:2013:DTR:3042817.3043083}
+Razvan Pascanu, Tomas Mikolov, and Yoshua Bengio.
+\newblock On the difficulty of training recurrent neural networks.
+\newblock In {\em Proceedings of the 30th International Conference on
+  International Conference on Machine Learning - Volume 28}, ICML'13, pages
+  III--1310--III--1318. JMLR.org, 2013.
+
+\bibitem{4429320}
+J.~Rouat.
+\newblock Computational auditory scene analysis: Principles, algorithms, and
+  applications (wang, d. and brown, g.j., eds.; 2006) [book review].
+\newblock {\em IEEE Transactions on Neural Networks}, 19(1):199--199, Jan 2008.
+
+\bibitem{DBLP:journals/corr/abs-1801-05119}
+Jinsong Su, Shan Wu, Deyi Xiong, Yaojie Lu, Xianpei Han, and Biao Zhang.
+\newblock Variational recurrent neural machine translation.
+\newblock {\em CoRR}, abs/1801.05119, 2018.
+
+\bibitem{SpeechSepDeepLearning:2015}
+C.~Weng, D.~Yu, M.~L. Seltzer, and J.~Droppo.
+\newblock Deep neural networks for single-channel multi-talker speech
+  recognition.
+\newblock {\em IEEE/ACM Transactions on Audio, Speech, and Language
+  Processing}, 23(10):1670--1679, Oct 2015.
+
+\end{thebibliography}

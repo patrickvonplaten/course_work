@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: vonPlaten_report.aux
+The style file: plain.bst
+Database file #1: vonPlaten_report.bib
+Warning--to sort, need author or key in HearingLoss
+Warning--empty journal in CocktailPartyProblem:2000
+You've used 16 entries,
+            2118 wiz_defined-function locations,
+            611 strings with 7003 characters,
+and the built_in function-call counts, 5063 in all, are:
+= -- 496
+> -- 220
+< -- 2
++ -- 90
+- -- 72
+* -- 345
+:= -- 844
+add.period$ -- 50
+call.type$ -- 16
+change.case$ -- 82
+chr.to.int$ -- 0
+cite$ -- 18
+duplicate$ -- 188
+empty$ -- 413
+format.name$ -- 72
+if$ -- 1068
+int.to.chr$ -- 0
+int.to.str$ -- 16
+missing$ -- 16
+newline$ -- 83
+num.names$ -- 30
+pop$ -- 86
+preamble$ -- 1
+purify$ -- 68
+quote$ -- 0
+skip$ -- 138
+stack$ -- 0
+substring$ -- 316
+swap$ -- 33
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 60
+warning$ -- 2
+while$ -- 43
+width$ -- 18
+write$ -- 175
+(There were 2 warnings)

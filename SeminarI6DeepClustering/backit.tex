@@ -1,0 +1,127 @@
+\subsubsection{Embedding space} % (fold)
+\label{ssub:embedding_space}
+
+Explain what is meant by an embedding/embedding space.
+}\begin{itemize}
+  \item feature presentation of (F,T) bin 
+  to be able to mathematically decide which (F,T) bins 
+  resemble one another
+  \item to be able to calculate distance between different bins
+\end{itemize}
+
+\subsubsection{Auditory masking} % (fold)
+\label{sub:auditory_masking}
+
+Explain what is it. Briefly show evidence of human brain 
+capabilities to for auditory masking and make transition to
+audio source separation. 
+Describe auditory masking 
+mathematically. Use \cite{MaskingEffectsInSpeechPerception}
+% subsection auditory_masking (end)
+
+% subsubsection embedding_space (end)
+% subsection mathematical_opartions (end)
+
+\subsection{Deep neural network basics} % (fold)
+\label{sub:deep_neural_network_basics}
+
+This subsection aims to clarify some deep learning methods and architectures used in the sections \ref{sec:conventional_methods}, \ref{sec:deep_clustering_methods}.
+
+\subsubsection{Recurrent neural network} % (fold)
+\label{ssub:recurrent_neural_network}
+
+% subsubsection recurrent_neural_network (end)
+
+\subsubsection{Long short term memory} % (fold)
+\label{ssub:long_short_term_memory}
+
+Shortly explain LSTM using \cite{Hochreiter:1997:LSM:1246443.1246450}
+% subsubsection long_short_term_memory (end)
+
+% subsection deep_neural_network_basics (end)
+
+% section basics (end)
+
+
+\section{Conventional methods \& First attempts using deep learning} % (fold)
+\label{sec:conventional_methods}
+
+Give overview of methods that do not use deep learning approaches.
+
+\subsection{Computational auditory scene analysis} % (fold)
+\label{sub:computational_auditory_scene_analysis}
+
+Start with first source separation method that was succesful to some extent -> CASA.
+
+% subsection computational_auditory_scene_analysis (end)
+
+\subsection{Spectral Clustering} % (fold)
+\label{sub:spectral_clustering}
+
+% subsection spectral_clustering (end)
+
+\subsection{Single-channel Multi-talker separation using deep learning techniques} % (fold)
+\label{sub:single_channel_multi_talker_separation_using_deep_learning_techniques}
+
+Present method as explained in \cite{SpeechSepDeepLearning:2015}.
+
+% subsection single_channel_multi_talker_separation_using_deep_learning_techniques (end)
+
+% section conventional_methods (end)
+
+\section{Deep clustering methods} % (fold)
+\label{sec:deep_clustering_methods}
+
+I want to present three methods here that more or less can be called deep 
+clustering methods and differentiate them between methods using:
+
+\begin{enumerate}
+  \item the (F,T) bins as input -> Frequency Domain Audio Separation Based Methods
+  \item the raw audio signal as input $\to$ Time-Domain Audio Separation Based Methods
+\end{enumerate}
+
+Explain challanges:
+
+\begin{itemize}
+  \item Permutation problem 
+  \item Output dimension mismatch problem
+\end{itemize}
+
+and state for each method how these challenges can be overcome.
+
+\subsection{Deep clustering method - Frequency domain audio separation based methods} % (fold)
+\label{sub:frequency_domain_audio_separation}
+
+Method that assigns contrastive embedding vectors to each time-frequency region.
+Present in detail as described in \cite{BasicDeepClustering:2016}.
+Can be used for unknown arbitrary amount of sources. 
+
+\subsubsection{Training} % (fold)
+
+Talk about what to pay attention to when training.
+
+\subsubsection{Results} 
+
+talk about what ever
+
+\subsection{TasNet - Time domain audio separation based methods} % (fold)
+\label{sub:time_domain_audio_separation}
+
+Introduce TasNet which does not create masks for each source, but instead use encoder-decoder 
+framework to model directly the signal in the time-domain. Use \cite{TasNet}.
+
+\subsubsection{Training} % (fold)
+
+Talk about what to pay attention to when training.
+
+\subsubsection{Results}
+
+Talk about results of TasNet
+
+% subsection time_domain_audio_separation (end)
+% section deep_neural_network_methods (end)
+
+\section{Conclusion} % (fold)
+\label{sec:conclusion}
+
+Write conclusion using results.
