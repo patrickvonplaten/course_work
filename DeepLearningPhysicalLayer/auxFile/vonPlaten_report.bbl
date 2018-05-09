@@ -1,0 +1,27 @@
+\begin{thebibliography}{1}
+
+\bibitem{2018ISTSP..12..132D}
+S.~{Dorner}, S.~{Cammerer}, J.~{Hoydis}, and S.~t. {Brink}.
+\newblock {Deep Learning Based Communication Over the Air}.
+\newblock {\em IEEE Journal of Selected Topics in Signal Processing},
+  12:132--143, February 2018.
+
+\bibitem{8262721}
+T.~J. O'Shea, T.~Erpek, and T.~C. Clancy.
+\newblock Physical layer deep learning of encodings for the mimo fading
+  channel.
+\newblock In {\em 2017 55th Annual Allerton Conference on Communication,
+  Control, and Computing (Allerton)}, pages 76--80, Oct 2017.
+
+\bibitem{2018arXiv180303145O}
+T.~J. {O'Shea}, T.~{Roy}, N.~{West}, and B.~C. {Hilburn}.
+\newblock {Physical Layer Communications System Design Over-the-Air Using
+  Adversarial Networks}.
+\newblock {\em ArXiv e-prints}, March 2018.
+
+\bibitem{DBLP:journals/corr/OSheaH17}
+Timothy~J. O'Shea and Jakob Hoydis.
+\newblock An introduction to machine learning communications systems.
+\newblock {\em CoRR}, abs/1702.00832, 2017.
+
+\end{thebibliography}

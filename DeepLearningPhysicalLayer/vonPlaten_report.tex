@@ -1,0 +1,265 @@
+\documentclass[twoside,11pt,a4paper,english]{article}
+
+% packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx,curves,float,rotating}
+
+\usepackage{amsmath, amssymb, latexsym}  % math stuff
+\usepackage{amsopn}                             % um mathe operatoren zu deklarieren
+\usepackage[english]{babel}                     % otherwise use british or american
+\usepackage{theorem}                            % instead of \usepackage{amsthm}
+\usepackage{dcolumn}
+\usepackage{hyperref}
+\usepackage[]{algorithm2e}
+
+
+
+
+% @ environment %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{xspace}                             % context sensitive space after macros
+\makeatletter 
+\DeclareRobustCommand\onedot{\futurelet\@let@token\@onedot}
+\def\@onedot{\ifx\@let@token.\else.\null\fi\xspace}
+\def\eg{{e.g}\onedot} \def\Eg{{E.g}\onedot}
+\def\ie{{i.e}\onedot} \def\Ie{{I.e}\onedot}
+\def\cf{{c.f}\onedot} \def\Cf{{C.f}\onedot}
+\def\etc{{etc}\onedot} \def\vs{{vs}\onedot} 
+\def\wrt{w.r.t\onedot} \def\dof{d.o.f\onedot}
+\def\etal{{et al}\onedot}
+\def\zB{z.B\onedot} \def\ZB{Z.B\onedot}
+\def\dh{d.h\onedot} \def\Dh{D.h\onedot}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%	Macros fuer neue Umgebungen
+  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand*{\Frac}[2]{\frac{\displaystyle #1}{\displaystyle #2}}
+\newlength{\textwd}
+\newlength{\oddsidemargintmp}
+\newlength{\evensidemargintmp}
+\newcommand*{\hspaceof}[2]{\settowidth{\textwd}{#1}\mbox{\hspace{#2\textwd}}}
+\newlength{\textht}
+\newcommand*{\vspaceof}[3]{\settoheight{\textht}{#1}\mbox{\raisebox{#2\textht}{#3}}}
+\newcommand*{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
+
+\newenvironment{deflist}[1][\quad]%
+{  \begin{list}{}{%
+      \renewcommand{\makelabel}[1]{\textbf{##1}\hfil}%
+      \settowidth{\labelwidth}{\textbf{#1}}%
+      \setlength{\leftmargin}{\labelwidth}
+      \addtolength{\leftmargin}{\labelsep}}}
+{  \end{list}}
+
+
+\newenvironment{Quote}% Definition of Quote
+{  \begin{list}{}{%
+      \setlength{\rightmargin}{0pt}}
+      \item[]\ignorespaces}
+{\unskip\end{list}}
+
+
+\theoremstyle{break}
+\theorembodyfont{\itshape}	
+\theoremheaderfont{\scshape}
+
+\newtheorem{Cor}{Corollary}
+\newtheorem{Def}{Definition}
+%\newtheorem{Def}[Cor]{Definition}
+
+
+
+\newcolumntype{.}{D{.}{.}{-1}}
+
+
+\pagestyle{headings}
+\textwidth 15cm
+\textheight 23cm
+\oddsidemargin 1cm
+\evensidemargin 0cm
+%\parindent 0mm
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%       Jetzt geht's los
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%               Title
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{empty}
+
+\begin{center}
+
+    Rheinisch-Westf\"alische Technische Hochschule Aachen \\
+    Institute for Theoretical Information Technology \\
+    Univ.-Prof. Dr. rer. nat. Rudolf Mathar \\[6ex]
+    Seminar on Deep Learning - Methodologies and Applications - SS2018\\[12ex]                          % auch Seminar Titel und Datum ändern!!!
+   
+    \LARGE
+    \textbf{Deep Learning for the Physical Layer} \\[6ex]
+    \textit{Patrick von Platen} \\[6ex]
+    \Large
+    Matrikelnummer 331 430 \\[6ex]
+    Datum des Vortrages
+
+    \vfill
+    \Large Betreuer: Johannes Schmitz 
+	    
+\end{center}
+
+\newpage
+\ 
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%               Inhaltsverzeichnis / Tabellenverzeichnis / Abbildungsverz.
+%
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{headings}
+\tableofcontents
+\listoftables
+\listoffigures
+\newpage
+\pagestyle{empty}
+\ 
+\newpage
+\pagestyle{headings}
+
+\section{Motivation} % (fold)
+\label{sec:introduction}
+
+Concentrate only on complete end-to-end autoencoder network. Not enough research on 
+communication system using one sided neural networks.
+
+Introduce reader to the topic. 
+Explain motivation: 
+\begin{itemize}
+	\item so far every part of communication layer has to be optimized by itself
+	\item very hard to find mathematical optimization for complete end - to -end system
+	\item use autoencoder for end-to-end usage
+\end{itemize}
+
+\cite{DBLP:journals/corr/OSheaH17}
+\cite{2018arXiv180303145O}
+\cite{8262721}
+\cite{2018ISTSP..12..132D}
+
+% section introduction (end)
+
+\section{Conventional communication systems} 
+\label{sec:communication_systems}
+
+Describe here how conventional communication systems look 
+like. 
+
+\subsection{Structure of system}
+
+
+\subsubsection{Transmitter}
+
+Role of transmitter 
+
+
+\subsubsection{Channel}
+
+What is the actual channel 
+
+\subsubsection{Receiver}
+
+Role of receiver 
+(put receiver and transmitter together)
+
+% section physical_layer
+
+\subsection{Advantages of current system}
+
+In what ways are current communication systems already very 
+efficient? 
+
+\section{Applying deep learning to communication systems}
+
+Explain the motivation of using deep learning methods to model 
+end-to-end communication systems.
+In which cases could deep learning be applicable for communication systems
+
+\begin{itemize}
+	\item possible efficiency improvements (or not)
+	\item great adaptive properties to model communication systems in 
+		unusual conditions (non-gaussian noise,...)
+\end{itemize}
+
+\subsection{Deep neural network basics}
+
+Explain basics of DNN: MLP, every function can be modeled by DNN, 
+activation functions, backpropagation,...
+
+\subsection{Convolutional Layers in NN}
+Explain how Conv. layers work and it's relation to signal analysis/
+processing (applying conv layer to time signal is similar to applying 
+fourier transform to it)
+Why are they useful in this case?
+
+\subsection{Autoencoder}
+
+Explain motivation and why it works in case of communication systems.
+Describe auto-encoder network in detail and show it's obvious relation to 
+the physical layer in communication systems.
+
+\subsection{Synchronization of information transfer}
+
+How can neural networks overcome the problem of synchronization? 
+What methods are used? (Start sending bit stream?)
+
+\subsection{Training of autoencoder systems}
+
+How is training be done?
+
+\section{State-of-the-art deep learning methods for communication systems}
+
+Give examples of system and their architecture
+
+\subsection{Example system}
+
+\subsection{Comparison deep learing methods and conventional methods}
+
+Compare current ``state-of-the-art'' to system using deep learning.
+
+\subsubsection{Performance measurement}
+
+Define and introduce Signal-to-noise ration
+
+\subsubsection{Results using deep learning methods}
+
+State attained results. 
+
+\section{Conclusion} % (fold)
+\label{sec:conclusion}
+
+Conclude by trying to answer the question, whether it is useful 
+to apply deep learning methods for communication systems (or under which 
+circumstances it might be useful)
+
+% section conclusion (end)
+\newpage
+
+\addcontentsline{toc}{section}{References}
+\bibliographystyle{plain}
+\bibliography{vonPlaten_report}
+
+\end{document}
