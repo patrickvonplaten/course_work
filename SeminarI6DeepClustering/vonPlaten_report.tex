@@ -370,7 +370,44 @@ solve the \emph{cocktail party problem}, namely \emph{Spectral Clustering} \ref{
 \subsection{Spectral Clustering} % (fold)
 \label{sub:spectral_clustering}
 
-\cite{}.
+\emph{Spectral Clustering} is a well-known method in multivariante statistic for the clustering of data. It makes use of the eigenvalues (also called spectrum, thus the name 
+\emph{Spectral clustering}) of a similarity matrix $W$ of the data to reduce the dimensionality of the data.
+Since spectral clustering will be very important in latter chapters it will be described here in detail. 
+The similarity matrix $W$ can be defined in multiple ways depending on the task, but it should have the following properties.
+
+\begin{enumerate}
+	\item W should be a hermitian matrix: $W^T = W$.
+	\item $(W)_{i,j} \ge 0, \forall i,j$
+	\item W should be non-negative definite.
+\end{enumerate}
+
+Considering a dataset of P entries $D \in \mathbb{R}^P$, describes the similarity between
+each of these datapoints, thus $W \in \mathbb{R}^{P \times P}$. Since $W$ can be considered as a distance measure, whereas $W(d_1,d_2) = W(d_2,d_1$ and with only positive distances, the first two of the above defined properties seem reasonable.
+The third property ensures that all eigenvalues of $W$ are $ \ge 0$ being a characteristic
+of non-negative definite matrices.
+
+Having defined a similarity matrix, an example of an algorithm for spectral clustering used in \cite{Bach:2006} is presented in figure \ref{fig:spectral_clustering_algo}.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\linewidth]{images/spectral_clustering_algo.png}
+	\caption{Spectral clustering algorithm}
+	\label{fig:spectral_clustering_algo}
+\end{figure}
+
+First, all eigenvalues and their corresponding eigenvectors of the similarity matrix are calculated. 
+The eigenvectors $v_i \in \mathbb{R}^P$ can be sorted according according to their eigenvalues
+in descending order, such that $v_0, v_1, ..., v_r,...,v_p$ with $\lambda(v_0) = max_{i \in \{0,...,P\}} \lambda_i $.
+Now we can choose the first R eigenvectors to have R different clusters.  
+Our set of eigenvectors is defined as $V = (v_0, v_1, ..., v_r) \in \mathbb{R}^{P \times R}$. We can now define a set $U = (u_0, u_1, ..., u_p) = V^T \in \in \mathbb{R}^{R \times P}$, whereas $u_i$ corresponds to exactly one data point and is the vector containing the i-th elements of all eigenvectors $v_1,...,v_r$.
+As a last step, we apply a weighted version of the \emph{k-means algorithm} \cite{Steinhaus56} by first randomely selecting R vectors $m_1,...,m_r$ as mean vectors and then successively assigning the vectors $u_1,...,u_p$ and updating $m_1,...,m_r$.
+After conversion, all vectors assigned to $m_j$ present the j-th cluster.
+
+
+
+
+
+\cite{Bach:2006}.
 
 
 % subsection spectral_clustering (end)

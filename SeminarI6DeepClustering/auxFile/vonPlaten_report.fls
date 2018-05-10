@@ -1,4 +1,4 @@
-PWD /Users/patrickvonplaten/Desktop/Master_TI/SeminarI6DeepClustering
+PWD /Users/patrickvonplaten/reports/SeminarI6DeepClustering
 INPUT /usr/local/texlive/2016/texmf.cnf
 INPUT /usr/local/texlive/2016/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2016/texmf-var/web2c/pdftex/pdflatex.fmt
@@ -170,6 +170,9 @@ INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmti7.tfm
 INPUT images/lstm_structure.png
 INPUT ./images/lstm_structure.png
 INPUT ./images/lstm_structure.png
+INPUT images/spectral_clustering_algo.png
+INPUT ./images/spectral_clustering_algo.png
+INPUT ./images/spectral_clustering_algo.png
 INPUT auxFile/vonPlaten_report.bbl
 INPUT auxFile/vonPlaten_report.bbl
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm

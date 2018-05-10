@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex auxFile/vonPlaten_report"] 1525881535 "auxFile/vonPlaten_report.aux" "auxFile/vonPlaten_report.bbl" "auxFile/vonPlaten_report" 1525881536
+["bibtex auxFile/vonPlaten_report"] 1525976944 "auxFile/vonPlaten_report.aux" "auxFile/vonPlaten_report.bbl" "auxFile/vonPlaten_report" 1525976945
   "/usr/local/texlive/2016/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "auxFile/vonPlaten_report.aux" 1525881536 6395 d1b9ad2d7adba86b4734c7a879e443c2 ""
+  "auxFile/vonPlaten_report.aux" 1525976945 6699 65e1caf52c24340d55600c4712a72636 ""
   "auxFile/vonPlaten_report.bcf" 0 -1 0 ""
-  "vonPlaten_report.bib" 1525881530 7967 3b49ed7a9bc3ea30a7960974cc39fac7 ""
+  "vonPlaten_report.bib" 1525976707 8320 f1eca4c67acbc2d3032d28ca6ea07dd6 ""
   (generated)
   "auxFile/vonPlaten_report.bbl"
   "auxFile/vonPlaten_report.blg"
-["pdflatex"] 1525881535 "vonPlaten_report.tex" "auxFile/vonPlaten_report.pdf" "vonPlaten_report" 1525881536
+["pdflatex"] 1525976944 "vonPlaten_report.tex" "auxFile/vonPlaten_report.pdf" "vonPlaten_report" 1525976945
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -113,19 +113,20 @@
   "/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1484608876 1888048 f2c5faed5981a516f406b2ccc20bff71 ""
   "/usr/local/texlive/2016/texmf-var/web2c/pdftex/pdflatex.fmt" 1484608957 3873397 9fb091d1d9e22f7bdeb909775804f391 ""
   "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
-  "auxFile/vonPlaten_report.aux" 1525881536 6395 d1b9ad2d7adba86b4734c7a879e443c2 ""
-  "auxFile/vonPlaten_report.bbl" 1525881535 3508 962cba52c36fec1820db96b56d4916fe "bibtex auxFile/vonPlaten_report"
-  "auxFile/vonPlaten_report.lof" 1525881536 118 003ec8fe591fe497bc870df30d66bf6e ""
-  "auxFile/vonPlaten_report.lot" 1525881536 27 38d9a29c5049abebc1d57bbc064a3bf3 ""
-  "auxFile/vonPlaten_report.out" 1525881536 1621 1518d48a64ea8004f9d4a249f05d1495 ""
-  "auxFile/vonPlaten_report.toc" 1525881536 2004 aa7fd71507fe49c6ab1249b1fad73792 ""
+  "auxFile/vonPlaten_report.aux" 1525976945 6699 65e1caf52c24340d55600c4712a72636 ""
+  "auxFile/vonPlaten_report.bbl" 1525976944 3662 c9126fdb8e24a69650af63419fdc34fd "bibtex auxFile/vonPlaten_report"
+  "auxFile/vonPlaten_report.lof" 1525976945 217 9c1fd6705a4a695779aa9f446bd14ff2 ""
+  "auxFile/vonPlaten_report.lot" 1525976945 27 38d9a29c5049abebc1d57bbc064a3bf3 ""
+  "auxFile/vonPlaten_report.out" 1525976945 1621 1518d48a64ea8004f9d4a249f05d1495 ""
+  "auxFile/vonPlaten_report.toc" 1525976945 2006 d81469da72b82203ed9ca8c514ca75d0 ""
   "images/lstm_structure.png" 1525739493 65952 7b74ae994a5d550d8fd912d3445df97b ""
-  "vonPlaten_report.tex" 1525881509 21420 c4d336022a49849443aacfb9591e2bde ""
+  "images/spectral_clustering_algo.png" 1525974790 133303 6b7cdf4a2d5344c8126cea525ba31273 ""
+  "vonPlaten_report.tex" 1525976934 23992 e636703ca48169a5f5b5e449521a7d0b ""
   (generated)
-  "auxFile/vonPlaten_report.aux"
-  "auxFile/vonPlaten_report.lof"
   "auxFile/vonPlaten_report.toc"
-  "auxFile/vonPlaten_report.lot"
   "auxFile/vonPlaten_report.log"
+  "auxFile/vonPlaten_report.aux"
   "auxFile/vonPlaten_report.pdf"
+  "auxFile/vonPlaten_report.lof"
   "auxFile/vonPlaten_report.out"
+  "auxFile/vonPlaten_report.lot"
