@@ -40,6 +40,7 @@
 \newlength{\textht}
 \newcommand*{\vspaceof}[3]{\settoheight{\textht}{#1}\mbox{\raisebox{#2\textht}{#3}}}
 \newcommand*{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
+\newcommand{\reals}{\mathbb{R}}
 
 \newenvironment{deflist}[1][\quad]%
 {  \begin{list}{}{%
@@ -245,9 +246,10 @@ The short term fourier transform divides the signal into local sections using a 
 function $w(\tau) = 0 : \tau \not \in \left[-a, a \right]$ over which the fourier transform is applied.
 
 \[
-	S(f,\tau) = \int_{\mathbb{R}} s(t)w(t-\tau) e^{-2j{\pi}ft} dt
+	S(f,t) = \int_{\mathbb{R}} s(\tau)w(\tau-t) e^{-2j{\pi}f\tau} d\tau
 \]
 
+Appling the short term fourier transform converts a signal $X(t)$ to multiple $(F,T)$ binsthat can be plotted in a \emph{spectrogram}.
 It therefore is used to describe the change in frequency over time. Using an appropiate
 window funciton leads to a good trade off between time localization and frequency
 approximation.
@@ -403,12 +405,38 @@ Our set of eigenvectors is defined as $V = (v_0, v_1, ..., v_r) \in \mathbb{R}^{
 As a last step, we apply a weighted version of the \emph{k-means algorithm} \cite{Steinhaus56} by first randomely selecting R vectors $m_1,...,m_r$ as mean vectors and then successively assigning the vectors $u_1,...,u_p$ and updating $m_1,...,m_r$.
 After conversion, all vectors assigned to $m_j$ present the j-th cluster.
 
+Bach and Jordan applied spectral clustering for source separation of two-speaker mixtures.
+The method described in the following is based on their paper ``Learning spectral clustering, with application to speech separation'' \cite{Bach:2006}.
 
+First, the definition of a similarity matrix $W$ corresponding to the mixture signal $X(t)$ will be derived.
+As a first step the mixture signal can be convert to $(F,T)$ bins using the short term 
+fourier transform as explained in \ref{ssub:short_term_fourier_transform}.
+The $(F,T)$ are then used to create multiple features, which are based on: \emph{Energy,
+continuity, common fate cues, pitch estimation, timbre,...}. In this way, we create multiple features $s_i(f,t)$ for every data point $(f,t)$ whereas the calculation of $s_i(f,t)$ can make use of neighoring data points. 
 
+The features are essentially embeddings making the data points more comparable, so that we can define k similarity matrix corresponding to k features $W_{k}(i,j) = f_k(s_i, s_j)$ choosing appropriate functions $f_k$. 
+The final similarity matrix consists of a weighed combination of each similarity matrix $W = W_1^{\alpha_1} \odot W_2^{\alpha_2} \odot ... \odot W_k^{\alpha}$ with $\odot$ being the hadamard product.
+The similarity matrix can then be inserted into our previously explained spectral 
+clustering algorithm \ref{fig:spectral_clustering_algo} and the two clusters can be defined resulting in a neat spectogram for every speaker. The conversion of the data points to 
+a combined similarity matrix works like front-end processor. 
 
+The only thing left to explain is how to define the weigth vector $\alpha \in \reals^K$.
+Having N labeled data sets with the $(F,T)$ bins correspondng to one of two speakers 
+so that every data set has a reference partition $E_n'$, a partition $E_n(\alpha) = \text{K-Means}(W_n(\alpha))$ can be derived. 
+The \emph{k-means} algorithm is applied to the similarity matrix depending on $\alpha$ and the previously defined features as well as the \emph{k-means} algorithm.
+Finally, a cost function $\mathbb{L} = \sum_i^N H(E_n',E_n(\alpha))$ is used to find the $\alpha$ minimizing the $\mathbb{L}$. 
 
-\cite{Bach:2006}.
-
+Even though spectral clustering can produce very good results on two-speaker separation \cite{Bach:2006} it has its limitations. 
+Already for seconds of speech sampled at 5.5 kHz leads to 22000 data points and thus, a similarity matrix having $22000 \times 22000$ entries not even applying the short term 
+fourier transform. It is obvious that eigenvalue and eigenvector calculations become very
+expensive. 
+Additionally, the algorithms relies on ``handcrafted features'' and uses only shallow learning for the similarity matrices by essentially applying linear regression to optimize 
+the scaling vector $\alpha$. 
+More speakers means more overlapping speakers per $(F,T)$ bin so that features taking into
+account multiple data points for calculation contain multiple speakers making it 
+pointless to cluster them. A speaker segmentation would be needed before-hand to 
+create useful features, which would miss the point of creating features to perform 
+the segmentation. Deep clustering as explained in \ref{sub:frequency_domain_audio_separation} tries to solve this problem.
 
 % subsection spectral_clustering (end)
 
