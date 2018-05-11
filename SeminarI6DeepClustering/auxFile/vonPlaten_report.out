@@ -8,9 +8,9 @@
 \BOOKMARK [3][-]{subsubsection.2.3.1}{Recurrent neural network}{subsection.2.3}% 8
 \BOOKMARK [3][-]{subsubsection.2.3.2}{Long short term memory}{subsection.2.3}% 9
 \BOOKMARK [3][-]{subsubsection.2.3.3}{Autoencoder}{subsection.2.3}% 10
-\BOOKMARK [1][-]{section.3}{First attempts using machine learning}{}% 11
-\BOOKMARK [2][-]{subsection.3.1}{Spectral Clustering}{section.3}% 12
-\BOOKMARK [2][-]{subsection.3.2}{Single-channel multi-talker separation using deep learning techniques}{section.3}% 13
+\BOOKMARK [1][-]{section.3}{Conventional methods}{}% 11
+\BOOKMARK [2][-]{subsection.3.1}{Computational auditory scene analysis}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.2}{Spectral Clustering}{section.3}% 13
 \BOOKMARK [1][-]{section.4}{Deep clustering methods}{}% 14
 \BOOKMARK [2][-]{subsection.4.1}{Deep clustering method - Frequency domain audio separation based methods}{section.4}% 15
 \BOOKMARK [3][-]{subsubsection.4.1.1}{Training}{subsection.4.1}% 16

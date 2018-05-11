@@ -10,7 +10,6 @@
 \usepackage{dcolumn}
 \usepackage{hyperref}
 \usepackage[]{algorithm2e}
-\usepackage{float}
 
 
 % @ environment %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -187,25 +186,25 @@ overview of the basic operations and methods used in systems.
 
 A generel definition of the source separation problem was given by Jean-Francois Cardoso, 
 defininig the problem as ``recovering unobserved signals or sources from several
-observed mixtures'' \cite{Cardoso03blindsignal}. He also added two important restrictions that we will apply to our definition as well: 
+observed mixtures'' \cite{Cardoso03blindsignal}. He also add two important restrictions that we will apply to our definition as well: 
 \begin{enumerate}
  \item the source signals are not observed
  \item no information is available about the mixture
 \end{enumerate}
 
-The condition of not knowing how many sources the mixture is composed of, became known as \emph{blind} source separation \cite{Cardoso03blindsignal}. 
-In this paper, we add another restriction: The signal is observed over a single channel (single microphone).
-To sum it up, the \emph{source separation problem} is defined in this paper as ``recovering the original signals of an unknown amount of sources from a single-channel mixture of the source signals''.
+The condition of not even knowing how many sources the mixture is composed of, got coined \emph{blind} source separation \cite{Cardoso03blindsignal}. 
+For our purpose, we want to add the restriction of the signal being observed only over a single channel (single microphone).
+To sum it up, by talking about the \emph{source separation problem in this paper} is meantto recover the original signals of an unknown amount of sources from a single-channel mixture of the source signals.
 
-Putting the above definiton in a mathematical form:
+To put the above definiton in a mathematical form, let's define: 
 \begin{itemize}
 	\item the unknown number of acoustic sources: $N$.
 	\item the original sound of the i-th source at time t: $x_i(t)$.
 	\item the single received sound signal at time t: $X(t) = \sum_{i=1}^{N} x_i(t)$.
 \end{itemize}
 
-The goal of source separation is to recover $x_1(t),...,x_N(t)$ from $X(t)$.
-An algorithm performing this task is presented below.
+The goal of source separation is then to recover $x_1(t),...,x_N(t)$ from $X(t)$.
+So, defining an algorithm to solve this problem we get:
 
 \begin{algorithm}[ht]
 	\RestyleAlgo{boxruled}
@@ -233,21 +232,25 @@ In order to understand the short term fourier transform, one firstly has to get 
 	S(f) = \int_{\mathbb{R}} s(t) e^{-2j{\pi}ft} dt
 \]
 
-The fourier transform $S(f)$ gives the magnitude of every frequency in the signal. A signal can be decomposed as the sum of signals consisting only of one frequency (so called sinusoids).
- Thus, one can say that the higher the magnitude of a frequency of the fourier transform, the higher is the percentage of the signal being composed of the sinusoid of
- this frequency. An important aspect to notice is that the fourier transform
+The fourier transform $S(f)$ gives the magnitude of every frequency in the signal. A signal can be decomposed as the sum of signals made up of only one frequency (so called sinusoids).
+ Thus, one can say that the higher the magnitude of a frequency of the fourier transform, the the higher is the percentage of the signal being composed of the sinusoid of
+ this frequency. An important aspect to notice is that the fourier transform of a signal
  integrates over the whole time domain of the signal in order to get the exact magnitude
- of every freuency present in the signal. Thus integrating only over a part of the time domain leads
+ of every freuency of the signal. Thus integrating only over a part of the time domain leads
  to approximated values of the frequencies magnitudes. On the other hand, a shorter time
  intervall to integrate over leads to a better time localization of the frequency. This famous
  trade-off is well-known as the uncertainty principle in signal analysis \cite{DBLP:journals/corr/Nam13}.
+The short term fourier transform divides the signal into local sections using a window
+function $w(\tau) = 0 : \tau \not \in \left[-a, a \right]$ over which the fourier transform is applied.
 
-The short term fourier transform divides the signal into local sections using a window function $w(\tau) = 0 : \tau \not \in \left[-a, a \right]$ over which the fourier transform is applied.  
 \[
-	S(f,t) = \int_{\mathbb{R}} s(\tau)w(\tau-t) e^{-2j{\pi}f\tau} d\tau 
+	S(f,t) = \int_{\mathbb{R}} s(\tau)w(\tau-t) e^{-2j{\pi}f\tau} d\tau
 \]
 
-Appling the short term fourier transform converts a signal $X(t)$ to multiple $(F,T)$ binsthat can be plotted in a \emph{spectrogram}. It therefore is used to describe the change in frequency over time. Using an appropiate window funciton leads to a good trade off between time localization and frequency approximation.
+Appling the short term fourier transform converts a signal $X(t)$ to multiple $(F,T)$ binsthat can be plotted in a \emph{spectrogram}.
+It therefore is used to describe the change in frequency over time. Using an appropiate
+window funciton leads to a good trade off between time localization and frequency
+approximation.
 
 % subsubsection short_term_fourier_transform (end)
 
@@ -257,20 +260,21 @@ Appling the short term fourier transform converts a signal $X(t)$ to multiple $(
 An embedding is a structure-preserving, injective mapping $f: X \to Y$. Therefore, every
 object of domain $X$ is mapped to a distinct object in domain $Y$ . In this report, we are
 interested in embeddings that map to normed spaces meaning that it is possible to measure
-the similarity of two objects $x_1$ and $x_2 \in X$ by measuring its distance $d(y_1; y_2) \in \mathbb{R}: y_1, y_2 \in Y$.
+the similarity of two objects $x_1$ and $x_2 \in X$ by measuring its distance $d(y_1; y_2) \in \mathbb{R}: y_1, y_2 \in
+Y$ .
 It is essentially used to convert data to a feature representation where certain properties
 can be preserved by distance, so that the data is easily comparable by computers.
-
 One famous example are word embedding models, such as \emph{word2vec} that maps words
 to a vector representation. Assuming that words have multiple degrees of similarity, word
 embeddings are used to easily calculate the similarity of words on multiple axis \cite{DBLP:journals/corr/abs-1301-3781}.
 Later, we will see that the function mapping objects from one domain to an embedding
-space can be trained on artificial neural networks and are very powerful tools for the source separation problem \ref{sub:frequency_domain_audio_separation}.
+space can be trained on artificial neural networks and are very powerful tools for the source
+separation problem \ref{sec:4.1}.
 
 \subsection{Deep neural network basics} % (fold)
 \label{sub:deep_neural_network_basics}
 
-This subsection aims to clarify basic deep learning methods and architectures used in the sections \ref{sec:conventional_methods}, \ref{sec:deep_clustering_methods}.
+This subsection aims to clarify some deep learning methods and architectures used in the sections \ref{sec:conventional_methods}, \ref{sec:deep_clustering_methods}.
 
 \subsubsection{Recurrent neural network} % (fold)
 \label{ssub:recurrent_neural_network}
@@ -278,12 +282,11 @@ This subsection aims to clarify basic deep learning methods and architectures us
 Recurrent neural networks are neural networks that are ``specialized in processing a sequence
 of values $x_1,...,x_t$'' \cite{Goodfellow-et-al-2016}. For that reason, they are very well applicable when dealing
 with acoustic signals having high autocorrelation (high correlation between $s(t)$ and
-$s(t - k, s(t + k)$  for $k > 0$).
+$s(t -¿ k, s(t + k)$  for $k > 0$).
 Recurrent neural networks are extremely effective when dealing with sequential data.
-First, they process data of different time instances in one computation
+First, recurrent neural networks process data of different time instances in one computation
 step, thus taking full advantage of autocorrelation. Second, they can handle data
-sequences of variable length in contrast to feed forward neural networks where the input length is determined by the size of the input layer. 
-This is achieved by loops between
+sequences of variable length in contrast to feed forward neural networks where the input length is determined by the size of the input layer. This is achieved by loops between
 recurrent units inside the neural network \cite{Goodfellow-et-al-2016}.
 Unfolding a recurrent unit $z$ of a recurrent neural network at different time instances
 leads to so-called hidden copies of the network being connected to each other: $z^0, z^1, ..., z^{t-1}, z^{t}$
@@ -356,69 +359,13 @@ For more detailed information, please refer to \cite{Goodfellow-et-al-2016}.
 % subsection deep_neural_network_basics (end)
 % section basics (end)
 
-\section{Conventional methods} % (fold)
+\section{First attempts using machine learning} % (fold)
 \label{sec:conventional_methods}
 
-The first theoretical framework for automated source separation was introduced by A.S. Bregman in 1990 \cite{bregman1994auditory}. Systems using this approach are called \emph{computational auditory scene analysis} and produced first results, that are 
-acceptable \cite{4429320}. Section \ref{sub:computational_auditory_scene_analysis} will 
-handle cover the system. 
+The first theoretical framework for automated source separation was introduced by A.S. Bregman in 1990 \cite{bregman1994auditory}. Systems using this approach are called \emph{computational auditory scene analysis} and have first acceptable results \cite{4429320}.
 
-\emph{Spectral Clustering}, a method well-know for data clustering, was then applied 
-to the source separation problem and showed good results
-(see \ref{sub:spectral_clustering}). 
-It was the first method used for source separation to train some of its parameters on actual data \cite{Bach:2006}. 
-
-\subsection{Computational auditory scene analysis}%
-\label{sub:computational_auditory_scene_analysis}
-
-Computational auditory scene analysis for source separation is an automation of the auditory scene analysis 
-which is inspired by the principles of processing sound in human auditory system \cite{4429320}. 
-In computational auditory scene anlysis the algorithm consists of two parts: \emph{segmentation} and \emph{grouping}. A more ex
-A detailed description of the algorithm can be seen in the following and it 
-based on the paper of \emph{Wang} and \emph{Brown} \cite{4429320}.
-
-\vspace{5mm}
-
-\begin{algorithm}[H]
-	\RestyleAlgo{boxruled}
-	\LinesNumbered
-	\textbf{Input: }(N, $X(t)$) \\
-	\textbf{Algorithm: }
-	\begin{enumerate}
-		\item Segmentation:
-			\begin{itemize}
-				\item X(t) is transformed into time-frequency space 
-				      using short term fourier transform
-				\item Segmenation rules are used to define different
-				      time-frequency (T,F) regions.
-			\end{itemize}
-	    	\item Grouping:
-			\begin{itemize}
-				\item $(F,T)$ bins are combined to streams corresponding to sound sources
-				\item Auditory masks are created using different streams
-			\end{itemize}
-	\end{enumerate}
-	\textbf{Output: }$(\{x_1(t), ..., x_N(t)\})$
-\end{algorithm}
-
-\vspace{5mm}
-
-
-The segmentation rules used in the segmentation part are hand-crafted similarity 
-features upon which the different (T,F) regions are created. 
-For every speaker, an audiotry masks is created as a last step of the grouping part.
-These auditory masks are boolean matrices that 
-can be applied to the spectogram to retrieve the part of the spectogram 
-corresponding to a speaker.
-Important to notice is that the amount of different speakers N has to be an input 
-of the algorithm and cannot be computed by the system itself. 
-Since computational auditory scene analysis is a rule based system it is very 
-difficult to generelize to broader conditions and needs very precise tuning in 
-order to work.
-
-Computational auditor scene analysis was the first version to produce 
-some meaningful results, but is not powerful enough for the general source seperation
-problem as we defined it in section \ref{sec:source_separation_problem}.
+Here, we want to concentrate on the first methods using machine learning approaches to
+solve the \emph{cocktail party problem}, namely \emph{Spectral Clustering} \ref{sub:spectral_clustering} and \emph{Single-channel multi-talker separation using deep learning techniques} \ref{sub:single_channel_multi_talker_separation_using_deep_learning_techniques}.
 
 \subsection{Spectral Clustering} % (fold)
 \label{sub:spectral_clustering}
@@ -490,6 +437,13 @@ create useful features, which would miss the point of creating features to perfo
 the segmentation. Deep clustering as explained in \ref{sub:frequency_domain_audio_separation} tries to solve this problem.
 
 % subsection spectral_clustering (end)
+
+\subsection{Single-channel multi-talker separation using deep learning techniques} % (fold)
+\label{sub:single_channel_multi_talker_separation_using_deep_learning_techniques}
+
+Present method as explained in \cite{SpeechSepDeepLearning:2015}.
+
+% subsection single_channel_multi_talker_separation_using_deep_learning_techniques (end)
 
 % section conventional_methods (end)
 
