@@ -504,6 +504,7 @@ In this section, two state-of-the-art approaches using artificial neural network
 The first approach, called ``Deep clustering'' \ref{sec:frequency_domain_audio_separation} is very similar to \emph{spectral clustering} as explained in the section before and works in the frequency domain of the signal. 
 the second approach, called ``TasNet'' works in the time domain and will be discussed in detail in 
 \ref{sub:time_domain_audio_separation}.
+Finally, the subsection introduces a metric for performance measurement and compares the two methods.
 
 When applying artificial neural networks to the source separation problem there are two common problems that 
 occur. 
@@ -539,17 +540,91 @@ The explanation of the two methods will be structured by answering the following
 \subsection{Deep clustering method - frequency domain audio separation based methods} % (fold)
 \label{sub:frequency_domain_audio_separation}
 
-Method that assigns contrastive embedding vectors to each time-frequency region.
-Present in detail as described in \cite{BasicDeepClustering:2016}.
-Can be used for unknown arbitrary amount of sources. 
+\emph{Deep clustering} was introduced by John R.Hershey and co. \cite{BasicDeepClustering:2016}.
+The extends the application of spectral clustering by applying artificial neural networks to 
+model an embedding $V$ replacing the similarity matrix $W$ as described in \ref{sub:spectral_clustering}.
+The artificial neural network is represented by $f_{\theta}(S) = V$ with 
 
-\subsubsection{Training} % (fold)
+\begin{itemize}
+	\item $\theta$ being the parameter space of the artificial neural network
+	\item $S$ with $s = s_{t,f} = s_n \in S \in \reals^{N}, N = T \times F$
+	\item $V$ with $v = v_n \in \reals^{K}$ and $v_n \in V \in \reals^{N \times K} and |v_n|^2 = 1$
+\end{itemize}
 
-Talk about what to pay attention to when training.
+$S$ is the spectrogram or a feature extracted spectrogram of the mixed signal $X(t)$.
+$V$ is a K-dimensional embedding, with each $v_n$ representing a normalized embedding for $s_n$ (one bin 
+of the (T,F) spectrogram). Clustering of $v_n$ using the k-means algorithm then results in 
+binary masks that can be applied to the (T,F) spectrogram to retrieve the separated signals 
+for every speaker. It is obvious that much more complex structures and relations can be learned 
+in \emph{deep clustering} than in \emph{spectral clustering}. 
 
-\subsubsection{Results} 
+To train the network, the following cost function is applied to $\theta$. For practical reasons 
+we will write $V(\theta)$ simply as $V$, but keep in mind that $V$ depends on $\theta$.
 
-talk about what ever
+\begin{equation} \label{eq:cost}
+	C(\theta) = |VV^T - YY^T|_F^2
+\end{equation}
+
+with $C(\theta)$ the cost function and 
+
+\begin{itemize}
+	\item $VV^T \in \reals^{N \times N}$ being the similarity matrix and v
+	\item $Y \in \reals^{N \times C}$ with C being the number of different speakers. $y_{n,i} = 1$ if speaker 		i is dominating in the (T,F) bin n and $y_{n,i} = 0$ otherwise. Thus $y_n$ presents a one-hot 
+		encoded vector. Thus $YY^T(n_1,n_2)$ = 1 only if $y_{n_1,i} = y_{n_2,j}, \forall i \in {1,...,c}$
+		and 0 otherwise.
+	\item $F$ being the Frobenius norm with $|A|^2_F = \sum_{i,j} A(i,j)^2$
+\end{itemize}
+
+Having the optimal source separation $Y^{*}$ we can derive $Y$ using a one-hot encoding replacing dominante values
+with 1 and the rest with 0.
+Equation \ref{eq:cost} can be rewritten.
+
+\begin{equation} \label{eq:advanced_cost}
+	C(\theta) = |VV^T - YY^T|_F^2 = sum_{i,j}(v_i^T v_j - y_i^T y_j)^2 = sum_{i,j; y_i = y_j} (v_i^T v_j - 1)^2 +  sum_{i,j; y_i \ne y_j} (v_i^T v_j)^2 = sum_{i,j; y_i = y_j} (-2 v_i^T v_j) + 1 + sum_{i,j} (v_i^T v_j)^2  
+\end{equation}
+
+Using the ``parallelogram law'': $ u^T v = \frac{1}{2}(|u|^2 + |v|^2 - |u-v|^2) $ with $u,v$ being vectors, we get
+\begin{equation} \label{eq:advanced_cost2}
+	C(\theta) = sum_{i,j; y_i = y_j} (- (|v_j|^2 + |v_i|^2 - |v_i - v_j|^2) + 1 + sum_{i,j} (v_i^T v_j)^2 = 
+	sum_{i,j; y_i = y_j} |v_i - v_j|^2 - 1 + sum_{i,j} (v_i^T v_j)^2 + sum_{i,j; y_i = y_j} |v_i - v_j|^2 + sum_{i,j} (v_i^T v_j)^2 - N  
+\end{equation}
+
+We derived an equation that allows for a more intuitive representation: 
+For $y_i = y_j$ the respective embeddings $v_i$ and $v_j$ should be as close together as possible when trying to 
+minimize the first addend. The second addend and third addend can be seen as a regulizer preventing trivial 
+solutions.
+As a conclusion, the embedding $V$ is very similar to the low rank approximation matrix used in 
+spectral clustering.
+To optimize computation performance the expensize $N \times N$ matrix calculation in equation \ref{advanced_cost2} can be replaced by the less expensive $K \times K$ with $K$ being the embedding dimension of V which is 
+normally magnitudes smaller than $N$. We arrive at:
+\begin{equation} \label{eq:comp_effic}
+	C(\theta) = |V^TV|_F^2 - 2|V^TY| + |Y^TY|
+\end{equation}
+
+Having succesfully trained the parameters $\theta$ of the neural network, we can now compute $V$ of unseen 
+data $X$ using the short term fourier transform and applying the neural network $V = f_{\theta}(\text{ShortTermFourierTransform}(X)$.
+Analog to \emph{spectral clustering}, we use the \emph{k-means} algorithm by minimizing its inference cost with the following equation \cite{SingleChannelSourceSeparation}:
+
+\begin{equation} \label{eq:deep_clust_kmeans}
+
+\hat{Y} = argmin_{Y} {V - Y(Y^TY)^{-1}Y^TV}
+
+\end{equation}
+
+$\hat{Y}$ are used as binary masks to separate the sources. 
+Since $(Y^TY)^{-1}Y^T \in \reals^{C \times D}$ presents the means of all clusters, minimizing the 
+cost function \ref{eq:deep_clust_kmeans} is essentially the same as performing k-means clustering on 
+	$v_n \in V$ with sucessive creating of the binary masks from the assignments \cite{SingleChannelSourceSeparation}.
+In the case that $VV^T = Y^{*}Y^T$ both cost functions \ref{eq:deep_clust_kmeans}, \ref{eq:cost} are coincide 
+in their global minimum. 
+
+Since training essentially relies on $YY^T$ both the permutation and the dimension output problem are solved.
+$YY^T(n_1,n_2) = YY^T{n_2,n_1} = 1$ if $y_{n_1}$ corresponds to the same class as $y_{n_2}$ and 0 otherwise. So 
+the order of the classes is cleary disregarded since only ``same'' or ``different'' classes matters.
+Also $YY^T$ always has the same dimension $N \times N$ no matter how many speaker are mixed in the signal. 
+
+As we will later see in section \ref{sub:results_and_comparison}, results achieved by \emph{clustering} are 
+impressive, there is room of improvement considering that the $(F,T)$ are hard assigned to only one class.
 
 \subsection{TasNet - time domain audio separation based methods} % (fold)
 \label{sub:time_domain_audio_separation}
