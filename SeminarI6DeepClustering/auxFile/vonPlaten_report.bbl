@@ -26,6 +26,12 @@ Adelbert Bronkhorst.
 Jean-Francois Cardoso.
 \newblock Blind signal separation: Statistical principles, 2003.
 
+\bibitem{SingleChannelSourceSeparation}
+Z.~Chen.
+\newblock {\em {Single Channel auditory source separation with neural
+  network}}.
+\newblock {Dissertation}, Columbia University, 2017.
+
 \bibitem{Cherry:1953}
 E.~Colin Cherry.
 \newblock Some experiments on the recognition of speech, with one and with two

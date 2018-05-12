@@ -548,7 +548,7 @@ The artificial neural network is represented by $f_{\theta}(S) = V$ with
 \begin{itemize}
 	\item $\theta$ being the parameter space of the artificial neural network
 	\item $S$ with $s = s_{t,f} = s_n \in S \in \reals^{N}, N = T \times F$
-	\item $V$ with $v = v_n \in \reals^{K}$ and $v_n \in V \in \reals^{N \times K} and |v_n|^2 = 1$
+	\item $V$ with $v = v_n \in \reals^{K}$ and $v_n \in V \in \reals^{N \times K}$ and $|v_n|^2 = 1$
 \end{itemize}
 
 $S$ is the spectrogram or a feature extracted spectrogram of the mixed signal $X(t)$.
@@ -580,13 +580,21 @@ with 1 and the rest with 0.
 Equation \ref{eq:cost} can be rewritten.
 
 \begin{equation} \label{eq:advanced_cost}
-	C(\theta) = |VV^T - YY^T|_F^2 = sum_{i,j}(v_i^T v_j - y_i^T y_j)^2 = sum_{i,j; y_i = y_j} (v_i^T v_j - 1)^2 +  sum_{i,j; y_i \ne y_j} (v_i^T v_j)^2 = sum_{i,j; y_i = y_j} (-2 v_i^T v_j) + 1 + sum_{i,j} (v_i^T v_j)^2  
+\begin{split}
+	C(\theta) = |VV^T - YY^T|_F^2 = \sum_{i,j}(v_i^T v_j - y_i^T y_j)^2 \\ 
+	= \sum_{i,j; y_i = y_j} (v_i^T v_j - 1)^2 +  \sum_{i,j; y_i \ne y_j} (v_i^T v_j)^2 \\
+	= \sum_{i,j; y_i = y_j} (v_i^T v_j)^2 - 2(v_i^T v_j) + 1 +  \sum_{i,j} (v_i^T v_j)^2 -  \sum_{i,j; y_i = y_j} (v_i^T v_j)^2 \\
+	= \sum_{i,j; y_i = y_j} (-2 v_i^T v_j + 1) + \sum_{i,j} (v_i^T v_j)^2  
+\end{split}
 \end{equation}
 
 Using the ``parallelogram law'': $ u^T v = \frac{1}{2}(|u|^2 + |v|^2 - |u-v|^2) $ with $u,v$ being vectors, we get
 \begin{equation} \label{eq:advanced_cost2}
-	C(\theta) = sum_{i,j; y_i = y_j} (- (|v_j|^2 + |v_i|^2 - |v_i - v_j|^2) + 1 + sum_{i,j} (v_i^T v_j)^2 = 
-	sum_{i,j; y_i = y_j} |v_i - v_j|^2 - 1 + sum_{i,j} (v_i^T v_j)^2 + sum_{i,j; y_i = y_j} |v_i - v_j|^2 + sum_{i,j} (v_i^T v_j)^2 - N  
+\begin{split}
+	C(\theta) = \sum_{i,j; y_i = y_j} (- (|v_j|^2 + |v_i|^2 - |v_i - v_j|^2) + 1) + \sum_{i,j} (v_i^T v_j)^2 \\ 
+	= \sum_{i,j; y_i = y_j} (|v_i - v_j|^2 - 1) + \sum_{i,j} (v_i^T v_j)^2 \\
+	= \sum_{i,j; y_i = y_j} |v_i - v_j|^2 + \sum_{i,j} (v_i^T v_j)^2 - N  
+\end{split}
 \end{equation}
 
 We derived an equation that allows for a more intuitive representation: 
@@ -595,6 +603,7 @@ minimize the first addend. The second addend and third addend can be seen as a r
 solutions.
 As a conclusion, the embedding $V$ is very similar to the low rank approximation matrix used in 
 spectral clustering.
+
 To optimize computation performance the expensize $N \times N$ matrix calculation in equation \ref{advanced_cost2} can be replaced by the less expensive $K \times K$ with $K$ being the embedding dimension of V which is 
 normally magnitudes smaller than $N$. We arrive at:
 \begin{equation} \label{eq:comp_effic}
@@ -603,15 +612,19 @@ normally magnitudes smaller than $N$. We arrive at:
 
 Having succesfully trained the parameters $\theta$ of the neural network, we can now compute $V$ of unseen 
 data $X$ using the short term fourier transform and applying the neural network $V = f_{\theta}(\text{ShortTermFourierTransform}(X)$.
-Analog to \emph{spectral clustering}, we use the \emph{k-means} algorithm by minimizing its inference cost with the following equation \cite{SingleChannelSourceSeparation}:
+Analog to \emph{spectral clustering}, we use the \emph{k-means} algorithm by minimizing its inference cost with the following equation: 
 
 \begin{equation} \label{eq:deep_clust_kmeans}
-
-\hat{Y} = argmin_{Y} {V - Y(Y^TY)^{-1}Y^TV}
-
+	\hat{Y} = \text{argmin}_{Y} {V - Y(Y^TY)^{-1}Y^TV}
 \end{equation}
 
-$\hat{Y}$ are used as binary masks to separate the sources. 
+$\hat{Y}$ are used as binary masks to separate the sources. So we can lastly apply the
+masks $\hat{Y}(c)$ dot-wise to the spectogram of the mixture signal:
+
+\[
+	S_c = \hat{Y}(c) \odot X
+\]
+
 Since $(Y^TY)^{-1}Y^T \in \reals^{C \times D}$ presents the means of all clusters, minimizing the 
 cost function \ref{eq:deep_clust_kmeans} is essentially the same as performing k-means clustering on 
 	$v_n \in V$ with sucessive creating of the binary masks from the assignments \cite{SingleChannelSourceSeparation}.
@@ -632,16 +645,18 @@ impressive, there is room of improvement considering that the $(F,T)$ are hard a
 Introduce TasNet which does not create masks for each source, but instead use encoder-decoder 
 framework to model directly the signal in the time-domain. Use \cite{TasNet}.
 
-\subsubsection{Training} % (fold)
-
-Talk about what to pay attention to when training.
-
 \subsubsection{Results}
+\label{sub:results_and_comparison}
 
 Talk about results of TasNet
 
 % subsection time_domain_audio_separation (end)
 % section deep_neural_network_methods (end)
+
+\subsection{Comparison of the two methods}%
+\label{sub:comparison_of_the_two_methods}
+
+
 
 \section{Conclusion} % (fold)
 \label{sec:conclusion}
