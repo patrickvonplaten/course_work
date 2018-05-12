@@ -481,6 +481,10 @@ Even though spectral clustering can produce very good results on two-speaker sep
 Already for seconds of speech sampled at 5.5 kHz leads to 22000 data points and thus, a similarity matrix having $22000 \times 22000$ entries not even applying the short term 
 fourier transform. It is obvious that eigenvalue and eigenvector calculations become very
 expensive. 
+A remedy is applying low rank matrix approximations such as the Nyström approximation to perform eigenvalue and 
+eigenvector on a matrix that is reduced from $N \times N$ to $N \times D$. 
+This allows for significant performance improvement and is especially useful on sparse matrices \cite{Bach:2006}.
+
 Additionally, the algorithms relies on ``handcrafted features'' and uses only shallow learning for the similarity matrices by essentially applying linear regression to optimize 
 the scaling vector $\alpha$. 
 More speakers means more overlapping speakers per $(F,T)$ bin so that features taking into
@@ -496,24 +500,43 @@ the segmentation. Deep clustering as explained in \ref{sub:frequency_domain_audi
 \section{Deep clustering methods} % (fold)
 \label{sec:deep_clustering_methods}
 
-I want to present three methods here that more or less can be called deep 
-clustering methods and differentiate them between methods using:
+In this section, two state-of-the-art approaches using artificial neural networks for the source separation problem will be discussed. 
+The first approach, called ``Deep clustering'' \ref{sec:frequency_domain_audio_separation} is very similar to \emph{spectral clustering} as explained in the section before and works in the frequency domain of the signal. 
+the second approach, called ``TasNet'' works in the time domain and will be discussed in detail in 
+\ref{sub:time_domain_audio_separation}.
 
-\begin{enumerate}
-		  \item the (F,T) bins as input -> Frequency Domain Audio Separation Based Methods
-			    \item the raw audio signal as input $\to$ Time-Domain Audio Separation Based Methods
-\end{enumerate}
-
-Explain challanges:
+When applying artificial neural networks to the source separation problem there are two common problems that 
+occur. 
 
 \begin{itemize}
-		  \item Permutation problem 
-			    \item Output dimension mismatch problem
+	\item The permutation problem 
+	\item The dimension output problem 
 \end{itemize}
 
-and state for each method how these challenges can be overcome.
+To best understand the permutation problem of artificial neural networks, let us go through an example.
+An artificial network for two-speaker source separation that takes n $(F,T)$ bins corresponding to the mixed signal $X(t)$ as an input in the first layer would need an output layer of size $2 \times n$ with the first half 
+corresponding to the first speaker and the second half to the second speaker. 
+Having three two-speaker datasets, for example (A,B), (A,C) and (B,C) to train such a network the following problem 
+occurs. First the network will learn to activate the $(F,T)$ corresponding to speaker A on the left half of 
+the output layer and the output for speaker B on the right half. Second, the network learns to assign speaker A again to the left half and speaker C to the right half. 
+Third, when training on the dataset of speaker B and C, the network will try to assign the right half to both speaker B and C \cite{SingleChannelSourceSeparation}. 
+These constant ``mis-learnings'' will it most probably impossible for the learning process to converge.
 
-\subsection{Deep clustering method - Frequency domain audio separation based methods} % (fold)
+The dimension output problem refers to the static input and output dimension of normal feed forward neural networks.
+Having defined a output dimension corresponding to two speakers for example the network will learn to separate 
+only two-speaker signal mixtures making it impossible to separate signal mixtures containing more than two 
+speakers. 
+
+The explanation of the two methods will be structured by answering the following questions.
+
+\begin{enumerate}
+	\item What is the idea of the method?
+	\item How is the system trained? 
+	\item How is the trained system applied to new data?
+	\item How does the method solve the two problems described above?
+\end{enumerate}
+
+\subsection{Deep clustering method - frequency domain audio separation based methods} % (fold)
 \label{sub:frequency_domain_audio_separation}
 
 Method that assigns contrastive embedding vectors to each time-frequency region.
@@ -528,7 +551,7 @@ Talk about what to pay attention to when training.
 
 talk about what ever
 
-\subsection{TasNet - Time domain audio separation based methods} % (fold)
+\subsection{TasNet - time domain audio separation based methods} % (fold)
 \label{sub:time_domain_audio_separation}
 
 Introduce TasNet which does not create masks for each source, but instead use encoder-decoder 
