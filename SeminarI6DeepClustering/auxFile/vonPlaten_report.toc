@@ -17,6 +17,6 @@
 \contentsline {subsection}{\numberline {4.1}Deep clustering method - frequency domain audio separation based methods}{13}{subsection.4.1}
 \contentsline {subsection}{\numberline {4.2}TasNet - time domain audio separation based methods}{15}{subsection.4.2}
 \contentsline {subsubsection}{\numberline {4.2.1}Results}{15}{subsubsection.4.2.1}
-\contentsline {subsection}{\numberline {4.3}Comparison of the two methods}{15}{subsection.4.3}
-\contentsline {section}{\numberline {5}Conclusion}{15}{section.5}
-\contentsline {section}{References}{16}{section.5}
+\contentsline {subsection}{\numberline {4.3}Comparison of the two methods}{16}{subsection.4.3}
+\contentsline {section}{\numberline {5}Conclusion}{16}{section.5}
+\contentsline {section}{References}{17}{section.5}
