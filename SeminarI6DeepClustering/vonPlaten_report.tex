@@ -642,7 +642,7 @@ minimize the first addend. The second addend and third addend can be seen as a r
 preventing trivial solutions.
 As a conclusion, the embedding $V$ is very similar to the low rank approximation matrix used in spectral clustering.
 
-To optimize computation performance the expensize $N \times N$ matrix calculation in equation \ref{advanced_cost2} can be replaced by the less expensive $K \times K$ with $K$ being the embedding dimension of V which is 
+To optimize computation performance the expensize $N \times N$ matrix calculation in equation \ref{eq:advanced_cost2} can be replaced by the less expensive $K \times K$ with $K$ being the embedding dimension of V which is 
 normally magnitudes smaller than $N$. We arrive at:
 \begin{equation} \label{eq:comp_effic}
 	C(\theta) = |V^TV|_F^2 - 2|V^TY| + |Y^TY|
@@ -680,7 +680,7 @@ In the case that $VV^T = Y^{*}Y^T$ both cost functions \ref{eq:deep_clust_kmeans
 in their global minimum. 
 
 Since training essentially relies on $YY^T$ both the permutation and the dimension output problem are solved.
-$YY^T(n_1,n_2) = YY^T{n_2,n_1} = 1$ if $y_{n_1}$ corresponds to the same class as $y_{n_2}$ and 0 otherwise. So 
+$YY^T(n_1,n_2) = YY^T(n_2,n_1) = 1$ if $y_{n_1}$ corresponds to the same class as $y_{n_2}$ and 0 otherwise. So 
 the order of the classes is cleary disregarded since only ``same'' or ``different'' classes matters.
 Also $YY^T$ always has the same dimension $N \times N$ no matter how many speaker are mixed in the signal. 
 
