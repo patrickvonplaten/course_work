@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.17)  13 MAY 2018 00:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.17)  13 MAY 2018 16:52
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -507,43 +507,35 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
  [5] [6] [7]
 Missing character: There is no ¿ in font cmr8!
 
-<images/lstm_structure.png, id=195, 586.19pt x 382.42876pt>
+[8] <images/lstm_structure.png, id=216, 586.19pt x 382.42876pt>
 File: images/lstm_structure.png Graphic file (type png)
 
 <use images/lstm_structure.png>
-Package pdftex.def Info: images/lstm_structure.png used on input line 322.
+Package pdftex.def Info: images/lstm_structure.png used on input line 361.
 (pdftex.def)             Requested size: 234.47185pt x 152.96878pt.
- [8 <./images/lstm_structure.png>]
-Overfull \hbox (17.0pt too wide) detected at line 402
+ [9 <./images/lstm_structure.png>]
+Overfull \hbox (17.0pt too wide) detected at line 441
 [][] 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [9]
-<images/spectral_clustering_algo.png, id=227, 610.28pt x 276.03125pt>
+[10] <images/spectral_clustering_algo.png, id=248, 610.28pt x 276.03125pt>
 File: images/spectral_clustering_algo.png Graphic file (type png)
 
 <use images/spectral_clustering_algo.png>
 Package pdftex.def Info: images/spectral_clustering_algo.png used on input line
- 446.
+ 485.
 (pdftex.def)             Requested size: 341.43436pt x 154.43744pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[10] [11 <./images/spectral_clustering_algo.png>]
+ [11 <./images/spectral_clustering_algo.png>]
 Missing character: There is no ö in font cmr10!
 
 
 LaTeX Warning: Reference `sec:frequency_domain_audio_separation' on page 12 und
-efined on input line 504.
+efined on input line 543.
 
 [12] [13]
 
-LaTeX Warning: Reference `advanced_cost2' on page 14 undefined on input line 60
-7.
+LaTeX Warning: Reference `advanced_cost2' on page 14 undefined on input line 64
+5.
 
 [14] [15] (auxFile/vonPlaten_report.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 4--8
@@ -552,29 +544,29 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--8
  []
 
 [16])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 672.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 720.
  [17]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 672.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 720.
  (auxFile/vonPlaten_report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 672.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 672.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 720.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 720.
 Package rerunfilecheck Info: File `vonPlaten_report.out' has not changed.
-(rerunfilecheck)             Checksum: 5AA8338849FCE909B9E0E3B9C8E775FF;1448.
+(rerunfilecheck)             Checksum: 061A52827C17E92D5F4CC3F87B50B9BB;1536.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 672.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 720.
  )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 7905 strings out of 493014
- 114885 string characters out of 6133351
- 224648 words of memory out of 5000000
- 11234 multiletter control sequences out of 15000+600000
+ 7915 strings out of 493014
+ 115101 string characters out of 6133351
+ 224840 words of memory out of 5000000
+ 11240 multiletter control sequences out of 15000+600000
  12645 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  29i,15n,30p,376b,2285s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -596,10 +588,10 @@ cal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/loc
 al/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/loca
 l/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local
 /texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on auxFile/vonPlaten_report.pdf (17 pages, 370782 bytes).
+Output written on auxFile/vonPlaten_report.pdf (17 pages, 376274 bytes).
 PDF statistics:
- 382 PDF objects out of 1000 (max. 8388607)
- 337 compressed objects within 4 object streams
- 79 named destinations out of 1000 (max. 500000)
- 171 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 397 PDF objects out of 1000 (max. 8388607)
+ 352 compressed objects within 4 object streams
+ 83 named destinations out of 1000 (max. 500000)
+ 179 words of extra memory for PDF output out of 10000 (max. 10000000)
 

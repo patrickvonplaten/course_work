@@ -39,6 +39,12 @@ E.~Colin Cherry.
 \newblock {\em The Journal of the Acoustical Society of America},
   25(5):975--979, 1953.
 
+\bibitem{Golik2015ConvolutionalNN}
+Pavel Golik, Zolt{\'a}n T{\"u}ske, Ralf Schl{\"u}ter, and Hermann Ney.
+\newblock Convolutional neural networks for acoustic modeling of raw time
+  signal in lvcsr.
+\newblock In {\em INTERSPEECH}, 2015.
+
 \bibitem{Goodfellow-et-al-2016}
 Ian Goodfellow, Yoshua Bengio, and Aaron Courville.
 \newblock {\em Deep Learning}.
@@ -96,11 +102,23 @@ Jinsong Su, Shan Wu, Deyi Xiong, Yaojie Lu, Xianpei Han, and Biao Zhang.
 \newblock Variational recurrent neural machine translation.
 \newblock {\em CoRR}, abs/1801.05119, 2018.
 
+\bibitem{DBLP:journals/corr/SunOO15}
+Zhun Sun, Mete {\"{O}}zay, and Takayuki Okatani.
+\newblock Design of kernels in convolutional neural networks for image
+  classification.
+\newblock {\em CoRR}, abs/1511.09231, 2015.
+
 \bibitem{SpeechSepDeepLearning:2015}
 C.~Weng, D.~Yu, M.~L. Seltzer, and J.~Droppo.
 \newblock Deep neural networks for single-channel multi-talker speech
   recognition.
 \newblock {\em IEEE/ACM Transactions on Audio, Speech, and Language
   Processing}, 23(10):1670--1679, Oct 2015.
+
+\bibitem{664179}
+A.~I. Zayed.
+\newblock A convolution and product theorem for the fractional fourier
+  transform.
+\newblock {\em IEEE Signal Processing Letters}, 5(4):101--103, April 1998.
 
 \end{thebibliography}

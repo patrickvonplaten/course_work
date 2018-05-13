@@ -5,16 +5,17 @@
 \BOOKMARK [3][-]{subsubsection.2.2.1}{Short term fourier transform}{subsection.2.2}% 5
 \BOOKMARK [3][-]{subsubsection.2.2.2}{Embedding space}{subsection.2.2}% 6
 \BOOKMARK [2][-]{subsection.2.3}{Deep neural network basics}{section.2}% 7
-\BOOKMARK [3][-]{subsubsection.2.3.1}{Recurrent neural network}{subsection.2.3}% 8
-\BOOKMARK [3][-]{subsubsection.2.3.2}{Long short term memory}{subsection.2.3}% 9
-\BOOKMARK [3][-]{subsubsection.2.3.3}{Autoencoder}{subsection.2.3}% 10
-\BOOKMARK [1][-]{section.3}{Conventional methods}{}% 11
-\BOOKMARK [2][-]{subsection.3.1}{Computational auditory scene analysis}{section.3}% 12
-\BOOKMARK [2][-]{subsection.3.2}{Spectral Clustering}{section.3}% 13
-\BOOKMARK [1][-]{section.4}{Deep clustering methods}{}% 14
-\BOOKMARK [2][-]{subsection.4.1}{Deep clustering method - frequency domain audio separation based methods}{section.4}% 15
-\BOOKMARK [2][-]{subsection.4.2}{TasNet - time domain audio separation based methods}{section.4}% 16
-\BOOKMARK [3][-]{subsubsection.4.2.1}{Results}{subsection.4.2}% 17
-\BOOKMARK [2][-]{subsection.4.3}{Comparison of the two methods}{section.4}% 18
-\BOOKMARK [1][-]{section.5}{Conclusion}{}% 19
-\BOOKMARK [1][-]{section.5}{References}{}% 20
+\BOOKMARK [3][-]{subsubsection.2.3.1}{Convolutional neural network}{subsection.2.3}% 8
+\BOOKMARK [3][-]{subsubsection.2.3.2}{Recurrent neural network}{subsection.2.3}% 9
+\BOOKMARK [3][-]{subsubsection.2.3.3}{Long short term memory}{subsection.2.3}% 10
+\BOOKMARK [3][-]{subsubsection.2.3.4}{Autoencoder}{subsection.2.3}% 11
+\BOOKMARK [1][-]{section.3}{Conventional methods}{}% 12
+\BOOKMARK [2][-]{subsection.3.1}{Computational auditory scene analysis}{section.3}% 13
+\BOOKMARK [2][-]{subsection.3.2}{Spectral Clustering}{section.3}% 14
+\BOOKMARK [1][-]{section.4}{Deep clustering methods}{}% 15
+\BOOKMARK [2][-]{subsection.4.1}{Deep clustering method - frequency domain audio separation based methods}{section.4}% 16
+\BOOKMARK [2][-]{subsection.4.2}{TasNet - time domain audio separation based methods}{section.4}% 17
+\BOOKMARK [3][-]{subsubsection.4.2.1}{Results}{subsection.4.2}% 18
+\BOOKMARK [2][-]{subsection.4.3}{Comparison of the two methods}{section.4}% 19
+\BOOKMARK [1][-]{section.5}{Conclusion}{}% 20
+\BOOKMARK [1][-]{section.5}{References}{}% 21

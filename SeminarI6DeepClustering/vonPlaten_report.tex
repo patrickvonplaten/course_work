@@ -272,6 +272,45 @@ space can be trained on artificial neural networks and are very powerful tools f
 
 This subsection aims to clarify basic deep learning methods and architectures used in the sections \ref{sec:conventional_methods}, \ref{sec:deep_clustering_methods}.
 
+\subsubsection{Convolutional neural network}%
+\label{ssub:convolutional_neural_network}
+
+Convolutional neural networks are neural networks that are specialized for processing 
+data that has grid-like topology, for example time series data for a 1D convolution \cite{Goodfellow-et-al-2016}. 
+The idea is based on the convolution operation $*$ being:
+
+\[
+	s(t) * g(t) = \int_{\reals} s(\tau) g(t - \tau) d\tau
+\]
+
+which corresponds to 
+
+\[
+	s(n) * g(n) = \sum_{i = -\infty}^{\infty} s(i) g(n - i)
+\]
+
+in the discrete case. The fourier transform of a signal to its spectrum can essentially 
+be seen as a convolution operation \cite{664179}.
+
+This principle can now be applied to artificial neural networks. Let $x$ be the output 
+layer and $w$ the weights of a convolutional layer. Such a layer is defined by its 
+filter size $k$ and other parameters, such as stride, padding, etc. For more information 
+please refer to \cite{Goodfellow-et-al-2016}. The weight array is also called 
+``Kernel'' \cite{DBLP:journals/corr/SunOO15} and normally a convolutional layer is 
+decomposed of multiple kernels, such that there are multiple parallel outputs. 
+The convolution operation in neural networks is defined as follows:
+
+\[
+	y_{i,j} = w_i * x = f(\sum_{n = j}^{j+k}(w_{i,n - j} x_n) + b_i)
+\]
+
+$y_{i,j}$ presents the j-th neuron of the output layer of the i-th kernel.
+Similarly $w_{i,l}$ presents the l-th weight of the i-th kernel. $x_n$ is the output of the n-th neuron of the previous layer and $b_i$ is the bias corresponding to the i-th kernel.
+Finally $f()$ is the activation function applied to each convolution operation. 
+
+Convolutional neural networks can very well be applied to act as filterbanks for the signal as was shown in \cite{Golik2015ConvolutionalNN} and as we will later see in subsection
+\ref{sub:frequency_domain_audio_separation}.
+
 \subsubsection{Recurrent neural network} % (fold)
 \label{ssub:recurrent_neural_network}
 
@@ -534,7 +573,7 @@ The explanation of the two methods will be structured by answering the following
 	\item What is the idea of the method?
 	\item How is the system trained? 
 	\item How is the trained system applied to new data?
-	\item How does the method solve the two problems described above?
+	\item How does the method tackle the two problems described above?
 \end{enumerate}
 
 \subsection{Deep clustering method - frequency domain audio separation based methods} % (fold)
@@ -599,16 +638,25 @@ Using the ``parallelogram law'': $ u^T v = \frac{1}{2}(|u|^2 + |v|^2 - |u-v|^2) 
 
 We derived an equation that allows for a more intuitive representation: 
 For $y_i = y_j$ the respective embeddings $v_i$ and $v_j$ should be as close together as possible when trying to 
-minimize the first addend. The second addend and third addend can be seen as a regulizer preventing trivial 
-solutions.
-As a conclusion, the embedding $V$ is very similar to the low rank approximation matrix used in 
-spectral clustering.
+minimize the first addend. The second addend and third addend can be seen as a regulizer 
+preventing trivial solutions.
+As a conclusion, the embedding $V$ is very similar to the low rank approximation matrix used in spectral clustering.
 
 To optimize computation performance the expensize $N \times N$ matrix calculation in equation \ref{advanced_cost2} can be replaced by the less expensive $K \times K$ with $K$ being the embedding dimension of V which is 
 normally magnitudes smaller than $N$. We arrive at:
 \begin{equation} \label{eq:comp_effic}
 	C(\theta) = |V^TV|_F^2 - 2|V^TY| + |Y^TY|
 \end{equation}
+Finally, the derivations $\frac{\partial C(\theta)}{\partial \theta}$ can be split into $\frac{\partial C(\theta)}{\partial V} \frac{\partial V}{\partial \theta}$. 
+While the calculation of $\frac{\partial V}{\partial \theta}$ depends heavily on the network
+architecture and can be quite expensive using, for example long short term memory units, as in \cite{SingleChannelSourceSeparation}, it is easy to calcule:
+
+\[
+	\frac{\partial C(\theta)}{\partial V} = 4V(V^TV) - 4Y(Y^TV)
+\]
+
+The parentheses in the above equation make sure that the computational less expensive 
+matrix operations are executed.
 
 Having succesfully trained the parameters $\theta$ of the neural network, we can now compute $V$ of unseen 
 data $X$ using the short term fourier transform and applying the neural network $V = f_{\theta}(\text{ShortTermFourierTransform}(X)$.

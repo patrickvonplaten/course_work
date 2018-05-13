@@ -6,12 +6,13 @@
 \contentsline {subsubsection}{\numberline {2.2.1}Short term fourier transform}{6}{subsubsection.2.2.1}
 \contentsline {subsubsection}{\numberline {2.2.2}Embedding space}{7}{subsubsection.2.2.2}
 \contentsline {subsection}{\numberline {2.3}Deep neural network basics}{7}{subsection.2.3}
-\contentsline {subsubsection}{\numberline {2.3.1}Recurrent neural network}{7}{subsubsection.2.3.1}
-\contentsline {subsubsection}{\numberline {2.3.2}Long short term memory}{8}{subsubsection.2.3.2}
-\contentsline {subsubsection}{\numberline {2.3.3}Autoencoder}{9}{subsubsection.2.3.3}
-\contentsline {section}{\numberline {3}Conventional methods}{9}{section.3}
-\contentsline {subsection}{\numberline {3.1}Computational auditory scene analysis}{9}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Spectral Clustering}{10}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {2.3.1}Convolutional neural network}{7}{subsubsection.2.3.1}
+\contentsline {subsubsection}{\numberline {2.3.2}Recurrent neural network}{8}{subsubsection.2.3.2}
+\contentsline {subsubsection}{\numberline {2.3.3}Long short term memory}{9}{subsubsection.2.3.3}
+\contentsline {subsubsection}{\numberline {2.3.4}Autoencoder}{9}{subsubsection.2.3.4}
+\contentsline {section}{\numberline {3}Conventional methods}{10}{section.3}
+\contentsline {subsection}{\numberline {3.1}Computational auditory scene analysis}{10}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Spectral Clustering}{11}{subsection.3.2}
 \contentsline {section}{\numberline {4}Deep clustering methods}{12}{section.4}
 \contentsline {subsection}{\numberline {4.1}Deep clustering method - frequency domain audio separation based methods}{13}{subsection.4.1}
 \contentsline {subsection}{\numberline {4.2}TasNet - time domain audio separation based methods}{15}{subsection.4.2}
