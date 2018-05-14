@@ -864,7 +864,7 @@ has to be applied, as can be seen in Figure \ref{fig:piv_train}.
 
 \begin{figure}[H]
 \begin{center}
-	\includegraphics[scale=0.6]{images/piv_train.png}
+	\includegraphics[scale=0.9]{images/piv_train.png}
 \end{center}
 \caption{Permutation Invariant Training}
 \label{fig:piv_train}
@@ -936,12 +936,57 @@ dimension output problem.
 \subsection{Comparison of the two methods}%
 \label{sub:comparison_of_the_two_methods}
 
+In order to compare the two methods, we first have to define a metric 
+for comparison. A common metric is the so-called \emph{Signal-to-distortion ratio} 
+:= $SDR$ as defined in \cite{AudioSpeechLanguageProcessing}.
+
+\[
+	SDR := 10\log_{10} \frac{|s_{\text{target}}|^2}{|e_{\text{interef}} + e_{\text{noise}} + e_{\text{artif}}}
+\]
+
+For more in-detail information, please refer to \cite{AudioSpeechLanguageProcessing}. 
+The following table shows the performance of \emph{TasNet} and the deep clustering 
+method as stated in \cite{DBLP:journals/corr/IsikRCWH16} for a two-speaker single channel source separation. Both networks were trained on the WSJ0-2mix dataset. 
+
+\begin{table}[htpb]
+	\centering
+	\caption{SDR (dB) for different methods on
+	two speaker WSJ0-2mix dataset}
+	\label{tab:label}
+	\begin{tabular}{c | c}
+		TasNet-BLSTM & \textbf{10.8} \\
+		DPCL++       & \textbf{10.8} \\
+	\end{tabular}
+\end{table}
+
+As we can see both networks the exact same result. Deep clustering has the advantage 
+that it can be trained on mixed signals of an undefined number of sources and thus 
+can also be applied to ``real'' source separation as we defined it in \ref{sec:source_separation_problem}. The advantage of \emph{TasNet} is that is has a very low latency time
+and thus could be applied to real-time application, whereas deep clustering methods cannot. Finally it can be said, that \emph{TasNet} can be regarded to be more of an \emph{end-to-end} model, where all components belong to one autoencoder and are trained together. 
 
 \section{Conclusion} % (fold)
 \label{sec:conclusion}
 
-As a conclusion, \emph{TasNet} can be regarded to be more of an \emph{end-to-end} model 
-than \emph{deep clustering}. 
+As a general conclusion it can be said that conventional methods made too many 
+``hand-crafted'' assumptions about the underlying nature of a mixed signal and thus 
+were often not able to generalize to slighly changing conditions. 
+In this report, we saw an overview of some of the state-of-the-art methods that are used 
+for the source separation problem and can say with certainty that artificial neural 
+networks are very useful methods to when it comes to source separation. 
+There is a lot of research about artificial neural network supported source separation 
+and pretty much every year new systems and methods are presented that show better 
+results than the previous state-of-the-art systems.
+While writing this paper a new \emph{end-to-end} system using so-called \emph{Unfolded Iterative Phase Reconstruction} was presented \cite{2018arXiv180410204W} that yielded a new state-of-the-art $SDR$ of 
+\textbf{12.8} on the dataset WSJ0-2mix.
+
+There surely will be more improvement in the near future so that systems will 
+be able to cleanly separate mixture speech and solve the long-lasting \emph{Cocktail 
+party problem}.
+
+
+
+
+
 
 \newpage
 

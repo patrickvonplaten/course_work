@@ -27,5 +27,5 @@
 \contentsline {subsubsection}{\numberline {4.2.5}Testing}{20}{subsubsection.4.2.5}
 \contentsline {subsubsection}{\numberline {4.2.6}Conclusion}{20}{subsubsection.4.2.6}
 \contentsline {subsection}{\numberline {4.3}Comparison of the two methods}{20}{subsection.4.3}
-\contentsline {section}{\numberline {5}Conclusion}{20}{section.5}
-\contentsline {section}{References}{21}{section.5}
+\contentsline {section}{\numberline {5}Conclusion}{21}{section.5}
+\contentsline {section}{References}{22}{section.5}

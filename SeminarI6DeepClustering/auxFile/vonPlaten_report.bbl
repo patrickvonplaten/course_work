@@ -63,6 +63,11 @@ Sepp Hochreiter and J\"{u}rgen Schmidhuber.
 \newblock Long short-term memory.
 \newblock {\em Neural Comput.}, 9(8):1735--1780, November 1997.
 
+\bibitem{DBLP:journals/corr/IsikRCWH16}
+Yusuf Isik, Jonathan~Le Roux, Zhuo Chen, Shinji Watanabe, and John~R. Hershey.
+\newblock Single-channel multi-speaker separation using deep clustering.
+\newblock {\em CoRR}, abs/1607.02173, 2016.
+
 \bibitem{7979557}
 M.~Kolbæk, D.~Yu, Z.~H. Tan, and J.~Jensen.
 \newblock Multitalker speech separation with utterance-level permutation
@@ -114,6 +119,18 @@ Zhun Sun, Mete {\"{O}}zay, and Takayuki Okatani.
 \newblock Design of kernels in convolutional neural networks for image
   classification.
 \newblock {\em CoRR}, abs/1511.09231, 2015.
+
+\bibitem{AudioSpeechLanguageProcessing}
+E.~Vincent, R.~Gribonval, and C.~Fevotte.
+\newblock Performance measurement in blind audio source separation.
+\newblock {\em IEEE Transactions on Audio, Speech, and Language Processing},
+  14(4):1462--1469, July 2006.
+
+\bibitem{2018arXiv180410204W}
+Z.-Q. {Wang}, J.~{Le Roux}, D.~{Wang}, and J.~R. {Hershey}.
+\newblock {End-to-End Speech Separation with Unfolded Iterative Phase
+  Reconstruction}.
+\newblock {\em ArXiv e-prints}, April 2018.
 
 \bibitem{SpeechSepDeepLearning:2015}
 C.~Weng, D.~Yu, M.~L. Seltzer, and J.~Droppo.
