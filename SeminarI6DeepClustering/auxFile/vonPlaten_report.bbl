@@ -128,4 +128,10 @@ A.~I. Zayed.
   transform.
 \newblock {\em IEEE Signal Processing Letters}, 5(4):101--103, April 1998.
 
+\bibitem{zeiler2010deconvolutional}
+Matthew~D Zeiler, Dilip Krishnan, Graham~W Taylor, and Rob Fergus.
+\newblock Deconvolutional networks.
+\newblock In {\em Computer Vision and Pattern Recognition (CVPR), 2010 IEEE
+  Conference on}, pages 2528--2535. IEEE, 2010.
+
 \end{thebibliography}

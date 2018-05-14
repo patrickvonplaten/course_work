@@ -582,6 +582,10 @@ The explanation of the two methods will be structured by answering the following
 \emph{Deep clustering} was introduced by John R.Hershey and co. \cite{BasicDeepClustering:2016}.
 The extends the application of spectral clustering by applying artificial neural networks to 
 model an embedding $V$ replacing the similarity matrix $W$ as described in \ref{sub:spectral_clustering}.
+
+\subsubsection{Structure}%
+\label{ssub:structure}
+
 The artificial neural network is represented by $f_{\theta}(S) = V$ with 
 
 \begin{itemize}
@@ -596,6 +600,9 @@ of the (T,F) spectrogram). Clustering of $v_n$ using the k-means algorithm then 
 binary masks that can be applied to the (T,F) spectrogram to retrieve the separated signals 
 for every speaker. It is obvious that much more complex structures and relations can be learned 
 in \emph{deep clustering} than in \emph{spectral clustering}. 
+
+\subsubsection{Training}%
+\label{ssub:training}
 
 To train the network, the following cost function is applied to $\theta$. For practical reasons 
 we will write $V(\theta)$ simply as $V$, but keep in mind that $V$ depends on $\theta$.
@@ -658,6 +665,9 @@ architecture and can be quite expensive using, for example long short term memor
 The parentheses in the above equation make sure that the computational less expensive 
 matrix operations are executed.
 
+\subsubsection{Testing}%
+\label{ssub:testing}
+
 Having succesfully trained the parameters $\theta$ of the neural network, we can now compute $V$ of unseen 
 data $X$ using the short term fourier transform and applying the neural network $V = f_{\theta}(\text{ShortTermFourierTransform}(X)$.
 Analog to \emph{spectral clustering}, we use the \emph{k-means} algorithm by minimizing its inference cost with the following equation: 
@@ -679,6 +689,9 @@ cost function \ref{eq:deep_clust_kmeans} is essentially the same as performing k
 In the case that $VV^T = Y^{*}Y^T$ both cost functions \ref{eq:deep_clust_kmeans}, \ref{eq:cost} are coincide 
 in their global minimum. 
 
+\subsubsection{Conclusion}%
+\label{ssub:conclusion}
+
 Since training essentially relies on $YY^T$ both the permutation and the dimension output problem are solved.
 $YY^T(n_1,n_2) = YY^T(n_2,n_1) = 1$ if $y_{n_1}$ corresponds to the same class as $y_{n_2}$ and 0 otherwise. So 
 the order of the classes is cleary disregarded since only ``same'' or ``different'' classes matters.
@@ -686,33 +699,249 @@ Also $YY^T$ always has the same dimension $N \times N$ no matter how many speake
 
 As we will later see in section \ref{sub:results_and_comparison}, results achieved by \emph{clustering} are 
 impressive, there is room of improvement considering that the $(F,T)$ are hard assigned to only one class.
+There is one disadvantage using the deep clustering approach which is its high latency 
+when encoding test data on a trained network because of its format to take the whole signal as input before giving an output. 
 
 \subsection{TasNet - time domain audio separation based methods} % (fold)
 \label{sub:time_domain_audio_separation}
 
-Introduce TasNet which does not create masks for each source, but instead use encoder-decoder 
-framework to model directly the signal in the time-domain. Use \cite{TasNet}.
-Explain permutation invariant training using \cite{7979557}.
+\emph{Tasnet} was first introduced by Luo and Mesgarani in \cite{TasNet}. Instead of 
+performing spectral clustering on the mixed signal $x$, the mixed signal is divided 
+into $K$ chunks of equal length $L$, normalized and fed into an autoencoder which is made up of three parts
 
+\begin{itemize}
+	\item Encoding 
+	\item Separation
+	\item Decoding 
+\end{itemize}
 
+After decoding, the $K$ chunks of separated signals can be retrieved.
+The following Figure \ref{fig:tasnet}  shows \emph{TasNet} in detail.
 
-\subsubsection{Results}
-\label{sub:results_and_comparison}
+\begin{figure}[h!]
+  \includegraphics[scale=0.7]{images/tasnet.png}
+  \centering
+  \caption{TasNet}
+  \label{fig:tasnet}
+\end{figure}
 
-Talk about results of TasNet
+\subsubsection{Encoding}%
+\label{ssub:encoding}
+
+The signal chunks $x_k$ can be described by $N$ weighted basis functions $B$ so that 
+$x = wB$ with $w \in \reals^N, X \in \reals^L, B \in \reals^{N \times L}$. 
+The convolutional network implicitly applies the inverse matrix $B^{-1}$ to the input
+signal so that the output will be the weights of the basis functions.
+$w = xB^{-1}$. The convolution takes place over the time dimension of the mixed 
+signal $x$.
+This is analog to the short term fourier transform \ref{ssub:short_term_fourier_transform}, by which the signal is decomposed to sinusoid of different frequencies only that 
+the sinusoid are replaced by basic functions $b_i$ that will be learned by the neural 
+network as we will later see in \ref{ssub:decoding}. 
+As can be seen in Figure \ref{fig:tasnet}, a gated convolutional layer is applied to 
+the input $X_k$:
+
+\begin{equation} \label{eq:tasnet_conv}
+	w_k = \text{ReLu}(x_k * U) \odot \text{Sigmoid}(x_k * V)
+\end{equation}
+
+It is called a gated convolution layer because $\text{Sigmoid}(x_k * V \to 0 \text{ if } x_k * V << 0 \text{ and } \to 1 \text{ if } x_k * V >> 0$. Thus, the term acts like 
+a gate - in most cases it is either very close to 0 or to 1 - and therefore decides 
+which basis functions $b_i$ should be fully considered or disregarded.
+Since $U, V \in \reals^{N \times L}$, the convolutional layer consists of 
+$2 \times N$ different \emph{kernels} each being applied to the whole signal $x_k$ of 
+length $L$ and thus acting like a filterbank.
+
+Therefore $V$ is the matrix deciding whether a signal is composed of a basis function $b_i$ and $U$ is deciding the percentage of the signal being composed of the basis function.
+The output of the encoder is therefore the vector $w_k$ describing the percentage of each
+basis function of which the original signal chunk $x_k$ is made of. 
+
+\subsubsection{Separation}%
+\label{ssub:separation}
+
+will be covered in detail in the following. 
+It consist of a deep long short term memory network that takes $w_k$ as input and 
+gives different masks vectors  $M_k = \left[m_{k,1}, m_{k,2}, ... , m_{k,c}\right]$ as output with $c$ being the number of different speakers. 
+
+First, to speed up the training process, the weights $w_k$ are normalized by the 
+following equations
+
+\begin{equation}
+	\hat{w} = \frac{g}{\sigma} \odot (w_k - \mu) + b 
+\end{equation}
+
+$\sigma$ and $\mu$ present the variance respectively of the vector $w_k$ and $g,b \in 
+\reals^{1 \times N}$ are gain and bias vectors that are jointly optimized with the 
+network. 
+This is a standard normalization and makes $\hat{w}$ scale invariant. Empirically, it 
+was seen to be also more efficient for training \cite{TasNet}.
+The normalized weights are then put into a deep recurrent neural network using 
+long short term memory units to output the different masks vectors: 
+
+\[
+	M_k = f_{\theta}(w_k)
+\]
+
+$f_{\theta}$ describes herewith the recurrent neural network. More details about how the 
+network works and is trained will be covered in \ref{ssub:training_tasnet}.
+
+\subsubsection{Decoding}%
+\label{ssub:decoding}
+
+Each mask vector $m_{k,i}$ for the signal of the i-th source in the k-th chunk 
+can then be applied to the ``mixed'' weight \emph{non-normalized} vector $w_k$ to get the weight vector for 
+source i:
+
+\[
+	d_{k,i} = m_{k,i} \odot w_k
+\]
+
+Having the weight vector for source i we can finally use our basis vectors to recover the
+signal $x_{k,i} = d_{k,i} B$ of length $L$, by means of a \emph{deconvolutional} layer:
+
+\[
+	x_{k,i} = \text{deconv}_{\hat{\theta}}(d_{k,i})
+\]
+
+This is essential the inverse convolution operation of \ref{ssub:encoding} with 
+$\hat{\theta}$ being the parameters to train so that $\text{deconv}_{\hat{\theta}}$ is 
+the same as appling the basis matrix $B$ to $d_{k,i}$. 
+Now it is clear that the matrix $B$ is never actually given as an output but more or less
+used as a theoretical framework and only fully described by the weights of the encoder 
+and decoder of the network.
+Nevertheless, the weights of the kernels of both the convolutional and deconvolutional 
+layers of the encoder and decoder would show signs of learned filterbanks. 
+More in-detail information about \emph{deconvolutional} layer can be read in \cite{zeiler2010deconvolutional}.
+Having recovered all of the $K$ decoded signal chunks for one source, makes it easy 
+to concatenate them to get the complete separated signal for source i:
+
+\[
+	x_i = \left[x_{1,i}, ... , x_{K,i}\right].
+\]
+
+\subsubsection{Training}%
+\label{ssub:training_tasnet}
+
+Since the output of the network are the separated source signals $x_i$, the 
+network directly be trained on a signal to noise ratio which is the common 
+metric when evaluation source separation systems \ref{sub:comparison_of_the_two_methods}.
+For \emph{TasNet} a scale-invariant source-to-noise ratio $SNR$ is used as the training 
+criterion: 
+
+\begin{equation} \label{snr_inv}
+	\text{SNR}_i  = 10\log_{10}\frac{|s_{i}|^2}{e_{i}}
+\end{equation}
+
+Furthermore, we define:
+
+\begin{itemize}
+	\item $s_{i} = \frac{x_i^Tx_i^{*}x_i^{*}}{|x_i^{*}|^2}$
+	\item $e_i = x_i - s_i$
+\end{itemize}
+
+$s_i$ presents our normalized target value and $e_i$ is the error of the estimated 
+signal. It is scale invariant meaning that a in itself correct signal that has the wrong 
+scale will be penalized much less.
+SHOULD EXPLAIN HERE WHY SIGNAL TO NOISE RATIO IS USED IN TRAINING AND NOT JUST MIN NOISE.
+Therefore our loss function is to minimize the inverse $SNR$ of all sources:
+
+\begin{equation} \label{tasnet_cost_function}
+	L(\theta_{all}) = \sum_{i=1}^C \text{SNR}_i
+\end{equation}
+
+All parameters of the network presented above as $\theta_{all}$ can jointly be trained together.
+The kernel weights convolutional layer \ref{ssub:encoding} and the deconvolutional 
+layer \ref{ssub:decoding} respectively will be learned to act ``filterbanks'', thus 
+defining the best basic functions $b_i$ the signal can be described with. 
+
+The separation part of the network has to learn the parameters of its long short 
+term memory unit. Here we encounter the typical permutation problem while training. 
+The input $w_k$ gets mapped to the different source masks $m_{1,k},...,m_{c,k}$. 
+These are then used to create $x_{1,k},...,x_{c,k}$. 
+We have the target source vectors $x_{1,k}^{*},...,x_{c,k}^{*}$ but we do not 
+know for sure which target source vectors corresponds to the produced output, 
+since the permutation can be arbitary. Therefore permutation invariant training 
+has to be applied, as can be seen in Figure \ref{fig:piv_train}.
+
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[scale=0.6]{images/piv_train.png}
+\end{center}
+\caption{Permutation Invariant Training}
+\label{fig:piv_train}
+\end{figure}
+
+As we can see in the diagramm, the masks are applied to ``Mixed Speech'', which 
+would be the mixed weight vector $w_{k}$ in our case and the single source signals 
+``Clean Speech'' are each assigned to corret label using permutation invariant training.
+Thus, the network always assigns the correct label to the output for each source and 
+there will not be any convergence issues.
+
+In order for that to happen \cite{7979557} proposes an approach called 
+\emph{utterance-level permutation invariant training}. The following idea is used here.
+For every mixed signal chunk $x_k$, there is the correct single source signal $x_{k,i}^{*}$.
+We can use \ref{eq:tasnet_conv} to derive the ``correct'' weight vectors for every
+single source $w_{k,i}^{*}$. 
+The output of the separation layer gives the source masks $m_{1,k},...,m_{c,k}$ used to get $w_{1,k},...,w_{c,k}$, which
+will now be assigned to the ``correct'' weight vectors $w_{k,i}^{*}$ to make sure 
+that $x_i = w_i * B$ with its correct label $x_i^{*}$ are used in the loss function \ref{tasnet_cost_function}.
+To get the correct assignment, the following equation is applied at every iteration step
+of training \cite{7979557}:
+\begin{equation} \label{eq:piv_train}
+	\theta^{*} = \text{argmin}_{\theta \in \mathcal{P}} \sum_{s=1}^{c} |m_{s,k} \odot w_{k} - w_{s,k}^{*}(\theta(s))|^2 
+\end{equation}
+
+$\mathcal{P}$ is the space of all possible permutations of $w_{k,1},...,w_{k,c}$ consisting of $c!$ possible solutions. Thus $\theta^{*}$ minimizes the mean squared error between 
+$w_{s,k} = m_{s,k} \odot w{k}$ and the ``correct'' label $w_{s,k}^{*}$. 
+This calculation might seem computationally expensive because of the factor $c!$ but 
+we only need to calculate $c^2$ possible combinations. Then, there are still $c!$ 
+possible combinations to choose from. The remedy is that in most cases $c$ is very small, rarely $>4$, so that all combinations can quickly be computed and the minimum can be chosen. There are two other reasons that were empirically shown \cite{7979557}. 
+
+\begin{itemize}
+	\item Using long short term memory units, the network learns which masks of a 
+	signal chunk $m_{s,k}$ was output on which range of the output nodes and thus the
+	network shows a tendency to output the same masks for all $k$ at the same ``spot''.
+	\item Minimizing equation \ref{eq:piv_train} reinforces the minimization of the 
+	global loss function \ref{tasnet_cost_function} in that a correct assignment 
+	leads to an overall better cost than a wrong assignment. Therefore, there will 
+	be no convergence problems when trying to minimize both functions.
+\end{itemize}
+
+\subsubsection{Testing}%
+\label{ssub:testing}
+
+Having succesfully trained the network, applying it to unseen test data is straight 
+forward. $x$ will be separated into chunks $x_k$ each of length $L$. 
+These will be encoded, separated and decoded as explained in \ref{ssub:encoding}, 
+\ref{ssub:separation} and \ref{ssub:decoding} to give the output $x_{1,k},...,x_{c,k}$.
+These chunks will be concatenated back together and we have our single source signals 
+$x_1,...,x_c$.
+
+\subsubsection{Conclusion}%
+\label{ssub:conclusion}
+
+\emph{TasNet} uses a very ``natural'' approach to solve the source separation problem 
+by using the raw signal as an input and thus letting the network learn the best 
+transformation via a convolutional layer in the encoding part \ref{ssub:encoding}. 
+Also, it has a great latency time in that it can directly separate single chunks of 
+the mixed signal to the single source signals instead of having to analyse the whole 
+mixed signal. 
+There is a huge drawback though. As one might have noticed, the output of the 
+separation part in the network is static. That means that the network can only be applied
+to signal with a predefined number of speakers. 
+While it succesfully solves the permutation problem, it does not solve the 
+dimension output problem.
 
 % subsection time_domain_audio_separation (end)
-% section deep_neural_network_methods (end)
 
 \subsection{Comparison of the two methods}%
 \label{sub:comparison_of_the_two_methods}
 
 
-
 \section{Conclusion} % (fold)
 \label{sec:conclusion}
 
-Write conclusion using results.
+As a conclusion, \emph{TasNet} can be regarded to be more of an \emph{end-to-end} model 
+than \emph{deep clustering}. 
 
 \newpage
 

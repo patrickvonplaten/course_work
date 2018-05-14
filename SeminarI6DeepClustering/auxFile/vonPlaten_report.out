@@ -14,8 +14,17 @@
 \BOOKMARK [2][-]{subsection.3.2}{Spectral Clustering}{section.3}% 14
 \BOOKMARK [1][-]{section.4}{Deep clustering methods}{}% 15
 \BOOKMARK [2][-]{subsection.4.1}{Deep clustering method - frequency domain audio separation based methods}{section.4}% 16
-\BOOKMARK [2][-]{subsection.4.2}{TasNet - time domain audio separation based methods}{section.4}% 17
-\BOOKMARK [3][-]{subsubsection.4.2.1}{Results}{subsection.4.2}% 18
-\BOOKMARK [2][-]{subsection.4.3}{Comparison of the two methods}{section.4}% 19
-\BOOKMARK [1][-]{section.5}{Conclusion}{}% 20
-\BOOKMARK [1][-]{section.5}{References}{}% 21
+\BOOKMARK [3][-]{subsubsection.4.1.1}{Structure}{subsection.4.1}% 17
+\BOOKMARK [3][-]{subsubsection.4.1.2}{Training}{subsection.4.1}% 18
+\BOOKMARK [3][-]{subsubsection.4.1.3}{Testing}{subsection.4.1}% 19
+\BOOKMARK [3][-]{subsubsection.4.1.4}{Conclusion}{subsection.4.1}% 20
+\BOOKMARK [2][-]{subsection.4.2}{TasNet - time domain audio separation based methods}{section.4}% 21
+\BOOKMARK [3][-]{subsubsection.4.2.1}{Encoding}{subsection.4.2}% 22
+\BOOKMARK [3][-]{subsubsection.4.2.2}{Separation}{subsection.4.2}% 23
+\BOOKMARK [3][-]{subsubsection.4.2.3}{Decoding}{subsection.4.2}% 24
+\BOOKMARK [3][-]{subsubsection.4.2.4}{Training}{subsection.4.2}% 25
+\BOOKMARK [3][-]{subsubsection.4.2.5}{Testing}{subsection.4.2}% 26
+\BOOKMARK [3][-]{subsubsection.4.2.6}{Conclusion}{subsection.4.2}% 27
+\BOOKMARK [2][-]{subsection.4.3}{Comparison of the two methods}{section.4}% 28
+\BOOKMARK [1][-]{section.5}{Conclusion}{}% 29
+\BOOKMARK [1][-]{section.5}{References}{}% 30
