@@ -833,7 +833,7 @@ For \emph{TasNet} a scale-invariant source-to-noise ratio $SNR$ is used as the t
 criterion: 
 
 \begin{equation} \label{snr_inv}
-	\text{SNR}_i  = 10\log_{10}\frac{|s_{i}|^2}{e_{i}}
+	\text{SNR}_i  = 10\log_{10}\frac{|s_{i}|^2}{|e_{i}|^2}
 \end{equation}
 
 Furthermore, we define:
@@ -846,7 +846,8 @@ Furthermore, we define:
 $s_i$ presents our normalized target value and $e_i$ is the error of the estimated 
 signal. It is scale invariant meaning that a in itself correct signal that has the wrong 
 scale will be penalized much less.
-SHOULD EXPLAIN HERE WHY SIGNAL TO NOISE RATIO IS USED IN TRAINING AND NOT JUST MIN NOISE.
+Also, it has been shown that a high $SNR$ or \emph{Signal Distortion Ratio} objectively
+corresponds much more to clean source separation than only the error $e_i$ \cite{AudioSpeechLanguageProcessing}. 
 Therefore our loss function is defined as to minimize the inverse $SNR$ of all sources:
 
 \begin{equation} \label{tasnet_cost_function}
@@ -946,7 +947,7 @@ for comparison. A common metric is the so-called \emph{Signal-to-distortion rati
 := $SDR$ as defined in \cite{AudioSpeechLanguageProcessing}.
 
 \[
-	SDR := 10\log_{10} \frac{|s_{\text{target}}|^2}{|e_{\text{interef}} + e_{\text{noise}} + e_{\text{artif}}}
+	SDR := 10\log_{10} \frac{|s_{\text{target}}|^2}{|e_{\text{interef}} + e_{\text{noise}} + e_{\text{artif}}|^{2}}
 \]
 
 For more in-detail information, please refer to \cite{AudioSpeechLanguageProcessing}. 

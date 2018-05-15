@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.17)  15 MAY 2018 03:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.17)  15 MAY 2018 15:39
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -583,11 +583,11 @@ Overfull \hbox (30.3644pt too wide) has occurred while \output is active
  []
 
 [18 <./images/tasnet.png>] [19]
-<images/piv_train.png, id=402, 416.55624pt x 311.1625pt>
+<images/piv_train.png, id=403, 416.55624pt x 311.1625pt>
 File: images/piv_train.png Graphic file (type png)
 
 <use images/piv_train.png>
-Package pdftex.def Info: images/piv_train.png used on input line 872.
+Package pdftex.def Info: images/piv_train.png used on input line 873.
 (pdftex.def)             Requested size: 374.89716pt x 280.04366pt.
 
 Overfull \hbox (30.3644pt too wide) has occurred while \output is active
@@ -604,12 +604,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--8
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¦ in font cmr10!
 [23])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1002.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1003.
  [24]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1002.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1003.
  (auxFile/vonPlaten_report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1002.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1002.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1003.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1003.
 
 Package rerunfilecheck Info: File `vonPlaten_report.out' has not changed.
 (rerunfilecheck)             Checksum: DB69B08154D1523E91CDAF9A514662B8;2192.
@@ -617,7 +617,7 @@ Package rerunfilecheck Info: File `vonPlaten_report.out' has not changed.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1002.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1003.
  )
 (\end occurred inside a group at level 1)
 
@@ -649,10 +649,10 @@ cal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/loc
 al/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/loca
 l/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local
 /texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on auxFile/vonPlaten_report.pdf (24 pages, 2166244 bytes).
+Output written on auxFile/vonPlaten_report.pdf (24 pages, 2166452 bytes).
 PDF statistics:
- 535 PDF objects out of 1000 (max. 8388607)
- 476 compressed objects within 5 object streams
+ 536 PDF objects out of 1000 (max. 8388607)
+ 477 compressed objects within 5 object streams
  113 named destinations out of 1000 (max. 500000)
  266 words of extra memory for PDF output out of 10000 (max. 10000000)
 
