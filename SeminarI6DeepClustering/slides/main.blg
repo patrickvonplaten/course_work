@@ -1,0 +1,116 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: main.aux
+The style file: i6bibstyle.bst
+Database file #1: references.bib
+Warning--string name "september" is undefined
+--line 114 of file references.bib
+A bad cross reference---entry "char_decoder"
+refers to entry "DBLP:conf/acl/2016-1", which doesn't exist
+Warning--empty pp. in BahdanauCB14
+Warning--there's no month in BahdanauCB14
+Warning--there's no month in CastanoVidal93
+Warning--empty booktitle in Chen2016
+Warning--empty pp. in Chen2016
+Warning--empty pages in cho2015note
+Warning--there's no month in chorowski2015attention
+`volume' is a missing field, not a string, for entry chung2016character
+while executing---line 1369 of file i6bibstyle.bst
+"" is a string literal, not an integer, for entry chung2016character
+while executing---line 1369 of file i6bibstyle.bst
+`volume' is a missing field, not a string, for entry chung2016character
+while executing---line 1369 of file i6bibstyle.bst
+Warning--empty pp. in char_decoder
+Warning--there's no month in char_decoder
+`volume' is a missing field, not a string, for entry firat2016multi
+while executing---line 1369 of file i6bibstyle.bst
+"" is a string literal, not an integer, for entry firat2016multi
+while executing---line 1369 of file i6bibstyle.bst
+`volume' is a missing field, not a string, for entry firat2016multi
+while executing---line 1369 of file i6bibstyle.bst
+Warning--there's no month in DBLP:journals/corr/LuongPM15
+Warning--empty journal in Luong-effective
+`volume' is a missing field, not a string, for entry Luong-effective
+while executing---line 1369 of file i6bibstyle.bst
+"" is a string literal, not an integer, for entry Luong-effective
+while executing---line 1369 of file i6bibstyle.bst
+`volume' is a missing field, not a string, for entry Luong-effective
+while executing---line 1369 of file i6bibstyle.bst
+`volume' is a missing field, not a string, for entry Mi2016
+while executing---line 1369 of file i6bibstyle.bst
+"" is a string literal, not an integer, for entry Mi2016
+while executing---line 1369 of file i6bibstyle.bst
+`volume' is a missing field, not a string, for entry Mi2016
+while executing---line 1369 of file i6bibstyle.bst
+Warning--there's no month in MikolovKarafiat10
+Warning--there's no month in Och2003
+Warning--empty pp. in SchwenkCosta07
+Warning--there's no month in SchwenkCosta07
+`volume' is a missing field, not a string, for entry sennrich2015neural
+while executing---line 1369 of file i6bibstyle.bst
+"" is a string literal, not an integer, for entry sennrich2015neural
+while executing---line 1369 of file i6bibstyle.bst
+`volume' is a missing field, not a string, for entry sennrich2015neural
+while executing---line 1369 of file i6bibstyle.bst
+`volume' is a missing field, not a string, for entry Sennrich2016:bpe
+while executing---line 1369 of file i6bibstyle.bst
+"" is a string literal, not an integer, for entry Sennrich2016:bpe
+while executing---line 1369 of file i6bibstyle.bst
+`volume' is a missing field, not a string, for entry Sennrich2016:bpe
+while executing---line 1369 of file i6bibstyle.bst
+`volume' is a missing field, not a string, for entry shen2015minimum
+while executing---line 1369 of file i6bibstyle.bst
+"" is a string literal, not an integer, for entry shen2015minimum
+while executing---line 1369 of file i6bibstyle.bst
+`volume' is a missing field, not a string, for entry shen2015minimum
+while executing---line 1369 of file i6bibstyle.bst
+Warning--there's no month in sukhbaatar2015end
+Warning--there's no month in SundermeyerSchlueter12
+Warning--empty pp. in Tu2016
+Warning--there's no month in Tu2016
+Warning--there's no month in NakamuraShikano89
+Warning--empty pp. in xu2015show
+Warning--there's no month in xu2015show
+Warning--there's no month in yao2015describing
+You've used 36 entries,
+            2542 wiz_defined-function locations,
+            770 strings with 12567 characters,
+and the built_in function-call counts, 17743 in all, are:
+= -- 1718
+> -- 955
+< -- 35
++ -- 332
+- -- 322
+* -- 1519
+:= -- 2772
+add.period$ -- 118
+call.type$ -- 36
+change.case$ -- 298
+chr.to.int$ -- 29
+cite$ -- 59
+duplicate$ -- 727
+empty$ -- 1158
+format.name$ -- 424
+if$ -- 3646
+int.to.chr$ -- 8
+int.to.str$ -- 0
+missing$ -- 35
+newline$ -- 184
+num.names$ -- 112
+pop$ -- 325
+preamble$ -- 1
+purify$ -- 333
+quote$ -- 0
+skip$ -- 559
+stack$ -- 0
+substring$ -- 818
+swap$ -- 234
+text.length$ -- 32
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 288
+warning$ -- 23
+while$ -- 119
+width$ -- 41
+write$ -- 483
+(There were 22 error messages)

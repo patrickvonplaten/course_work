@@ -1,0 +1,468 @@
+\documentclass[xcolor=table,mathserif,9pt]{beamer}    % ,handout
+% colortbl only defines \rowcolor for a single row. xcolor extends this to multiple rows.
+
+\usetheme{Aachen}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+%\usepackage{tikz-dependency}
+%\usepackage{chronology}
+\usepackage{array, booktabs}
+\newcommand{\foo}{\makebox[0pt]{\textbullet}\hskip+0.5pt\vrule width 5pt\hspace{\labelsep}}
+\usepackage{multirow}
+\usepackage{textcomp}
+\usepackage{csquotes}
+\usepackage{amsmath}
+\usepackage{lipsum}
+\usepackage{multicol}
+\usepackage{hyperref}
+\setlength{\columnsep}{1cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% tables
+\usepackage{multirow,array,tabularx,rotating}
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% math
+\usepackage{amsmath,amsthm, amssymb, latexsym, xspace}
+%\usepackage{bbold}
+\usefonttheme[onlymath]{serif}
+\boldmath
+
+
+% misc
+\usepackage{subfigure}
+\usepackage{wasysym}
+\usepackage{nameref}
+\usepackage{xcolor}
+\usepackage{romannum}
+% declare the path(s) where your graphic files are
+\graphicspath{{./nlu/}{./g2p/}{./smt/}}
+% and their extensions so you won't have to specify these with
+% every instance of \includegraphics
+\DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+
+
+%figures
+\usepackage{tikz}
+\usepackage{minibox}
+% change the graphic extentions
+%\usepackage{ifpdf}
+%\ifpdf
+%  \DeclareGraphicsExtensions{.pdf,.png,.jpg}
+%\else
+%  \DeclareGraphicsExtensions{.eps}
+%\fi
+
+\usepackage[np,autolanguage]{numprint}
+\nprounddigits{1}
+
+% helpers
+\newcommand{\argmin}{\operatornamewithlimits{argmin}}
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+\newcommand{\sign}{\operatornamewithlimits{sign}}
+\newcommand{\Eqn}{Equation}
+\newcommand{\Eqns}{Equations}
+\newcommand{\Fig}{Figure}
+\newcommand{\Figs}{Figures}
+\newcommand{\Tab}{Table}
+\newcommand{\Sec}{Section}
+\def\example{{\textit{}{e.g.}}\xspace}
+\def\cad{{\textit{}{i.e.}}\xspace}
+\def\etc{{\textit{etc.}}\xspace}
+\def\apriori{{\textit{a priori}}\xspace}
+
+\newcommand{\NetTalk}{NETtalk\xspace}
+\newcommand{\Celex}{Celex\xspace}
+\newcommand{\Pronlex}{Pronlex\xspace}
+\newcommand{\gtp}{G2P}
+\newcommand{\Seg}{\mathbb{S}}
+\newcommand\BLEU{\textsc{Bleu}\xspace}
+\newcommand\TER{\textsc{Ter}\xspace}
+\newcommand\CTER{\textsc{CTer}\xspace}
+
+\newcommand\AER{\textsc{Aer}\xspace}
+\newcommand\SAER{\textsc{Saer}\xspace}
+\newcommand{\GIZA}{{GIZA\nolinebreak[4]\hspace{-.025em}\raisebox{.2ex}{\small\bf++}}\xspace}
+
+\newcommand{\todo}[1]{\colorbox{yellow}{#1}\xspace}
+\newcommand{\CITE}{\colorbox{yellow}{CITE}\xspace}
+\newcommand{\REF}{\colorbox{yellow}{REF}\xspace}
+\newcommand{\EQ}{\colorbox{yellow}{REF}\xspace}
+\newcommand{\NUMBER}{\colorbox{yellow}{NUMBER}\xspace}
+\newcommand{\Align}{\mathbb{A}}
+%\renewcommand{\emph}[1]{\textcolor{i6blue}{#1}}
+
+
+\newcommand{\aind}[1]{\hspace*{#1ex}}
+\newcommand{\gray}[1]{\textcolor{gray}{#1}}
+
+\newcommand*{\sumw}{\ensuremath{\operatornamewithlimits{sum}}\xspace}
+\newcommand*{\nbest}{\ensuremath{\operatornamewithlimits{nbest}}\xspace}
+
+% Define box and box title style
+\usepackage{tikz}
+\usetikzlibrary{shapes,positioning,fit}
+\tikzstyle{bubble} = [ draw=blue, rectangle, rounded corners, inner sep=3pt, inner ysep=
+10 pt]
+\tikzstyle{fancytitle} =[fill=white, text=black]
+\newenvironment{bubble}[3]{%
+  \begin{tikzpicture}[transform shape, baseline=-0.5 cm]
+  \def\bubbletitle{#1}%
+  \node [bubble] (box)\bgroup
+  \begin{minipage}[t][#3]{#2}%
+}{%
+  \end{minipage}%
+  \egroup;
+  \node[fancytitle] at (box.north) {\bubbletitle};
+  \end{tikzpicture}%
+}
+
+\newenvironment{bubble*}[2]{%
+  \begin{tikzpicture}[transform shape]
+  \node [bubble] (box)\bgroup
+  \begin{minipage}[t][#2]{#1}%
+}{%
+  \end{minipage}%
+  \egroup;
+  \end{tikzpicture}%
+}
+
+% CUSTOM STUFF %%%%%%%%%%%%%%%%%
+%\usepackage{neuralnetworks}
+
+
+% Rounding commands
+\def\roundpositionii{1}
+\newcommand{\rdmii}[1]{\edef\rounded{0}\FPeval\rounded{round(#1,\roundpositionii)}\rounded}
+\def\roundpositioni{1}
+\newcommand{\rdmi}[1]{\edef\rounded{0}\FPeval\rounded{round(#1,\roundpositioni)}\rounded}
+\def\roundposition{0}
+\newcommand{\rdm}[1]{\edef\rounded{0}\FPeval\rounded{round(#1,\roundposition)}\rounded}
+
+\npstyleenglish
+
+\def\roundposition{1}
+\def\roundpositiont{3}
+\edef\rounded{0}
+\newcommand{\rd}[1]{\ifthenelse{\equal{#1}{--}}{--}{\edef\rounded{0}\FPeval\rounded{round(#1,\roundposition)}\rounded}}
+\newcommand{\rdmt}[1]{\edef\rounded{0}\FPeval\rounded{round(#1,\roundpositiont)}\rounded}
+\newcommand{\rp}[1]{%
+  \FPset{\per}{#1}%
+  %\FPmul{\per}{\per}{100}%
+  \FPround{\per}{\per}{1}%
+  \numprint{\per}%
+}%
+
+
+\setbeamercovered{transparent}
+
+\DeclareMathOperator*{\sigmoid}{sigmoid}
+
+\newcommand\T{\rule{0pt}{2.2ex}}       % Top strut
+\usepackage{etoolbox}
+\pretocmd{\section}{\addtocontents{toc}{\vspace{-20pt}}}{}{}
+
+%Table stuff
+\newcommand{\tablesize}{}
+\newcommand{\abovetable}{\vspace{0.6cm}}
+\newcommand{\belowtable}{\vspace{0.13cm}}
+
+
+% Get fond size for system combination picture right
+\usepackage{fix-cm}    
+\makeatletter
+\newcommand\SyscomFontSize{\@setfontsize\small{6}{60}}
+\makeatother   
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\backupbegin}{
+   \newcounter{finalframe}
+   \setcounter{finalframe}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+   \setcounter{framenumber}{\value{finalframe}}
+}
+
+\newcommand{\stoptocwriting}{%
+  \addtocontents{toc}{\protect\setcounter{tocdepth}{-5}}}
+\newcommand{\resumetocwriting}{%
+  \addtocontents{toc}{\protect\setcounter{tocdepth}{2}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand*{\email}{\url{kitza@rwth-aachen.de}}  
+% all email address(es) of the authors (used for \TitlePage)
+
+\title[Seminar]{\LaTeX\ Slides Template \\ for Seminar Talks at the i6}
+%\subtitle{Presentation Subtitle} % (optional)
+%\setbeamertemplate{section in toc}[sections numbered] 
+%\setbeamertemplate{subsection in toc}[subsections numbered] 
+\setbeamertemplate{navigation symbols}{} %disable {, dotted}navigation bar
+
+%% author and in []: shortauthorChange the scale of beamer from 3.5 to 1
+\author[M. Kitza]{Markus Kitza}
+% - Use the \inst{?} command only if the author7s have different
+%   affiliation.
+\institute[RWTH Aachen University] % (optional, but mostly needed)
+{
+%  \inst{1}%
+  \strut Human Language Technology and Pattern Recognition\\
+  \strut Computer Science Department, RWTH Aachen University %\\
+  %\strut {\tt lehnen@cs.rwth-aachen.de}
+}
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+
+%\date[10/02/2017]{February 10th, 2017}
+\date[4/1/2017]{April 1st, 2017}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%shit
+% will be set into the PDF document summary
+\hypersetup{
+  pdftitle={\inserttitle}, 
+  pdfauthor={\insertauthor}, 
+  bookmarksdepth=subsubsection,  
+  % enable automatic page transitions: for endless loop edit in
+  % acrobat reader -> preferences -> full screen -> after every X
+  % seconds and after last page
+  %pdfpageduration = 2, 
+  % pdfpagetransition = {Glitter /Di 315 /D 5}  
+  % pdfpagetransition = {Box /M /O /D 1},
+} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[label=titlepage]
+  \titlepage
+\end{frame}
+
+\begin{frame}
+	\frametitle{Outline}
+	\tableofcontents
+        %\tableofcontents[currentsection, subsectionstyle=show/show/hide]
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Introduction}
+\begin{frame}{Literature}
+
+
+\begin{itemize}
+\item Talks presented at the
+  \url{http://www-i6.rwth-aachen.de/} should always have a literature part in front of the talk. 
+\item You should \emph{not just copy} bibitems from your \texttt{*.bbl} files into a minipage and an \texttt{\textbackslash itemize} environment.
+\item Depending on the public where you will present your talk you should adapt your literature slide.
+\item you should describe the content of the SOTA literature with your own words
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Literature example}
+\begin{description}
+\item [T.~Starner, J.~Weaver, A.~Pentland:] Real-time american sign-language recognition using desk and wearable computer based video. {\em PAMI 1998}.
+  \begin{itemize}
+  \item HMM based isolated sign language recognition. Explain the main content here.
+  \end{itemize}
+\item [Povey:] Papertitle. {\em ICASSP 2007}.
+  \begin{itemize}
+  \item something new in speech recognition. Explain the main content here.
+  \end{itemize}
+\item [\cite{BahdanauCB14}:] Papertitle. {\em CONFNAME 2007}.
+  \begin{itemize}
+  \item image retrieval. Explain the main content here.
+  \end{itemize}
+\end{description}
+\end{frame}
+
+\begin{frame}{State of the Art}
+\begin{itemize}
+\item Talks presented at the
+  \href{http:://www-i6.rwth-aachen.de/}{\includegraphics[height=\baselineskip]{logos/logo_hltpr_rgb_RWTH.eps}}
+  should also always have a state of the art part in front of the talk.
+\item Depending on the public where you will present your talk you should
+adapt your state of the art slide.
+\item This can be in relation with literature section
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Results}
+\begin{itemize}
+\item Talks presented at the
+  \href{http:://www-i6.rwth-aachen.de/}{\includegraphics[height=\baselineskip]{logos/logo_hltpr_rgb_RWTH.eps}}
+  should always have a result section somewhere at the end of the talk.
+\item Depending on the public should highlight the
+  advantages/disadvantages of your presented work in comparison to
+  other results achieved by other groups on the same (publicly
+  available) benchmark database
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Style Parameters}
+\begin{itemize}
+\item language: 
+  \begin{itemize}
+  \item \texttt{english} (default)
+  \item \texttt{german}
+  \end{itemize}
+\item page numbering:
+\begin{itemize}
+ \item indicate last page with \texttt{[label=finalSlide]}
+\end{itemize}
+\item itemize: 
+  \begin{itemize}
+  \item \texttt{triangle}, or leave empty for bullets (default)
+  \end{itemize}
+\item page layout: 
+  \begin{itemize}
+  \item \texttt{vertical} to enable vertical centering on each slide (default)
+  \end{itemize}
+\item encoding : 
+  \begin{itemize}
+  \item \texttt{utf-8} to enable utf encoding instead of latin1 (default)
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Including Images}
+\begin{itemize}
+\item[] You can include your images with the \\ \texttt{\textbackslash
+    includegraphics[options]\{<filename>\}} command. A short caption may be
+  written with the \texttt{\textbackslash caption\{<name>\}} command. Examples:
+\item[] Images should be scaled relatively to the \texttt{\textbackslash textwidth} or \texttt{\textbackslash linewidth} of the slides:
+  \begin{center}
+  \begin{figure}
+      \includegraphics[width=.15\textwidth]{images/salientpoints}
+    \includegraphics[width=.15\linewidth]{images/grid}
+    \caption{Images with a Caption}
+  \end{figure}
+  \end{center}
+\item[] You should always provide images in JPEG/PNG/PDF-- \alert{and}
+  EPS/PS--format.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Including Images}
+\begin{minipage}[b]{.4\linewidth}
+  \begin{center}
+    \includegraphics[width=.5\linewidth]{images/car}\\
+    car label
+  \end{center}
+\end{minipage}
+\begin{minipage}[b]{.4\linewidth}
+  \begin{itemize}
+  \item my
+  \item image
+  \item description
+  \item using \texttt{minipage} environment
+  \item my
+  \item image
+  \item description
+  \end{itemize}
+\end{minipage}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Fancy Table with overlay \only<2>{(WMT2016)} \only<1>{(IWSLT2013)}}
+  \only<1>{
+  \begin{center}
+	\scalebox{0.9}{
+\begin{tabular}{|l|cc|cc|cc|cc|}
+    \hline
+    IWSLT De-En & \multicolumn{2}{c|}{dev} & \multicolumn{2}{c|}{test} & \multicolumn{2}{c|}{eval11} &  \multicolumn{2}{c|}{alignment-test}\\             \hline
+    Model & \BLEU\% & \TER\% & \BLEU\% & \TER\% & \BLEU\% & \TER\% & AER\% & SAER\%\\    
+    \hline
+    Attention-Based & 30.5 & 48.7 & 29.3 & 50.6 & 33.9 & 46.6 & 41.8  & 66.3 \\
+     \hspace{3mm}+ method & \textcolor{i6bluedark}{31.5} & \textcolor{i6bluedark}{47.2} & \textcolor{i6bluedark}{30.3} & \textcolor{i6bluedark}{49.0} & \textcolor{i6bluedark}{34.3} & \textcolor{i6bluedark}{44.3} & \textcolor{i6bluedark}{35.4} & \textcolor{i6bluedark}{44.2} \\
+    \hline
+\end{tabular}
+}
+	\end{center}}
+	\only<2>{
+	\begin{center}
+\scalebox{0.9}{
+\begin{tabular}{|l|cc|cc|cc|}
+    \hline
+    WMT En-Ro & \multicolumn{2}{c|}{newsdev2016/1} & \multicolumn{2}{c|}{newsdev2016/2} & \multicolumn{2}{c|}{newstest2016} \\             \hline
+    Model & \BLEU\% & \TER\% & \BLEU\% & \TER\% & \BLEU\% & \TER\% \\    
+    \hline
+    Attention-Based & 19.8 & 62.0 & 21.3 & 58.1 & 20.3 & 60.4 \\ 
+    +GA & \textcolor{i6bluedark}{21.0} & \textcolor{i6bluedark}{61.1 } & \textcolor{i6bluedark}{23.6} & \textcolor{i6bluedark}{56.4} & \textcolor{i6bluedark}{21.8} & \textcolor{i6bluedark}{59.4} \\ 
+    \hline 
+    \hspace{3mm} +method + conv ($D=10$,$M=1$) & \textcolor{i6bluedark}{21.4} & \textcolor{i6bluedark}{60.1 } & \textcolor{i6bluedark}{24.7} & \textcolor{i6bluedark}{55.4} & \textcolor{i6bluedark}{22.3} & \textcolor{i6bluedark}{58.7} \\ 
+    \hline 
+\end{tabular}
+}
+	\end{center}}
+	\vfill
+	\begin{itemize}
+	  \item Improves translation by an average of $0.8$ BLEU on IWSLT2013
+	  \item Great improvement in AER and SAER
+	  \item<only@2> Improves translation by an average of $1.7$ BLEU on WMT2016
+	  \begin{itemize}
+	    \item<only@2> Adding convolutional feedback gives an additional $0.6$ BLEU on average
+	  \end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Usefull \LaTeX\ beamer resources}
+\begin{description}
+\item [Media Files:] The package \texttt{media9} has several option for playing audio and video files
+\item [Information about Beamer:] General information about using the beamer presentation mode of latex can be found here: \url{https://en.wikibooks.org/wiki/LaTeX/Presentations}
+\item [Online Table Editor:] \url{https://www.tablesgenerator.com/}
+\end{description}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[label=finalSlide]
+  \label{LastPage}%
+  \begin{center}
+    \vfill
+    {\Large
+    \textcolor{i6bluedark}{Thank you for your attention}
+    }
+%     \vfill
+%     \inserttitle
+    \vfill
+    {\insertauthor}
+
+    \vspace{10mm}
+    \url{<surname>@rwth-aachen.de}
+  \end{center}
+\end{frame}
+
+\nocite{*}
+
+\stoptocwriting
+\section{Appendix}
+\resumetocwriting
+
+%\backupbegin
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Appendix}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[allowframebreaks]
+  \centerline{Reference}
+ %\bibliographystyle{ieeetr}
+ \bibliographystyle{i6bibstyle}
+ \bibliography{references}
+\end{frame}
+
+%\backupend
+
+\end{document}
