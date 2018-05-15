@@ -12,7 +12,7 @@
 \BOOKMARK [1][-]{section.3}{Conventional methods}{}% 12
 \BOOKMARK [2][-]{subsection.3.1}{Computational auditory scene analysis}{section.3}% 13
 \BOOKMARK [2][-]{subsection.3.2}{Spectral Clustering}{section.3}% 14
-\BOOKMARK [1][-]{section.4}{Deep clustering methods}{}% 15
+\BOOKMARK [1][-]{section.4}{Artificial neural network supported source separation methods}{}% 15
 \BOOKMARK [2][-]{subsection.4.1}{Deep clustering method - frequency domain audio separation based methods}{section.4}% 16
 \BOOKMARK [3][-]{subsubsection.4.1.1}{Structure}{subsection.4.1}% 17
 \BOOKMARK [3][-]{subsubsection.4.1.2}{Training}{subsection.4.1}% 18
