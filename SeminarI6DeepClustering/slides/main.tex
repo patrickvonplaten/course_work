@@ -192,17 +192,17 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\renewcommand*{\email}{\url{kitza@rwth-aachen.de}}  
+\renewcommand*{\email}{\url{patrick.platen@rwth-aachen.de}}  
 % all email address(es) of the authors (used for \TitlePage)
 
-\title[Seminar]{\LaTeX\ Slides Template \\ for Seminar Talks at the i6}
+\title[Seminar]{ANN Supported Source Separation}
 %\subtitle{Presentation Subtitle} % (optional)
 %\setbeamertemplate{section in toc}[sections numbered] 
 %\setbeamertemplate{subsection in toc}[subsections numbered] 
 \setbeamertemplate{navigation symbols}{} %disable {, dotted}navigation bar
 
 %% author and in []: shortauthorChange the scale of beamer from 3.5 to 1
-\author[M. Kitza]{Markus Kitza}
+\author[Patrick von Platen]{Patrick von Platen}
 % - Use the \inst{?} command only if the author7s have different
 %   affiliation.
 \institute[RWTH Aachen University] % (optional, but mostly needed)
@@ -215,8 +215,7 @@
 % - Use the \inst command only if there are several affiliations.
 % - Keep it simple, no one is interested in your street address.
 
-%\date[10/02/2017]{February 10th, 2017}
-\date[4/1/2017]{April 1st, 2017}
+\date[19/6/2018]{June 19th, 2018}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%shit
 % will be set into the PDF document summary
@@ -252,21 +251,16 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Introduction}
-\begin{frame}{Literature}
 
 
-\begin{itemize}
-\item Talks presented at the
-  \url{http://www-i6.rwth-aachen.de/} should always have a literature part in front of the talk. 
-\item You should \emph{not just copy} bibitems from your \texttt{*.bbl} files into a minipage and an \texttt{\textbackslash itemize} environment.
-\item Depending on the public where you will present your talk you should adapt your literature slide.
-\item you should describe the content of the SOTA literature with your own words
-\end{itemize}
 
-\end{frame}
+
+\section{Literature}%
+\label{sec:literature}
+
 
 \begin{frame}{Literature example}
+2 pages
 \begin{description}
 \item [T.~Starner, J.~Weaver, A.~Pentland:] Real-time american sign-language recognition using desk and wearable computer based video. {\em PAMI 1998}.
   \begin{itemize}
@@ -282,6 +276,88 @@
   \end{itemize}
 \end{description}
 \end{frame}
+
+\section{Introduction}%
+\label{sec:introduction}
+\begin{frame}{Introduction}
+
+\begin{center}
+	\begin{figure}
+	\includegraphics[width=.15\textwidth]{images/separation_example.jpg}
+	\caption{Images with a Caption}
+	\end{figure}
+\end{center}
+
+
+2 pages:
+-1: Cocktail party problem \& Applications
+-2: play sounds
+\end{frame}
+
+\section{Definition}%
+\label{sec:definition}
+\begin{frame}{Definition}
+
+1 page
+\end{frame}
+
+\section{Mathematical basics}%
+\label{sec:mathematical_basics}
+\begin{frame}{Mathematical basics}
+
+3 pages:
+	1- Short term fourier transform
+	2- Spectrogram
+	3- Embedding
+\end{frame}
+
+\section{Conventional methods}%
+\label{sec:conventional_methods}
+\begin{frame}{Conventional methods}
+
+4 pages:
+	1- CASA
+	2-4 Spectral Clustering
+\end{frame}
+
+\section{Problems with deep learning}%
+\label{sec:problems_with_deep_learning}
+\begin{frame}{Problems with deep learning}
+
+1 page: explain both problems
+\end{frame}
+
+\section{Deep clustering}%
+\label{sec:deep_clustering}
+\begin{frame}{Deep clustering}
+
+6 pages:
+\end{frame}
+
+\section{TasNet}%
+\label{sec:tasnet}
+\begin{frame}{TasNet}
+
+6 pages:
+\end{frame}
+
+\section{Comparison \& Results}%
+\label{sec:results}
+\begin{frame}{Comparsino \& Results}
+
+2 pages
+\end{frame}
+
+\section{Conclusion}%
+\label{sec:conclusion}
+\begin{frame}{Conclusion}
+
+1 page
+\end{frame}
+
+
+
+
 
 \begin{frame}{State of the Art}
 \begin{itemize}
@@ -436,7 +512,7 @@ adapt your state of the art slide.
     {\insertauthor}
 
     \vspace{10mm}
-    \url{<surname>@rwth-aachen.de}
+    \url{patrick.platen@rwth-aachen.de}
   \end{center}
 \end{frame}
 

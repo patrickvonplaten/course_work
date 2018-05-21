@@ -2,9 +2,27 @@
 \select@language {english}
 \select@language {english}
 \vspace {-20pt}
-\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
+\beamer@sectionintoc {1}{Literature}{3}{0}{1}
+\vspace {-20pt}
+\beamer@sectionintoc {2}{Introduction}{4}{0}{2}
+\vspace {-20pt}
+\beamer@sectionintoc {3}{Definition}{5}{0}{3}
+\vspace {-20pt}
+\beamer@sectionintoc {4}{Mathematical basics}{6}{0}{4}
+\vspace {-20pt}
+\beamer@sectionintoc {5}{Conventional methods}{7}{0}{5}
+\vspace {-20pt}
+\beamer@sectionintoc {6}{Problems with deep learning}{8}{0}{6}
+\vspace {-20pt}
+\beamer@sectionintoc {7}{Deep clustering}{9}{0}{7}
+\vspace {-20pt}
+\beamer@sectionintoc {8}{TasNet}{10}{0}{8}
+\vspace {-20pt}
+\beamer@sectionintoc {9}{Comparison \& Results}{11}{0}{9}
+\vspace {-20pt}
+\beamer@sectionintoc {10}{Conclusion}{12}{0}{10}
 \setcounter {tocdepth}{-5}
 \vspace {-20pt}
-\beamer@sectionintoc {2}{Appendix}{14}{0}{2}
+\beamer@sectionintoc {11}{Appendix}{22}{0}{11}
 \setcounter {tocdepth}{2}
 \vspace {-20pt}

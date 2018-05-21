@@ -3,114 +3,64 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: i6bibstyle.bst
 Database file #1: references.bib
-Warning--string name "september" is undefined
---line 114 of file references.bib
-A bad cross reference---entry "char_decoder"
-refers to entry "DBLP:conf/acl/2016-1", which doesn't exist
-Warning--empty pp. in BahdanauCB14
-Warning--there's no month in BahdanauCB14
-Warning--there's no month in CastanoVidal93
-Warning--empty booktitle in Chen2016
-Warning--empty pp. in Chen2016
-Warning--empty pages in cho2015note
-Warning--there's no month in chorowski2015attention
-`volume' is a missing field, not a string, for entry chung2016character
+Warning--I didn't find a database entry for "BahdanauCB14"
+Warning--to sort, need author or key in TuneOutNoise:2012
+`year' is a missing field, not a string, for entry HearingLoss
+while executing---line 1300 of file i6bibstyle.bst
+Warning--to sort, need author or key in HearingLoss
+Warning--empty journal in CocktailPartyProblem:2000
+Warning--empty pp. in Golik2015ConvolutionalNN
+Warning--there's no month in Golik2015ConvolutionalNN
+Warning--empty date in HearingLoss
+Warning--there's no month in Pascanu:2013:DTR:3042817.3043083
+Warning--empty author in TuneOutNoise:2012
+Warning--empty pages in TuneOutNoise:2012
+`volume' is a missing field, not a string, for entry 2018arXiv180410204W
 while executing---line 1369 of file i6bibstyle.bst
-"" is a string literal, not an integer, for entry chung2016character
+"" is a string literal, not an integer, for entry 2018arXiv180410204W
 while executing---line 1369 of file i6bibstyle.bst
-`volume' is a missing field, not a string, for entry chung2016character
+`volume' is a missing field, not a string, for entry 2018arXiv180410204W
 while executing---line 1369 of file i6bibstyle.bst
-Warning--empty pp. in char_decoder
-Warning--there's no month in char_decoder
-`volume' is a missing field, not a string, for entry firat2016multi
-while executing---line 1369 of file i6bibstyle.bst
-"" is a string literal, not an integer, for entry firat2016multi
-while executing---line 1369 of file i6bibstyle.bst
-`volume' is a missing field, not a string, for entry firat2016multi
-while executing---line 1369 of file i6bibstyle.bst
-Warning--there's no month in DBLP:journals/corr/LuongPM15
-Warning--empty journal in Luong-effective
-`volume' is a missing field, not a string, for entry Luong-effective
-while executing---line 1369 of file i6bibstyle.bst
-"" is a string literal, not an integer, for entry Luong-effective
-while executing---line 1369 of file i6bibstyle.bst
-`volume' is a missing field, not a string, for entry Luong-effective
-while executing---line 1369 of file i6bibstyle.bst
-`volume' is a missing field, not a string, for entry Mi2016
-while executing---line 1369 of file i6bibstyle.bst
-"" is a string literal, not an integer, for entry Mi2016
-while executing---line 1369 of file i6bibstyle.bst
-`volume' is a missing field, not a string, for entry Mi2016
-while executing---line 1369 of file i6bibstyle.bst
-Warning--there's no month in MikolovKarafiat10
-Warning--there's no month in Och2003
-Warning--empty pp. in SchwenkCosta07
-Warning--there's no month in SchwenkCosta07
-`volume' is a missing field, not a string, for entry sennrich2015neural
-while executing---line 1369 of file i6bibstyle.bst
-"" is a string literal, not an integer, for entry sennrich2015neural
-while executing---line 1369 of file i6bibstyle.bst
-`volume' is a missing field, not a string, for entry sennrich2015neural
-while executing---line 1369 of file i6bibstyle.bst
-`volume' is a missing field, not a string, for entry Sennrich2016:bpe
-while executing---line 1369 of file i6bibstyle.bst
-"" is a string literal, not an integer, for entry Sennrich2016:bpe
-while executing---line 1369 of file i6bibstyle.bst
-`volume' is a missing field, not a string, for entry Sennrich2016:bpe
-while executing---line 1369 of file i6bibstyle.bst
-`volume' is a missing field, not a string, for entry shen2015minimum
-while executing---line 1369 of file i6bibstyle.bst
-"" is a string literal, not an integer, for entry shen2015minimum
-while executing---line 1369 of file i6bibstyle.bst
-`volume' is a missing field, not a string, for entry shen2015minimum
-while executing---line 1369 of file i6bibstyle.bst
-Warning--there's no month in sukhbaatar2015end
-Warning--there's no month in SundermeyerSchlueter12
-Warning--empty pp. in Tu2016
-Warning--there's no month in Tu2016
-Warning--there's no month in NakamuraShikano89
-Warning--empty pp. in xu2015show
-Warning--there's no month in xu2015show
-Warning--there's no month in yao2015describing
-You've used 36 entries,
+Warning--there's no month in zeiler2010deconvolutional
+You've used 28 entries,
             2542 wiz_defined-function locations,
-            770 strings with 12567 characters,
-and the built_in function-call counts, 17743 in all, are:
-= -- 1718
-> -- 955
-< -- 35
-+ -- 332
-- -- 322
-* -- 1519
-:= -- 2772
-add.period$ -- 118
-call.type$ -- 36
-change.case$ -- 298
-chr.to.int$ -- 29
-cite$ -- 59
-duplicate$ -- 727
-empty$ -- 1158
-format.name$ -- 424
-if$ -- 3646
-int.to.chr$ -- 8
+            749 strings with 9729 characters,
+and the built_in function-call counts, 10861 in all, are:
+= -- 1062
+> -- 452
+< -- 41
++ -- 145
+- -- 142
+* -- 949
+:= -- 1711
+add.period$ -- 86
+call.type$ -- 28
+change.case$ -- 182
+chr.to.int$ -- 28
+cite$ -- 40
+duplicate$ -- 450
+empty$ -- 778
+format.name$ -- 202
+if$ -- 2202
+int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 35
-newline$ -- 184
-num.names$ -- 112
-pop$ -- 325
+missing$ -- 26
+newline$ -- 142
+num.names$ -- 78
+pop$ -- 167
 preamble$ -- 1
-purify$ -- 333
+purify$ -- 211
 quote$ -- 0
-skip$ -- 559
+skip$ -- 338
 stack$ -- 0
-substring$ -- 818
-swap$ -- 234
-text.length$ -- 32
+substring$ -- 568
+swap$ -- 111
+text.length$ -- 29
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 288
-warning$ -- 23
-while$ -- 119
-width$ -- 41
-write$ -- 483
-(There were 22 error messages)
+type$ -- 216
+warning$ -- 10
+while$ -- 74
+width$ -- 30
+write$ -- 361
+(There were 4 error messages)

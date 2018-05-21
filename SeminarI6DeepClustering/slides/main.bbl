@@ -1,228 +1,169 @@
 \begin{thebibliography}{}
 
-\bibitem[\protect{Bahdanau \& Cho$^+$} 15]{BahdanauCB14}
-D.~Bahdanau, K.~Cho, Y.~Bengio.
-\newblock Neural machine translation by jointly learning to align and
-  translate.
-\newblock In {\em Proceedings of the International Conference on Learning
-  Representations (ICLR)}, San Diego, CA, 2015.
+\bibitem[\protect{Bach \& Jordan} 06]{Bach:2006}
+F.~R. Bach, M.~I. Jordan.
+\newblock Learning spectral clustering, with application to speech separation.
+\newblock {\em J. Mach. Learn. Res.}, Vol.~7, pp.~1963--2001, Dec. 2006.
 
-\bibitem[\protect{Bengio \& Ducharme$^+$} 03]{BengioDucharme03}
-Y.~Bengio, R.~Ducharme, P.~Vincent, C.~Jauvin.
-\newblock A neural probabilistic language model.
-\newblock {\em journal of machine learning research}, Vol.~3, No. Feb,
-  pp.~1137--1155, 2003.
+\bibitem[\protect{Bregman} 94]{bregman1994auditory}
+A.~Bregman.
+\newblock {\em Auditory Scene Analysis: The Perceptual Organization of Sound}.
+\newblock A Bradford book. Bradford Books, 1994.
 
-\bibitem[\protect{Castana \& Vidal$^+$} 93]{CastanoVidal93}
-M.~Castana, E.~Vidal, F.~Casacuberta.
-\newblock Inference of stochastic regular languages through simple recurrent
-  networks.
-\newblock In {\em Grammatical Inference: Theory, Applications and Alternatives,
-  IEE Colloquium on}, pp. 16--1. IET, 1993.
+\bibitem[\protect{Bronkhorst} 00]{CocktailPartyProblem:2000}
+A.~Bronkhorst.
+\newblock The cocktail party phenomenon: A review of research on speech
+  intelligibility in multiple-talker conditions.
+\newblock Vol.~86, pp.~117--128, 01 2000.
 
-\bibitem[\protect{Chen \& Matusov$^+$} 16a]{Chen2016:guided}
-W.~Chen, E.~Matusov, S.~Khadivi, J.~Peter.
-\newblock Guided alignment training for topic-aware neural machine translation.
-\newblock {\em CoRR}, Vol. abs/1607.01628, 2016.
+\bibitem[\protect{Cardoso} 03]{Cardoso03blindsignal}
+J.-F. Cardoso.
+\newblock Blind signal separation: Statistical principles, 2003.
 
-\bibitem[\protect{Chen \& Matusov$^+$} 16b]{Chen2016}
-W.~Chen, E.~Matusov, S.~Khadivi, J.-T. Peter.
-\newblock Guided alignment training for topic-aware neural machine translation.
-\newblock Austion, Texas, October 2016. Association for Machine Translation in
-  the Americas.
+\bibitem[\protect{Chen} 17]{SingleChannelSourceSeparation}
+Z.~Chen.
+\newblock {\em {Single Channel auditory source separation with neural
+  network}}.
+\newblock {Dissertation}, Columbia University, 2017.
 
-\bibitem[\protect{Cho \& van Merrienboer$^+$} 14a]{DBLP:journals/corr/ChoMBB14}
-K.~Cho, B.~van Merrienboer, D.~Bahdanau, Y.~Bengio.
-\newblock On the properties of neural machine translation: Encoder-decoder
-  approaches.
-\newblock In {\em Proceedings of SSST-8, Eighth Workshop on Syntax, Semantics
-  and Structure in Statistical Translation}, pp. 103–--111, Doha, Qatar,
-  October 2014.
+\bibitem[\protect{Cherry} 53]{Cherry:1953}
+E.~C. Cherry.
+\newblock Some experiments on the recognition of speech, with one and with two
+  ears.
+\newblock {\em The Journal of the Acoustical Society of America}, Vol.~25,
+  No.~5, pp.~975--979, 1953.
 
-\bibitem[\protect{Cho \& van Merrienboer$^+$} 14b]{cho-EtAl:2014:EMNLP2014}
-K.~Cho, B.~van Merrienboer, C.~Gulcehre, D.~Bahdanau, F.~Bougares, H.~Schwenk,
-  Y.~Bengio.
-\newblock Learning phrase representations using rnn encoder--decoder for
-  statistical machine translation.
-\newblock In {\em Proceedings of the 2014 Conference on Empirical Methods in
-  Natural Language Processing (EMNLP)}, pp. 1724--1734, Doha, Qatar, October
-  2014. Association for Computational Linguistics.
+\bibitem[\protect{Evans \& McGettigan$^+$}
+  16]{MaskingEffectsInSpeechPerception}
+S.~Evans, C.~McGettigan, Z.~K. Agnew, S.~Rosen, S.~K. Scott.
+\newblock Getting the cocktail party started: Masking effects in speech
+  perception.
+\newblock {\em Journal of Cognitive Neuroscience}, Vol.~28, No.~3,
+  pp.~483--500, 2016.
 
-\bibitem[\protect{Cho} 15]{cho2015note}
-K.~Cho.
-\newblock Natural language understanding with distributed representation.
-\newblock Technical report, New York University, 2015.
-\newblock Lecture Note for DS-GA 3001.
+\bibitem[\protect{Golik \& T{\"u}ske$^+$} 15]{Golik2015ConvolutionalNN}
+P.~Golik, Z.~T{\"u}ske, R.~Schl{\"u}ter, H.~Ney.
+\newblock Convolutional neural networks for acoustic modeling of raw time
+  signal in lvcsr.
+\newblock In {\em INTERSPEECH}, 2015.
 
-\bibitem[\protect{Chorowski \& Bahdanau$^+$} 15a]{chorowski2015attention}
-J.~K. Chorowski, D.~Bahdanau, D.~Serdyuk, K.~Cho, Y.~Bengio.
-\newblock Attention-based models for speech recognition.
-\newblock In {\em Advances in Neural Information Processing Systems}, pp.
-  577--585, 2015.
+\bibitem[\protect{Goodfellow \& Bengio$^+$} 16]{Goodfellow-et-al-2016}
+I.~Goodfellow, Y.~Bengio, A.~Courville.
+\newblock {\em Deep Learning}.
+\newblock MIT Press, 2016.
+\newblock \url{http://www.deeplearningbook.org}.
 
-\bibitem[\protect{Chorowski \& Bahdanau$^+$} 15b]{Chorowski2015}
-J.~K. Chorowski, D.~Bahdanau, D.~Serdyuk, K.~Cho, Y.~Bengio.
-\newblock Attention-based models for speech recognition.
-\newblock In C.~Cortes, N.~D. Lawrence, D.~D. Lee, M.~Sugiyama, R.~Garnett,
-  editors, {\em Advances in Neural Information Processing Systems 28}, pp.
-  577--585. Curran Associates, Inc., 2015.
+\bibitem[\protect{Hea}]{HearingLoss}
+Millionslivewithhearingloss.
+\newblock
+  \url{http://www.who.int/pbd/deafness/news/Millionslivewithhearingloss.pdf}.
+\newblock Accessed: 2018-05-05.
 
-\bibitem[\protect{Chung \& Cho$^+$} 16a]{chung2016character}
-J.~Chung, K.~Cho, Y.~Bengio.
-\newblock A character-level decoder without explicit segmentation for neural
-  machine translation.
-\newblock {\em Proceedings of Association for Computational Linguistics (ACL)},
-  Vol., pp.~1693–1703, 2016.
+\bibitem[\protect{Hershey \& Chen$^+$} 16]{BasicDeepClustering:2016}
+J.~R. Hershey, Z.~Chen, J.~L. Roux, S.~Watanabe.
+\newblock Deep clustering: Discriminative embeddings for segmentation and
+  separation.
+\newblock In {\em 2016 IEEE International Conference on Acoustics, Speech and
+  Signal Processing (ICASSP)}, pp. 31--35, March 2016.
 
-\bibitem[\protect{Chung \& Cho$^+$} 16b]{char_decoder}
-J.~Chung, K.~Cho, Y.~Bengio.
-\newblock A character-level decoder without explicit segmentation for neural
-  machine translation.
-\newblock In {\em Proceedings of the 54th Annual Meeting of the Association for
-  Computational Linguistics, {ACL} 2016, August 7-12, 2016, Berlin, Germany,
-  Volume 1: Long Papers}, 2016.
+\bibitem[\protect{Hochreiter \& Schmidhuber}
+  97]{Hochreiter:1997:LSM:1246443.1246450}
+S.~Hochreiter, J.~Schmidhuber.
+\newblock Long short-term memory.
+\newblock {\em Neural Comput.}, Vol.~9, No.~8, pp.~1735--1780, Nov. 1997.
 
-\bibitem[\protect{Cohn \& Hoang$^+$} 16]{DBLP:journals/corr/CohnHVYDH16}
-T.~Cohn, C.~D.~V. Hoang, E.~Vymolova, K.~Yao, C.~Dyer, G.~Haffari.
-\newblock Incorporating structural alignment biases into an attentional neural
-  translation model.
-\newblock {\em CoRR}, Vol. abs/1601.01085, 2016.
+\bibitem[\protect{Isik \& Roux$^+$} 16]{DBLP:journals/corr/IsikRCWH16}
+Y.~Isik, J.~L. Roux, Z.~Chen, S.~Watanabe, J.~R. Hershey.
+\newblock Single-channel multi-speaker separation using deep clustering.
+\newblock {\em CoRR}, Vol. abs/1607.02173, 2016.
 
-\bibitem[\protect{Firat \& Cho$^+$} 16]{firat2016multi}
-O.~Firat, K.~Cho, B.~Sankaran, F.~T.~Y. Vural, Y.~Bengio.
-\newblock Multi-way, multilingual neural machine translation.
-\newblock {\em Computer Speech \& Language}, Vol., 2016.
+\bibitem[\protect{Kolbæk \& Yu$^+$} 17]{7979557}
+M.~Kolbæk, D.~Yu, Z.~H. Tan, J.~Jensen.
+\newblock Multitalker speech separation with utterance-level permutation
+  invariant training of deep recurrent neural networks.
+\newblock {\em IEEE/ACM Transactions on Audio, Speech, and Language
+  Processing}, Vol.~25, No.~10, pp.~1901--1913, Oct 2017.
 
-\bibitem[\protect{G{\"{u}}l{\c{c}}ehre \& Firat$^+$} 15]{Gulcehre}
-{\c{C}}.~G{\"{u}}l{\c{c}}ehre, O.~Firat, K.~Xu, K.~Cho, L.~Barrault, H.~Lin,
-  F.~Bougares, H.~Schwenk, Y.~Bengio.
-\newblock On using monolingual corpora in neural machine translation.
-\newblock {\em CoRR}, Vol. abs/1503.03535, 2015.
+\bibitem[\protect{Luo \& Mesgarani} 17]{TasNet}
+Y.~Luo, N.~Mesgarani.
+\newblock Tasnet: time-domain audio separation network for real-time,
+  single-channel speech separation.
+\newblock {\em CoRR}, Vol. abs/1711.00541, 2017.
 
-\bibitem[\protect{Jean \& Cho$^+$} 15]{jean}
-S.~Jean, K.~Cho, R.~Memisevic, Y.~Bengio.
-\newblock On using very large target vocabulary for neural machine translation.
-\newblock In {\em Proceedings of the 53rd Annual Meeting of the Association for
-  Computational Linguistics and the 7th International Joint Conference on
-  Natural Language Processing (Volume 1: Long Papers)}, pp. 1--10, Beijing,
-  China, July 2015. Association for Computational Linguistics.
+\bibitem[\protect{Mikolov \& Chen$^+$} 13]{DBLP:journals/corr/abs-1301-3781}
+T.~Mikolov, K.~Chen, G.~Corrado, J.~Dean.
+\newblock Efficient estimation of word representations in vector space.
+\newblock {\em CoRR}, Vol. abs/1301.3781, 2013.
 
-\bibitem[\protect{Lee \& Cho$^+$} 16]{fully_char_nmt}
-J.~Lee, K.~Cho, T.~Hofmann.
-\newblock Fully character-level neural machine translation without explicit
-  segmentation.
-\newblock {\em CoRR}, Vol. abs/1610.03017, 2016.
+\bibitem[\protect{Nam} 13]{DBLP:journals/corr/Nam13}
+S.~Nam.
+\newblock An uncertainty principle for discrete signals.
+\newblock {\em CoRR}, Vol. abs/1307.6321, 2013.
 
-\bibitem[\protect{Luong \& Pham$^+$} 15a]{DBLP:journals/corr/LuongPM15}
-M.~Luong, H.~Pham, C.~D. Manning.
-\newblock Effective approaches to attention-based neural machine translation.
-\newblock In {\em Proceedings of the 2015 Conference on Empirical Methods in
-  Natural Language Processing}, pp. 1412–--1421, Lisbon, Portugal, 2015.
+\bibitem[\protect{Pascanu \& Mikolov$^+$} 13]{Pascanu:2013:DTR:3042817.3043083}
+R.~Pascanu, T.~Mikolov, Y.~Bengio.
+\newblock On the difficulty of training recurrent neural networks.
+\newblock In {\em Proceedings of the 30th International Conference on
+  International Conference on Machine Learning - Volume 28}, ICML'13, pp.
+  III--1310--III--1318. JMLR.org, 2013.
 
-\bibitem[\protect{Luong \& Pham$^+$} 15b]{Luong-effective}
-M.-T. Luong, H.~Pham, C.~D. Manning.
-\newblock Effective approaches to attention-based neural machine translation.
-\newblock Vol., 2015.
+\bibitem[\protect{Rouat} 08]{4429320}
+J.~Rouat.
+\newblock Computational auditory scene analysis: Principles, algorithms, and
+  applications (wang, d. and brown, g.j., eds.; 2006) [book review].
+\newblock {\em IEEE Transactions on Neural Networks}, Vol.~19, No.~1,
+  pp.~199--199, Jan 2008.
 
-\bibitem[\protect{Mi \& Wang$^+$} 16]{Mi2016}
-H.~Mi, Z.~Wang, A.~Ittycheriah.
-\newblock Supervised attentions for neural machine translation.
-\newblock {\em arXiv preprint arXiv:1608.00112}, Vol., 2016.
+\bibitem[\protect{Steinhaus} 56]{Steinhaus56}
+H.~Steinhaus.
+\newblock {Sur la division des corp materiels en parties}.
+\newblock {\em Bull. Acad. Polon. Sci}, Vol.~1, pp.~801--804, 1956.
 
-\bibitem[\protect{Mikolov \& Karafi{\'a}t$^+$} 10]{MikolovKarafiat10}
-T.~Mikolov, M.~Karafi{\'a}t, L.~Burget, J.~Cernock{\`y}, S.~Khudanpur.
-\newblock Recurrent neural network based language model.
-\newblock In {\em Interspeech}, Vol.~2, ~3, 2010.
+\bibitem[\protect{Su \& Wu$^+$} 18]{DBLP:journals/corr/abs-1801-05119}
+J.~Su, S.~Wu, D.~Xiong, Y.~Lu, X.~Han, B.~Zhang.
+\newblock Variational recurrent neural machine translation.
+\newblock {\em CoRR}, Vol. abs/1801.05119, 2018.
 
-\bibitem[\protect{Och} 03]{Och2003}
-F.~J. Och.
-\newblock Minimum error rate training in statistical machine translation.
-\newblock In {\em Proceedings of the 41st Annual Meeting on Association for
-  Computational Linguistics - Volume 1}, ACL '03, pp. 160--167, Stroudsburg,
-  PA, USA, 2003. Association for Computational Linguistics.
+\bibitem[\protect{Sun \& {\"{O}}zay$^+$} 15]{DBLP:journals/corr/SunOO15}
+Z.~Sun, M.~{\"{O}}zay, T.~Okatani.
+\newblock Design of kernels in convolutional neural networks for image
+  classification.
+\newblock {\em CoRR}, Vol. abs/1511.09231, 2015.
 
-\bibitem[\protect{Schwenk \& Costa-Jussa$^+$} 07]{SchwenkCosta07}
-H.~Schwenk, M.~R. Costa-Jussa et~al.
-\newblock Smooth bilingual n-gram translation.
-\newblock In {\em In EMNLP}. Citeseer, 2007.
+\bibitem[\protect{Tun} 12]{TuneOutNoise:2012}
+Scientists tuning in to how you tune out noise.
+\newblock Technical report, Acoustical Society of America, May 2012.
 
-\bibitem[\protect{Schwenk} 07]{Schwenk07}
-H.~Schwenk.
-\newblock Continuous space language models.
-\newblock {\em Computer Speech \& Language}, Vol.~21, No.~3, pp.~492--518,
-  2007.
+\bibitem[\protect{Vincent \& Gribonval$^+$} 06]{AudioSpeechLanguageProcessing}
+E.~Vincent, R.~Gribonval, C.~Fevotte.
+\newblock Performance measurement in blind audio source separation.
+\newblock {\em IEEE Transactions on Audio, Speech, and Language Processing},
+  Vol.~14, No.~4, pp.~1462--1469, July 2006.
 
-\bibitem[\protect{Sennrich \& Haddow$^+$} 16a]{sennrich2015neural}
-R.~Sennrich, B.~Haddow, A.~Birch.
-\newblock Improving neural machine translation models with monolingual data.
-\newblock {\em Association for Computational Linguistics (ACL)}, Vol.,
-  pp.~86–96, 2016.
+\bibitem[\protect{{Wang} \& {Le Roux}$^+$} 18]{2018arXiv180410204W}
+Z.-Q. {Wang}, J.~{Le Roux}, D.~{Wang}, J.~R. {Hershey}.
+\newblock {End-to-End Speech Separation with Unfolded Iterative Phase
+  Reconstruction}.
+\newblock {\em ArXiv e-prints}, Vol., April 2018.
 
-\bibitem[\protect{Sennrich \& Haddow$^+$} 16b]{Sennrich2016:bpe}
-R.~Sennrich, B.~Haddow, A.~Birch.
-\newblock Neural machine translation of rare words with subword units.
-\newblock {\em Association for Computational Linguistics (ACL)}, Vol.,
-  pp.~1715–1725, 2016.
+\bibitem[\protect{Weng \& Yu$^+$} 15]{SpeechSepDeepLearning:2015}
+C.~Weng, D.~Yu, M.~L. Seltzer, J.~Droppo.
+\newblock Deep neural networks for single-channel multi-talker speech
+  recognition.
+\newblock {\em IEEE/ACM Transactions on Audio, Speech, and Language
+  Processing}, Vol.~23, No.~10, pp.~1670--1679, Oct 2015.
 
-\bibitem[\protect{Shen \& Cheng$^+$} 16]{shen2015minimum}
-S.~Shen, Y.~Cheng, Z.~He, W.~He, H.~Wu, M.~Sun, Y.~Liu.
-\newblock Minimum risk training for neural machine translation.
-\newblock {\em Association for Computational Linguistics (ACL)}, Vol., 2016.
+\bibitem[\protect{Zayed} 98]{664179}
+A.~I. Zayed.
+\newblock A convolution and product theorem for the fractional fourier
+  transform.
+\newblock {\em IEEE Signal Processing Letters}, Vol.~5, No.~4, pp.~101--103,
+  April 1998.
 
-\bibitem[\protect{Sukhbaatar \& Weston$^+$} 15]{sukhbaatar2015end}
-S.~Sukhbaatar, J.~Weston, R.~Fergus et~al.
-\newblock End-to-end memory networks.
-\newblock In {\em Advances in neural information processing systems}, pp.
-  2440--2448, 2015.
-
-\bibitem[\protect{Sundermeyer \& Schl{\"u}ter$^+$} 12]{SundermeyerSchlueter12}
-M.~Sundermeyer, R.~Schl{\"u}ter, H.~Ney.
-\newblock Lstm neural networks for language modeling.
-\newblock In {\em Interspeech}, pp. 194--197, 2012.
-
-\bibitem[\protect{Sutskever \& Vinyals$^+$} 14]{NIPS2014_5346}
-I.~Sutskever, O.~Vinyals, Q.~V.~V. Le.
-\newblock Sequence to sequence learning with neural networks.
-\newblock In Z.~Ghahramani, M.~Welling, C.~Cortes, N.~Lawrence, K.~Weinberger,
-  editors, {\em Advances in Neural Information Processing Systems 27}, pp.
-  3104--3112. Curran Associates, Inc., Monteal, Canada, 2014.
-
-\bibitem[\protect{Tu \& Lu$^+$} 16a]{DBLP:journals/corr/TuLLLL16}
-Z.~Tu, Z.~Lu, Y.~Liu, X.~Liu, H.~Li.
-\newblock Coverage-based neural machine translation.
-\newblock {\em CoRR}, Vol. abs/1601.04811, 2016.
-
-\bibitem[\protect{Tu \& Lu$^+$} 16b]{Tu2016}
-Z.~Tu, Z.~Lu, Y.~Liu, X.~Liu, H.~Li.
-\newblock Modeling coverage for neural machine translation.
-\newblock In {\em 54th Annual Meeting of the Association for Computational
-  Linguistics}, 2016.
-
-\bibitem[\protect{Waibel \& Hanazawa$^+$} 88]{NakamuraShikano89}
-A.~Waibel, T.~Hanazawa, G.~Hinton, K.~Shikano, K.~Lang.
-\newblock Phoneme recognition: neural networks vs. hidden markov models vs.
-  hidden markov models.
-\newblock In {\em Acoustics, Speech, and Signal Processing, 1988. ICASSP-88.,
-  1988 International Conference on}, pp. 107--110. IEEE, 1988.
-
-\bibitem[\protect{Wu \& Schuster$^+$} 16]{google_nmt}
-Y.~Wu, M.~Schuster, Z.~Chen, Q.~V. Le, M.~Norouzi, W.~Macherey, M.~Krikun,
-  Y.~Cao, Q.~Gao, Klaus et~al.
-\newblock Google's neural machine translation system: Bridging the gap between
-  human and machine translation.
-\newblock {\em CoRR}, Vol. abs/1609.08144, 2016.
-
-\bibitem[\protect{Xu \& Ba$^+$} 15]{xu2015show}
-K.~Xu, J.~Ba, R.~Kiros, K.~Cho, A.~Courville, R.~Salakhutdinov, R.~Zemel,
-  Y.~Bengio.
-\newblock Show, attend and tell: Neural image caption generation with visual
-  attention.
-\newblock In {\em International Conference on Machine Learning}, 2015.
-
-\bibitem[\protect{Yao \& Torabi$^+$} 15]{yao2015describing}
-L.~Yao, A.~Torabi, K.~Cho, N.~Ballas, C.~Pal, H.~Larochelle, A.~Courville.
-\newblock Describing videos by exploiting temporal structure.
-\newblock In {\em Proceedings of the IEEE International Conference on Computer
-  Vision}, pp. 4507--4515, 2015.
+\bibitem[\protect{Zeiler \& Krishnan$^+$} 10]{zeiler2010deconvolutional}
+M.~D. Zeiler, D.~Krishnan, G.~W. Taylor, R.~Fergus.
+\newblock Deconvolutional networks.
+\newblock In {\em Computer Vision and Pattern Recognition (CVPR), 2010 IEEE
+  Conference on}, pp. 2528--2535. IEEE, 2010.
 
 \end{thebibliography}
