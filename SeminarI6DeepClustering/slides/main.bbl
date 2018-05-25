@@ -5,7 +5,7 @@ F.~R. Bach, M.~I. Jordan.
 \newblock Learning spectral clustering, with application to speech separation.
 \newblock {\em J. Mach. Learn. Res.}, Vol.~7, pp.~1963--2001, Dec. 2006.
 
-\bibitem[\protect{Bregman} 94]{bregman1994auditory}
+\bibitem[\protect{Bregman} 94]{bregman}
 A.~Bregman.
 \newblock {\em Auditory Scene Analysis: The Perceptual Organization of Sound}.
 \newblock A Bradford book. Bradford Books, 1994.
@@ -32,6 +32,11 @@ E.~C. Cherry.
   ears.
 \newblock {\em The Journal of the Acoustical Society of America}, Vol.~25,
   No.~5, pp.~975--979, 1953.
+
+\bibitem[\protect{Dem}]{Demo}
+Automatic source separation demo.
+\newblock \url{http://www.merl.com/demos/deep-clustering}.
+\newblock Accessed: 2018-05-22.
 
 \bibitem[\protect{Evans \& McGettigan$^+$}
   16]{MaskingEffectsInSpeechPerception}
@@ -72,7 +77,7 @@ S.~Hochreiter, J.~Schmidhuber.
 \newblock Long short-term memory.
 \newblock {\em Neural Comput.}, Vol.~9, No.~8, pp.~1735--1780, Nov. 1997.
 
-\bibitem[\protect{Isik \& Roux$^+$} 16]{DBLP:journals/corr/IsikRCWH16}
+\bibitem[\protect{Isik \& Roux$^+$} 16]{DeepClustering2016}
 Y.~Isik, J.~L. Roux, Z.~Chen, S.~Watanabe, J.~R. Hershey.
 \newblock Single-channel multi-speaker separation using deep clustering.
 \newblock {\em CoRR}, Vol. abs/1607.02173, 2016.
@@ -84,7 +89,7 @@ M.~Kolbæk, D.~Yu, Z.~H. Tan, J.~Jensen.
 \newblock {\em IEEE/ACM Transactions on Audio, Speech, and Language
   Processing}, Vol.~25, No.~10, pp.~1901--1913, Oct 2017.
 
-\bibitem[\protect{Luo \& Mesgarani} 17]{TasNet}
+\bibitem[\protect{Luo \& Mesgarani} 17]{TasNet2017}
 Y.~Luo, N.~Mesgarani.
 \newblock Tasnet: time-domain audio separation network for real-time,
   single-channel speech separation.
@@ -107,7 +112,7 @@ R.~Pascanu, T.~Mikolov, Y.~Bengio.
   International Conference on Machine Learning - Volume 28}, ICML'13, pp.
   III--1310--III--1318. JMLR.org, 2013.
 
-\bibitem[\protect{Rouat} 08]{4429320}
+\bibitem[\protect{Rouat} 08]{CASABrown}
 J.~Rouat.
 \newblock Computational auditory scene analysis: Principles, algorithms, and
   applications (wang, d. and brown, g.j., eds.; 2006) [book review].

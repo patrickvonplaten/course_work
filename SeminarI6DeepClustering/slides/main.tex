@@ -279,36 +279,128 @@
 
 \section{Introduction}%
 \label{sec:introduction}
-\begin{frame}{Introduction}
+\begin{frame}{Source Separation}
 
 \begin{center}
 	\begin{figure}
-	\includegraphics[width=.15\textwidth]{images/separation_example.jpg}
-	\caption{Images with a Caption}
+	\includegraphics[width=.6\textwidth]{images/separation_example.jpg}
 	\end{figure}
 \end{center}
 
+\textbf{Demo} \cite{Demo}
+\begin{itemize}
+	\item Mixture
+	\item Source 1 
+	\item Source 2 
+\end{itemize}
 
-2 pages:
--1: Cocktail party problem \& Applications
--2: play sounds
+
+\end{frame}
+
+\begin{frame}{History \& Applications}
+
+\begin{itemize}
+	\setlength\itemsep{1em}
+	\item History
+	\begin{itemize}
+		\item Cocktail party problem - first definition of source separation problem \cite{Cherry:1953} 
+		\item Auditory scene analysis - first method for source separation \cite{bregman} 
+		\item Computational scene analysis \cite{CASABrown} 
+		\item Spectral Clustering \cite{Bach:2006} 
+		\item Deep neural networks for speech separation \cite{SpeechSepDeepLearning:2015} 
+		\item Deep Clustering \cite{DeepClustering2016}
+		\item TasNet \cite{TasNet2017}
+	\end{itemize}
+	
+	\item Applications
+	\begin{itemize}
+		\item Automatic meeting transcription 
+		\item Virtual assistant
+		\item Automatic subtitling of music/video
+	\end{itemize}
+\end{itemize}
+
+
 \end{frame}
 
 \section{Definition}%
 \label{sec:definition}
 \begin{frame}{Definition}
 
-1 page
+\begin{itemize}
+	\setlength\itemsep{1em}
+	\item Formal definition 
+	\begin{itemize}
+		\item Single-channel blind source separation
+		\item No spatial information: Single channel
+		\item No information about sources in advance: Blind
+	\end{itemize}
+	\item Mathematical definition
+	\begin{itemize}
+		\item Sources: $c = 1,...,C$
+		\item Discrete time stepts: $t = 1,...,T$
+		\item c-th source signal: $x_c(t)$
+		\item Mixture: $X(t) = \sum_{c=1}^{C} x_c(t)$
+		\item Goal: Recover $\{x_1(t),...,x_c(t)\}$ from $X(t)$
+	\end{itemize}
+\end{itemize}
+
 \end{frame}
 
 \section{Mathematical basics}%
 \label{sec:mathematical_basics}
-\begin{frame}{Mathematical basics}
+\begin{frame}{Short term fourier transform}
 
-3 pages:
-	1- Short term fourier transform
-	2- Spectrogram
-	3- Embedding
+\begin{itemize}
+	\setlength\itemsep{1em}
+	\item Fourier transform 
+	\begin{itemize}
+		\item $S(f) = \int_{\mathbb{R}}X(t)e^{-2{\pi}jft}dt$
+		\item Inverse Fourier transform: $X(t) = \int_{\mathbb{R}}X(f)e^{2{\pi}jft}df$
+		\item Signal $X(t)$ can be decomposed to sum of weighted ``base frequencies''
+		\item Fourier transform can be viewed as ``special convolution'' operation
+	\end{itemize}
+	\item Short term fourier transform
+	\begin{itemize}
+		\item Short term fourier transform: $S(f,t) = \int_{\mathbb{R}}X(\tau)w(\tau - t)e^{-2{\pi}jft}dt$ 
+		\item Uncertainty in signal processing: Time localization vs. frequency precision
+		\item Window function $w(\tau) = 0: \tau \not \in \left[-a, a \right]$ defines width of $(F,T)$ bins 
+	\end{itemize}
+\end{itemize}
+
+
+\end{frame}
+
+\begin{frame}{Spectrogram}
+
+\begin{itemize}
+	\item Shows the result of Short term fourier transform graphically
+	\item Answers the question \emph{Which frequencies are used at what time?}
+\end{itemize}
+
+\begin{center}
+	\begin{figure}
+		\includegraphics[width=.8\textwidth]{images/spectogram.png}
+	\end{figure}
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Embedding}
+
+	\begin{itemize}
+		\item Structure-preserving, injective mapping $f: X \to Y$
+		\item $Y$ is normed space: $d(y_1,y_2) \in \mathbb{R}, \forall y_1,y_2 \in Y$
+		\item Example is \emph{word2vec}: 
+			\begin{itemize}
+				\item ``house'' $\to \left[1, 8, -8, 4, 5, 3, 29, -34\right]^{T}$
+				\item ``car'' $\to \left[8,9, -8, 8, 5, 5, -34, -25\right]^{T}$
+				\item $d(f(\text{``house''}),f(\text{``car''})) = 64.19$ using euclidean distance norm
+			\end{itemize}
+	\end{itemize}
+
+
+
 \end{frame}
 
 \section{Conventional methods}%

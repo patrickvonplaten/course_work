@@ -4,11 +4,15 @@ The top-level auxiliary file: main.aux
 The style file: i6bibstyle.bst
 Database file #1: references.bib
 Warning--I didn't find a database entry for "BahdanauCB14"
+`year' is a missing field, not a string, for entry Demo
+while executing---line 1300 of file i6bibstyle.bst
+Warning--to sort, need author or key in Demo
 Warning--to sort, need author or key in TuneOutNoise:2012
 `year' is a missing field, not a string, for entry HearingLoss
 while executing---line 1300 of file i6bibstyle.bst
 Warning--to sort, need author or key in HearingLoss
 Warning--empty journal in CocktailPartyProblem:2000
+Warning--empty date in Demo
 Warning--empty pp. in Golik2015ConvolutionalNN
 Warning--there's no month in Golik2015ConvolutionalNN
 Warning--empty date in HearingLoss
@@ -22,45 +26,45 @@ while executing---line 1369 of file i6bibstyle.bst
 `volume' is a missing field, not a string, for entry 2018arXiv180410204W
 while executing---line 1369 of file i6bibstyle.bst
 Warning--there's no month in zeiler2010deconvolutional
-You've used 28 entries,
+You've used 29 entries,
             2542 wiz_defined-function locations,
-            749 strings with 9729 characters,
-and the built_in function-call counts, 10861 in all, are:
-= -- 1062
-> -- 452
+            755 strings with 9821 characters,
+and the built_in function-call counts, 11097 in all, are:
+= -- 1086
+> -- 453
 < -- 41
 + -- 145
 - -- 142
-* -- 949
-:= -- 1711
-add.period$ -- 86
-call.type$ -- 28
-change.case$ -- 182
-chr.to.int$ -- 28
-cite$ -- 40
-duplicate$ -- 450
-empty$ -- 778
+* -- 965
+:= -- 1736
+add.period$ -- 89
+call.type$ -- 29
+change.case$ -- 186
+chr.to.int$ -- 29
+cite$ -- 44
+duplicate$ -- 461
+empty$ -- 807
 format.name$ -- 202
-if$ -- 2202
+if$ -- 2257
 int.to.chr$ -- 1
 int.to.str$ -- 0
 missing$ -- 26
-newline$ -- 142
+newline$ -- 147
 num.names$ -- 78
-pop$ -- 167
+pop$ -- 180
 preamble$ -- 1
-purify$ -- 211
+purify$ -- 216
 quote$ -- 0
-skip$ -- 338
+skip$ -- 346
 stack$ -- 0
-substring$ -- 568
-swap$ -- 111
+substring$ -- 575
+swap$ -- 113
 text.length$ -- 29
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 216
-warning$ -- 10
+type$ -- 224
+warning$ -- 12
 while$ -- 74
-width$ -- 30
-write$ -- 361
-(There were 4 error messages)
+width$ -- 31
+write$ -- 372
+(There were 5 error messages)
