@@ -12,6 +12,7 @@
 \usepackage{textcomp}
 \usepackage{csquotes}
 \usepackage{amsmath}
+\usepackage[]{algorithm2e}
 \usepackage{lipsum}
 \usepackage{multicol}
 \usepackage{hyperref}
@@ -254,7 +255,6 @@
 
 
 
-
 \section{Literature}%
 \label{sec:literature}
 
@@ -364,7 +364,7 @@
 	\begin{itemize}
 		\item Short term fourier transform: $S(f,t) = \int_{\mathbb{R}}X(\tau)w(\tau - t)e^{-2{\pi}jft}dt$ 
 		\item Uncertainty in signal processing: Time localization vs. frequency precision
-		\item Window function $w(\tau) = 0: \tau \not \in \left[-a, a \right]$ defines width of $(F,T)$ bins 
+		\item Window function $w(\tau) = 0: \tau \not \in \left[-a, a \right]$ defines width of $(T,F)$ bins 
 	\end{itemize}
 \end{itemize}
 
@@ -397,7 +397,7 @@
 				\item ``car'' $\to \left[8,9, -8, 8, 5, 5, -34, -25\right]^{T}$
 				\item Using euclidean distance norm: $d(f(\text{``house''}),f(\text{``car''})) = 64.19$ 
 			\end{itemize}
-		\item Mapping $f: X \to Y$ can be modelled using a neural network
+		\item Mapping $f: X \to Y$ can be modelled using a neural network (see Deep Clustering)
 	\end{itemize}
 
 
@@ -406,10 +406,41 @@
 
 \section{Conventional methods}%
 \label{sec:conventional_methods}
-\begin{frame}{Conventional methods}
+\begin{frame}{Computational Auditory Scene Analysis \cite{CASABrown}}
 
-4 pages:
-	1- CASA
+\begin{algorithm}[H]
+	\RestyleAlgo{boxruled}
+	\LinesNumbered
+	\emph{\textbf{Input: }}(N, $X(t)$) \\
+	\emph{\textbf{Algorithm: }}
+	\begin{enumerate}
+		\item Segmentation:
+			\begin{itemize}
+				\item \small{ X(t) is transformed into (T,F) bins using STFT }
+				\item (T,F) regions are defined using Segmenation rules 
+			\end{itemize}
+		\item Grouping:
+			\begin{itemize}
+				\item \small{ $(T,F)$ regions are combined to streams corresponding to sound sources}
+				\item Auditory masks are created using different streams
+			\end{itemize}
+	\end{enumerate}
+	\emph{\textbf{Output: }}$(\{x_1(t), ..., x_N(t)\})$
+\end{algorithm}
+	\vspace{10mm}
+\begin{itemize}
+	\item Motivated by Auditory Scene Analysis \cite{bregman}
+	\item Model tries to imitate the human auditory system
+	\item Segmentation \& Grouping rules are f.e. based on:
+	\begin{itemize}
+		\item Rhythm, Periodicity, Proximity in frequency and time
+		\item Common spatial location, Continuous or smooth transition
+	\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Spectral Clustering}
 	2-4 Spectral Clustering
 \end{frame}
 

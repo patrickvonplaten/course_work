@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.17)  25 MAY 2018 18:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.17)  25 MAY 2018 23:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1394,41 +1394,89 @@ Package csquotes Info: ... configuration file loaded successfully.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/csquotes/csquotes.cfg
 File: csquotes.cfg 
 ))
-(/usr/local/texlive/2016/texmf-dist/tex/latex/lipsum/lipsum.sty
+(/usr/local/texlive/2016/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
+Package: algorithm2e 2013/01/06 v5.00 algorithms environments
+\c@AlgoLine=\count180
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\algocf@hangindent=\skip60
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/tools/xspace.sty
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/relsize/relsize.sty
+Package: relsize 2013/03/29 ver 4.1
+)
+********************************************************
+Package `algorithm2e' Release 5.1 -- october 19 2015 --
+- algorithm2e-announce@lirmm.fr mailing list for announcement about releases
+- algorithm2e-discussion@lirmm.fr mailing list for discussion about package
+subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
+- Author: Christophe Fiorio (christophe.fiorio@umontpellier.fr)
+********************************************************
+\skiptotal=\skip61
+\skiplinenumber=\skip62
+\skiprule=\skip63
+\skiphlne=\skip64
+\skiptext=\skip65
+\skiplength=\skip66
+\algomargin=\skip67
+\skipalgocfslide=\skip68
+\algowidth=\dimen262
+\inoutsize=\dimen263
+\inoutindent=\dimen264
+\interspacetitleruled=\dimen265
+\interspacealgoruled=\dimen266
+\interspacetitleboxruled=\dimen267
+\algocf@ruledwidth=\skip69
+\algocf@inoutbox=\box53
+\algocf@inputbox=\box54
+\AlCapSkip=\skip70
+\AlCapHSkip=\skip71
+\algoskipindent=\skip72
+\algocf@nlbox=\box55
+\algocf@hangingbox=\box56
+\algocf@untilbox=\box57
+\algocf@skipuntil=\skip73
+\algocf@capbox=\box58
+\algoheightruledefault=\skip74
+\algoheightrule=\skip75
+\algotitleheightruledefault=\skip76
+\algotitleheightrule=\skip77
+\c@algocfline=\count181
+\c@algocfproc=\count182
+\c@algocf=\count183
+\algocf@algoframe=\box59
+\algocf@algobox=\box60
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/lipsum/lipsum.sty
 Package: lipsum 2014/07/27 v1.3 150 paragraphs of Lorem Ipsum dummy text
-\c@lips@count=\count180
+\c@lips@count=\count184
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2016/04/07 v1.8p multicolumn formatting (FMi)
-\c@tracingmulticols=\count181
-\mult@box=\box53
-\multicol@leftmargin=\dimen262
-\c@unbalance=\count182
-\c@collectmore=\count183
-\doublecol@number=\count184
-\multicoltolerance=\count185
-\multicolpretolerance=\count186
-\full@width=\dimen263
-\page@free=\dimen264
-\premulticols=\dimen265
-\postmulticols=\dimen266
-\multicolsep=\skip60
-\multicolbaselineskip=\skip61
-\partial@page=\box54
-\last@line=\box55
-\maxbalancingoverflow=\dimen267
-\mult@rightbox=\box56
-\mult@grightbox=\box57
-\mult@gfirstbox=\box58
-\mult@firstbox=\box59
-\@tempa=\box60
-\@tempa=\box61
-\@tempa=\box62
-\@tempa=\box63
-\@tempa=\box64
-\@tempa=\box65
-\@tempa=\box66
-\@tempa=\box67
+\c@tracingmulticols=\count185
+\mult@box=\box61
+\multicol@leftmargin=\dimen268
+\c@unbalance=\count186
+\c@collectmore=\count187
+\doublecol@number=\count188
+\multicoltolerance=\count189
+\multicolpretolerance=\count190
+\full@width=\dimen269
+\page@free=\dimen270
+\premulticols=\dimen271
+\postmulticols=\dimen272
+\multicolsep=\skip78
+\multicolbaselineskip=\skip79
+\partial@page=\box62
+\last@line=\box63
+\maxbalancingoverflow=\dimen273
+\mult@rightbox=\box64
+\mult@grightbox=\box65
+\mult@gfirstbox=\box66
+\mult@firstbox=\box67
 \@tempa=\box68
 \@tempa=\box69
 \@tempa=\box70
@@ -1438,39 +1486,40 @@ Package: multicol 2016/04/07 v1.8p multicolumn formatting (FMi)
 \@tempa=\box74
 \@tempa=\box75
 \@tempa=\box76
-\c@columnbadness=\count187
-\c@finalcolumnbadness=\count188
-\last@try=\dimen268
-\multicolovershoot=\dimen269
-\multicolundershoot=\dimen270
-\mult@nat@firstbox=\box77
-\colbreak@box=\box78
-\mc@col@check@num=\count189
+\@tempa=\box77
+\@tempa=\box78
+\@tempa=\box79
+\@tempa=\box80
+\@tempa=\box81
+\@tempa=\box82
+\@tempa=\box83
+\@tempa=\box84
+\c@columnbadness=\count191
+\c@finalcolumnbadness=\count192
+\last@try=\dimen274
+\multicolovershoot=\dimen275
+\multicolundershoot=\dimen276
+\mult@nat@firstbox=\box85
+\colbreak@box=\box86
+\mc@col@check@num=\count193
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/tools/tabularx.sty
 Package: tabularx 2016/02/03 v2.11 `tabularx' package (DPC)
-\TX@col@width=\dimen271
-\TX@old@table=\dimen272
-\TX@old@col=\dimen273
-\TX@target=\dimen274
-\TX@delta=\dimen275
-\TX@cols=\count190
+\TX@col@width=\dimen277
+\TX@old@table=\dimen278
+\TX@old@col=\dimen279
+\TX@target=\dimen280
+\TX@delta=\dimen281
+\TX@cols=\count194
 \TX@ftn=\toks53
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/rotating.sty
 Package: rotating 2016/05/22 v2.16c rotated objects in LaTeX
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/base/ifthen.sty
-Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
-)
-\c@r@tfl@t=\count191
-\rotFPtop=\skip62
-\rotFPbot=\skip63
-\rot@float@box=\box79
+\c@r@tfl@t=\count195
+\rotFPtop=\skip80
+\rotFPbot=\skip81
+\rot@float@box=\box87
 \rot@mess@toks=\toks54
-)
-(/usr/local/texlive/2016/texmf-dist/tex/latex/tools/xspace.sty
-Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/themes/font/beamerfontthem
 eserif.sty
@@ -1478,23 +1527,23 @@ Package: beamerfontthemeserif 2010/06/17  (rcs-revision d02a7cf4d8ae)
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/subfigure/subfigure.sty
 Package: subfigure 2002/03/15 v2.1.5 subfigure package
-\subfigtopskip=\skip64
-\subfigcapskip=\skip65
-\subfigcaptopadj=\dimen276
-\subfigbottomskip=\skip66
-\subfigcapmargin=\dimen277
-\subfiglabelskip=\skip67
-\c@subfigure=\count192
-\c@lofdepth=\count193
-\c@subtable=\count194
-\c@lotdepth=\count195
+\subfigtopskip=\skip82
+\subfigcapskip=\skip83
+\subfigcaptopadj=\dimen282
+\subfigbottomskip=\skip84
+\subfigcapmargin=\dimen283
+\subfiglabelskip=\skip85
+\c@subfigure=\count196
+\c@lofdepth=\count197
+\c@subtable=\count198
+\c@lotdepth=\count199
 
 ****************************************
 * Local config file subfigure.cfg used *
 ****************************************
 (/usr/local/texlive/2016/texmf-dist/tex/latex/subfigure/subfigure.cfg)
-\subfig@top=\skip68
-\subfig@bottom=\skip69
+\subfig@top=\skip86
+\subfig@bottom=\skip87
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/wasysym/wasysym.sty
 Package: wasysym 2003/10/30 v2.0 Wasy-2 symbol support package
@@ -1508,7 +1557,7 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count196
+\c@section@level=\count266
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/romannum/romannum.sty
 Package: romannum 2009/09/03 v1.0b roman numerals
@@ -1523,7 +1572,7 @@ Package: pgf 2015/08/07 v3.0.1a (rcs-revision 1.15)
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.cod
 e.tex
 File: pgfmoduleshapes.code.tex 2014/03/21  (rcs-revision 1.35)
-\pgfnodeparttextbox=\box80
+\pgfnodeparttextbox=\box88
 )
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.
 tex
@@ -1532,8 +1581,8 @@ File: pgfmoduleplot.code.tex 2015/08/03  (rcs-revision 1.13)
 (/usr/local/texlive/2016/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
 -0-65.sty
 Package: pgfcomp-version-0-65 2007/07/03 v3.0.1a (rcs-revision 1.7)
-\pgf@nodesepstart=\dimen278
-\pgf@nodesepend=\dimen279
+\pgf@nodesepstart=\dimen284
+\pgf@nodesepend=\dimen285
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
 -1-18.sty
@@ -1548,8 +1597,8 @@ Package: pgfcomp-version-1-18 2007/07/23 v3.0.1a (rcs-revision 1.1)
 Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
 
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
-\pgffor@iter=\dimen280
-\pgffor@skip=\dimen281
+\pgffor@iter=\dimen286
+\pgffor@skip=\dimen287
 \pgffor@stack=\toks55
 \pgffor@toks=\toks56
 ))
@@ -1560,32 +1609,32 @@ Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothan
 dlers.code.tex
 File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
-\pgf@plot@mark@count=\count197
-\pgfplotmarksize=\dimen282
+\pgf@plot@mark@count=\count267
+\pgfplotmarksize=\dimen288
 )
-\tikz@lastx=\dimen283
-\tikz@lasty=\dimen284
-\tikz@lastxsaved=\dimen285
-\tikz@lastysaved=\dimen286
-\tikzleveldistance=\dimen287
-\tikzsiblingdistance=\dimen288
-\tikz@figbox=\box81
-\tikz@figbox@bg=\box82
-\tikz@tempbox=\box83
-\tikz@tempbox@bg=\box84
-\tikztreelevel=\count198
-\tikznumberofchildren=\count199
-\tikznumberofcurrentchild=\count266
-\tikz@fig@count=\count267
+\tikz@lastx=\dimen289
+\tikz@lasty=\dimen290
+\tikz@lastxsaved=\dimen291
+\tikz@lastysaved=\dimen292
+\tikzleveldistance=\dimen293
+\tikzsiblingdistance=\dimen294
+\tikz@figbox=\box89
+\tikz@figbox@bg=\box90
+\tikz@tempbox=\box91
+\tikz@tempbox@bg=\box92
+\tikztreelevel=\count268
+\tikznumberofchildren=\count269
+\tikznumberofcurrentchild=\count270
+\tikz@fig@count=\count271
 
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.cod
 e.tex
 File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
-\pgfmatrixcurrentrow=\count268
-\pgfmatrixcurrentcolumn=\count269
-\pgf@matrix@numberofcolumns=\count270
+\pgfmatrixcurrentrow=\count272
+\pgfmatrixcurrentcolumn=\count273
+\pgf@matrix@numberofcolumns=\count274
 )
-\tikz@expandcount=\count271
+\tikz@expandcount=\count275
 
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibrarytopaths.code.tex
@@ -1605,37 +1654,37 @@ L3 Module: l3tl 2016/03/26 v6465 L3 Token lists
 L3 Module: l3str 2016/03/24 v6441 L3 Strings
 L3 Module: l3seq 2015/08/05 v5777 L3 Sequences and stacks
 L3 Module: l3int 2016/03/24 v6441 L3 Integers
-\c_max_int=\count272
-\l_tmpa_int=\count273
-\l_tmpb_int=\count274
-\g_tmpa_int=\count275
-\g_tmpb_int=\count276
+\c_max_int=\count276
+\l_tmpa_int=\count277
+\l_tmpb_int=\count278
+\g_tmpa_int=\count279
+\g_tmpb_int=\count280
 L3 Module: l3quark 2015/08/17 v5855 L3 Quarks
 L3 Module: l3prg 2015/11/01 v6216 L3 Control structures
-\g__prg_map_int=\count277
+\g__prg_map_int=\count281
 L3 Module: l3clist 2015/09/02 v5901 L3 Comma separated lists
 L3 Module: l3token 2016/04/03 v6470 L3 Experimental token manipulation
 L3 Module: l3prop 2016/01/05 v6366 L3 Property lists
 L3 Module: l3msg 2016/03/26 v6464 L3 Messages
 L3 Module: l3file 2016/03/25 v6458 L3 File and I/O operations
-\l_iow_line_count_int=\count278
-\l__iow_target_count_int=\count279
-\l__iow_current_line_int=\count280
-\l__iow_current_word_int=\count281
-\l__iow_current_indentation_int=\count282
+\l_iow_line_count_int=\count282
+\l__iow_target_count_int=\count283
+\l__iow_current_line_int=\count284
+\l__iow_current_word_int=\count285
+\l__iow_current_indentation_int=\count286
 L3 Module: l3skip 2016/01/05 v6366 L3 Dimensions and skips
-\c_zero_dim=\dimen289
-\c_max_dim=\dimen290
-\l_tmpa_dim=\dimen291
-\l_tmpb_dim=\dimen292
-\g_tmpa_dim=\dimen293
-\g_tmpb_dim=\dimen294
-\c_zero_skip=\skip70
-\c_max_skip=\skip71
-\l_tmpa_skip=\skip72
-\l_tmpb_skip=\skip73
-\g_tmpa_skip=\skip74
-\g_tmpb_skip=\skip75
+\c_zero_dim=\dimen295
+\c_max_dim=\dimen296
+\l_tmpa_dim=\dimen297
+\l_tmpb_dim=\dimen298
+\g_tmpa_dim=\dimen299
+\g_tmpb_dim=\dimen300
+\c_zero_skip=\skip88
+\c_max_skip=\skip89
+\l_tmpa_skip=\skip90
+\l_tmpb_skip=\skip91
+\g_tmpa_skip=\skip92
+\g_tmpb_skip=\skip93
 \c_zero_muskip=\muskip12
 \c_max_muskip=\muskip13
 \l_tmpa_muskip=\muskip14
@@ -1643,93 +1692,93 @@ L3 Module: l3skip 2016/01/05 v6366 L3 Dimensions and skips
 \g_tmpa_muskip=\muskip16
 \g_tmpb_muskip=\muskip17
 L3 Module: l3keys 2015/11/17 v6284 L3 Key-value interfaces
-\g__keyval_level_int=\count283
-\l_keys_choice_int=\count284
+\g__keyval_level_int=\count287
+\l_keys_choice_int=\count288
 L3 Module: l3fp 2016/03/26 v6465 L3 Floating points
-\c__fp_leading_shift_int=\count285
-\c__fp_middle_shift_int=\count286
-\c__fp_trailing_shift_int=\count287
-\c__fp_big_leading_shift_int=\count288
-\c__fp_big_middle_shift_int=\count289
-\c__fp_big_trailing_shift_int=\count290
-\c__fp_Bigg_leading_shift_int=\count291
-\c__fp_Bigg_middle_shift_int=\count292
-\c__fp_Bigg_trailing_shift_int=\count293
+\c__fp_leading_shift_int=\count289
+\c__fp_middle_shift_int=\count290
+\c__fp_trailing_shift_int=\count291
+\c__fp_big_leading_shift_int=\count292
+\c__fp_big_middle_shift_int=\count293
+\c__fp_big_trailing_shift_int=\count294
+\c__fp_Bigg_leading_shift_int=\count295
+\c__fp_Bigg_middle_shift_int=\count296
+\c__fp_Bigg_trailing_shift_int=\count297
 L3 Module: l3box 2015/08/09 v5822 L3 Experimental boxes
-\c_empty_box=\box85
-\l_tmpa_box=\box86
-\l_tmpb_box=\box87
-\g_tmpa_box=\box88
-\g_tmpb_box=\box89
+\c_empty_box=\box93
+\l_tmpa_box=\box94
+\l_tmpb_box=\box95
+\g_tmpa_box=\box96
+\g_tmpb_box=\box97
 L3 Module: l3coffins 2016/05/17 v6508 L3 Coffin code layer
-\l__coffin_internal_box=\box90
-\l__coffin_internal_dim=\dimen295
-\l__coffin_offset_x_dim=\dimen296
-\l__coffin_offset_y_dim=\dimen297
-\l__coffin_x_dim=\dimen298
-\l__coffin_y_dim=\dimen299
-\l__coffin_x_prime_dim=\dimen300
-\l__coffin_y_prime_dim=\dimen301
-\c_empty_coffin=\box91
-\l__coffin_aligned_coffin=\box92
-\l__coffin_aligned_internal_coffin=\box93
-\l_tmpa_coffin=\box94
-\l_tmpb_coffin=\box95
-\l__coffin_display_coffin=\box96
-\l__coffin_display_coord_coffin=\box97
-\l__coffin_display_pole_coffin=\box98
-\l__coffin_display_offset_dim=\dimen302
-\l__coffin_display_x_dim=\dimen303
-\l__coffin_display_y_dim=\dimen304
+\l__coffin_internal_box=\box98
+\l__coffin_internal_dim=\dimen301
+\l__coffin_offset_x_dim=\dimen302
+\l__coffin_offset_y_dim=\dimen303
+\l__coffin_x_dim=\dimen304
+\l__coffin_y_dim=\dimen305
+\l__coffin_x_prime_dim=\dimen306
+\l__coffin_y_prime_dim=\dimen307
+\c_empty_coffin=\box99
+\l__coffin_aligned_coffin=\box100
+\l__coffin_aligned_internal_coffin=\box101
+\l_tmpa_coffin=\box102
+\l_tmpb_coffin=\box103
+\l__coffin_display_coffin=\box104
+\l__coffin_display_coord_coffin=\box105
+\l__coffin_display_pole_coffin=\box106
+\l__coffin_display_offset_dim=\dimen308
+\l__coffin_display_x_dim=\dimen309
+\l__coffin_display_y_dim=\dimen310
 L3 Module: l3color 2014/08/23 v5354 L3 Experimental color support
 L3 Module: l3sys 2015/09/25 v6087 L3 Experimental system/runtime functions
 L3 Module: l3candidates 2016/05/13 v6484 L3 Experimental additions to l3kernel
-\l__box_top_dim=\dimen305
-\l__box_bottom_dim=\dimen306
-\l__box_left_dim=\dimen307
-\l__box_right_dim=\dimen308
-\l__box_top_new_dim=\dimen309
-\l__box_bottom_new_dim=\dimen310
-\l__box_left_new_dim=\dimen311
-\l__box_right_new_dim=\dimen312
-\l__box_internal_box=\box99
-\l__coffin_bounding_shift_dim=\dimen313
-\l__coffin_left_corner_dim=\dimen314
-\l__coffin_right_corner_dim=\dimen315
-\l__coffin_bottom_corner_dim=\dimen316
-\l__coffin_top_corner_dim=\dimen317
-\l__coffin_scaled_total_height_dim=\dimen318
-\l__coffin_scaled_width_dim=\dimen319
+\l__box_top_dim=\dimen311
+\l__box_bottom_dim=\dimen312
+\l__box_left_dim=\dimen313
+\l__box_right_dim=\dimen314
+\l__box_top_new_dim=\dimen315
+\l__box_bottom_new_dim=\dimen316
+\l__box_left_new_dim=\dimen317
+\l__box_right_new_dim=\dimen318
+\l__box_internal_box=\box107
+\l__coffin_bounding_shift_dim=\dimen319
+\l__coffin_left_corner_dim=\dimen320
+\l__coffin_right_corner_dim=\dimen321
+\l__coffin_bottom_corner_dim=\dimen322
+\l__coffin_top_corner_dim=\dimen323
+\l__coffin_scaled_total_height_dim=\dimen324
+\l__coffin_scaled_width_dim=\dimen325
 L3 Module: l3luatex 2016/03/26 v6465 L3 Experimental LuaTeX-specific functions
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/l3kernel/l3pdfmode.def
 File: l3pdfmode.def 2016/03/26 v6465 L3 Experimental driver: PDF mode
-\l__driver_color_stack_int=\count294
-\l__driver_tmp_box=\box100
+\l__driver_color_stack_int=\count298
+\l__driver_tmp_box=\box108
 ))
 Package: minibox 2013/06/21 v0.2a Another type of box.
-\l_minibox_rule_dim=\dimen320
-\l_minibox_pad_dim=\dimen321
+\l_minibox_rule_dim=\dimen326
+\l_minibox_pad_dim=\dimen327
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/numprint/numprint.sty
 Package: numprint 2012/08/20 v1.39 Print numbers (HH)
-\c@nprt@mantissa@digitsbefore=\count295
-\c@nprt@mantissa@digitsafter=\count296
-\c@nprt@exponent@digitsbefore=\count297
-\c@nprt@exponent@digitsafter=\count298
-\nprt@digitwidth=\skip76
-\nprt@sepwidth=\skip77
-\nprt@decimalwidth=\skip78
-\nprt@blockwidth=\skip79
+\c@nprt@mantissa@digitsbefore=\count299
+\c@nprt@mantissa@digitsafter=\count300
+\c@nprt@exponent@digitsbefore=\count301
+\c@nprt@exponent@digitsafter=\count302
+\nprt@digitwidth=\skip94
+\nprt@sepwidth=\skip95
+\nprt@decimalwidth=\skip96
+\nprt@blockwidth=\skip97
 \nprt@digittoks=\toks57
 \nprt@pretoks=\toks58
 \nprt@posttoks=\toks59
-\nprt@thisdigit=\count299
-\nprt@curpos=\count300
-\nprt@rndpos=\count301
-\c@nprt@digitsfirstblock=\count302
-\c@nprt@blockcnt=\count303
-\c@nprt@cntprint=\count304
+\nprt@thisdigit=\count303
+\nprt@curpos=\count304
+\nprt@rndpos=\count305
+\c@nprt@digitsfirstblock=\count306
+\c@nprt@blockcnt=\count307
+\c@nprt@cntprint=\count308
 
 No configuration file `numprint.cfg' found.)
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
@@ -1783,26 +1832,26 @@ File: tikzlibraryshapes.multipart.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1
 shapes.multipart.code.tex
 File: pgflibraryshapes.multipart.code.tex 2010/01/07 v3.0.1a (rcs-revision 1.2)
 
-\pgfnodepartlowerbox=\box101
-\pgfnodeparttwobox=\box102
-\pgfnodepartthreebox=\box103
-\pgfnodepartfourbox=\box104
-\pgfnodeparttwentybox=\box105
-\pgfnodepartnineteenbox=\box106
-\pgfnodeparteighteenbox=\box107
-\pgfnodepartseventeenbox=\box108
-\pgfnodepartsixteenbox=\box109
-\pgfnodepartfifteenbox=\box110
-\pgfnodepartfourteenbox=\box111
-\pgfnodepartthirteenbox=\box112
-\pgfnodeparttwelvebox=\box113
-\pgfnodepartelevenbox=\box114
-\pgfnodeparttenbox=\box115
-\pgfnodepartninebox=\box116
-\pgfnodeparteightbox=\box117
-\pgfnodepartsevenbox=\box118
-\pgfnodepartsixbox=\box119
-\pgfnodepartfivebox=\box120
+\pgfnodepartlowerbox=\box109
+\pgfnodeparttwobox=\box110
+\pgfnodepartthreebox=\box111
+\pgfnodepartfourbox=\box112
+\pgfnodeparttwentybox=\box113
+\pgfnodepartnineteenbox=\box114
+\pgfnodeparteighteenbox=\box115
+\pgfnodepartseventeenbox=\box116
+\pgfnodepartsixteenbox=\box117
+\pgfnodepartfifteenbox=\box118
+\pgfnodepartfourteenbox=\box119
+\pgfnodepartthirteenbox=\box120
+\pgfnodeparttwelvebox=\box121
+\pgfnodepartelevenbox=\box122
+\pgfnodeparttenbox=\box123
+\pgfnodepartninebox=\box124
+\pgfnodeparteightbox=\box125
+\pgfnodepartsevenbox=\box126
+\pgfnodepartsixbox=\box127
+\pgfnodepartfivebox=\box128
 )))
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibrarypositioning.code.tex
@@ -1820,13 +1869,13 @@ File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
 ))
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 232.
+(hyperref)                removing `\<def>-command' on input line 233.
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\inst' on input line 232.
+(hyperref)                removing `\inst' on input line 233.
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 232.
+(hyperref)                removing `\<def>-command' on input line 233.
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\and' on input line 232.
+(hyperref)                removing `\and' on input line 233.
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
@@ -1834,29 +1883,29 @@ Package csquotes Info: Redefining alias 'default' -> 'english'.
  (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 238.
-LaTeX Font Info:    ... okay on input line 238.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 238.
-LaTeX Font Info:    ... okay on input line 238.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 238.
-LaTeX Font Info:    ... okay on input line 238.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 238.
-LaTeX Font Info:    ... okay on input line 238.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 238.
-LaTeX Font Info:    ... okay on input line 238.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 238.
-LaTeX Font Info:    ... okay on input line 238.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 238.
-LaTeX Font Info:    ... okay on input line 238.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 238.
-LaTeX Font Info:    ... okay on input line 238.
-LaTeX Font Info:    Try loading font information for T1+phv on input line 238.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 239.
+LaTeX Font Info:    ... okay on input line 239.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 239.
+LaTeX Font Info:    ... okay on input line 239.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 239.
+LaTeX Font Info:    ... okay on input line 239.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 239.
+LaTeX Font Info:    ... okay on input line 239.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 239.
+LaTeX Font Info:    ... okay on input line 239.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 239.
+LaTeX Font Info:    ... okay on input line 239.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 239.
+LaTeX Font Info:    ... okay on input line 239.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 239.
+LaTeX Font Info:    ... okay on input line 239.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 239.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <21.89> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 238.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 239.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1894,16 +1943,16 @@ LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <21.89> not available
 
 (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count305
-\scratchdimen=\dimen322
-\scratchbox=\box121
-\nofMPsegments=\count306
-\nofMParguments=\count307
+\scratchcounter=\count309
+\scratchdimen=\dimen328
+\scratchbox=\box129
+\nofMPsegments=\count310
+\nofMParguments=\count311
 \everyMPshowfont=\toks60
-\MPscratchCnt=\count308
-\MPscratchDim=\dimen323
-\MPnumerator=\count309
-\makeMPintoPDFobject=\count310
+\MPscratchCnt=\count312
+\MPscratchDim=\dimen329
+\MPnumerator=\count313
+\makeMPintoPDFobject=\count314
 \everyMPtoPDFconversion=\toks61
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -1920,11 +1969,11 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 ABD: EveryShipout initializing macros
-\AtBeginShipoutBox=\box122
-Package hyperref Info: Link coloring OFF on input line 238.
-LaTeX Info: Redefining \ref on input line 238.
-LaTeX Info: Redefining \pageref on input line 238.
-LaTeX Info: Redefining \nameref on input line 238.
+\AtBeginShipoutBox=\box130
+Package hyperref Info: Link coloring OFF on input line 239.
+LaTeX Info: Redefining \ref on input line 239.
+LaTeX Info: Redefining \pageref on input line 239.
+LaTeX Info: Redefining \nameref on input line 239.
  (./main.out) (./main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
@@ -1954,45 +2003,45 @@ Dictionary: translator-numbers-dictionary, Language: English
 r-theorem-dictionary/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \includegraphics on input line 238.
+LaTeX Info: Redefining \includegraphics on input line 239.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 ) (./main.nav)
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10.56> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 238.
-LaTeX Font Info:    Calculating math sizes for size <10.56> on input line 238.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 239.
+LaTeX Font Info:    Calculating math sizes for size <10.56> on input line 239.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7.39195> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 238.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 239.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5.28> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 238.
-LaTeX Font Info:    Try loading font information for U+wasy on input line 238.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 239.
+LaTeX Font Info:    Try loading font information for U+wasy on input line 239.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2003/10/30 v2.0 Wasy-2 symbol font definitions
 )
 LaTeX Font Warning: Font shape `U/wasy/b/n' in size <7.39195> not available
-(Font)              Font shape `U/wasy/m/n' tried instead on input line 238.
+(Font)              Font shape `U/wasy/m/n' tried instead on input line 239.
 LaTeX Font Warning: Font shape `U/wasy/b/n' in size <5.28> not available
-(Font)              Font shape `U/wasy/m/n' tried instead on input line 238.
+(Font)              Font shape `U/wasy/m/n' tried instead on input line 239.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <31.53> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 243.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 244.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <26.28> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 243.
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 243.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 244.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 244.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
 LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <21.89> not available
-(Font)              Font shape `T1/pcr/b/n' tried instead on input line 243.
-LaTeX Font Info:    Calculating math sizes for size <21.89> on input line 243.
+(Font)              Font shape `T1/pcr/b/n' tried instead on input line 244.
+LaTeX Font Info:    Calculating math sizes for size <21.89> on input line 244.
 LaTeX Font Warning: Font shape `U/wasy/b/n' in size <21.89> not available
-(Font)              size <20.74> substituted on input line 243.
+(Font)              size <20.74> substituted on input line 244.
 LaTeX Font Warning: Font shape `U/wasy/b/n' in size <15.32292> not available
-(Font)              size <14.4> substituted on input line 243.
+(Font)              size <14.4> substituted on input line 244.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <4> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 243.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 244.
  [1
 
 {/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./main
@@ -2038,7 +2087,19 @@ LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10.94499> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 405.
  [9
 
-] [10
+]
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <18.25> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 441.
+LaTeX Font Info:    Calculating math sizes for size <18.25> on input line 441.
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <9.125> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 441.
+LaTeX Font Warning: Font shape `U/wasy/b/n' in size <18.25> not available
+(Font)              size <17.28> substituted on input line 441.
+LaTeX Font Warning: Font shape `U/wasy/b/n' in size <12.77493> not available
+(Font)              size <12> substituted on input line 441.
+LaTeX Font Warning: Font shape `U/wasy/b/n' in size <9.125> not available
+(Font)              Font shape `U/wasy/m/n' tried instead on input line 441.
+ [10
 
 ] [11
 
@@ -2051,6 +2112,8 @@ LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10.94499> not available
 
 ] [15
 
+] [16
+
 ]
 Package epstopdf Info: Source file: <logos/logo_hltpr_rgb_RWTH.eps>
 (epstopdf)                    date: 2016-11-29 16:30:04
@@ -2061,16 +2124,16 @@ Package epstopdf Info: Source file: <logos/logo_hltpr_rgb_RWTH.eps>
 (epstopdf)                    size: 4558 bytes
 (epstopdf)             Command: <repstopdf --outfile=logos/logo_hltpr_rgb_RWTH-
 eps-converted-to.pdf logos/logo_hltpr_rgb_RWTH.eps>
-(epstopdf)             \includegraphics on input line 464.
+(epstopdf)             \includegraphics on input line 495.
 Package epstopdf Info: Output file is already uptodate.
 
-<logos/logo_hltpr_rgb_RWTH-eps-converted-to.pdf, id=274, 171.64125pt x 48.18pt>
+<logos/logo_hltpr_rgb_RWTH-eps-converted-to.pdf, id=286, 171.64125pt x 48.18pt>
 File: logos/logo_hltpr_rgb_RWTH-eps-converted-to.pdf Graphic file (type pdf)
 <use logos/logo_hltpr_rgb_RWTH-eps-converted-to.pdf>
 Package pdftex.def Info: logos/logo_hltpr_rgb_RWTH-eps-converted-to.pdf used on
- input line 464.
+ input line 495.
 (pdftex.def)             Requested size: 94.0494pt x 26.4pt.
- [16
+ [17
 
  <./logos/logo_hltpr_rgb_RWTH-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <logos/logo_hltpr_rgb_RWTH.eps>
@@ -2082,35 +2145,33 @@ Package epstopdf Info: Source file: <logos/logo_hltpr_rgb_RWTH.eps>
 (epstopdf)                    size: 4558 bytes
 (epstopdf)             Command: <repstopdf --outfile=logos/logo_hltpr_rgb_RWTH-
 eps-converted-to.pdf logos/logo_hltpr_rgb_RWTH.eps>
-(epstopdf)             \includegraphics on input line 476.
+(epstopdf)             \includegraphics on input line 507.
 Package epstopdf Info: Output file is already uptodate.
 File: logos/logo_hltpr_rgb_RWTH-eps-converted-to.pdf Graphic file (type pdf)
 
 <use logos/logo_hltpr_rgb_RWTH-eps-converted-to.pdf>
 Package pdftex.def Info: logos/logo_hltpr_rgb_RWTH-eps-converted-to.pdf used on
- input line 476.
+ input line 507.
 (pdftex.def)             Requested size: 94.0494pt x 26.4pt.
- [17
+ [18
 
-] [18
+] [19
 
 ]
-<images/salientpoints.png, id=308, 459.7175pt x 352.31625pt>
+<images/salientpoints.png, id=321, 459.7175pt x 352.31625pt>
 File: images/salientpoints.png Graphic file (type png)
 
 <use images/salientpoints.png>
-Package pdftex.def Info: images/salientpoints.png used on input line 520.
+Package pdftex.def Info: images/salientpoints.png used on input line 551.
 (pdftex.def)             Requested size: 117.36282pt x 89.94427pt.
 
-<images/grid.png, id=309, 459.7175pt x 352.31625pt>
+<images/grid.png, id=322, 459.7175pt x 352.31625pt>
 File: images/grid.png Graphic file (type png)
  <use images/grid.png>
-Package pdftex.def Info: images/grid.png used on input line 520.
+Package pdftex.def Info: images/grid.png used on input line 551.
 (pdftex.def)             Requested size: 112.47905pt x 86.19727pt.
-LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <18.25> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 520.
 
-[19
+[20
 
  <./images/salientpoints.png> <./images/grid.png>]
 Package epstopdf Info: Source file: <images/car.eps>
@@ -2121,47 +2182,44 @@ Package epstopdf Info: Source file: <images/car.eps>
 (epstopdf)                    size: 26625 bytes
 (epstopdf)             Command: <repstopdf --outfile=images/car-eps-converted-t
 o.pdf images/car.eps>
-(epstopdf)             \includegraphics on input line 540.
+(epstopdf)             \includegraphics on input line 571.
 Package epstopdf Info: Output file is already uptodate.
 
-<images/car-eps-converted-to.pdf, id=323, 250.9375pt x 187.70125pt>
+<images/car-eps-converted-to.pdf, id=335, 250.9375pt x 187.70125pt>
 File: images/car-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/car-eps-converted-to.pdf>
-Package pdftex.def Info: images/car-eps-converted-to.pdf used on input line 540
+Package pdftex.def Info: images/car-eps-converted-to.pdf used on input line 571
 .
 (pdftex.def)             Requested size: 156.48775pt x 117.05809pt.
- [20
+ [21
 
  <./images/car-eps-converted-to.pdf>]
 LaTeX Font Info:    Font shape `T1/phv/bx/sc' in size <21.89> not available
-(Font)              Font shape `T1/phv/b/sc' tried instead on input line 583.
+(Font)              Font shape `T1/phv/b/sc' tried instead on input line 614.
 
-[21
+[22
 
-] [22
+] [23
 
 ]
-LaTeX Font Info:    Calculating math sizes for size <26.28> on input line 591.
+LaTeX Font Info:    Calculating math sizes for size <26.28> on input line 622.
 LaTeX Font Warning: Font shape `U/wasy/b/n' in size <26.28> not available
-(Font)              size <24.88> substituted on input line 591.
+(Font)              size <24.88> substituted on input line 622.
 LaTeX Font Warning: Font shape `U/wasy/b/n' in size <18.3959> not available
-(Font)              size <17.28> substituted on input line 591.
+(Font)              size <17.28> substituted on input line 622.
 LaTeX Font Warning: Font shape `U/wasy/b/n' in size <13.14> not available
-(Font)              size <12> substituted on input line 591.
+(Font)              size <12> substituted on input line 622.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <18.3959> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 591.
- [23
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 622.
+ [24
 
-] [24
+] [25
 
-] (./main.bbl) [25
+] (./main.bbl) [26
 
  </usr/local/texlive/2016/texmf-dist/tex/latex/beamer/art/beamericonarticle.pdf
->] [26
-
-
-] [27
+>] [27
 
 
 ] [28
@@ -2176,6 +2234,9 @@ LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <18.3959> not available
 ] [31
 
 
+] [32
+
+
 ]
 \tf@nav=\write6
 \openout6 = `main.nav'.
@@ -2186,42 +2247,46 @@ LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <18.3959> not available
 \tf@snm=\write8
 \openout8 = `main.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 637.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 637.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 668.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 668.
 
 (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 637.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 637.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 668.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 668.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 762B8CFB134800ADCD3E15A1D79DBD85;549.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.4pt have occurred.
 LaTeX Warning: There were undefined references.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 637.
- ) 
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 668.
+ )
+(\end occurred inside a group at level 1)
+
+### simple group (level 1) entered at line 1061 ({)
+### bottom level 
 Here is how much of TeX's memory you used:
- 33421 strings out of 493014
- 654629 string characters out of 6133351
- 858563 words of memory out of 5000000
- 36117 multiletter control sequences out of 15000+600000
- 53290 words of font info for 110 fonts, out of 8000000 for 9000
+ 34343 strings out of 493014
+ 669639 string characters out of 6133351
+ 892851 words of memory out of 5000000
+ 37027 multiletter control sequences out of 15000+600000
+ 58490 words of font info for 132 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,13n,76p,10337b,543s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
-exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/t
-exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/te
-xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/tex
-live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/tex
-live/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local
-/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/l
-ocal/texlive/2016/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/local/tex
-live/2016/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/20
-16/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/local/texlive/2016/tex
-mf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on main.pdf (31 pages, 1982226 bytes).
+ 55i,13n,76p,10337b,10312s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc
+}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb
+></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
+/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><
+/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.p
+fb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm
+10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb><
+/usr/local/texlive/2016/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/lo
+cal/texlive/2016/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/local/te
+xlive/2016/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on main.pdf (32 pages, 1984354 bytes).
 PDF statistics:
- 549 PDF objects out of 1000 (max. 8388607)
- 477 compressed objects within 5 object streams
- 119 named destinations out of 1000 (max. 500000)
+ 562 PDF objects out of 1000 (max. 8388607)
+ 489 compressed objects within 5 object streams
+ 121 named destinations out of 1000 (max. 500000)
  161 words of extra memory for PDF output out of 10000 (max. 10000000)
 
