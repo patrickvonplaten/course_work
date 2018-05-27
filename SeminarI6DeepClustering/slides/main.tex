@@ -375,7 +375,7 @@
 
 \begin{itemize}
 	\item Shows the result of Short term fourier transform graphically
-	\item Answers the question \emph{Which frequencies are used at what time?}
+	\item Answers the question: \emph{Which frequencies are used at what time?}
 \end{itemize}
 
 \begin{center}
@@ -431,7 +431,7 @@
 \begin{itemize}
 	\item Motivated by Auditory Scene Analysis \cite{bregman}
 	\item Model tries to imitate the human auditory system
-	\item Segmentation \& Grouping rules are f.e. based on:
+	\item Segmentation \& grouping rules are f.e. based on:
 	\begin{itemize}
 		\item Rhythm, Periodicity, Proximity in frequency and time
 		\item Common spatial location, Continuous or smooth transition
@@ -441,21 +441,77 @@
 \end{frame}
 
 \begin{frame}{Spectral Clustering}
-	2-4 Spectral Clustering
+\begin{itemize}
+	\item Similarity matrix $W \in \mathbb{R}^{P \times P}$ derived from dataset $D \in \mathbb{R}^P$
+\end{itemize}
+\vspace{10mm}
+\begin{algorithm}[H]
+	\RestyleAlgo{boxruled}
+	\LinesNumbered
+	\emph{\textbf{Input: }} $(W, k)$ \\
+	\emph{\textbf{Algorithm: }}
+	\begin{itemize}
+		\item Compute first $k$ eigenvectors $U: (u_1,... ,u_k) \in \mathbb{R}^{P \times K}$ of $D^{-\frac{1}{2}}WD^{-\frac{1}{2}}$ with $D = \text{diag}(W)$
+		\item Transpose $U$ to $V = U^T: (v_1,... ,v_p) \in \mathbb{R}^{K \times P}$ 
+		\item Initialise \textbf{A} and perform K-means using $(v_1,... ,v_p)$ 
+	\end{itemize}
+	\emph{\textbf{Output: }}$\textbf{A} = (A_1, A_2, ..., A_k)$
+\end{algorithm}
+\end{frame}
+
+\begin{frame}{Spectral Clustering for Source Separation \cite{Bach:2006}}
+	
+How to derive similarity matrix from mixed signal: \emph{$X(t) \to W$}?
+\vspace{10mm}
+\begin{enumerate}
+	\item Short term fourier transform: $X(t) \to (F,T)$ bins
+	\item Apply handcrafted features: \emph{Energy, continuity, common fate cues, pitch estimation, timbre}: $(F,T) \to (s_1, ...,s_n): n = F \times T$
+	\item Create similarity matrix for every feature with $W_k(i,j) = f_k(s_i,s_j)$
+	\item ``Concatenate'' similarity matrixes using weight vector $\alpha$: $W = W_1^{\alpha_1} \odot ... \odot W_k^{\alpha_k} \odot ...$ 
+	\item Apply spectral clustering algorithm 
+\end{enumerate}
+\vspace{10mm}
+
+\begin{itemize}
+	\item $\alpha$ is trained using labeled data $\to$ \emph{Linear regression}
+\end{itemize}
+
+
 \end{frame}
 
 \section{Problems with deep learning}%
 \label{sec:problems_with_deep_learning}
-\begin{frame}{Problems with deep learning}
+\begin{frame}{Output dimension problem}
 
-1 page: explain both problems
+\begin{itemize}
+	\item size(output layer) = \textbf{\#sources} $\times$ size(input layer)
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Output permutation problem}
+	\begin{itemize}
+		\item Label of speaker has to be assigned to ``matching'' part of output layer
+	\end{itemize}
+
 \end{frame}
 
 \section{Deep clustering}%
 \label{sec:deep_clustering}
-\begin{frame}{Deep clustering}
+\begin{frame}{Deep clustering }
 
-6 pages:
+\begin{enumerate}
+	\item $X(t) \to (F,T)$ bins
+	\item $(f,t) \text{ bin } \to \text{ embedding }$ (encoding) via neural network
+	\item Encodings are clustered via K-Means
+\end{enumerate}
+
+\begin{figure}[htpb]
+	\centering
+	\includegraphics[width=0.8\linewidth]{images/deepClustering.png}
+	\caption{Deep clustering \cite{DCFigure}}
+\end{figure}
+
 \end{frame}
 
 \section{TasNet}%

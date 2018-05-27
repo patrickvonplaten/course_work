@@ -16,6 +16,13 @@ A.~Bronkhorst.
   intelligibility in multiple-talker conditions.
 \newblock Vol.~86, pp.~117--128, 01 2000.
 
+\bibitem[\protect{Brown} 08]{CASABrown}
+Brown.
+\newblock Computational auditory scene analysis: Principles, algorithms, and
+  applications (wang, d. and brown, g.j., eds.; 2006) [book review].
+\newblock {\em IEEE Transactions on Neural Networks}, Vol.~19, No.~1,
+  pp.~199--199, Jan 2008.
+
 \bibitem[\protect{Cardoso} 03]{Cardoso03blindsignal}
 J.-F. Cardoso.
 \newblock Blind signal separation: Statistical principles, 2003.
@@ -32,6 +39,9 @@ E.~C. Cherry.
   ears.
 \newblock {\em The Journal of the Acoustical Society of America}, Vol.~25,
   No.~5, pp.~975--979, 1953.
+
+\bibitem[\protect{DCF}]{DCFigure}
+Deep clustering figure.
 
 \bibitem[\protect{Dem}]{Demo}
 Automatic source separation demo.
@@ -111,13 +121,6 @@ R.~Pascanu, T.~Mikolov, Y.~Bengio.
 \newblock In {\em Proceedings of the 30th International Conference on
   International Conference on Machine Learning - Volume 28}, ICML'13, pp.
   III--1310--III--1318. JMLR.org, 2013.
-
-\bibitem[\protect{Rouat} 08]{CASABrown}
-J.~Rouat.
-\newblock Computational auditory scene analysis: Principles, algorithms, and
-  applications (wang, d. and brown, g.j., eds.; 2006) [book review].
-\newblock {\em IEEE Transactions on Neural Networks}, Vol.~19, No.~1,
-  pp.~199--199, Jan 2008.
 
 \bibitem[\protect{Steinhaus} 56]{Steinhaus56}
 H.~Steinhaus.

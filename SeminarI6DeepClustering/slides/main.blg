@@ -3,15 +3,24 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: i6bibstyle.bst
 Database file #1: references.bib
+I was expecting a `,' or a `}'---line 21 of file references.bib
+ :      
+ :      howpublished = {\url{http://www.merl.com/demos/ deep-clustering}},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
 Warning--I didn't find a database entry for "BahdanauCB14"
 `year' is a missing field, not a string, for entry Demo
 while executing---line 1300 of file i6bibstyle.bst
 Warning--to sort, need author or key in Demo
+`year' is a missing field, not a string, for entry DCFigure
+while executing---line 1300 of file i6bibstyle.bst
+Warning--to sort, need author or key in DCFigure
 Warning--to sort, need author or key in TuneOutNoise:2012
 `year' is a missing field, not a string, for entry HearingLoss
 while executing---line 1300 of file i6bibstyle.bst
 Warning--to sort, need author or key in HearingLoss
 Warning--empty journal in CocktailPartyProblem:2000
+Warning--empty date in DCFigure
 Warning--empty date in Demo
 Warning--empty pp. in Golik2015ConvolutionalNN
 Warning--there's no month in Golik2015ConvolutionalNN
@@ -26,45 +35,45 @@ while executing---line 1369 of file i6bibstyle.bst
 `volume' is a missing field, not a string, for entry 2018arXiv180410204W
 while executing---line 1369 of file i6bibstyle.bst
 Warning--there's no month in zeiler2010deconvolutional
-You've used 29 entries,
+You've used 30 entries,
             2542 wiz_defined-function locations,
-            755 strings with 9821 characters,
-and the built_in function-call counts, 11097 in all, are:
-= -- 1086
-> -- 453
+            758 strings with 9856 characters,
+and the built_in function-call counts, 11313 in all, are:
+= -- 1105
+> -- 454
 < -- 41
 + -- 145
 - -- 142
-* -- 965
-:= -- 1736
-add.period$ -- 89
-call.type$ -- 29
-change.case$ -- 186
-chr.to.int$ -- 29
-cite$ -- 44
-duplicate$ -- 461
-empty$ -- 807
+* -- 981
+:= -- 1756
+add.period$ -- 90
+call.type$ -- 30
+change.case$ -- 190
+chr.to.int$ -- 30
+cite$ -- 48
+duplicate$ -- 472
+empty$ -- 836
 format.name$ -- 202
-if$ -- 2257
+if$ -- 2307
 int.to.chr$ -- 1
 int.to.str$ -- 0
 missing$ -- 26
-newline$ -- 147
+newline$ -- 150
 num.names$ -- 78
-pop$ -- 180
+pop$ -- 191
 preamble$ -- 1
-purify$ -- 216
+purify$ -- 221
 quote$ -- 0
-skip$ -- 346
+skip$ -- 359
 stack$ -- 0
-substring$ -- 575
-swap$ -- 113
+substring$ -- 582
+swap$ -- 115
 text.length$ -- 29
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 224
-warning$ -- 12
+type$ -- 232
+warning$ -- 14
 while$ -- 74
-width$ -- 31
-write$ -- 372
-(There were 5 error messages)
+width$ -- 32
+write$ -- 379
+(There were 7 error messages)
