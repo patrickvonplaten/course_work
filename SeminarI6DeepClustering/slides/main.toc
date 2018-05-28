@@ -16,13 +16,13 @@
 \vspace {-20pt}
 \beamer@sectionintoc {7}{Deep clustering}{15}{0}{7}
 \vspace {-20pt}
-\beamer@sectionintoc {8}{TasNet}{16}{0}{8}
+\beamer@sectionintoc {8}{TasNet}{20}{0}{8}
 \vspace {-20pt}
-\beamer@sectionintoc {9}{Comparison \& Results}{17}{0}{9}
+\beamer@sectionintoc {9}{Comparison \& Results}{24}{0}{9}
 \vspace {-20pt}
-\beamer@sectionintoc {10}{Conclusion}{18}{0}{10}
+\beamer@sectionintoc {10}{Conclusion}{25}{0}{10}
 \setcounter {tocdepth}{-5}
 \vspace {-20pt}
-\beamer@sectionintoc {11}{Appendix}{28}{0}{11}
+\beamer@sectionintoc {11}{Appendix}{30}{0}{11}
 \setcounter {tocdepth}{2}
 \vspace {-20pt}

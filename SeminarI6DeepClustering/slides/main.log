@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.17)  27 MAY 2018 14:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.17)  28 MAY 2018 11:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2106,15 +2106,30 @@ LaTeX Font Warning: Font shape `U/wasy/b/n' in size <9.125> not available
 ]
 [12
 
-] [13
+] <images/outputDimProblem.png, id=245, 335.2525pt x 137.51375pt>
+File: images/outputDimProblem.png Graphic file (type png)
 
-] [14
+<use images/outputDimProblem.png>
+Package pdftex.def Info: images/outputDimProblem.png used on input line 496.
+(pdftex.def)             Requested size: 625.96295pt x 256.75702pt.
+ [13
 
-] <images/deepClustering.png, id=266, 974.64125pt x 402.50375pt>
+ <./images/outputDimProblem.png>]
+<images/permutationDimProblem.png, id=258, 368.37625pt x 193.72375pt>
+File: images/permutationDimProblem.png Graphic file (type png)
+
+<use images/permutationDimProblem.png>
+Package pdftex.def Info: images/permutationDimProblem.png used on input line 50
+9.
+(pdftex.def)             Requested size: 625.96295pt x 329.18411pt.
+ [14
+
+ <./images/permutationDimProblem.png>] <images/deepClustering.png, id=270, 974.
+64125pt x 402.50375pt>
 File: images/deepClustering.png Graphic file (type png)
 
 <use images/deepClustering.png>
-Package pdftex.def Info: images/deepClustering.png used on input line 515.
+Package pdftex.def Info: images/deepClustering.png used on input line 527.
 (pdftex.def)             Requested size: 625.96295pt x 258.51048pt.
  [15
 
@@ -2125,118 +2140,80 @@ Package pdftex.def Info: images/deepClustering.png used on input line 515.
 
 ] [18
 
-]
-Package epstopdf Info: Source file: <logos/logo_hltpr_rgb_RWTH.eps>
-(epstopdf)                    date: 2016-11-29 16:30:04
-(epstopdf)                    size: 8001 bytes
-(epstopdf)             Output file: <logos/logo_hltpr_rgb_RWTH-eps-converted-to
-.pdf>
-(epstopdf)                    date: 2018-02-02 12:12:02
-(epstopdf)                    size: 4558 bytes
-(epstopdf)             Command: <repstopdf --outfile=logos/logo_hltpr_rgb_RWTH-
-eps-converted-to.pdf logos/logo_hltpr_rgb_RWTH.eps>
-(epstopdf)             \includegraphics on input line 551.
-Package epstopdf Info: Output file is already uptodate.
+] <images/dcExample.png, id=315, 984.67876pt x 568.1225pt>
+File: images/dcExample.png Graphic file (type png)
 
-<logos/logo_hltpr_rgb_RWTH-eps-converted-to.pdf, id=312, 171.64125pt x 48.18pt>
-File: logos/logo_hltpr_rgb_RWTH-eps-converted-to.pdf Graphic file (type pdf)
-<use logos/logo_hltpr_rgb_RWTH-eps-converted-to.pdf>
-Package pdftex.def Info: logos/logo_hltpr_rgb_RWTH-eps-converted-to.pdf used on
- input line 551.
-(pdftex.def)             Requested size: 94.0494pt x 26.4pt.
+<use images/dcExample.png>
+Package pdftex.def Info: images/dcExample.png used on input line 595.
+(pdftex.def)             Requested size: 743.32579pt x 428.89085pt.
  [19
 
- <./logos/logo_hltpr_rgb_RWTH-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <logos/logo_hltpr_rgb_RWTH.eps>
-(epstopdf)                    date: 2016-11-29 16:30:04
-(epstopdf)                    size: 8001 bytes
-(epstopdf)             Output file: <logos/logo_hltpr_rgb_RWTH-eps-converted-to
-.pdf>
-(epstopdf)                    date: 2018-02-02 12:12:02
-(epstopdf)                    size: 4558 bytes
-(epstopdf)             Command: <repstopdf --outfile=logos/logo_hltpr_rgb_RWTH-
-eps-converted-to.pdf logos/logo_hltpr_rgb_RWTH.eps>
-(epstopdf)             \includegraphics on input line 563.
-Package epstopdf Info: Output file is already uptodate.
-File: logos/logo_hltpr_rgb_RWTH-eps-converted-to.pdf Graphic file (type pdf)
+ <./images/dcExample.png>]
+<images/tasNetAll.png, id=328, 948.54375pt x 432.61626pt>
+File: images/tasNetAll.png Graphic file (type png)
 
-<use logos/logo_hltpr_rgb_RWTH-eps-converted-to.pdf>
-Package pdftex.def Info: logos/logo_hltpr_rgb_RWTH-eps-converted-to.pdf used on
- input line 563.
-(pdftex.def)             Requested size: 94.0494pt x 26.4pt.
+<use images/tasNetAll.png>
+Package pdftex.def Info: images/tasNetAll.png used on input line 611.
+(pdftex.def)             Requested size: 625.96295pt x 285.5012pt.
  [20
 
-] [21
+ <./images/tasNetAll.png>]
+<images/tasNetEncoding.png, id=340, 387.4475pt x 373.395pt>
+File: images/tasNetEncoding.png Graphic file (type png)
 
-]
-<images/salientpoints.png, id=347, 459.7175pt x 352.31625pt>
-File: images/salientpoints.png Graphic file (type png)
+<use images/tasNetEncoding.png>
+Package pdftex.def Info: images/tasNetEncoding.png used on input line 641.
+(pdftex.def)             Requested size: 338.0134pt x 325.75694pt.
+ [21
 
-<use images/salientpoints.png>
-Package pdftex.def Info: images/salientpoints.png used on input line 607.
-(pdftex.def)             Requested size: 117.36282pt x 89.94427pt.
+ <./images/tasNetEncoding.png>]
+<images/tasNetSeparation.png, id=352, 242.9075pt x 380.42125pt>
+File: images/tasNetSeparation.png Graphic file (type png)
 
-<images/grid.png, id=348, 459.7175pt x 352.31625pt>
-File: images/grid.png Graphic file (type png)
- <use images/grid.png>
-Package pdftex.def Info: images/grid.png used on input line 607.
-(pdftex.def)             Requested size: 112.47905pt x 86.19727pt.
+<use images/tasNetSeparation.png>
+Package pdftex.def Info: images/tasNetSeparation.png used on input line 665.
+(pdftex.def)             Requested size: 262.89995pt x 411.73114pt.
+ [22
 
-[22
+ <./images/tasNetSeparation.png>]
+<images/tasNetDecoding.png, id=364, 326.21875pt x 418.56375pt>
+File: images/tasNetDecoding.png Graphic file (type png)
 
- <./images/salientpoints.png> <./images/grid.png>]
-Package epstopdf Info: Source file: <images/car.eps>
-(epstopdf)                    date: 2013-02-12 16:51:14
-(epstopdf)                    size: 290138 bytes
-(epstopdf)             Output file: <images/car-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-02-02 12:20:04
-(epstopdf)                    size: 26625 bytes
-(epstopdf)             Command: <repstopdf --outfile=images/car-eps-converted-t
-o.pdf images/car.eps>
-(epstopdf)             \includegraphics on input line 627.
-Package epstopdf Info: Output file is already uptodate.
-
-<images/car-eps-converted-to.pdf, id=361, 250.9375pt x 187.70125pt>
-File: images/car-eps-converted-to.pdf Graphic file (type pdf)
-
-<use images/car-eps-converted-to.pdf>
-Package pdftex.def Info: images/car-eps-converted-to.pdf used on input line 627
-.
-(pdftex.def)             Requested size: 156.48775pt x 117.05809pt.
+<use images/tasNetDecoding.png>
+Package pdftex.def Info: images/tasNetDecoding.png used on input line 688.
+(pdftex.def)             Requested size: 262.89995pt x 337.34866pt.
  [23
 
- <./images/car-eps-converted-to.pdf>]
-LaTeX Font Info:    Font shape `T1/phv/bx/sc' in size <21.89> not available
-(Font)              Font shape `T1/phv/b/sc' tried instead on input line 670.
-
-[24
-
-] [25
+ <./images/tasNetDecoding.png>] [24
 
 ]
-LaTeX Font Info:    Calculating math sizes for size <26.28> on input line 678.
-LaTeX Font Warning: Font shape `U/wasy/b/n' in size <26.28> not available
-(Font)              size <24.88> substituted on input line 678.
-LaTeX Font Warning: Font shape `U/wasy/b/n' in size <18.3959> not available
-(Font)              size <17.28> substituted on input line 678.
-LaTeX Font Warning: Font shape `U/wasy/b/n' in size <13.14> not available
-(Font)              size <12> substituted on input line 678.
-LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <18.3959> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 678.
+[25
+
+]
+LaTeX Font Info:    Font shape `T1/phv/bx/sc' in size <21.89> not available
+(Font)              Font shape `T1/phv/b/sc' tried instead on input line 745.
  [26
 
 ] [27
 
-] (./main.bbl) [28
+]
+LaTeX Font Info:    Calculating math sizes for size <26.28> on input line 753.
+LaTeX Font Warning: Font shape `U/wasy/b/n' in size <26.28> not available
+(Font)              size <24.88> substituted on input line 753.
+LaTeX Font Warning: Font shape `U/wasy/b/n' in size <18.3959> not available
+(Font)              size <17.28> substituted on input line 753.
+LaTeX Font Warning: Font shape `U/wasy/b/n' in size <13.14> not available
+(Font)              size <12> substituted on input line 753.
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <18.3959> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 753.
+ [28
+
+] [29
+
+] (./main.bbl) [30
 
  </usr/local/texlive/2016/texmf-dist/tex/latex/beamer/art/beamericonarticle.pdf
->] [29
-
-
-] [30
-
-
-] [31
+>] [31
 
 
 ] [32
@@ -2246,6 +2223,12 @@ LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <18.3959> not available
 
 
 ] [34
+
+
+] [35
+
+
+] [36
 
 
 ]
@@ -2258,31 +2241,31 @@ LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <18.3959> not available
 \tf@snm=\write8
 \openout8 = `main.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 724.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 724.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 799.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 799.
 
 (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 724.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 724.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 799.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 799.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 762B8CFB134800ADCD3E15A1D79DBD85;549.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.4pt have occurred.
 LaTeX Warning: There were undefined references.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 724.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 799.
  )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 34359 strings out of 493014
- 669898 string characters out of 6133351
- 893890 words of memory out of 5000000
- 37037 multiletter control sequences out of 15000+600000
+ 34369 strings out of 493014
+ 670092 string characters out of 6133351
+ 893884 words of memory out of 5000000
+ 37046 multiletter control sequences out of 15000+600000
  58490 words of font info for 132 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,13n,76p,10337b,10336s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,13n,76p,10337b,10360s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc
 }</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb
 ></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
@@ -2295,10 +2278,10 @@ b></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm1
 usr/local/texlive/2016/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/loc
 al/texlive/2016/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/local/tex
 live/2016/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on main.pdf (34 pages, 3422959 bytes).
+Output written on main.pdf (36 pages, 4273667 bytes).
 PDF statistics:
- 592 PDF objects out of 1000 (max. 8388607)
- 513 compressed objects within 6 object streams
- 126 named destinations out of 1000 (max. 500000)
- 166 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 614 PDF objects out of 1000 (max. 8388607)
+ 526 compressed objects within 6 object streams
+ 130 named destinations out of 1000 (max. 500000)
+ 181 words of extra memory for PDF output out of 10000 (max. 10000000)
 

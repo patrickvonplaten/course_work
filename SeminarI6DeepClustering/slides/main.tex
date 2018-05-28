@@ -487,12 +487,24 @@ How to derive similarity matrix from mixed signal: \emph{$X(t) \to W$}?
 	\item size(output layer) = \textbf{\#sources} $\times$ size(input layer)
 \end{itemize}
 
+\begin{figure}[htpb]
+	\centering
+	\includegraphics[width=0.8\linewidth]{images/outputDimProblem.png}
+	\caption{Output dimension problem}
+\end{figure}
+
 \end{frame}
 
 \begin{frame}{Output permutation problem}
 	\begin{itemize}
 		\item Label of speaker has to be assigned to ``matching'' part of output layer
 	\end{itemize}
+
+	\begin{figure}[htpb]
+		\centering
+		\includegraphics[width=0.8\linewidth]{images/permutationDimProblem.png}
+		\caption{Output permutation problem}
+	\end{figure}
 
 \end{frame}
 
@@ -514,16 +526,170 @@ How to derive similarity matrix from mixed signal: \emph{$X(t) \to W$}?
 
 \end{frame}
 
+\begin{frame}{Deep clustering - Encoding}
+
+ \begin{itemize}
+	 \item $(F,T)$ spectogram $\in \mathbb{R}^{T \times F}$ is transformed to 
+		 $s = (s_1, ..., s_n) \in \mathbb{R}^{N}$ with $N = T \times F$
+	 \item Neural network: \emph{$f_{\theta}(s) = V$} with: 
+		\begin{itemize}
+			\item $\theta$ being the parameters of the neural network
+			\item $|s|$ size of input layer
+			\item $V \in \mathbb{R}^{N \times D}$ being the embedding
+			\item Neural network has $D$ parallel output layers with 
+			      of size $N$
+		      \item $v_1, ..., v_n$ with \emph{$|v_i|^2 = 1$} normalized vectors
+			      each representing an embedding of $(f,t)$ bin 
+			\item $v_{i,1}, ..., v_{i,d}$ similar to handcrafted 
+			      features in spectral clustering
+		\end{itemize}
+	\item $V$ is embedding of complete signal to be clustered
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Deep clustering - Clustering}
+
+\textbf{K-Means interference cost minimization}
+\begin{itemize}
+	\item $\min L = \sum_{i=1}^{N} ||s_i - \mu_k(i)||^2 = \sum_{k=1}^{K} \sum_{i \in C_k} ||s_i - \mu_k||^2$
+\end{itemize}
+\vspace{10mm}
+
+\textbf{K-Means for Deep clustering}
+\begin{itemize}
+	\item $v_1, ..., v_n$ are clustered using K-Means
+	\item \emph{$\hat{Y} = \text{argmin}_{Y} {V - Y(Y^TY)^{-1}Y^TV}$}
+	\item $Y \in \mathbb{R}^{N \times C}$
+	\item $Y = (y_1,... ,y_c): y_i \in \mathbb{R}^{N}$: ``K-Means center vectors'' $\to$ mask for $(F,T)$ bins
+	\item $(Y^TY)^{-1}Y^T \in \mathbb{R}^{C \times N}$: means of all clusters
+	\item Create masks \emph{$S_i = \hat{Y}(c) \odot s$}
+	\item Output dimension problem is solved 
+\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Deep clustering - Training}
+	
+	\textbf{Minimize cost function $C(\theta)$}
+	\begin{itemize}
+		\item $C(\theta) = |VV^T - YY^T|_F^2$
+		\item $Y$ is one-hot encoding from label $\overline{Y}$
+		\item Frobenius norm: $|A|^2_F = \sum_{i,j} A(i,j)^2$ 
+		\item $VV^T \in \mathbb{R}^{N \times N}$ estimated affinity matrix 
+		\item $YY^T \in \mathbb{R}^{N \times N}$ labeled affinity matrix
+		\item Intuitive derivation: $C(\theta) = \sum_{i,j}(v_i^T v_j - y_i^T y_j)^2 = ...  = \emph{\sum_{i,j; y_i = y_j} |v_i - v_j|^2 + \sum_{i,j} (v_i^T v_j)^2 - N}$
+		\item Computational most efficient cost function: $C(\theta) = |V^TV|_F^2 - 2|V^TY| + |Y^TY|$
+		\item Permutation invariant: $VV^T(i,j) = VV^T(j,i)$
+	\end{itemize}
+		
+\end{frame}
+
+\begin{frame}{Deep clustering - Training}
+	
+\begin{figure}[htpb]
+	\centering
+	\includegraphics[width=0.95\linewidth]{images/dcExample.png}
+	\caption{[Lensson]}
+\end{figure}
+
+\end{frame}
+
 \section{TasNet}%
 \label{sec:tasnet}
 \begin{frame}{TasNet}
 
-6 pages:
+\begin{figure}[htpb]
+	\centering
+	\includegraphics[width=0.8\linewidth]{images/tasNetAll.png}
+	\caption{TasNet}
+\end{figure}
+\vspace{10mm}
+\begin{itemize}
+	\item Neural network is applied to \emph{chunks of raw signal}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Encoding}
+
+\begin{minipage}[t]{0.48\linewidth}
+	\begin{figure}[htpb]
+		\centering
+		\includegraphics[width=0.9\linewidth]{images/tasNetEncoding.png}
+	\end{figure}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.48\linewidth}
+	\begin{itemize}
+		\item Mixed signal $x$ is divided into $K$ chunks $x_k$ 
+		\item Gated convolution is applied to $x_k$: 
+		\emph{$w_k = \text{ReLu}(x_k * U) \odot \text{Sigmoid}(x_k * V)$}
+	\end{itemize}
+	\vspace{5mm}
+	\begin{itemize}
+		\item Signal as sum of base functions: $x = wB$
+		\item Weight vector $w \in \mathbb{R}^{N}$ with $N$ = 
+		      dimension of output layer
+		\item Basis functions $B = (b_1, ...,b_n)$ 
+		\item $w$ gives magnitude of basis functions $B$
+		\item Gated convolution is \emph{$w = B^{-1}x$}
+	\end{itemize}
+\end{minipage}	
+
+
+
+\end{frame}
+
+\begin{frame}{Separation}
+
+\begin{minipage}[t]{0.48\linewidth}
+	\begin{figure}[htpb]
+		\centering
+		\includegraphics[width=0.7\linewidth]{images/tasNetSeparation.png}
+	\end{figure}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.48\linewidth}
+	\hfill
+	\begin{itemize}
+		\item weights $w$ are normalized $w \to \hat{w} = \frac{g}{\sigma} \odot (w - \mu) + b$ 
+		\item $\sigma$ and $\mu$ are \emph{variance} and \emph{mean}
+		\item $g,b$ are gain and bias vector
+		\item Deep recurrent neural network outputs weight masks for every
+			speaker: $M = (m_1, ...,m_k)  = f_{\theta}(w)$
+		\item Size(outputLayer) = Size(inputLayer) $\times$ $\#$Speakers
+		\item Output dimension problem is not solved in TasNet
+	\end{itemize}
+\end{minipage}	
+
+\end{frame}
+
+\begin{frame}{Decoding}
+
+\begin{minipage}[t]{0.48\linewidth}
+	\begin{figure}[htpb]
+		\centering
+		\includegraphics[width=0.7\linewidth]{images/tasNetDecoding.png}
+	\end{figure}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.48\linewidth}
+	\hfill
+	\begin{itemize}
+		\item $w_i = m_i \odot w$: separate weight vectors
+		\item Deconvolution operation to get raw signal: $x_i = w_iB$ 
+		\item $x_i = \text{deconv}_{\hat{\theta}}(w_i)$ with $\hat{\theta}$
+		      parameters of deconvolutional layer
+		\item Chunks of signal $x_k$ can individually be separated $\to$ 
+		      very \emph{low latency time} when decoding
+	\end{itemize}
+\end{minipage}	
+
 \end{frame}
 
 \section{Comparison \& Results}%
 \label{sec:results}
-\begin{frame}{Comparsino \& Results}
+\begin{frame}{Comparison \& Results}
 
 2 pages
 \end{frame}
@@ -533,97 +699,6 @@ How to derive similarity matrix from mixed signal: \emph{$X(t) \to W$}?
 \begin{frame}{Conclusion}
 
 1 page
-\end{frame}
-
-
-
-
-
-\begin{frame}{State of the Art}
-\begin{itemize}
-\item Talks presented at the
-  \href{http:://www-i6.rwth-aachen.de/}{\includegraphics[height=\baselineskip]{logos/logo_hltpr_rgb_RWTH.eps}}
-  should also always have a state of the art part in front of the talk.
-\item Depending on the public where you will present your talk you should
-adapt your state of the art slide.
-\item This can be in relation with literature section
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Results}
-\begin{itemize}
-\item Talks presented at the
-  \href{http:://www-i6.rwth-aachen.de/}{\includegraphics[height=\baselineskip]{logos/logo_hltpr_rgb_RWTH.eps}}
-  should always have a result section somewhere at the end of the talk.
-\item Depending on the public should highlight the
-  advantages/disadvantages of your presented work in comparison to
-  other results achieved by other groups on the same (publicly
-  available) benchmark database
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Style Parameters}
-\begin{itemize}
-\item language: 
-  \begin{itemize}
-  \item \texttt{english} (default)
-  \item \texttt{german}
-  \end{itemize}
-\item page numbering:
-\begin{itemize}
- \item indicate last page with \texttt{[label=finalSlide]}
-\end{itemize}
-\item itemize: 
-  \begin{itemize}
-  \item \texttt{triangle}, or leave empty for bullets (default)
-  \end{itemize}
-\item page layout: 
-  \begin{itemize}
-  \item \texttt{vertical} to enable vertical centering on each slide (default)
-  \end{itemize}
-\item encoding : 
-  \begin{itemize}
-  \item \texttt{utf-8} to enable utf encoding instead of latin1 (default)
-  \end{itemize}
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Including Images}
-\begin{itemize}
-\item[] You can include your images with the \\ \texttt{\textbackslash
-    includegraphics[options]\{<filename>\}} command. A short caption may be
-  written with the \texttt{\textbackslash caption\{<name>\}} command. Examples:
-\item[] Images should be scaled relatively to the \texttt{\textbackslash textwidth} or \texttt{\textbackslash linewidth} of the slides:
-  \begin{center}
-  \begin{figure}
-      \includegraphics[width=.15\textwidth]{images/salientpoints}
-    \includegraphics[width=.15\linewidth]{images/grid}
-    \caption{Images with a Caption}
-  \end{figure}
-  \end{center}
-\item[] You should always provide images in JPEG/PNG/PDF-- \alert{and}
-  EPS/PS--format.
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Including Images}
-\begin{minipage}[b]{.4\linewidth}
-  \begin{center}
-    \includegraphics[width=.5\linewidth]{images/car}\\
-    car label
-  \end{center}
-\end{minipage}
-\begin{minipage}[b]{.4\linewidth}
-  \begin{itemize}
-  \item my
-  \item image
-  \item description
-  \item using \texttt{minipage} environment
-  \item my
-  \item image
-  \item description
-  \end{itemize}
-\end{minipage}
 \end{frame}
 
 \begin{frame}
