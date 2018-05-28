@@ -63,11 +63,6 @@ Sepp Hochreiter and J\"{u}rgen Schmidhuber.
 \newblock Long short-term memory.
 \newblock {\em Neural Comput.}, 9(8):1735--1780, November 1997.
 
-\bibitem{DBLP:journals/corr/IsikRCWH16}
-Yusuf Isik, Jonathan~Le Roux, Zhuo Chen, Shinji Watanabe, and John~R. Hershey.
-\newblock Single-channel multi-speaker separation using deep clustering.
-\newblock {\em CoRR}, abs/1607.02173, 2016.
-
 \bibitem{7979557}
 M.~Kolbæk, D.~Yu, Z.~H. Tan, and J.~Jensen.
 \newblock Multitalker speech separation with utterance-level permutation

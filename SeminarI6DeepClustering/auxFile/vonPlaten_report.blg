@@ -5,45 +5,45 @@ The style file: plain.bst
 Database file #1: vonPlaten_report.bib
 Warning--to sort, need author or key in HearingLoss
 Warning--empty journal in CocktailPartyProblem:2000
-You've used 26 entries,
+You've used 25 entries,
             2118 wiz_defined-function locations,
-            668 strings with 8839 characters,
-and the built_in function-call counts, 8438 in all, are:
-= -- 823
-> -- 397
+            663 strings with 8621 characters,
+and the built_in function-call counts, 8101 in all, are:
+= -- 793
+> -- 369
 < -- 3
-+ -- 161
-- -- 132
-* -- 593
-:= -- 1420
-add.period$ -- 81
-call.type$ -- 26
-change.case$ -- 142
++ -- 150
+- -- 122
+* -- 567
+:= -- 1356
+add.period$ -- 78
+call.type$ -- 25
+change.case$ -- 134
 chr.to.int$ -- 0
-cite$ -- 28
-duplicate$ -- 310
-empty$ -- 661
-format.name$ -- 132
-if$ -- 1762
+cite$ -- 27
+duplicate$ -- 300
+empty$ -- 644
+format.name$ -- 122
+if$ -- 1698
 int.to.chr$ -- 0
-int.to.str$ -- 26
-missing$ -- 25
-newline$ -- 133
-num.names$ -- 50
-pop$ -- 141
+int.to.str$ -- 25
+missing$ -- 24
+newline$ -- 128
+num.names$ -- 48
+pop$ -- 135
 preamble$ -- 1
-purify$ -- 118
+purify$ -- 111
 quote$ -- 0
-skip$ -- 222
+skip$ -- 214
 stack$ -- 0
-substring$ -- 507
-swap$ -- 56
+substring$ -- 502
+swap$ -- 55
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 100
+type$ -- 96
 warning$ -- 2
-while$ -- 71
-width$ -- 28
-write$ -- 284
+while$ -- 69
+width$ -- 27
+write$ -- 273
 (There were 2 warnings)

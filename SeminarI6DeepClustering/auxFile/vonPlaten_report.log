@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.17)  28 MAY 2018 11:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.17)  28 MAY 2018 12:08
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -624,10 +624,10 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1003.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 7989 strings out of 493014
- 116369 string characters out of 6133351
- 225513 words of memory out of 5000000
- 11281 multiletter control sequences out of 15000+600000
+ 7987 strings out of 493014
+ 116304 string characters out of 6133351
+ 225461 words of memory out of 5000000
+ 11280 multiletter control sequences out of 15000+600000
  12645 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  29i,15n,30p,409b,2281s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -649,10 +649,10 @@ cal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/loc
 al/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/loca
 l/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local
 /texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on auxFile/vonPlaten_report.pdf (24 pages, 2166220 bytes).
+Output written on auxFile/vonPlaten_report.pdf (24 pages, 2166009 bytes).
 PDF statistics:
- 536 PDF objects out of 1000 (max. 8388607)
- 477 compressed objects within 5 object streams
- 113 named destinations out of 1000 (max. 500000)
+ 535 PDF objects out of 1000 (max. 8388607)
+ 476 compressed objects within 5 object streams
+ 112 named destinations out of 1000 (max. 500000)
  266 words of extra memory for PDF output out of 10000 (max. 10000000)
 

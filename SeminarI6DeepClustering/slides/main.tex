@@ -10,6 +10,7 @@
 \newcommand{\foo}{\makebox[0pt]{\textbullet}\hskip+0.5pt\vrule width 5pt\hspace{\labelsep}}
 \usepackage{multirow}
 \usepackage{textcomp}
+\usepackage{media9}
 \usepackage{csquotes}
 \usepackage{amsmath}
 \usepackage[]{algorithm2e}
@@ -260,20 +261,25 @@
 
 
 \begin{frame}{Literature example}
-2 pages
 \begin{description}
-\item [T.~Starner, J.~Weaver, A.~Pentland:] Real-time american sign-language recognition using desk and wearable computer based video. {\em PAMI 1998}.
+\item [Z. Chen:] Single Channel auditory source separation with neural network. {\em Chen 2017}.
   \begin{itemize}
-  \item HMM based isolated sign language recognition. Explain the main content here.
+  \item Output permutation problem  
+  \item Output dimension problem 
+  \item Deep clustering
   \end{itemize}
-\item [Povey:] Papertitle. {\em ICASSP 2007}.
+\item [Yi Luo, Nima Mesgarani:] TasNet: time-domain audio separation network for real-time, single-channel speech separation {\em TasNet 2017}.
   \begin{itemize}
-  \item something new in speech recognition. Explain the main content here.
+  \item TasNet 
   \end{itemize}
-\item [\cite{BahdanauCB14}:] Papertitle. {\em CONFNAME 2007}.
+\item [M. Kolbæk and D. Yu and Z. H. Tan and J. Jensen: ]Multitalker Speech Separation With Utterance-Level Permutation Invariant Training of Deep Recurrent Neural Networks {\em pivT 2017}.
   \begin{itemize}
-  \item image retrieval. Explain the main content here.
+  \item Permutation invariant training 
   \end{itemize}
+\item [Bach, Francis R. and Jordan, Michael I.: ]Learning Spectral Clustering, With Application To Speech Separation {\em SpectralClustering 2006}
+\begin{itemize}
+	\item Spectral Clustering
+\end{itemize}
 \end{description}
 \end{frame}
 
@@ -289,7 +295,7 @@
 
 \textbf{Demo} \cite{Demo}
 \begin{itemize}
-	\item Mixture
+ 	\item Mixture
 	\item Source 1 
 	\item Source 2 
 \end{itemize}
@@ -349,7 +355,7 @@
 
 \section{Mathematical basics}%
 \label{sec:mathematical_basics}
-\begin{frame}{Short term fourier transform}
+\begin{frame}{Short term fourier transform \cite{664179}}
 
 \begin{itemize}
 	\setlength\itemsep{1em}
@@ -363,11 +369,10 @@
 	\item Short term fourier transform
 	\begin{itemize}
 		\item Short term fourier transform: $S(f,t) = \int_{\mathbb{R}}X(\tau)w(\tau - t)e^{-2{\pi}jft}dt$ 
-		\item Uncertainty in signal processing: Time localization vs. frequency precision
+		\item Uncertainty in signal processing: Time localization vs. frequency precision \cite{DBLP:journals/corr/Nam13}
 		\item Window function $w(\tau) = 0: \tau \not \in \left[-a, a \right]$ defines width of $(T,F)$ bins 
 	\end{itemize}
 \end{itemize}
-
 
 \end{frame}
 
@@ -453,7 +458,7 @@
 	\begin{itemize}
 		\item Compute first $k$ eigenvectors $U: (u_1,... ,u_k) \in \mathbb{R}^{P \times K}$ of $D^{-\frac{1}{2}}WD^{-\frac{1}{2}}$ with $D = \text{diag}(W)$
 		\item Transpose $U$ to $V = U^T: (v_1,... ,v_p) \in \mathbb{R}^{K \times P}$ 
-		\item Initialise \textbf{A} and perform K-means using $(v_1,... ,v_p)$ 
+		\item Initialise \textbf{A} and perform K-means \cite{Steinhaus56} using $(v_1,... ,v_p)$ 
 	\end{itemize}
 	\emph{\textbf{Output: }}$\textbf{A} = (A_1, A_2, ..., A_k)$
 \end{algorithm}
@@ -481,7 +486,7 @@ How to derive similarity matrix from mixed signal: \emph{$X(t) \to W$}?
 
 \section{Problems with deep learning}%
 \label{sec:problems_with_deep_learning}
-\begin{frame}{Output dimension problem}
+\begin{frame}{Output dimension problem \cite{SingleChannelSourceSeparation}}
 
 \begin{itemize}
 	\item size(output layer) = \textbf{\#sources} $\times$ size(input layer)
@@ -495,7 +500,7 @@ How to derive similarity matrix from mixed signal: \emph{$X(t) \to W$}?
 
 \end{frame}
 
-\begin{frame}{Output permutation problem}
+\begin{frame}{Output permutation problem \cite{SingleChannelSourceSeparation}}
 	\begin{itemize}
 		\item Label of speaker has to be assigned to ``matching'' part of output layer
 	\end{itemize}
@@ -510,7 +515,7 @@ How to derive similarity matrix from mixed signal: \emph{$X(t) \to W$}?
 
 \section{Deep clustering}%
 \label{sec:deep_clustering}
-\begin{frame}{Deep clustering }
+\begin{frame}{Deep clustering \cite{SingleChannelSourceSeparation}, \cite{BasicDeepClustering:2016}}
 
 \begin{enumerate}
 	\item $X(t) \to (F,T)$ bins
@@ -555,7 +560,7 @@ How to derive similarity matrix from mixed signal: \emph{$X(t) \to W$}?
 \end{itemize}
 \vspace{10mm}
 
-\textbf{K-Means for Deep clustering}
+	\textbf{K-Means for Deep clustering}
 \begin{itemize}
 	\item $v_1, ..., v_n$ are clustered using K-Means
 	\item \emph{$\hat{Y} = \text{argmin}_{Y} {V - Y(Y^TY)^{-1}Y^TV}$}
@@ -596,7 +601,7 @@ How to derive similarity matrix from mixed signal: \emph{$X(t) \to W$}?
 
 \section{TasNet}%
 \label{sec:tasnet}
-\begin{frame}{TasNet}
+\begin{frame}{TasNet \cite{TasNet2017}}
 
 \begin{figure}[htpb]
 	\centering
@@ -679,7 +684,7 @@ How to derive similarity matrix from mixed signal: \emph{$X(t) \to W$}?
 		\item $w_i = m_i \odot w$: separate weight vectors
 		\item Deconvolution operation to get raw signal: $x_i = w_iB$ 
 		\item $x_i = \text{deconv}_{\hat{\theta}}(w_i)$ with $\hat{\theta}$
-		      parameters of deconvolutional layer
+			parameters of deconvolutional layer \cite{ler2010deconvolutional}
 		\item Chunks of signal $x_k$ can individually be separated $\to$ 
 		      very \emph{low latency time} when decoding
 	\end{itemize}
@@ -687,69 +692,71 @@ How to derive similarity matrix from mixed signal: \emph{$X(t) \to W$}?
 
 \end{frame}
 
+\begin{frame}{Permutation invariant training \cite{7979557}}
+\begin{minipage}[t]{0.48\linewidth}
+\hfill
+\begin{figure}[htpb]
+	\centering
+	\includegraphics[width=0.9\linewidth]{../images/piv_train.png}
+	\caption{Permutation invariant training}
+\end{figure}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+\begin{itemize}
+	\item source-to-noise ration $SNR$ \cite{AudioSpeechLanguageProcessing} is used as training criterion
+	\item $\text{SNR}_i  = 10\log_{10}\frac{|s_{i}|^2}{|e_{i}|^2}$
+	\begin{itemize}
+		\item $s_{i} = \frac{x_i^Tx_i^{*}x_i^{*}}{|x_i^{*}|^2}$
+		\item $e_i = x_i - s_i$
+	\end{itemize}
+	\item \emph{$L(\theta_{all}) = \sum_{i=1}^C \text{SNR}_i$}
+	\item Need ``correct'' permutation of labels  
+	\item At every training step, mean-squared error of weight masks for correct assignment
+	\item $ \theta^{*} = \text{argmin}_{\theta \in \mathcal{P}} \sum_{i=1}^{c} |m_i \odot w - w_i^{*}(\theta(i))|^2$ 
+	\item $w_i^{*}$ from convolutional layer applied to $x_i^{*}$
+\end{itemize}
+\end{minipage}
+
+\end{frame}
+
 \section{Comparison \& Results}%
 \label{sec:results}
 \begin{frame}{Comparison \& Results}
 
-2 pages
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|}
+	\hline
+	 & \emph{Tasnet} & \emph{Deep Clustering}  \\
+	\hline
+	 +      & low latency time & solves dimension output problem \\
+	 $SNR$   & 10.8   & 10.8  \\
+	\hline
+\end{tabular}
+\end{table}
+
+\vspace{10mm}
+\begin{itemize}
+	\item Results taken on two-speaker WSJ0-2mix dataset \cite{TasNet2017}
+\end{itemize}
 \end{frame}
 
-\section{Conclusion}%
-\label{sec:conclusion}
 \begin{frame}{Conclusion}
 
-1 page
-\end{frame}
+\begin{itemize}
+	\item Methods improved greatly over the last 4 years
+	\item More and more end-to-end approaches are succesfully applied 
+	\item State-of-the-art: \emph{End-to-End Speech Separation with Unfolded Iterative Phase Reconstruction} yielding SNR: 12.8 on WSJ0-2mix \cite{2018arXiv180410204W}
+\end{itemize}
 
-\begin{frame}
-  \frametitle{Fancy Table with overlay \only<2>{(WMT2016)} \only<1>{(IWSLT2013)}}
-  \only<1>{
-  \begin{center}
-	\scalebox{0.9}{
-\begin{tabular}{|l|cc|cc|cc|cc|}
-    \hline
-    IWSLT De-En & \multicolumn{2}{c|}{dev} & \multicolumn{2}{c|}{test} & \multicolumn{2}{c|}{eval11} &  \multicolumn{2}{c|}{alignment-test}\\             \hline
-    Model & \BLEU\% & \TER\% & \BLEU\% & \TER\% & \BLEU\% & \TER\% & AER\% & SAER\%\\    
-    \hline
-    Attention-Based & 30.5 & 48.7 & 29.3 & 50.6 & 33.9 & 46.6 & 41.8  & 66.3 \\
-     \hspace{3mm}+ method & \textcolor{i6bluedark}{31.5} & \textcolor{i6bluedark}{47.2} & \textcolor{i6bluedark}{30.3} & \textcolor{i6bluedark}{49.0} & \textcolor{i6bluedark}{34.3} & \textcolor{i6bluedark}{44.3} & \textcolor{i6bluedark}{35.4} & \textcolor{i6bluedark}{44.2} \\
-    \hline
-\end{tabular}
-}
-	\end{center}}
-	\only<2>{
-	\begin{center}
-\scalebox{0.9}{
-\begin{tabular}{|l|cc|cc|cc|}
-    \hline
-    WMT En-Ro & \multicolumn{2}{c|}{newsdev2016/1} & \multicolumn{2}{c|}{newsdev2016/2} & \multicolumn{2}{c|}{newstest2016} \\             \hline
-    Model & \BLEU\% & \TER\% & \BLEU\% & \TER\% & \BLEU\% & \TER\% \\    
-    \hline
-    Attention-Based & 19.8 & 62.0 & 21.3 & 58.1 & 20.3 & 60.4 \\ 
-    +GA & \textcolor{i6bluedark}{21.0} & \textcolor{i6bluedark}{61.1 } & \textcolor{i6bluedark}{23.6} & \textcolor{i6bluedark}{56.4} & \textcolor{i6bluedark}{21.8} & \textcolor{i6bluedark}{59.4} \\ 
-    \hline 
-    \hspace{3mm} +method + conv ($D=10$,$M=1$) & \textcolor{i6bluedark}{21.4} & \textcolor{i6bluedark}{60.1 } & \textcolor{i6bluedark}{24.7} & \textcolor{i6bluedark}{55.4} & \textcolor{i6bluedark}{22.3} & \textcolor{i6bluedark}{58.7} \\ 
-    \hline 
-\end{tabular}
-}
-	\end{center}}
-	\vfill
-	\begin{itemize}
-	  \item Improves translation by an average of $0.8$ BLEU on IWSLT2013
-	  \item Great improvement in AER and SAER
-	  \item<only@2> Improves translation by an average of $1.7$ BLEU on WMT2016
-	  \begin{itemize}
-	    \item<only@2> Adding convolutional feedback gives an additional $0.6$ BLEU on average
-	  \end{itemize}
-	\end{itemize}
-\end{frame}
+\vspace{10mm}
+\textbf{Demo} \cite{Demo}
+\begin{itemize}
+	\item Deep clustering 1 
+	\item Deep clustering 2
+\end{itemize}
 
-\begin{frame}{Usefull \LaTeX\ beamer resources}
-\begin{description}
-\item [Media Files:] The package \texttt{media9} has several option for playing audio and video files
-\item [Information about Beamer:] General information about using the beamer presentation mode of latex can be found here: \url{https://en.wikibooks.org/wiki/LaTeX/Presentations}
-\item [Online Table Editor:] \url{https://www.tablesgenerator.com/}
-\end{description}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

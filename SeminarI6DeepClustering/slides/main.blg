@@ -8,26 +8,16 @@ I was expecting a `,' or a `}'---line 21 of file references.bib
  :      howpublished = {\url{http://www.merl.com/demos/ deep-clustering}},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "BahdanauCB14"
+Warning--I didn't find a database entry for "ler2010deconvolutional"
 `year' is a missing field, not a string, for entry Demo
 while executing---line 1300 of file i6bibstyle.bst
 Warning--to sort, need author or key in Demo
 `year' is a missing field, not a string, for entry DCFigure
 while executing---line 1300 of file i6bibstyle.bst
 Warning--to sort, need author or key in DCFigure
-Warning--to sort, need author or key in TuneOutNoise:2012
-`year' is a missing field, not a string, for entry HearingLoss
-while executing---line 1300 of file i6bibstyle.bst
-Warning--to sort, need author or key in HearingLoss
 Warning--empty journal in CocktailPartyProblem:2000
 Warning--empty date in DCFigure
 Warning--empty date in Demo
-Warning--empty pp. in Golik2015ConvolutionalNN
-Warning--there's no month in Golik2015ConvolutionalNN
-Warning--empty date in HearingLoss
-Warning--there's no month in Pascanu:2013:DTR:3042817.3043083
-Warning--empty author in TuneOutNoise:2012
-Warning--empty pages in TuneOutNoise:2012
 `volume' is a missing field, not a string, for entry 2018arXiv180410204W
 while executing---line 1369 of file i6bibstyle.bst
 "" is a string literal, not an integer, for entry 2018arXiv180410204W
@@ -35,45 +25,45 @@ while executing---line 1369 of file i6bibstyle.bst
 `volume' is a missing field, not a string, for entry 2018arXiv180410204W
 while executing---line 1369 of file i6bibstyle.bst
 Warning--there's no month in zeiler2010deconvolutional
-You've used 30 entries,
+You've used 20 entries,
             2542 wiz_defined-function locations,
-            758 strings with 9856 characters,
-and the built_in function-call counts, 11313 in all, are:
-= -- 1105
-> -- 454
-< -- 41
-+ -- 145
-- -- 142
-* -- 981
-:= -- 1756
-add.period$ -- 90
-call.type$ -- 30
-change.case$ -- 190
-chr.to.int$ -- 30
-cite$ -- 48
-duplicate$ -- 472
-empty$ -- 836
-format.name$ -- 202
-if$ -- 2307
+            696 strings with 7949 characters,
+and the built_in function-call counts, 7488 in all, are:
+= -- 734
+> -- 286
+< -- 32
++ -- 91
+- -- 88
+* -- 649
+:= -- 1173
+add.period$ -- 60
+call.type$ -- 20
+change.case$ -- 123
+chr.to.int$ -- 20
+cite$ -- 28
+duplicate$ -- 316
+empty$ -- 550
+format.name$ -- 126
+if$ -- 1523
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 26
-newline$ -- 150
-num.names$ -- 78
-pop$ -- 191
+missing$ -- 18
+newline$ -- 101
+num.names$ -- 54
+pop$ -- 112
 preamble$ -- 1
-purify$ -- 221
+purify$ -- 144
 quote$ -- 0
-skip$ -- 359
+skip$ -- 241
 stack$ -- 0
-substring$ -- 582
-swap$ -- 115
-text.length$ -- 29
+substring$ -- 406
+swap$ -- 79
+text.length$ -- 22
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 232
-warning$ -- 14
-while$ -- 74
-width$ -- 32
-write$ -- 379
-(There were 7 error messages)
+type$ -- 156
+warning$ -- 6
+while$ -- 52
+width$ -- 22
+write$ -- 254
+(There were 6 error messages)

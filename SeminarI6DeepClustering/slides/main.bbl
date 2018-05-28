@@ -23,10 +23,6 @@ Brown.
 \newblock {\em IEEE Transactions on Neural Networks}, Vol.~19, No.~1,
   pp.~199--199, Jan 2008.
 
-\bibitem[\protect{Cardoso} 03]{Cardoso03blindsignal}
-J.-F. Cardoso.
-\newblock Blind signal separation: Statistical principles, 2003.
-
 \bibitem[\protect{Chen} 17]{SingleChannelSourceSeparation}
 Z.~Chen.
 \newblock {\em {Single Channel auditory source separation with neural
@@ -48,44 +44,12 @@ Automatic source separation demo.
 \newblock \url{http://www.merl.com/demos/deep-clustering}.
 \newblock Accessed: 2018-05-22.
 
-\bibitem[\protect{Evans \& McGettigan$^+$}
-  16]{MaskingEffectsInSpeechPerception}
-S.~Evans, C.~McGettigan, Z.~K. Agnew, S.~Rosen, S.~K. Scott.
-\newblock Getting the cocktail party started: Masking effects in speech
-  perception.
-\newblock {\em Journal of Cognitive Neuroscience}, Vol.~28, No.~3,
-  pp.~483--500, 2016.
-
-\bibitem[\protect{Golik \& T{\"u}ske$^+$} 15]{Golik2015ConvolutionalNN}
-P.~Golik, Z.~T{\"u}ske, R.~Schl{\"u}ter, H.~Ney.
-\newblock Convolutional neural networks for acoustic modeling of raw time
-  signal in lvcsr.
-\newblock In {\em INTERSPEECH}, 2015.
-
-\bibitem[\protect{Goodfellow \& Bengio$^+$} 16]{Goodfellow-et-al-2016}
-I.~Goodfellow, Y.~Bengio, A.~Courville.
-\newblock {\em Deep Learning}.
-\newblock MIT Press, 2016.
-\newblock \url{http://www.deeplearningbook.org}.
-
-\bibitem[\protect{Hea}]{HearingLoss}
-Millionslivewithhearingloss.
-\newblock
-  \url{http://www.who.int/pbd/deafness/news/Millionslivewithhearingloss.pdf}.
-\newblock Accessed: 2018-05-05.
-
 \bibitem[\protect{Hershey \& Chen$^+$} 16]{BasicDeepClustering:2016}
 J.~R. Hershey, Z.~Chen, J.~L. Roux, S.~Watanabe.
 \newblock Deep clustering: Discriminative embeddings for segmentation and
   separation.
 \newblock In {\em 2016 IEEE International Conference on Acoustics, Speech and
   Signal Processing (ICASSP)}, pp. 31--35, March 2016.
-
-\bibitem[\protect{Hochreiter \& Schmidhuber}
-  97]{Hochreiter:1997:LSM:1246443.1246450}
-S.~Hochreiter, J.~Schmidhuber.
-\newblock Long short-term memory.
-\newblock {\em Neural Comput.}, Vol.~9, No.~8, pp.~1735--1780, Nov. 1997.
 
 \bibitem[\protect{Isik \& Roux$^+$} 16]{DeepClustering2016}
 Y.~Isik, J.~L. Roux, Z.~Chen, S.~Watanabe, J.~R. Hershey.
@@ -115,32 +79,10 @@ S.~Nam.
 \newblock An uncertainty principle for discrete signals.
 \newblock {\em CoRR}, Vol. abs/1307.6321, 2013.
 
-\bibitem[\protect{Pascanu \& Mikolov$^+$} 13]{Pascanu:2013:DTR:3042817.3043083}
-R.~Pascanu, T.~Mikolov, Y.~Bengio.
-\newblock On the difficulty of training recurrent neural networks.
-\newblock In {\em Proceedings of the 30th International Conference on
-  International Conference on Machine Learning - Volume 28}, ICML'13, pp.
-  III--1310--III--1318. JMLR.org, 2013.
-
 \bibitem[\protect{Steinhaus} 56]{Steinhaus56}
 H.~Steinhaus.
 \newblock {Sur la division des corp materiels en parties}.
 \newblock {\em Bull. Acad. Polon. Sci}, Vol.~1, pp.~801--804, 1956.
-
-\bibitem[\protect{Su \& Wu$^+$} 18]{DBLP:journals/corr/abs-1801-05119}
-J.~Su, S.~Wu, D.~Xiong, Y.~Lu, X.~Han, B.~Zhang.
-\newblock Variational recurrent neural machine translation.
-\newblock {\em CoRR}, Vol. abs/1801.05119, 2018.
-
-\bibitem[\protect{Sun \& {\"{O}}zay$^+$} 15]{DBLP:journals/corr/SunOO15}
-Z.~Sun, M.~{\"{O}}zay, T.~Okatani.
-\newblock Design of kernels in convolutional neural networks for image
-  classification.
-\newblock {\em CoRR}, Vol. abs/1511.09231, 2015.
-
-\bibitem[\protect{Tun} 12]{TuneOutNoise:2012}
-Scientists tuning in to how you tune out noise.
-\newblock Technical report, Acoustical Society of America, May 2012.
 
 \bibitem[\protect{Vincent \& Gribonval$^+$} 06]{AudioSpeechLanguageProcessing}
 E.~Vincent, R.~Gribonval, C.~Fevotte.
