@@ -689,7 +689,7 @@ masks $\hat{Y}(c)$ dot-wise to the spectogram of the mixture signal:
 	S_c = \hat{Y}(c) \odot X
 \]
 
-Since $(Y^TY)^{-1}Y^T \in \reals^{C \times D}$ presents the means of all clusters, minimizing the 
+Since $(Y^TY)^{-1}Y^T \in \reals^{C \times N}$ presents the means of all clusters, minimizing the 
 cost function \ref{eq:deep_clust_kmeans} is essentially the same as performing k-means clustering on 
 	$v_n \in V$ with sucessive creating of the binary masks from the assignments \cite{SingleChannelSourceSeparation}.
 In the case that $VV^T = Y^{*}Y^T$ both cost functions \ref{eq:deep_clust_kmeans}, \ref{eq:cost} coincide 
@@ -771,7 +771,7 @@ First, to speed up the training process, the weights $w_k$ are normalized by the
 following equations
 
 \begin{equation}
-	\hat{w} = \frac{g}{\sigma} \odot (w_k - \mu) + b 
+	\hat{w_k} = \frac{g}{\sigma} \odot (w_k - \mu) + b 
 \end{equation}
 
 $\sigma$ and $\mu$ present the variance and mean respectively of the vector $w_k$ and $g,b \in 
