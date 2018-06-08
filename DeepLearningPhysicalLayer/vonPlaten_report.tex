@@ -155,44 +155,98 @@ Explain motivation:
 	\item use autoencoder for end-to-end usage
 \end{itemize}
 
+
 \cite{DBLP:journals/corr/OSheaH17}
 \cite{2018arXiv180303145O}
 \cite{8262721}
 \cite{2018ISTSP..12..132D}
+\cite{synch1}
+\cite{synchAttention}
 
 % section introduction (end)
 
-\section{Conventional communication systems} 
+\section{Conventional Communication Systems} 
 \label{sec:communication_systems}
 
-Describe here how conventional communication systems look 
-like. 
+This section aims at explaining what the so-called physical layer is actually made of 
+by describes it function and structure in detail. Later in this section, an example system will be explained and used for performance comparasion with communcation systems applying deep learning methods \ref{sec:applying_deep_learning_to_communication_systems}.
 
-\subsection{Structure of system}
+In this report, we use the word \emph{communication system} as the \emph{Physical Layer} of the well-know \emph{OSI Model} as a \emph{communication system}.
+As it is defined in \cite{osimodel}, ``the physical layer manages the reception and transmission of the unstructured raw bit stream over a physical medium''. 
+The physical layer therefore comprises transforming the raw bit stream to electromagnetic waves that will be transmitted by an antenna at the transmitter, receiving the 
+electromagnetic waves via an antenna at the receiver and using them to recover the raw bit stream. 
+In the following the connection between the antenna of the transmitter and the antenna of
+the receiver will be defined as the \emph{channel}.
 
+\subsection{Structure of the Communication System}
+
+The role of the communication system is too two-fold:
+
+\begin{itemize}
+	\item Efficient Transmitting: The raw bit stream should be converted in such a 
+		way that it can be transmitted at a high bit rate in terms of the \emph{Shannon information theory} \cite{Shannon:2001:MTC:584091.584093}
+	\item Reliable Delivery: In case of errors to due noise in the channel, the 
+		communication system must be able to do error detection and error correction. 
+\end{itemize}
+
+This can be achieved by applying sophisticated encoding and decoding schemes also just called ``codes'' to the raw bit stream. Such a ``code'' would for example be the so-called
+``Turbo-Codes'' \cite{Berrou93nearshannon} that use a special encoding and decoding schemeto reach ``near Shannon limit error-correcting coding and decoding'' meaning that the 
+maximum rate at which information can be transmitted over a channel of a specified 
+bandwidth in the presence of noise, being the \emph{Shannon rate}, can nearly be archieved while the methods allows for error correction.
+
+Now let's look at the three parts of a communication system, being the \emph{transmitter,
+the channel and the receiver}
 
 \subsubsection{Transmitter}
-
-Role of transmitter 
 
 
 \subsubsection{Channel}
 
-What is the actual channel 
 
 \subsubsection{Receiver}
 
-Role of receiver 
-(put receiver and transmitter together)
+\subsection{Convential System Design}
 
-% section physical_layer
+What methods and algorithms are the most used and state-of-the-art 
+nowadays?
 
-\subsection{Advantages of current system}
+\section{Deep Learning Basics}%
+\label{sec:deep_learning_basics}
 
-In what ways are current communication systems already very 
-efficient? 
+Intro into the most important deep learning basics needed to 
+model the physical layer. 
+Always mention how it can be applied for the physical layer!
 
-\section{Applying deep learning to communication systems}
+\subsection{Deep Neural Network}%
+\label{sub:deep_neural_network}
+
+Explain multi layer perceptron. General idea of neural networks
+
+\subsection{Convolutional Layers in NN}
+Explain how Conv. layers work and it's relation to signal analysis/
+processing (applying conv layer to time signal is similar to applying 
+fourier transform to it)
+Why are they useful in this case?
+
+
+\subsection{Autoencoder}
+
+Explain motivation and why it works in case of communication systems.
+Describe auto-encoder network in detail and show it's obvious relation to 
+the physical layer in communication systems.
+
+\subsection{Generative Adversarial Networks}%
+\label{sub:generative_adversarial_networks}
+
+Explain Generative Adversarial Networks and how they can be used to 
+model the channel with its noise.
+This should be explained in detail.
+
+
+\section{Applying deep learning to communication systems}%
+\label{sec:applying_deep_learning_to_communication_systems}
+
+
 
 Explain the motivation of using deep learning methods to model 
 end-to-end communication systems.
@@ -204,37 +258,23 @@ In which cases could deep learning be applicable for communication systems
 		unusual conditions (non-gaussian noise,...)
 \end{itemize}
 
-\subsection{Deep neural network basics}
+Also explain problems: Network is trained on assumptions about the channel 
+distribution that might not be true $\to$ Generative Adversarial Networks try 
+to solve this problem in some cases
 
-Explain basics of DNN: MLP, every function can be modeled by DNN, 
-activation functions, backpropagation,...
+\subsection{Artificial neural network supported end-to-end systems}%
+\label{sub:artificial_neural_network_supported_end_to_end_systems}
 
-\subsection{Convolutional Layers in NN}
-Explain how Conv. layers work and it's relation to signal analysis/
-processing (applying conv layer to time signal is similar to applying 
-fourier transform to it)
-Why are they useful in this case?
+Describe here two approaches: the base approach where the channel 
+is just modeled by a gaussian noise layer \cite{2018ISTSP..12..132D} and \cite{DBLP:journals/corr/OSheaH17}
+and the more sophisticated approach using Generative Adversarial Networks \cite{2018arXiv180506350O} and \cite{2018arXiv180303145O}.
+Describe architectures and training in detail.
 
-\subsection{Autoencoder}
+\subsubsection{Basic Deep Learning based Communication system}%
+\label{ssub:basic_deep_learning_based_communication_system}
 
-Explain motivation and why it works in case of communication systems.
-Describe auto-encoder network in detail and show it's obvious relation to 
-the physical layer in communication systems.
-
-\subsection{Synchronization of information transfer}
-
-How can neural networks overcome the problem of synchronization? 
-What methods are used? (Start sending bit stream?)
-
-\subsection{Training of autoencoder systems}
-
-How is training be done?
-
-\section{State-of-the-art deep learning methods for communication systems}
-
-Give examples of system and their architecture
-
-\subsection{Example system}
+\subsubsection{Generative Adversarial Networks based Communicaton system}%
+\label{ssub:generative_adversarial_networks_based_communicaton_system}
 
 \subsection{Comparison deep learing methods and conventional methods}
 

@@ -1,4 +1,4 @@
-PWD /Users/patrickvonplaten/Desktop/Master_TI/DeepLearningPhysicalLayer
+PWD /Users/patrickvonplaten/reports/DeepLearningPhysicalLayer
 INPUT /usr/local/texlive/2016/texmf.cnf
 INPUT /usr/local/texlive/2016/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2016/texmf-var/web2c/pdftex/pdflatex.fmt
@@ -162,11 +162,12 @@ OUTPUT auxFile/vonPlaten_report.lof
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmsl10.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT auxFile/vonPlaten_report.bbl
 INPUT auxFile/vonPlaten_report.bbl
-INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
 INPUT auxFile/vonPlaten_report.aux
 INPUT auxFile/vonPlaten_report.out
 INPUT auxFile/vonPlaten_report.out
@@ -178,3 +179,4 @@ INPUT /usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.p
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb
