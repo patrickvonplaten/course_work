@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex auxFile/vonPlaten_report"] 1527502131 "auxFile/vonPlaten_report.aux" "auxFile/vonPlaten_report.bbl" "auxFile/vonPlaten_report" 1527508276
+["bibtex auxFile/vonPlaten_report"] 1527502131 "auxFile/vonPlaten_report.aux" "auxFile/vonPlaten_report.bbl" "auxFile/vonPlaten_report" 1527760719
   "/usr/local/texlive/2016/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "auxFile/vonPlaten_report.aux" 1527502132 10730 a8c1676d2c8b78f7ee9fdccb8e0d5f3f ""
   "auxFile/vonPlaten_report.bcf" 0 -1 0 ""
   "vonPlaten_report.bib" 1526329505 12546 4ed5d56801e6ab8f612d6e0dd8050e41 ""
   (generated)
-  "auxFile/vonPlaten_report.bbl"
   "auxFile/vonPlaten_report.blg"
-["pdflatex"] 1527502131 "vonPlaten_report.tex" "auxFile/vonPlaten_report.pdf" "vonPlaten_report" 1527508276
+  "auxFile/vonPlaten_report.bbl"
+["pdflatex"] 1527502131 "vonPlaten_report.tex" "auxFile/vonPlaten_report.pdf" "vonPlaten_report" 1527760719
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -125,12 +125,12 @@
   "images/spectogram.png" 1526329695 1383537 a0faf60575ca85216014b68aab030cc0 ""
   "images/spectral_clustering_algo.png" 1525974790 133303 6b7cdf4a2d5344c8126cea525ba31273 ""
   "images/tasnet.png" 1526244025 267715 9e86c758d7232b579b3d4d7da7d18ef0 ""
-  "vonPlaten_report.tex" 1527502125 53775 cc5135464af709576765944d1c73e2e3 ""
+  "vonPlaten_report.tex" 1527755439 53775 cc5135464af709576765944d1c73e2e3 ""
   (generated)
+  "auxFile/vonPlaten_report.lot"
   "auxFile/vonPlaten_report.toc"
+  "auxFile/vonPlaten_report.pdf"
+  "auxFile/vonPlaten_report.out"
+  "auxFile/vonPlaten_report.lof"
   "auxFile/vonPlaten_report.log"
   "auxFile/vonPlaten_report.aux"
-  "auxFile/vonPlaten_report.lof"
-  "auxFile/vonPlaten_report.out"
-  "auxFile/vonPlaten_report.lot"
-  "auxFile/vonPlaten_report.pdf"

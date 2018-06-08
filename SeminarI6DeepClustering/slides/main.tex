@@ -197,7 +197,7 @@
 \renewcommand*{\email}{\url{patrick.platen@rwth-aachen.de}}  
 % all email address(es) of the authors (used for \TitlePage)
 
-\title[Seminar]{ANN Supported Source Separation}
+\title[Seminar]{Artificial Neural Network Supported Source Separation}
 %\subtitle{Presentation Subtitle} % (optional)
 %\setbeamertemplate{section in toc}[sections numbered] 
 %\setbeamertemplate{subsection in toc}[subsections numbered] 
@@ -254,15 +254,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-
-
 \section{Literature}%
 \label{sec:literature}
 
 
-\begin{frame}{Literature example}
+\begin{frame}{Literature}
 \begin{description}
-\item [Z. Chen:] Single Channel auditory source separation with neural network. {\em Chen 2017}.
+\item [Z. Chen:] Single Channel auditory source separation with neural network. {\em thesis 2017}.
   \begin{itemize}
   \item Output permutation problem  
   \item Output dimension problem 
@@ -293,27 +291,18 @@
 	\end{figure}
 \end{center}
 
-\textbf{Demo} \cite{Demo}
-\begin{itemize}
- 	\item Mixture
-	\item Source 1 
-	\item Source 2 
-\end{itemize}
-
-
 \end{frame}
 
-\begin{frame}{History \& Applications}
+\begin{frame}{History and Applications}
 
 \begin{itemize}
 	\setlength\itemsep{1em}
 	\item History
 	\begin{itemize}
-		\item Cocktail party problem - first definition of source separation problem \cite{Cherry:1953} 
-		\item Auditory scene analysis - first method for source separation \cite{bregman} 
-		\item Computational scene analysis \cite{CASABrown} 
+		\item Cocktail Party Problem - first definition of source separation problem \cite{Cherry:1953} 
+		\item Auditory Scene Analysis - first method for source separation \cite{bregman} 
 		\item Spectral Clustering \cite{Bach:2006} 
-		\item Deep neural networks for speech separation \cite{SpeechSepDeepLearning:2015} 
+		\item Deep Neural Networks for Speech Separation \cite{SpeechSepDeepLearning:2015} 
 		\item Deep Clustering \cite{DeepClustering2016}
 		\item TasNet \cite{TasNet2017}
 	\end{itemize}
@@ -326,7 +315,6 @@
 	\end{itemize}
 \end{itemize}
 
-
 \end{frame}
 
 \section{Definition}%
@@ -335,11 +323,10 @@
 
 \begin{itemize}
 	\setlength\itemsep{1em}
-	\item Formal definition 
+	\item Formal definition: Single-channel blind source separation
 	\begin{itemize}
-		\item Single-channel blind source separation
-		\item No spatial information: Single channel
-		\item No information about sources in advance: Blind
+		\item No spatial information $\to$  ``Single-channel''
+		\item No information about sources in advance $\to$ ``Blind''
 	\end{itemize}
 	\item Mathematical definition
 	\begin{itemize}
@@ -353,24 +340,24 @@
 
 \end{frame}
 
-\section{Mathematical basics}%
+\section{Mathematical Basics}%
 \label{sec:mathematical_basics}
-\begin{frame}{Short term fourier transform \cite{664179}}
+\begin{frame}{Short time fourier transform \cite{664179}}
 
 \begin{itemize}
 	\setlength\itemsep{1em}
 	\item Fourier transform 
 	\begin{itemize}
 		\item $S(f) = \int_{\mathbb{R}}X(t)e^{-2{\pi}jft}dt$
-		\item Inverse Fourier transform: $X(t) = \int_{\mathbb{R}}X(f)e^{2{\pi}jft}df$
+		\item Inverse Fourier transform: $X(t) = \int_{\mathbb{R}}S(f)e^{2{\pi}jft}df$
 		\item Signal $X(t)$ can be decomposed to sum of weighted ``base frequencies''
 		\item Fourier transform can be viewed as ``special convolution'' operation
 	\end{itemize}
-	\item Short term fourier transform
+	\item Short time fourier transform
 	\begin{itemize}
-		\item Short term fourier transform: $S(f,t) = \int_{\mathbb{R}}X(\tau)w(\tau - t)e^{-2{\pi}jft}dt$ 
+		\item Short time fourier transform: $S(f,t) = \int_{\mathbb{R}}X(\tau)w(\tau - t)e^{-2{\pi}jft}dt$ (called (f,t) bin in the following)
 		\item Uncertainty in signal processing: Time localization vs. frequency precision \cite{DBLP:journals/corr/Nam13}
-		\item Window function $w(\tau) = 0: \tau \not \in \left[-a, a \right]$ defines width of $(T,F)$ bins 
+		\item Window function $w(\tau) = 0: \tau \not \in \left[-a, a \right]$ defines width of (f,t) bins 
 	\end{itemize}
 \end{itemize}
 
@@ -379,7 +366,7 @@
 \begin{frame}{Spectrogram}
 
 \begin{itemize}
-	\item Shows the result of Short term fourier transform graphically
+	\item Shows the result of short time fourier transform graphically
 	\item Answers the question: \emph{Which frequencies are used at what time?}
 \end{itemize}
 
@@ -394,73 +381,41 @@
 \begin{frame}{Embedding}
 
 	\begin{itemize}
-		\item Structure-preserving, injective mapping $f: X \to Y$
-		\item $Y$ is normed space: $d(y_1,y_2) \in \mathbb{R}, \forall y_1,y_2 \in Y$
+		\item Structure-preserving, injective mapping $f: A \to B$
+		\item $B$ is normed space: $d(b_1,b_2) \in \mathbb{R}, \forall b_1,b_2 \in B$
 		\item Example is \emph{word2vec}: 
 			\begin{itemize}
 				\item ``house'' $\to \left[1, 8, -8, 4, 5, 3, 29, -34\right]^{T}$
 				\item ``car'' $\to \left[8,9, -8, 8, 5, 5, -34, -25\right]^{T}$
 				\item Using euclidean distance norm: $d(f(\text{``house''}),f(\text{``car''})) = 64.19$ 
 			\end{itemize}
-		\item Mapping $f: X \to Y$ can be modelled using a neural network (see Deep Clustering)
+		\item Mapping $f: A \to B$ can be modelled using a neural network (see Deep Clustering)
 	\end{itemize}
 
 
 
 \end{frame}
 
-\section{Conventional methods}%
-\label{sec:conventional_methods}
-\begin{frame}{Computational Auditory Scene Analysis \cite{CASABrown}}
-
-\begin{algorithm}[H]
-	\RestyleAlgo{boxruled}
-	\LinesNumbered
-	\emph{\textbf{Input: }}(N, $X(t)$) \\
-	\emph{\textbf{Algorithm: }}
-	\begin{enumerate}
-		\item Segmentation:
-			\begin{itemize}
-				\item \small{ X(t) is transformed into (T,F) bins using STFT }
-				\item (T,F) regions are defined using Segmenation rules 
-			\end{itemize}
-		\item Grouping:
-			\begin{itemize}
-				\item \small{ $(T,F)$ regions are combined to streams corresponding to sound sources}
-				\item Auditory masks are created using different streams
-			\end{itemize}
-	\end{enumerate}
-	\emph{\textbf{Output: }}$(\{x_1(t), ..., x_N(t)\})$
-\end{algorithm}
-	\vspace{10mm}
-\begin{itemize}
-	\item Motivated by Auditory Scene Analysis \cite{bregman}
-	\item Model tries to imitate the human auditory system
-	\item Segmentation \& grouping rules are f.e. based on:
-	\begin{itemize}
-		\item Rhythm, Periodicity, Proximity in frequency and time
-		\item Common spatial location, Continuous or smooth transition
-	\end{itemize}
-\end{itemize}
-
-\end{frame}
+\section{Spectral Clustering}%
+\label{sec:spectral_clustering}
 
 \begin{frame}{Spectral Clustering}
 \begin{itemize}
-	\item Similarity matrix $W \in \mathbb{R}^{P \times P}$ derived from dataset $D \in \mathbb{R}^P$
+	\item Consider dataset $D$ with $p$ datapoints: $D \in \mathbb{R}^p$.
+	\item Similarity matrix $W \in \mathbb{R}^{p \times p}$ derived from $D$
 \end{itemize}
 \vspace{10mm}
 \begin{algorithm}[H]
 	\RestyleAlgo{boxruled}
 	\LinesNumbered
-	\emph{\textbf{Input: }} $(W, k)$ \\
+	\emph{\textbf{Input: }} $(W, r)$ \\
 	\emph{\textbf{Algorithm: }}
 	\begin{itemize}
-		\item Compute first $k$ eigenvectors $U: (u_1,... ,u_k) \in \mathbb{R}^{P \times K}$ of $D^{-\frac{1}{2}}WD^{-\frac{1}{2}}$ with $D = \text{diag}(W)$
-		\item Transpose $U$ to $V = U^T: (v_1,... ,v_p) \in \mathbb{R}^{K \times P}$ 
-		\item Initialise \textbf{A} and perform K-means \cite{Steinhaus56} using $(v_1,... ,v_p)$ 
+		\item Compute first $r$ eigenvectors $H: (h_1,... ,h_r) \in \mathbb{R}^{P \times r}$ of $W$ 
+		\item Transpose $H$ to $O = H^T: (o_1,... ,o_p) \in \mathbb{R}^{r \times P}$ 
+		\item Initialise clusters $Z$ and perform K-means \cite{Steinhaus56} using $(o_1,... ,o_p)$ 
 	\end{itemize}
-	\emph{\textbf{Output: }}$\textbf{A} = (A_1, A_2, ..., A_k)$
+	\emph{\textbf{Output: }}$\textbf{Z} = (Z_1, Z_2, ..., Z_r)$
 \end{algorithm}
 \end{frame}
 
@@ -469,10 +424,10 @@
 How to derive similarity matrix from mixed signal: \emph{$X(t) \to W$}?
 \vspace{10mm}
 \begin{enumerate}
-	\item Short term fourier transform: $X(t) \to (F,T)$ bins
-	\item Apply handcrafted features: \emph{Energy, continuity, common fate cues, pitch estimation, timbre}: $(F,T) \to (s_1, ...,s_n): n = F \times T$
-	\item Create similarity matrix for every feature with $W_k(i,j) = f_k(s_i,s_j)$
-	\item ``Concatenate'' similarity matrixes using weight vector $\alpha$: $W = W_1^{\alpha_1} \odot ... \odot W_k^{\alpha_k} \odot ...$ 
+	\item Short time fourier transform: $X(t) \to (t,f)$ bins
+	\item Apply handcrafted features: \emph{Energy, continuity, common fate cues, pitch estimation, timbre}: $(t,f) \text{bins} \to (s_1, ...,s_n): n = F \times T$
+	\item Create similarity matrix for every feature $k$ with $W_k(i,j) = f_k(s_i,s_j)$
+	\item ``Put together'' similarity matrixes using $\odot$ and a  weight vector $\alpha$: $W = W_1^{\alpha_1} \odot ... \odot W_k^{\alpha_k} \odot ...$ 
 	\item Apply spectral clustering algorithm 
 \end{enumerate}
 \vspace{10mm}
@@ -484,9 +439,9 @@ How to derive similarity matrix from mixed signal: \emph{$X(t) \to W$}?
 
 \end{frame}
 
-\section{Problems with deep learning}%
+\section{Problems with Deep Learning}%
 \label{sec:problems_with_deep_learning}
-\begin{frame}{Output dimension problem \cite{SingleChannelSourceSeparation}}
+\begin{frame}{Output Dimension Problem \cite{SingleChannelSourceSeparation}}
 
 \begin{itemize}
 	\item size(output layer) = \textbf{\#sources} $\times$ size(input layer)
@@ -500,7 +455,7 @@ How to derive similarity matrix from mixed signal: \emph{$X(t) \to W$}?
 
 \end{frame}
 
-\begin{frame}{Output permutation problem \cite{SingleChannelSourceSeparation}}
+\begin{frame}{Output Permutation Problem \cite{SingleChannelSourceSeparation}}
 	\begin{itemize}
 		\item Label of speaker has to be assigned to ``matching'' part of output layer
 	\end{itemize}
@@ -513,20 +468,20 @@ How to derive similarity matrix from mixed signal: \emph{$X(t) \to W$}?
 
 \end{frame}
 
-\section{Deep clustering}%
+\section{Deep Clustering}%
 \label{sec:deep_clustering}
-\begin{frame}{Deep clustering \cite{SingleChannelSourceSeparation}, \cite{BasicDeepClustering:2016}}
+\begin{frame}{Deep Clustering \cite{SingleChannelSourceSeparation}, \cite{BasicDeepClustering:2016}}
 
 \begin{enumerate}
-	\item $X(t) \to (F,T)$ bins
+	\item $X(t) \to (f,t)$ bins
 	\item $(f,t) \text{ bin } \to \text{ embedding }$ (encoding) via neural network
-	\item Encodings are clustered via K-Means
+	\item Encodings are clustered via K-means
 \end{enumerate}
 
 \begin{figure}[htpb]
 	\centering
 	\includegraphics[width=0.8\linewidth]{images/deepClustering.png}
-	\caption{Deep clustering \cite{DCFigure}}
+	\caption{Deep clustering}
 \end{figure}
 
 \end{frame}
@@ -534,67 +489,64 @@ How to derive similarity matrix from mixed signal: \emph{$X(t) \to W$}?
 \begin{frame}{Deep clustering - Encoding}
 
  \begin{itemize}
-	 \item $(F,T)$ spectogram $\in \mathbb{R}^{T \times F}$ is transformed to 
-		 $s = (s_1, ..., s_n) \in \mathbb{R}^{N}$ with $N = T \times F$
+	 \item $(f,t)$ bins are transformed to 
+		 $s = (s_1, ..., s_n)$  with $n = T \times F$
 	 \item Neural network: \emph{$f_{\theta}(s) = V$} with: 
 		\begin{itemize}
 			\item $\theta$ being the parameters of the neural network
 			\item $|s|$ size of input layer
-			\item $V \in \mathbb{R}^{N \times D}$ being the embedding
-			\item Neural network has $D$ parallel output layers with 
-			      of size $N$
-		      \item $v_1, ..., v_n$ with \emph{$|v_i|^2 = 1$} normalized vectors
+			\item $V \in \mathbb{R}^{n \times K}$ being the embedding
+			\item Neural network has $K$ parallel output layers of size $n$
+		        \item $v_1, ..., v_n$ with \emph{$|v_i|^2 = 1$} normalized rows of $V$
 			      each representing an embedding of $(f,t)$ bin 
-			\item $v_{i,1}, ..., v_{i,d}$ similar to handcrafted 
-			      features in spectral clustering
+			\item $v_{i,1}, ..., v_{i,k}$ analog to $k$ handcrafted 
+			      features applied to $s_i$
 		\end{itemize}
-	\item $V$ is embedding of complete signal to be clustered
  \end{itemize}
 \end{frame}
 
-\begin{frame}{Deep clustering - Clustering}
+\begin{frame}{Deep Clustering - Clustering}
 
-\textbf{K-Means interference cost minimization}
 \begin{itemize}
-	\item $\min L = \sum_{i=1}^{N} ||s_i - \mu_k(i)||^2 = \sum_{k=1}^{K} \sum_{i \in C_k} ||s_i - \mu_k||^2$
-\end{itemize}
-\vspace{10mm}
-
-	\textbf{K-Means for Deep clustering}
-\begin{itemize}
-	\item $v_1, ..., v_n$ are clustered using K-Means
-	\item \emph{$\hat{Y} = \text{argmin}_{Y} {V - Y(Y^TY)^{-1}Y^TV}$}
-	\item $Y \in \mathbb{R}^{N \times C}$
-	\item $Y = (y_1,... ,y_c): y_i \in \mathbb{R}^{N}$: ``K-Means center vectors'' $\to$ mask for $(F,T)$ bins
-	\item $(Y^TY)^{-1}Y^T \in \mathbb{R}^{C \times N}$: means of all clusters
-	\item Create masks \emph{$S_i = \hat{Y}(c) \odot s$}
+	\item $v_1, ..., v_n$ are clustered using \emph{K-means loss function} 
+	\item \emph{$\hat{Y} = \text{argmin}_{Y} {V - YUF}$}
+		\begin{itemize}
+			\item $Y = (y_1,... ,y_n)^T \in \mathbb{R}^{n \times C}$
+			\item $ y_i \in \mathbb{R}^{C}$. $y_i$ is cluster assignment of i-th (f,t) bin 
+			\item Normalizer $U = (Y^TY)^{-1} \in \mathbb{R}^{C \times C}$
+			\item Accumalator $F = Y^TV \in \mathbb{R}^{C \times K}$
+		\end{itemize}
+	\item Create masks \emph{$S_i = \hat{Y}(c) \odot s$} with $\hat{Y}$ being one-hot encoded.
 	\item Output dimension problem is solved 
 \end{itemize}
 	
 \end{frame}
 
-\begin{frame}{Deep clustering - Training}
+\begin{frame}{Deep Clustering - Training}
 	
 	\textbf{Minimize cost function $C(\theta)$}
 	\begin{itemize}
-		\item $C(\theta) = |VV^T - YY^T|_F^2$
-		\item $Y$ is one-hot encoding from label $\overline{Y}$
-		\item Frobenius norm: $|A|^2_F = \sum_{i,j} A(i,j)^2$ 
-		\item $VV^T \in \mathbb{R}^{N \times N}$ estimated affinity matrix 
-		\item $YY^T \in \mathbb{R}^{N \times N}$ labeled affinity matrix
-		\item Intuitive derivation: $C(\theta) = \sum_{i,j}(v_i^T v_j - y_i^T y_j)^2 = ...  = \emph{\sum_{i,j; y_i = y_j} |v_i - v_j|^2 + \sum_{i,j} (v_i^T v_j)^2 - N}$
-		\item Computational most efficient cost function: $C(\theta) = |V^TV|_F^2 - 2|V^TY| + |Y^TY|$
+		\item $C(\theta) = |VV^T - \hat{Y}\hat{Y}^T|_F^2$
+		\item Frobenius norm: $|E|^2_F = \sum_{i,j} E(i,j)^2$ 
+		\item $VV^T \in \mathbb{R}^{n \times n}$ estimated affinity matrix 
+		\item $\hat{Y}\hat{Y}^T \in \mathbb{R}^{n \times n}$ labeled affinity matrix
+		\item Intuitive presentation: 
+			\begin{align*}
+				C(\theta) &= \sum_{i,j}(v_i^T v_j - \hat{y_i}^T \hat{y_j})^2 \\
+					... \\
+					   &= \emph{\sum_{i,j; \hat{y_i} = \hat{y_j}} |v_i - v_j|^2 + \sum_{i,j} (v_i^T v_j)^2 - N}
+			\end{align*}
 		\item Permutation invariant: $VV^T(i,j) = VV^T(j,i)$
 	\end{itemize}
 		
 \end{frame}
 
-\begin{frame}{Deep clustering - Training}
+\begin{frame}{Deep Clustering - Training}
 	
 \begin{figure}[htpb]
 	\centering
 	\includegraphics[width=0.95\linewidth]{images/dcExample.png}
-	\caption{[Lensson]}
+	\caption{reprinted from Lensson}
 \end{figure}
 
 \end{frame}
@@ -605,7 +557,7 @@ How to derive similarity matrix from mixed signal: \emph{$X(t) \to W$}?
 
 \begin{figure}[htpb]
 	\centering
-	\includegraphics[width=0.8\linewidth]{images/tasNetAll.png}
+	\includegraphics[width=0.9\linewidth]{images/tasNetAll.png}
 	\caption{TasNet}
 \end{figure}
 \vspace{10mm}
@@ -615,7 +567,7 @@ How to derive similarity matrix from mixed signal: \emph{$X(t) \to W$}?
 
 \end{frame}
 
-\begin{frame}{Encoding}
+\begin{frame}{Encoding - TasNet}
 
 \begin{minipage}[t]{0.48\linewidth}
 	\begin{figure}[htpb]
@@ -626,13 +578,13 @@ How to derive similarity matrix from mixed signal: \emph{$X(t) \to W$}?
 \hfill%
 \begin{minipage}[t]{0.48\linewidth}
 	\begin{itemize}
-		\item Mixed signal $x$ is divided into $K$ chunks $x_k$ 
-		\item Gated convolution is applied to $x_k$: 
-		\emph{$w_k = \text{ReLu}(x_k * U) \odot \text{Sigmoid}(x_k * V)$}
+		\item Mixed signal $X$ is divided into $K$ chunks $X_k$ 
+		\item Gated convolution is applied to $X_k$: 
+		\emph{$w_k = \text{ReLu}(X_k * U) \odot \text{Sigmoid}(X_k * V)$}
 	\end{itemize}
 	\vspace{5mm}
 	\begin{itemize}
-		\item Signal as sum of base functions: $x = wB$
+		\item Signal as sum of base functions: $X = wB$
 		\item Weight vector $w \in \mathbb{R}^{N}$ with $N$ = 
 		      dimension of output layer
 		\item Basis functions $B = (b_1, ...,b_n)$ 
@@ -669,7 +621,7 @@ How to derive similarity matrix from mixed signal: \emph{$X(t) \to W$}?
 
 \end{frame}
 
-\begin{frame}{Decoding}
+\begin{frame}{Decoding - TasNet}
 
 \begin{minipage}[t]{0.48\linewidth}
 	\begin{figure}[htpb]
@@ -682,17 +634,17 @@ How to derive similarity matrix from mixed signal: \emph{$X(t) \to W$}?
 	\hfill
 	\begin{itemize}
 		\item $w_i = m_i \odot w$: separate weight vectors
-		\item Deconvolution operation to get raw signal: $x_i = w_iB$ 
-		\item $x_i = \text{deconv}_{\hat{\theta}}(w_i)$ with $\hat{\theta}$
+		\item Deconvolution operation to get raw signal: $X_i = w_iB$ 
+		\item $X_i = \text{deconv}_{\hat{\theta}}(w_i)$ with $\hat{\theta}$
 			parameters of deconvolutional layer \cite{ler2010deconvolutional}
-		\item Chunks of signal $x_k$ can individually be separated $\to$ 
+		\item Chunks of signal $X_k$ can individually be separated $\to$ 
 		      very \emph{low latency time} when decoding
 	\end{itemize}
 \end{minipage}	
 
 \end{frame}
 
-\begin{frame}{Permutation invariant training \cite{7979557}}
+\begin{frame}{Permutation Invariant Training \cite{7979557}}
 \begin{minipage}[t]{0.48\linewidth}
 \hfill
 \begin{figure}[htpb]
@@ -707,30 +659,30 @@ How to derive similarity matrix from mixed signal: \emph{$X(t) \to W$}?
 	\item source-to-noise ration $SNR$ \cite{AudioSpeechLanguageProcessing} is used as training criterion
 	\item $\text{SNR}_i  = 10\log_{10}\frac{|s_{i}|^2}{|e_{i}|^2}$
 	\begin{itemize}
-		\item $s_{i} = \frac{x_i^Tx_i^{*}x_i^{*}}{|x_i^{*}|^2}$
-		\item $e_i = x_i - s_i$
+		\item $s_{i} = \frac{X_i^TX_i^{*}X_i^{*}}{|X_i^{*}|^2}$
+		\item $e_i = X_i - s_i$
 	\end{itemize}
 	\item \emph{$L(\theta_{all}) = \sum_{i=1}^C \text{SNR}_i$}
 	\item Need ``correct'' permutation of labels  
 	\item At every training step, mean-squared error of weight masks for correct assignment
 	\item $ \theta^{*} = \text{argmin}_{\theta \in \mathcal{P}} \sum_{i=1}^{c} |m_i \odot w - w_i^{*}(\theta(i))|^2$ 
-	\item $w_i^{*}$ from convolutional layer applied to $x_i^{*}$
+	\item $w_i^{*}$ from convolutional layer applied to $X_i^{*}$
 \end{itemize}
 \end{minipage}
 
 \end{frame}
 
-\section{Comparison \& Results}%
+\section{Comparison and Results}%
 \label{sec:results}
-\begin{frame}{Comparison \& Results}
+\begin{frame}{Comparison and Results}
 
 \begin{table}
 \centering
 \begin{tabular}{|c|c|c|}
 	\hline
-	 & \emph{Tasnet} & \emph{Deep Clustering}  \\
+	 & \emph{TasNet} & \emph{Deep Clustering}  \\
 	\hline
-	 +      & low latency time & solves dimension output problem \\
+	 Pro      & low latency time & no dimension output problem \\
 	 $SNR$   & 10.8   & 10.8  \\
 	\hline
 \end{tabular}
@@ -739,6 +691,7 @@ How to derive similarity matrix from mixed signal: \emph{$X(t) \to W$}?
 \vspace{10mm}
 \begin{itemize}
 	\item Results taken on two-speaker WSJ0-2mix dataset \cite{TasNet2017}
+	\item WSJO-2mix dataset consists of 7193 sentences from 42 female and 42 male         speakers amounting to 12.2 hours of speech
 \end{itemize}
 \end{frame}
 
@@ -748,13 +701,6 @@ How to derive similarity matrix from mixed signal: \emph{$X(t) \to W$}?
 	\item Methods improved greatly over the last 4 years
 	\item More and more end-to-end approaches are succesfully applied 
 	\item State-of-the-art: \emph{End-to-End Speech Separation with Unfolded Iterative Phase Reconstruction} yielding SNR: 12.8 on WSJ0-2mix \cite{2018arXiv180410204W}
-\end{itemize}
-
-\vspace{10mm}
-\textbf{Demo} \cite{Demo}
-\begin{itemize}
-	\item Deep clustering 1 
-	\item Deep clustering 2
 \end{itemize}
 
 \end{frame}

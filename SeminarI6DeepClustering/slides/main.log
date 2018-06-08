@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.17)  28 MAY 2018 13:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.17)  31 MAY 2018 12:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2183,18 +2183,18 @@ LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <4> not available
 
 ]
 LaTeX Font Info:    Font shape `T1/phv/bx/it' in size <21.89> not available
-(Font)              Font shape `T1/phv/b/it' tried instead on input line 284.
+(Font)              Font shape `T1/phv/b/it' tried instead on input line 282.
 LaTeX Font Info:    Font shape `T1/phv/b/it' in size <21.89> not available
-(Font)              Font shape `T1/phv/b/sl' tried instead on input line 284.
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 282.
 
 [3
 
-] <images/separation_example.jpg, id=118, 338.76563pt x 247.67531pt>
+] <images/separation_example.jpg, id=119, 451.6875pt x 330.23375pt>
 File: images/separation_example.jpg Graphic file (type jpg)
 
 <use images/separation_example.jpg>
-Package pdftex.def Info: images/separation_example.jpg used on input line 304.
-(pdftex.def)             Requested size: 469.47519pt x 343.25107pt.
+Package pdftex.def Info: images/separation_example.jpg used on input line 294.
+(pdftex.def)             Requested size: 469.47519pt x 343.25862pt.
  [4
 
  <./images/separation_example.jpg>]
@@ -2204,158 +2204,146 @@ Package pdftex.def Info: images/separation_example.jpg used on input line 304.
 
 ] [7
 
-] <images/spectogram.png, id=186, 736.7525pt x 360.34625pt>
+] <images/spectogram.png, id=183, 736.7525pt x 360.34625pt>
 File: images/spectogram.png Graphic file (type png)
 
 <use images/spectogram.png>
-Package pdftex.def Info: images/spectogram.png used on input line 392.
+Package pdftex.def Info: images/spectogram.png used on input line 379.
 (pdftex.def)             Requested size: 625.96295pt x 306.1583pt.
  [8
 
  <./images/spectogram.png>]
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <15.32292> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 410.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 397.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10.94499> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 410.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 397.
  [9
 
-]
-LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <18.25> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 446.
-LaTeX Font Info:    Calculating math sizes for size <18.25> on input line 446.
-LaTeX Font Info:    Font shape `U/lasy/b/n' in size <9.125> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 446.
-LaTeX Font Warning: Font shape `U/wasy/b/n' in size <18.25> not available
-(Font)              size <17.28> substituted on input line 446.
-LaTeX Font Warning: Font shape `U/wasy/b/n' in size <12.77493> not available
-(Font)              size <12> substituted on input line 446.
-LaTeX Font Warning: Font shape `U/wasy/b/n' in size <9.125> not available
-(Font)              Font shape `U/wasy/m/n' tried instead on input line 446.
- [10
+] [10
 
 ] [11
 
 ]
-[12
-
-] <images/outputDimProblem.png, id=245, 335.2525pt x 137.51375pt>
+<images/outputDimProblem.png, id=230, 335.2525pt x 137.51375pt>
 File: images/outputDimProblem.png Graphic file (type png)
 
 <use images/outputDimProblem.png>
-Package pdftex.def Info: images/outputDimProblem.png used on input line 501.
+Package pdftex.def Info: images/outputDimProblem.png used on input line 456.
 (pdftex.def)             Requested size: 625.96295pt x 256.75702pt.
- [13
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <18.25> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 456.
+ [12
 
  <./images/outputDimProblem.png>]
-<images/permutationDimProblem.png, id=260, 368.37625pt x 193.72375pt>
+<images/permutationDimProblem.png, id=244, 368.37625pt x 193.72375pt>
 File: images/permutationDimProblem.png Graphic file (type png)
 
 <use images/permutationDimProblem.png>
-Package pdftex.def Info: images/permutationDimProblem.png used on input line 51
-4.
+Package pdftex.def Info: images/permutationDimProblem.png used on input line 46
+9.
 (pdftex.def)             Requested size: 625.96295pt x 329.18411pt.
- [14
+ [13
 
- <./images/permutationDimProblem.png>] <images/deepClustering.png, id=273, 974.
+ <./images/permutationDimProblem.png>] <images/deepClustering.png, id=258, 974.
 64125pt x 402.50375pt>
 File: images/deepClustering.png Graphic file (type png)
 
 <use images/deepClustering.png>
-Package pdftex.def Info: images/deepClustering.png used on input line 532.
+Package pdftex.def Info: images/deepClustering.png used on input line 487.
 (pdftex.def)             Requested size: 625.96295pt x 258.51048pt.
-LaTeX Font Info:    Calculating math sizes for size <26.28> on input line 532.
+LaTeX Font Info:    Calculating math sizes for size <26.28> on input line 487.
 LaTeX Font Warning: Font shape `U/wasy/b/n' in size <26.28> not available
-(Font)              size <24.88> substituted on input line 532.
+(Font)              size <24.88> substituted on input line 487.
 LaTeX Font Warning: Font shape `U/wasy/b/n' in size <18.3959> not available
-(Font)              size <17.28> substituted on input line 532.
+(Font)              size <17.28> substituted on input line 487.
 LaTeX Font Warning: Font shape `U/wasy/b/n' in size <13.14> not available
-(Font)              size <12> substituted on input line 532.
- [15
+(Font)              size <12> substituted on input line 487.
+ [14
 
- <./images/deepClustering.png>] [16
+ <./images/deepClustering.png>] [15
 
 ]
-[17
+[16
 
-] [18
+] [17
 
-] <images/dcExample.png, id=321, 984.67876pt x 568.1225pt>
+] <images/dcExample.png, id=304, 984.67876pt x 568.1225pt>
 File: images/dcExample.png Graphic file (type png)
 
 <use images/dcExample.png>
-Package pdftex.def Info: images/dcExample.png used on input line 600.
+Package pdftex.def Info: images/dcExample.png used on input line 552.
 (pdftex.def)             Requested size: 743.32579pt x 428.89085pt.
- [19
+ [18
 
  <./images/dcExample.png>]
-<images/tasNetAll.png, id=334, 948.54375pt x 432.61626pt>
+<images/tasNetAll.png, id=316, 948.54375pt x 432.61626pt>
 File: images/tasNetAll.png Graphic file (type png)
 
 <use images/tasNetAll.png>
-Package pdftex.def Info: images/tasNetAll.png used on input line 616.
-(pdftex.def)             Requested size: 625.96295pt x 285.5012pt.
- [20
+Package pdftex.def Info: images/tasNetAll.png used on input line 568.
+(pdftex.def)             Requested size: 704.20087pt x 321.18721pt.
+ [19
 
  <./images/tasNetAll.png>]
-<images/tasNetEncoding.png, id=347, 387.4475pt x 373.395pt>
+<images/tasNetEncoding.png, id=330, 387.4475pt x 373.395pt>
 File: images/tasNetEncoding.png Graphic file (type png)
 
 <use images/tasNetEncoding.png>
-Package pdftex.def Info: images/tasNetEncoding.png used on input line 646.
+Package pdftex.def Info: images/tasNetEncoding.png used on input line 598.
 (pdftex.def)             Requested size: 338.0134pt x 325.75694pt.
- [21
+ [20
 
  <./images/tasNetEncoding.png>]
-<images/tasNetSeparation.png, id=359, 242.9075pt x 380.42125pt>
+<images/tasNetSeparation.png, id=342, 242.9075pt x 380.42125pt>
 File: images/tasNetSeparation.png Graphic file (type png)
 
 <use images/tasNetSeparation.png>
-Package pdftex.def Info: images/tasNetSeparation.png used on input line 670.
+Package pdftex.def Info: images/tasNetSeparation.png used on input line 622.
 (pdftex.def)             Requested size: 262.89995pt x 411.73114pt.
- [22
+ [21
 
  <./images/tasNetSeparation.png>]
-<images/tasNetDecoding.png, id=371, 350.30875pt x 414.54875pt>
+<images/tasNetDecoding.png, id=354, 350.30875pt x 414.54875pt>
 File: images/tasNetDecoding.png Graphic file (type png)
 
 <use images/tasNetDecoding.png>
-Package pdftex.def Info: images/tasNetDecoding.png used on input line 693.
+Package pdftex.def Info: images/tasNetDecoding.png used on input line 645.
 (pdftex.def)             Requested size: 262.89995pt x 311.13219pt.
-LaTeX Warning: Citation `ler2010deconvolutional' on page xxiii undefined on inp
-ut line 693.
- [23
+LaTeX Warning: Citation `ler2010deconvolutional' on page xxii undefined on inpu
+t line 645.
+ [22
 
  <./images/tasNetDecoding.png>]
-<../images/piv_train.png, id=383, 416.55624pt x 311.1625pt>
+<../images/piv_train.png, id=366, 416.55624pt x 311.1625pt>
 File: ../images/piv_train.png Graphic file (type png)
 
 <use ../images/piv_train.png>
-Package pdftex.def Info: ../images/piv_train.png used on input line 721.
+Package pdftex.def Info: ../images/piv_train.png used on input line 673.
 (pdftex.def)             Requested size: 338.0134pt x 252.50554pt.
- [24
+ [23
 
- <../images/piv_train.png>] [25
+ <../images/piv_train.png>] [24
+
+] [25
 
 ] [26
 
-] [27
-
 ]
-(./main.bbl) [28
+(./main.bbl) [27
 
  </usr/local/texlive/2016/texmf-dist/tex/latex/beamer/art/beamericonarticle.pdf
->] [29
+>] [28
+
+
+] [29
 
 
 ] [30
 
 
-] [31
-
-
 ]
-Package atenddvi Info: Last page = 32.
- [32
+Package atenddvi Info: Last page = 31.
+ [31
 
 
 ]
@@ -2368,30 +2356,30 @@ Package atenddvi Info: Last page = 32.
 \tf@snm=\write8
 \openout8 = `main.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 806.
-Package atveryend Info: Executing hook `AfterLastShipout' on input line 806.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 752.
+Package atveryend Info: Executing hook `AfterLastShipout' on input line 752.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 806.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 806.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 752.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 752.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 8126A3627BB25038DB2A903108B674AD;502.
+(rerunfilecheck)             Checksum: C63A55EC51DC6766FC374DE0B50DE5D4;500.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.4pt have occurred.
 LaTeX Warning: There were undefined references.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 806.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 752.
  )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 36563 strings out of 493014
- 724075 string characters out of 6133351
- 950285 words of memory out of 5000000
- 39215 multiletter control sequences out of 15000+600000
- 50686 words of font info for 128 fonts, out of 8000000 for 9000
+ 36534 strings out of 493014
+ 723715 string characters out of 6133351
+ 950356 words of memory out of 5000000
+ 39191 multiletter control sequences out of 15000+600000
+ 45486 words of font info for 106 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,13n,76p,10362b,8193s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,13n,76p,10362b,8158s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc
 }</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb
 ></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
@@ -2404,10 +2392,10 @@ b></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm1
 usr/local/texlive/2016/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/loc
 al/texlive/2016/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/local/tex
 live/2016/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on main.pdf (32 pages, 4314630 bytes).
+Output written on main.pdf (31 pages, 4280981 bytes).
 PDF statistics:
- 564 PDF objects out of 1000 (max. 8388607)
- 479 compressed objects within 5 object streams
- 110 named destinations out of 1000 (max. 500000)
+ 547 PDF objects out of 1000 (max. 8388607)
+ 463 compressed objects within 5 object streams
+ 108 named destinations out of 1000 (max. 500000)
  178 words of extra memory for PDF output out of 10000 (max. 10000000)
 

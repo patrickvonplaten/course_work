@@ -8,19 +8,19 @@
 \vspace {-20pt}
 \beamer@sectionintoc {3}{Definition}{6}{0}{3}
 \vspace {-20pt}
-\beamer@sectionintoc {4}{Mathematical basics}{7}{0}{4}
+\beamer@sectionintoc {4}{Mathematical Basics}{7}{0}{4}
 \vspace {-20pt}
-\beamer@sectionintoc {5}{Conventional methods}{10}{0}{5}
+\beamer@sectionintoc {5}{Spectral Clustering}{10}{0}{5}
 \vspace {-20pt}
-\beamer@sectionintoc {6}{Problems with deep learning}{13}{0}{6}
+\beamer@sectionintoc {6}{Problems with Deep Learning}{12}{0}{6}
 \vspace {-20pt}
-\beamer@sectionintoc {7}{Deep clustering}{15}{0}{7}
+\beamer@sectionintoc {7}{Deep Clustering}{14}{0}{7}
 \vspace {-20pt}
-\beamer@sectionintoc {8}{TasNet}{20}{0}{8}
+\beamer@sectionintoc {8}{TasNet}{19}{0}{8}
 \vspace {-20pt}
-\beamer@sectionintoc {9}{Comparison \& Results}{25}{0}{9}
+\beamer@sectionintoc {9}{Comparison and Results}{24}{0}{9}
 \setcounter {tocdepth}{-5}
 \vspace {-20pt}
-\beamer@sectionintoc {10}{Appendix}{28}{0}{10}
+\beamer@sectionintoc {10}{Appendix}{27}{0}{10}
 \setcounter {tocdepth}{2}
 \vspace {-20pt}
