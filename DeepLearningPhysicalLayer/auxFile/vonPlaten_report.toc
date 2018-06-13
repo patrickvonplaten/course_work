@@ -3,20 +3,19 @@
 \contentsline {section}{\numberline {2}Conventional Communication Systems}{5}{section.2}
 \contentsline {subsection}{\numberline {2.1}Structure of the Communication System}{5}{subsection.2.1}
 \contentsline {subsubsection}{\numberline {2.1.1}Transmitter}{6}{subsubsection.2.1.1}
-\contentsline {subsubsection}{\numberline {2.1.2}Channel}{6}{subsubsection.2.1.2}
-\contentsline {subsubsection}{\numberline {2.1.3}Receiver}{6}{subsubsection.2.1.3}
-\contentsline {subsection}{\numberline {2.2}Convential System Design}{6}{subsection.2.2}
-\contentsline {section}{\numberline {3}Deep Learning Basics}{6}{section.3}
-\contentsline {subsection}{\numberline {3.1}Deep Neural Network}{6}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Convolutional Layers in NN}{6}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Autoencoder}{6}{subsection.3.3}
-\contentsline {subsection}{\numberline {3.4}Generative Adversarial Networks}{6}{subsection.3.4}
-\contentsline {section}{\numberline {4}Applying deep learning to communication systems}{6}{section.4}
-\contentsline {subsection}{\numberline {4.1}Artificial neural network supported end-to-end systems}{7}{subsection.4.1}
-\contentsline {subsubsection}{\numberline {4.1.1}Basic Deep Learning based Communication system}{7}{subsubsection.4.1.1}
-\contentsline {subsubsection}{\numberline {4.1.2}Generative Adversarial Networks based Communicaton system}{7}{subsubsection.4.1.2}
-\contentsline {subsection}{\numberline {4.2}Comparison deep learing methods and conventional methods}{7}{subsection.4.2}
-\contentsline {subsubsection}{\numberline {4.2.1}Performance measurement}{7}{subsubsection.4.2.1}
-\contentsline {subsubsection}{\numberline {4.2.2}Results using deep learning methods}{7}{subsubsection.4.2.2}
-\contentsline {section}{\numberline {5}Conclusion}{7}{section.5}
-\contentsline {section}{References}{8}{section.5}
+\contentsline {subsubsection}{\numberline {2.1.2}Channel}{7}{subsubsection.2.1.2}
+\contentsline {subsubsection}{\numberline {2.1.3}Receiver}{8}{subsubsection.2.1.3}
+\contentsline {subsection}{\numberline {2.2}Convential System Design}{8}{subsection.2.2}
+\contentsline {section}{\numberline {3}Deep Learning Basics}{8}{section.3}
+\contentsline {subsection}{\numberline {3.1}Deep Neural Network}{9}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Autoencoder}{9}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Generative Adversarial Networks}{11}{subsection.3.3}
+\contentsline {section}{\numberline {4}Applying deep learning to communication systems}{12}{section.4}
+\contentsline {subsection}{\numberline {4.1}Artificial neural network supported end-to-end communication systems}{12}{subsection.4.1}
+\contentsline {subsubsection}{\numberline {4.1.1}Generative Adversarial Networks to model the channel}{13}{subsubsection.4.1.1}
+\contentsline {subsection}{\numberline {4.2}Synchronization using artificial neural networks}{13}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Comparison deep learing methods and conventional methods}{13}{subsection.4.3}
+\contentsline {subsubsection}{\numberline {4.3.1}Performance measurement}{13}{subsubsection.4.3.1}
+\contentsline {subsubsection}{\numberline {4.3.2}Results using deep learning methods}{13}{subsubsection.4.3.2}
+\contentsline {section}{\numberline {5}Conclusion}{13}{section.5}
+\contentsline {section}{References}{14}{section.5}

@@ -5,45 +5,45 @@ The style file: plain.bst
 Database file #1: vonPlaten_report.bib
 Warning--to sort, need author or key in osimodel
 Warning--empty booktitle in Berrou93nearshannon
-You've used 10 entries,
+You've used 13 entries,
             2118 wiz_defined-function locations,
-            556 strings with 5909 characters,
-and the built_in function-call counts, 3260 in all, are:
-= -- 310
-> -- 172
-< -- 2
-+ -- 70
-- -- 58
-* -- 222
-:= -- 550
-add.period$ -- 30
-call.type$ -- 10
-change.case$ -- 59
+            575 strings with 6350 characters,
+and the built_in function-call counts, 4274 in all, are:
+= -- 408
+> -- 204
+< -- 4
++ -- 83
+- -- 68
+* -- 290
+:= -- 708
+add.period$ -- 40
+call.type$ -- 13
+change.case$ -- 72
 chr.to.int$ -- 0
-cite$ -- 12
-duplicate$ -- 124
-empty$ -- 239
-format.name$ -- 58
-if$ -- 677
+cite$ -- 15
+duplicate$ -- 168
+empty$ -- 332
+format.name$ -- 68
+if$ -- 901
 int.to.chr$ -- 0
-int.to.str$ -- 10
-missing$ -- 9
-newline$ -- 53
-num.names$ -- 18
-pop$ -- 63
+int.to.str$ -- 13
+missing$ -- 13
+newline$ -- 69
+num.names$ -- 24
+pop$ -- 80
 preamble$ -- 1
-purify$ -- 49
+purify$ -- 60
 quote$ -- 0
-skip$ -- 97
+skip$ -- 128
 stack$ -- 0
-substring$ -- 149
-swap$ -- 29
-text.length$ -- 2
+substring$ -- 223
+swap$ -- 41
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 40
+type$ -- 50
 warning$ -- 2
-while$ -- 26
-width$ -- 12
-write$ -- 107
+while$ -- 35
+width$ -- 15
+write$ -- 142
 (There were 2 warnings)
