@@ -1,4 +1,5 @@
 \select@language {english}
 \contentsline {figure}{\numberline {1}{\ignorespaces Block Diagram Communication System}}{6}{figure.1}
-\contentsline {figure}{\numberline {2}{\ignorespaces Structure of an autoencoder}}{10}{figure.2}
-\contentsline {figure}{\numberline {3}{\ignorespaces End-to-end communication system as an autoencoder}}{12}{figure.3}
+\contentsline {figure}{\numberline {2}{\ignorespaces Example of QAM modulation scheme: M = 16, L = 3}}{8}{figure.2}
+\contentsline {figure}{\numberline {3}{\ignorespaces Structure of an autoencoder}}{10}{figure.3}
+\contentsline {figure}{\numberline {4}{\ignorespaces End-to-end communication system as an autoencoder}}{14}{figure.4}

@@ -3,47 +3,48 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: vonPlaten_report.aux
 The style file: plain.bst
 Database file #1: vonPlaten_report.bib
+Warning--I didn't find a database entry for "DBLP:journals/cor/OSheaH17"
 Warning--to sort, need author or key in osimodel
 Warning--empty booktitle in Berrou93nearshannon
-You've used 13 entries,
+You've used 12 entries,
             2118 wiz_defined-function locations,
-            575 strings with 6350 characters,
-and the built_in function-call counts, 4274 in all, are:
-= -- 408
-> -- 204
+            573 strings with 6214 characters,
+and the built_in function-call counts, 3970 in all, are:
+= -- 381
+> -- 181
 < -- 4
-+ -- 83
-- -- 68
-* -- 290
-:= -- 708
-add.period$ -- 40
-call.type$ -- 13
-change.case$ -- 72
++ -- 74
+- -- 60
+* -- 267
+:= -- 651
+add.period$ -- 37
+call.type$ -- 12
+change.case$ -- 65
 chr.to.int$ -- 0
-cite$ -- 15
-duplicate$ -- 168
-empty$ -- 332
-format.name$ -- 68
-if$ -- 901
+cite$ -- 14
+duplicate$ -- 158
+empty$ -- 315
+format.name$ -- 60
+if$ -- 843
 int.to.chr$ -- 0
-int.to.str$ -- 13
-missing$ -- 13
-newline$ -- 69
-num.names$ -- 24
-pop$ -- 80
+int.to.str$ -- 12
+missing$ -- 12
+newline$ -- 64
+num.names$ -- 22
+pop$ -- 73
 preamble$ -- 1
-purify$ -- 60
+purify$ -- 54
 quote$ -- 0
-skip$ -- 128
+skip$ -- 121
 stack$ -- 0
-substring$ -- 223
-swap$ -- 41
+substring$ -- 218
+swap$ -- 40
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 50
+type$ -- 46
 warning$ -- 2
-while$ -- 35
-width$ -- 15
-write$ -- 142
-(There were 2 warnings)
+while$ -- 33
+width$ -- 14
+write$ -- 132
+(There were 3 warnings)

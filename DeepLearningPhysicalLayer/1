@@ -325,14 +325,11 @@ following:
 	\item Pilot signal: A signal $i^{*}(t)$ (the pilot signal) is sent with $u(t)$ that 
 	      can easily be recognized by the receiver and indicates that the useful information
 	      is about to be received and should be sampled. 
-	\item Phase-locked loop: A control systems that generates an output signal 
-	      whose phase is related to the predefined phase values representing the 
-	      different phase-amplitude combinations used to represent the set of codes 
-	      $\ubar{Y}$.
+	\item Phase-locked loop: 
 \end{itemize}
+two famous ones being sending a pilot signal with 
+$u(t)$ that can easily be recognized by the receiver 
 
-We will revisit the synchronization problem when when applying \emph{deep learning}
-methods to realize a communication system \ref{sub:synchronization_problem_when_using_artificial_neural_networks}.
 
 The demodulated stream of information $\ubar{Z}$ will most 
 likely contain some errors due to the probable interference in the channel.
@@ -524,7 +521,7 @@ data being indistinguishable from real training data, we define $\theta^{(g^{*})
 At convergence, the discriminator has to output $p=\frac{1}{2}, \forall x \in \{x_r,x_f\}$.
 
 Unfortunately, training general adversial networks can be quite difficult. 
-As stated in \cite{Goodfellow-et-al-2016}, convergence in a \emph{zero-sum game} (or minmax game) is not a local optimum in $v_{\theta^{(g)},\theta^{(d)}}$, but ``that are simultaneously minimafor both networks' costs''.
+As stated in \cite{Goodfellow-et-al-2016}, convergence in a \emph{zero-sum game} (or minmax game) is not a local optimum in $v_{\theta^{(g)},\theta^{(d)}}$, but ``that are simultaneously minimafor both netwokrs' costs''.
 These points are saddle points in $v_{\theta^{(g)},\theta^{(d)}}$ being 
 local minima with respect to the first network parameters and maxima with respect to 
 the second network's parameters. 
@@ -559,8 +556,7 @@ with artificial neural networks.
 	      often fails to be a accurate model of the ``real'' channel response. 
 	      While the network using the ``channel'' layer shows great results, it 
 	      then fails to do so when applied to a real ``channel'' response \cite{2018ISTSP..12..132D}.
-	\item The receiver network is supposed to work directly on the quadrature samples 		of the demodulated carrier wave and thus has problems to effectively 
-	      synchronize received quadrature samples and transmitted quadrature samples 		when used with ``real'' channels.
+	\item 
 \end{enumerate}
 
 In conventional communication systems transmitter and receiver are optimized independent from each other \ref{fig:BlockCommunicationSystem} and therefore do not need to model the channel response. In artificial neural 
@@ -579,118 +575,23 @@ the transmitter and the receiver network are training on a ``channel'' layer and
 second only the receiver is finetuned using a ``real'' channel response exist as 
 well \cite{2018ISTSP..12..132D}, but will not be the focus of this report.
 
-As explained in section \ref{sub:structure_of_the_communication_system}, synchronization
-plays an important role in conventional communication systems in order to sample the 
-carrier wave at the correct time instances so that the demodulated data is synchronus with the transmitted data. In artificial neural network supported end-to-end communication 
-systems it has been shown to be quite difficult to succesfully model the ``channel layer''
-in a way that the receiver network would learn to synchronize by itself \cite{2018ISTSP..12..132D}. In section \ref{sub:synchronization_problem_when_using_artificial_neural_networks} a method extending artificial neural network supported end-to-end communication systems to orthogonal frequency division multiplexing for robustness against sampling synchronization errors will be studied.
-
 \subsection{Artificial neural network supported end-to-end communication systems}%
 \label{sub:artificial_neural_network_supported_end_to_end_systems}
 
-In this section, first the structure of the artificial neural network supported end-to-end communication systems will be explained in \ref{ssub:structure_of_artificial_neural_network_supported_end_to_end_communication_systems} using figure \ref{fig:communicationSystemAsAutoencoder}. 
-Second, the learning procedure will be presented in \ref{ssub:learning_for_artificial_neural_network_supported_end_to_end_communication_systems}. 
-Finally, it will be shown how to implement artificial neural network supported end-to-end communication system in practise dealing with ``real'' channel responses.
 
-The in the following presented systems are based mainly on two papers \cite{DBLP:journals/corr/OSheaH17} and \cite{2018ISTSP..12..132D}.
 
-\subsubsection{Structure of artificial neural network supported end-to-end communication systems}%
-\label{ssub:structure_of_artificial_neural_network_supported_end_to_end_communication_systems}
-
-Artificially neural network supported end-to-end communication systems are essentially 
-always \emph{autoencoders} \ref{sub:autoencoder}, thus taking an input, mapping it to 
-a compact and efficient representattion and mapping this efficient representation back 
-to the original input. 
-
-The basic structure of an autoencoder used to model a communication system in 
-shown in \ref{fig:communicationSystemAsAutoencoder}. 
 
 \begin{figure}[htpb]
 	\centering
-	\includegraphics[width=1.05\linewidth]{images/communicationSystemAsAutoencoder.png}
+	\includegraphics[width=1\linewidth]{images/communicationSystemAsAutoencoder.png}
 	\caption{End-to-end communication system as an autoencoder}
 	\label{fig:communicationSystemAsAutoencoder}
 \end{figure}
-The autoencoder is divided into three parts:
 
-\begin{itemize}
-	\item Neural network transmitter
-	\item Neural network embedding of the channel
-	\item Neural network receiver
-\end{itemize}
-
-The autoencoder takes a one-hot embedded vector $v = \left[v_1,v_2,...v_m\right] \in \mathbb{R}^m$ as input. If $v_i = 1, v_j = 0, \forall j \ne i$, the i-th symbol $s_i$ out of the set of 
-symbols $S$ with $|S|=m=2^k$ with $k$ bits is to be sent. $k$ is the number of bits 
-needed to present all the $m$ different symbols.
-Having defined the input, we can directly conclude that there are only $m$ possible 
-different input vectors $v$ of the autoencoder.
-
-The neural network transmitter presents the encoding function $f_{e}: v \to x, x \in \mathbb{R}^n (\text{ or } \mathbb{C}^{\frac{n}{2}})$.
-In the context of a communication systems, we have $n$ different channels we can use 
-to send the symbol $s_i$ presented by $v_i$. Every combination of the $n$ entries in $x=\left[x_1,x_2,...,x_n\right]$ is a data point in the modulation plane (compare to \ref{sub:structure_of_the_communication_system} and \ref{fig:16QAM}). Since in conventional 
-modulation techniques these ``modulation data points'' are complex values we can 
-also consider the first half of the output layer $x$ of the neural network transmitter to be real valued and the second half to be complex valued. Due to reasons of simplicity, 
-we will stick to $x \in \mathbb{R}^n$.
-It is important to notice that the mapping $f_{e}: v \to x$ is deterministic, meaning
-that an input $v_i$ is always mapped to the same $x_i=f_{e}(v_i)$. Since there are only 
-$m$ different input vectors, there are also $m$ different encoded vectors $\left[x_1,...,x_m\right]$ being the modulated representations of the symbols $s_1,...,s_m$.
-
-Let's take for example the case of $n=2$. That would mean that there are two channels to 
-send data. The case of having $n=2$ channels is equivalent to quadrature modulatino where
-the first and second channel would represent the $(x,y)$ data points that can be converted
-to the $(a,\phi)$ data points of amplitude and phase via $a = \sqrt{x^2+y^2}$ and $\phi = \tan(\frac{y}{x})$ as can be seen in \ref{fig:16QAM}.
-
-The neural network transmitter is made up of the input layer $v$ havig $m$ nodes, multiple hidden 
-layers, an output layer having $n$ output nodes and the normalization output layer
-$x$ also havig $n$ output nodes.
-The amount and structure of the hidden layers is not too relevant and depends from 
-paper to paper. Most of the time, there are no more than 3 hidden layers which have 
-$m$ or less nodes \cite{2018ISTSP..12..132D}, \cite{2018arXiv180506350O}, \cite{DBLP:journals/cor/OSheaH17}.
-Activation functions are normally either so-called \emph{ReLu}, being of the form 
-$\text{ReLu}(x) = \begin{cases}	0, \text{ if } x<0 \\ x \end{cases}$ 
-or \emph{sigmoid} activation functions, being of the 
-form $\sigma(x) = \frac{1}{1+e^{-x}}$. Activation functions should be non-linear 
-functions to be able to simulate complex functions. More about activation functions 
-and their effects can be read in \cite{Goodfellow-et-al-2016}.
-
-The normalization layer $x$ has some important characteristics: It makes sure that 
-the output of $x$ are adapted to certain constraints of the hardware of the transmitter, being e.g. an energy constraint $||x||_2^2$, an amplitude constraint $|x_i|^2 \le a, \forall i$ or an average power constraint $\mathbb{E}(|x_i|^2) \le p, \forall i$. 
-Defining one or more of these or other constraints and applying it to the normalization 
-layer $x$ has huge implications on the way the autoencoder learns to map symbols $s_i$
-to modulation data points $x_i$ as can be seen in \ref{fig:TODO}.
-
-The neural network embedding of the channel is the so called ``channel'' layer and 
-is a model of the real ``channel response'' needed for end-to-end training of the 
-network. All it does is usually to add random gaussian noise to the output values $x$ of the 
-transmitter neural network. Thus, it can simply be put into:
-\[
-	f_c: x \to \hat{x} = x + u, u \sim N(0,\sigma^2)
-\]
-
-with $N$ representing a normal/gaussian distribution of mean $0$ and to be defined 
-variance $\sigma^2$.
-Since the ``channel layer'' is only a model it sometimes does not really imitate 
-``real'' noise of and is the most probable reason why autoencoder communication 
-system fail to show the same results when used in practise. 
-Since more adaptive and more complex models might be needed for the ``channel layer'',\emph{O'Shea and co.} presented an approach using generative adversial networks to 
-generate more complex and customized ``channel layers''. This method will 
-be discussed in detail in \ref{sub:generative_adversarial_networks_based_communicaton_system}.
-
-The receiver neural network is the decoder part of the autoencoder: $g: \hat{x} \to \hat{v}$ with $\hat{v} \in \mathbb{R}^n$. It is composed 
-of a $n$ dimensional input layer $\hat{x}$, has multiple (normally less than 3) 
-hidden layers and finally the output layer $\hat{v} \in \mathbb{R}^m$. A softmax function 
-$s: \hat{v}_i\to \frac{e^{v_i}}{\sum_j=1^{n} v_j}$ is applied to every output 
-node of $\hat{v}$ to normalize the output and hence make $\hat{v}$ a probability 
-distribution. The received symbol $s_i$ is then found by $i = \text{argmax}_j \hat{v}_j$.
-The receiver neural network essentially takes the disturbed output of the transmitter neural network and maps it back to its input. Ideally the output layer
-$\hat{v}$ should be a one-hot encoded vector with $\hat{v}_i = 1$ and $\hat{v}_j = 0, \forall j \ne i$ to identify without uncertainty which symbol $s_i$ was sent. 
-
-\subsubsection{Learning for artificial neural network supported end-to-end communication systems}%
-\label{ssub:learning_for_artificial_neural_network_supported_end_to_end_communication_systems}
-
-\subsubsection{Applying artificial neural network supported end-to-end communication systems in ``real'' environment}%
-\label{ssub:applying_artificial_neural_network_supported_end_to_end_communication_systems_in_real_environment}
-
+Describe here two approaches: the base approach where the channel 
+is just modeled by a gaussian noise layer \cite{2018ISTSP..12..132D} and \cite{DBLP:journals/corr/OSheaH17}
+and the more sophisticated approach using Generative Adversarial Networks \cite{2018arXiv180506350O} and \cite{2018arXiv180303145O}.
+Describe architectures and training in detail.
 
 \subsection{Generative Adversarial Networks to model the channel}%
 \label{sub:generative_adversarial_networks_based_communicaton_system}

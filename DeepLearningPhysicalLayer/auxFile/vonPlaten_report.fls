@@ -170,6 +170,9 @@ INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
 INPUT images/CommunicationSystem.png
 INPUT ./images/CommunicationSystem.png
 INPUT ./images/CommunicationSystem.png
+INPUT images/16QAM.png
+INPUT ./images/16QAM.png
+INPUT ./images/16QAM.png
 INPUT images/autoencoder1.png
 INPUT ./images/autoencoder1.png
 INPUT ./images/autoencoder1.png
@@ -185,6 +188,7 @@ INPUT auxFile/vonPlaten_report.out
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
