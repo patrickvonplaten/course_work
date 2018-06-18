@@ -179,6 +179,9 @@ INPUT ./images/autoencoder1.png
 INPUT images/communicationSystemAsAutoencoder.png
 INPUT ./images/communicationSystemAsAutoencoder.png
 INPUT ./images/communicationSystemAsAutoencoder.png
+INPUT images/learnedModulation.png
+INPUT ./images/learnedModulation.png
+INPUT ./images/learnedModulation.png
 INPUT auxFile/vonPlaten_report.bbl
 INPUT auxFile/vonPlaten_report.bbl
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm

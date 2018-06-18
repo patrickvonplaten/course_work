@@ -625,13 +625,13 @@ needed to present all the $m$ different symbols.
 Having defined the input, we can directly conclude that there are only $m$ possible 
 different input vectors $v$ of the autoencoder.
 
-The neural network transmitter presents the encoding function $f_{e}: v \to x, x \in \mathbb{R}^n (\text{ or } \mathbb{C}^{\frac{n}{2}})$.
+The neural network transmitter presents the encoding function $f_{e, \theta_e}: v \to x, x \in \mathbb{R}^n (\text{ or } \mathbb{C}^{\frac{n}{2}})$.
 In the context of a communication systems, we have $n$ different channels we can use 
 to send the symbol $s_i$ presented by $v_i$. Every combination of the $n$ entries in $x=\left[x_1,x_2,...,x_n\right]$ is a data point in the modulation plane (compare to \ref{sub:structure_of_the_communication_system} and \ref{fig:16QAM}). Since in conventional 
 modulation techniques these ``modulation data points'' are complex values we can 
 also consider the first half of the output layer $x$ of the neural network transmitter to be real valued and the second half to be complex valued. Due to reasons of simplicity, 
 we will stick to $x \in \mathbb{R}^n$.
-It is important to notice that the mapping $f_{e}: v \to x$ is deterministic, meaning
+It is important to notice that the mapping $f_{e, \theta_e}: v \to x$ is deterministic, meaning
 that an input $v_i$ is always mapped to the same $x_i=f_{e}(v_i)$. Since there are only 
 $m$ different input vectors, there are also $m$ different encoded vectors $\left[x_1,...,x_m\right]$ being the modulated representations of the symbols $s_1,...,s_m$.
 
@@ -664,7 +664,7 @@ is a model of the real ``channel response'' needed for end-to-end training of th
 network. All it does is usually to add random gaussian noise to the output values $x$ of the 
 transmitter neural network. Thus, it can simply be put into:
 \[
-	f_c: x \to \hat{x} = x + u, u \sim N(0,\sigma^2)
+	f_{c,\sigma^2}: x \to \hat{x} = x + u, u \sim N(0,\sigma^2)
 \]
 
 with $N$ representing a normal/gaussian distribution of mean $0$ and to be defined 
@@ -676,10 +676,10 @@ Since more adaptive and more complex models might be needed for the ``channel la
 generate more complex and customized ``channel layers''. This method will 
 be discussed in detail in \ref{sub:generative_adversarial_networks_based_communicaton_system}.
 
-The receiver neural network is the decoder part of the autoencoder: $g: \hat{x} \to \hat{v}$ with $\hat{v} \in \mathbb{R}^n$. It is composed 
+The receiver neural network is the decoder part of the autoencoder: $f_{\theta_d,d}: \hat{x} \to \hat{v}$ with $\hat{v} \in \mathbb{R}^n$. It is composed 
 of a $n$ dimensional input layer $\hat{x}$, has multiple (normally less than 3) 
 hidden layers and finally the output layer $\hat{v} \in \mathbb{R}^m$. A softmax function 
-$s: \hat{v}_i\to \frac{e^{v_i}}{\sum_j=1^{n} v_j}$ is applied to every output 
+$s: \hat{v}_i\to \frac{e^{v_i}}{\sum_{j=1}^{n} v_j}$ is applied to every output 
 node of $\hat{v}$ to normalize the output and hence make $\hat{v}$ a probability 
 distribution. The received symbol $s_i$ is then found by $i = \text{argmax}_j \hat{v}_j$.
 The receiver neural network essentially takes the disturbed output of the transmitter neural network and maps it back to its input. Ideally the output layer
@@ -688,9 +688,85 @@ $\hat{v}$ should be a one-hot encoded vector with $\hat{v}_i = 1$ and $\hat{v}_j
 \subsubsection{Learning for artificial neural network supported end-to-end communication systems}%
 \label{ssub:learning_for_artificial_neural_network_supported_end_to_end_communication_systems}
 
+As explained in section \ref{sub:deep_neural_network} ``Learning'' a neural network 
+essentially means to minimize a predefined loss function. It is well known that 
+the more training data is available the better can the neural network be trained 
+\cite{Goodfellow-et-al-2016}. The great news about modelling communication 
+systems with autoencoders is that there is an unlimited supply of training data 
+since the ``correct'' label of the input data is the input data itself.
+So our loss function is comprised of the output of the autoencoder $\hat{v} = f_{d,	\theta_d}(f_{c, \sigma^2}(f_{e,\theta_e}(v)))$ and its input being the ``correct'' label $v$.
+Neural networks using one hot encoding as label data and apply softmax to the output
+layer in order to get a probabilistic distribution ($\hat{v}$) usually use the 
+so-called \emph{cross entropy} as their loss function, as it is proposed in 
+\cite{DBLP:journals/corr/OSheaH17}. Therefore the loss function for $N$ training
+samples $v_1,...,v_N \in \mathbb{R}^n$ has the form: 
+
+\begin{equation} \label{eq:loss}
+	L = - \sum_{k=1}^{N} \sum{j=1}^n v_{k,j} \log{\hat{v}_{k,j}} 
+\end{equation}
+
+Since the vectors $v_1,...,v_N$ are one-hot encoding with $v_{k,j} = 0 \forall j \ne i$, we can simplify \ref{eq:loss} to:
+
+\begin{equation} \label{eq:lossShort}
+	L = - \sum_{k=1}^{N} \log{\hat{v}_{k,i}}_{|i: v_{k,i} = 1}
+\end{equation}
+
+Having defined the loss function, the gradient can be computed to update the 
+parameters of both the encoder and the decoder network $\theta_e,\theta_d$ using 
+gradient descent: 
+\[
+	\theta_e \leftarrow \theta_e - \alpha \frac{\partial L}{\partial \theta_e}
+\]
+and 
+\[
+	\theta_d \leftarrow \theta_d - \alpha \frac{\partial L}{\partial \theta_e}
+\]
+
+Gradient descent follows the idea that in order to reach a local optimum, one 
+just calculates the gradient for every dimension and follows the gradient until 
+a local minimum of the loss funciton $L$ is reached. Whereas $\frac{\partial L}{\partial \theta_e}$ states the direction to reach the local optimum, $\alpha$ is a 
+constant factor stating ``how much to go in this direction''. $\theta_e$ and 
+$\theta_d$ represent the whole space of trainable parameters for both the encoder and 
+decoder neural networks, namely the weights between the different layers \ref{sub:deep_neural_network}. Therefore the above defined update rules have to be performed 
+individually for every single parameter is $\theta_e$ and $\theta_d$ by calculing 
+the respective gradients. Having $|theta_e| + |theta_d|$ trainable parameters 
+means that we also need to calculate $|theta_e| + |theta_d|$ different gradients 
+for every training sample $(v_k,\hat{v}_k)$. More details, also about other 
+hyper training parameters, such as regularization, batch size, ... can 
+be read upon in \cite{Goodfellow-et-al-2016}.
+One should keep in mind that $\sigma^2$ in $f_{c,\sigma^2}$ is not a trainable 
+parameter but needs to be chosen by the architect of the autoencoder so that the 
+``channel layer'' best represents the ``real'' channel response.
+
+\begin{figure}[htpb]
+	\centering
+	\includegraphics[width=0.32\linewidth]{images/learnedModulation.png}
+	\caption{Learned outputs of transmitter neural network output layer $x$ of all $m=16$ possible inputs and for $n=2$ channels. The x-Axis is presenting the values of the first output node in $x$ and the y-Axis the second}
+	\label{fig:learnedModulation}
+\end{figure}
+
+It can be noticed that the autoencoder is able to 
+learn efficent and robust modulation schemes which in case of figure 
+\ref{fig:learnedModulation} was leaned for $n=2$ and $m=16 $ and clearly corresponds to the well known \emph{16-QAM} modulation scheme. As stated in \cite{DBLP:journals/corr/OSheaH17} the learned 
+modulation arrangement strongly depends on the constraints put on the normalization 
+layer in the transmitter neural network.
+
 \subsubsection{Applying artificial neural network supported end-to-end communication systems in ``real'' environment}%
 \label{ssub:applying_artificial_neural_network_supported_end_to_end_communication_systems_in_real_environment}
 
+Having trained both the transmitter and the receiver neural networks, the real 
+testing will take place on actual hardware and a ``real'' channel. 
+The transmitter and receiver neural networks have to be implemented at the
+transmitter and the receiver respectively. 
+At the transmitter, the values for every of the $n$ channel of the output layer $x$ 
+will be modulated into a carrier wave at sent of the ``real'' channel. 
+At the receiver the carrier wave is sampled for the $n$ channels and the sampled $n$
+sampled values are plugged into the receiver network to be classified to one of 
+m code symbols. As mentioned before \emph{synchronization} plays an important role 
+here and might lead to problems if not taken care of. Section \ref{sub:synchronization_problem_when_using_artificial_neural_networks} is commited to this.
+If the results using the ``real channel'' are not at all comparable to the expected 
+results, the modelled ``channel layer'' has to be rethought and might not at all 
+be an accurate model of the ``real channel''.
 
 \subsection{Generative Adversarial Networks to model the channel}%
 \label{sub:generative_adversarial_networks_based_communicaton_system}
