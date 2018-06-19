@@ -9,7 +9,7 @@
 \usepackage{theorem}                            % instead of \usepackage{amsthm}
 \usepackage{dcolumn}
 \usepackage{hyperref}
-\usepackage[]{algorithm2e}
+\usepackage[ruled,vlined]{algorithm2e}
 \usepackage{accents}
 \newcommand{\ubar}[1]{\underaccent{\bar}{#1}}
 
@@ -702,7 +702,7 @@ so-called \emph{cross entropy} as their loss function, as it is proposed in
 samples $v_1,...,v_N \in \mathbb{R}^n$ has the form: 
 
 \begin{equation} \label{eq:loss}
-	L = - \sum_{k=1}^{N} \sum{j=1}^n v_{k,j} \log{\hat{v}_{k,j}} 
+	L = - \sum_{k=1}^{N} \sum_{j=1}^n v_{k,j} \log{\hat{v}_{k,j}} 
 \end{equation}
 
 Since the vectors $v_1,...,v_N$ are one-hot encoding with $v_{k,j} = 0 \forall j \ne i$, we can simplify \ref{eq:loss} to:
@@ -771,11 +771,103 @@ be an accurate model of the ``real channel''.
 \subsection{Generative Adversarial Networks to model the channel}%
 \label{sub:generative_adversarial_networks_based_communicaton_system}
 
+As already stated, one of the major problems of the basic autoencoder as stated in 
+\ref{sub:artificial_neural_network_supported_end_to_end_systems} is that the 
+``layer channel'' fails to imitate of a real world system ``including the effects induced
+by digital conversion, analog RF hardware, and other sources
+of distortions and impairments'' \cite{2018arXiv180303145O}. 
+The analytical expression within the ``layer channel'' must be able to capture all of
+these effects in a differentiable way suitable for the backpropagation algorithm \ref{sub:deep_neural_network}.
+
+One idea to do so, is to apply a system similar to generative adversial networks with 
+a neural network analogue to the discriminator network \ref{sub:generative_adversarial_networks} $h_{1,\theta_h}: x \to \hat{y}$ that learns to approximate a ``real'' channel by comparing its 
+results to one $h_0:x \to y$ and a autoencoder as introduced in \ref{sub:artificial_neural_network_supported_end_to_end_systems} having a transmitter neural network 
+$f_{\theta_f}:s \to x$ and a receiver neural network $g_{\theta_g}:\hat{y} \to \hat{s}$ taking 
+the role of the \emph{generator neural network} by learning better coding and 
+encoding schemes using the parameters of $h_{1,\theta_h}$.
+
+\begin{figure}[htpb]
+	\centering
+	\includegraphics[width=1\linewidth]{images/generativeAdvAutoencoder.png}
+	\caption{Generative adversial network learning a communication system}
+	\label{fig:generativeAdvAutoencoder}
+\end{figure}
+
+In Figure \ref{fig:generativeAdvAutoencoder}, such a system can be seen.
+It can be seen that the network to approximate a ``real'' channel is made up of 
+multiple layers each having the non-linear \emph{ReLu} activation functions. This 
+increased depth of the ``channel layer'' or by now it should better be called the 
+``channel neural network'' allows for the ability to learn much more complex 
+real world channel behavior.
+
+The loss function for $h_{1,\theta_h}$ is defined as a \emph{Mean-Square Error} loss 
+function for $N$ training samples: 
+\[
+	L_0: \sum_{k=1}^N || y_k - \hat{y}_k ||_2^2 = || h_{1, \theta_h}(f_{\theta_f}(s_k)) - h_0(f_{\theta_f}(s_k)) ||_2^2 
+\]
+
+The loss function for $f_{\theta_f},g_{\theta_g}$ is defined as before in \ref{sub:artificial_neural_network_supported_end_to_end_systems} as the cross entropy loss function:
+\[
+	L_1 = - \sum_{k=1}^{N} \log{\hat{s}_{k,i}}_{|i: s_{k,i} = 1} = 
+	- \sum_{k=1}^{N} \log{g_{\theta_g}(h_{1,\theta_h}(f_{\theta_f}(s_k)))_i}_{|i: s_{k,i} = 1}
+\]
+
+The following pseudo algorithm summarizes the training procedure for the 
+alternating training.
+
+\vspace{1em}
+
+\begin{algorithm}[H]
+	\DontPrintSemicolon
+	$\theta_f,\theta_h,\theta_g \leftarrow $ random initial weights\;
+	\For{epoch in epochs}{
+		\For{step in steps}{
+			\For{$k \leftarrow 1$ \KwTo $N$}{
+				$s_k \leftarrow $ random training samples \;
+				$y_k \leftarrow h_{1, \theta_h}(f_{\theta_f}(s_k))$ \;
+				$\hat{y}_k \leftarrow h_0(f_{\theta_f}(s_k))$ \;	
+			}
+			$ \theta_h \leftarrow \theta_h - \alpha_0 \frac{\partial L_0}{\partial \theta_h} $ \;
+		}
+		\For{step in steps}{
+			\For{$k \leftarrow 1$ \KwTo $N$}{
+				$s_k \leftarrow $ random training samples \;
+				$\hat{s}_k \leftarrow g_{\theta_g}(h_{1,\theta_h}(f_{\theta_f}(s_k)))$ \;
+			}
+			$ \theta_f \leftarrow \theta_f - \alpha_0 \frac{\partial L_1}{\partial \theta_f} $ \;
+			$ \theta_g \leftarrow \theta_g - \alpha_0 \frac{\partial L_1}{\partial \theta_g} $ \;
+		}
+	}
+	\caption{System using Generative Adversial Networks Training Procedure}
+\end{algorithm}
+
+\vspace{1em}
+
+It can be seen that the networks $h_{1,\theta_h}$ and $f_{\theta_f},g_{\theta_g}$ are 
+optimized for a certain amount of \emph{steps} each in an alternating fashion. 
+First the ``channel network'' $h_{1,\theta_h}$  tries to imitiate the ``real'' channel response. 
+Having a good approximation, the autoencoder networks $f_{\theta_f},g_{\theta_g}$ are trained on the ``channel network'' $h_{1,\theta_h}$ to create more efficient encodings of 
+the symbols $s_k$. 
+Having learned a new encoding scheme, the ``real'' channel response has changed at well, 
+so that the $h_{1,\theta_h}$ needs to be relearned and so on...
+This training procedure will eventually lead to smaller and smaller changes and converge.
+
+In the papers \cite{2018arXiv180506350O},\cite{2018arXiv180303145O}, it is shown that the system using generative adversial networks 
+is able to adapt to very different ``real'' channels and learns very efficient 
+encoding schemes for each of them.
+
 \subsection{Synchronization using artificial neural networks}%
 \label{sub:synchronization_problem_when_using_artificial_neural_networks}
 
-\cite{synch1}
-\cite{synchAttention}
+The systems presented so far in sections \ref{sub:artificial_neural_network_supported_end_to_end_systems} and \ref{sub:generative_adversarial_networks_based_communicaton_system} 
+did not cope with the problem of unsynchronized electrical oscilators needed to 
+send the outputs of the transmitter neural network to the receiver neural network.
+
+In the following, an approach from the paper \cite{synch1} tackling the problem 
+of unsynchronized electrical oscilator will be presented:
+
+
+
 
 \subsection{Comparison deep learing methods and conventional methods}
 

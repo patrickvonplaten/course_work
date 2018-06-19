@@ -8,15 +8,15 @@ Warning--to sort, need author or key in osimodel
 Warning--empty booktitle in Berrou93nearshannon
 You've used 12 entries,
             2118 wiz_defined-function locations,
-            573 strings with 6214 characters,
-and the built_in function-call counts, 3970 in all, are:
-= -- 381
+            572 strings with 6196 characters,
+and the built_in function-call counts, 3968 in all, are:
+= -- 380
 > -- 181
 < -- 4
 + -- 74
 - -- 60
-* -- 267
-:= -- 651
+* -- 268
+:= -- 650
 add.period$ -- 37
 call.type$ -- 12
 change.case$ -- 65
@@ -25,17 +25,17 @@ cite$ -- 14
 duplicate$ -- 158
 empty$ -- 315
 format.name$ -- 60
-if$ -- 843
+if$ -- 842
 int.to.chr$ -- 0
 int.to.str$ -- 12
 missing$ -- 12
 newline$ -- 64
 num.names$ -- 22
-pop$ -- 73
+pop$ -- 75
 preamble$ -- 1
 purify$ -- 54
 quote$ -- 0
-skip$ -- 121
+skip$ -- 120
 stack$ -- 0
 substring$ -- 218
 swap$ -- 40
@@ -46,5 +46,5 @@ type$ -- 46
 warning$ -- 2
 while$ -- 33
 width$ -- 14
-write$ -- 132
+write$ -- 131
 (There were 3 warnings)
