@@ -8,7 +8,6 @@ I was expecting a `,' or a `}'---line 21 of file references.bib
  :      howpublished = {\url{http://www.merl.com/demos/ deep-clustering}},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "ler2010deconvolutional"
 `year' is a missing field, not a string, for entry Demo
 while executing---line 1300 of file i6bibstyle.bst
 Warning--to sort, need author or key in Demo
@@ -27,7 +26,7 @@ while executing---line 1369 of file i6bibstyle.bst
 Warning--there's no month in zeiler2010deconvolutional
 You've used 20 entries,
             2542 wiz_defined-function locations,
-            696 strings with 7949 characters,
+            695 strings with 7927 characters,
 and the built_in function-call counts, 7488 in all, are:
 = -- 734
 > -- 286

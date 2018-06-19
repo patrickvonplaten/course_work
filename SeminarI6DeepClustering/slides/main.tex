@@ -411,8 +411,8 @@
 	\emph{\textbf{Input: }} $(W, r)$ \\
 	\emph{\textbf{Algorithm: }}
 	\begin{itemize}
-		\item Compute first $r$ eigenvectors $H: (h_1,... ,h_r) \in \mathbb{R}^{P \times r}$ of $W$ 
-		\item Transpose $H$ to $O = H^T: (o_1,... ,o_p) \in \mathbb{R}^{r \times P}$ 
+		\item Compute first $r$ eigenvectors $H: (h_1,... ,h_r) \in \mathbb{R}^{p \times r}$ of $W$ 
+		\item Transpose $H$ to $O = H^T: (o_1,... ,o_p) \in \mathbb{R}^{r \times p}$ 
 		\item Initialise clusters $Z$ and perform K-means \cite{Steinhaus56} using $(o_1,... ,o_p)$ 
 	\end{itemize}
 	\emph{\textbf{Output: }}$\textbf{Z} = (Z_1, Z_2, ..., Z_r)$
@@ -424,9 +424,9 @@
 How to derive similarity matrix from mixed signal: \emph{$X(t) \to W$}?
 \vspace{10mm}
 \begin{enumerate}
-	\item Short time fourier transform: $X(t) \to (t,f)$ bins
-	\item Apply handcrafted features: \emph{Energy, continuity, common fate cues, pitch estimation, timbre}: $(t,f) \text{bins} \to (s_1, ...,s_n): n = F \times T$
-	\item Create similarity matrix for every feature $k$ with $W_k(i,j) = f_k(s_i,s_j)$
+	\item Short time fourier transform: $X(t) \to (f,t)$ bins
+	\item Apply handcrafted features: \emph{Energy, continuity, common fate cues, pitch estimation, timbre}: $(f,t) \text{ bins} \to (s_{k,1}, ...,s_{k,n}): n = F \times T$ for feature $k$ with $F$ and $T$ being amount of frequency and time bins.
+	\item Create similarity matrix for every feature $k$ with $W_k(i,j) = f_k(s_{k,i},s_{k,j})$
 	\item ``Put together'' similarity matrixes using $\odot$ and a  weight vector $\alpha$: $W = W_1^{\alpha_1} \odot ... \odot W_k^{\alpha_k} \odot ...$ 
 	\item Apply spectral clustering algorithm 
 \end{enumerate}
@@ -486,7 +486,7 @@ How to derive similarity matrix from mixed signal: \emph{$X(t) \to W$}?
 
 \end{frame}
 
-\begin{frame}{Deep clustering - Encoding}
+\begin{frame}{Deep Clustering - Encoding}
 
  \begin{itemize}
 	 \item $(f,t)$ bins are transformed to 
@@ -509,14 +509,14 @@ How to derive similarity matrix from mixed signal: \emph{$X(t) \to W$}?
 
 \begin{itemize}
 	\item $v_1, ..., v_n$ are clustered using \emph{K-means loss function} 
-	\item \emph{$\hat{Y} = \text{argmin}_{Y} {V - YUF}$}
+	\item \emph{$Y^* = \text{argmin}_{Y} {V - YUF}$}
 		\begin{itemize}
 			\item $Y = (y_1,... ,y_n)^T \in \mathbb{R}^{n \times C}$
 			\item $ y_i \in \mathbb{R}^{C}$. $y_i$ is cluster assignment of i-th (f,t) bin 
 			\item Normalizer $U = (Y^TY)^{-1} \in \mathbb{R}^{C \times C}$
 			\item Accumalator $F = Y^TV \in \mathbb{R}^{C \times K}$
 		\end{itemize}
-	\item Create masks \emph{$S_i = \hat{Y}(c) \odot s$} with $\hat{Y}$ being one-hot encoded.
+	\item Create masks \emph{$S_i = Y^*(c) \odot s$} with $\hat{Y}$ being one-hot encoded.
 	\item Output dimension problem is solved 
 \end{itemize}
 	
@@ -580,7 +580,7 @@ How to derive similarity matrix from mixed signal: \emph{$X(t) \to W$}?
 	\begin{itemize}
 		\item Mixed signal $X$ is divided into $K$ chunks $X_k$ 
 		\item Gated convolution is applied to $X_k$: 
-		\emph{$w_k = \text{ReLu}(X_k * U) \odot \text{Sigmoid}(X_k * V)$}
+			\emph{$w_k = \text{ReLu}(X_k * L_{\text{base}}) \odot \text{Sigmoid}(X_k * L_{\text{gate}})$} with layer weights $L_{\text{base}}$ and $L_{\text{gate}}$
 	\end{itemize}
 	\vspace{5mm}
 	\begin{itemize}
@@ -612,8 +612,8 @@ How to derive similarity matrix from mixed signal: \emph{$X(t) \to W$}?
 		\item weights $w$ are normalized $w \to \hat{w} = \frac{g}{\sigma} \odot (w - \mu) + b$ 
 		\item $\sigma$ and $\mu$ are \emph{variance} and \emph{mean}
 		\item $g,b$ are gain and bias vector
-		\item Deep recurrent neural network outputs weight masks for every
-			speaker: $M = (m_1, ...,m_k)  = f_{\theta}(w)$
+		\item Deep recurrent neural network $f_{\theta_s}$ outputs weight masks for every
+			speaker: $M = (m_1, ...,m_k)  = f_{\theta_s}(w)$
 		\item Size(outputLayer) = Size(inputLayer) $\times$ $\#$Speakers
 		\item Output dimension problem is not solved in TasNet
 	\end{itemize}
@@ -626,7 +626,7 @@ How to derive similarity matrix from mixed signal: \emph{$X(t) \to W$}?
 \begin{minipage}[t]{0.48\linewidth}
 	\begin{figure}[htpb]
 		\centering
-		\includegraphics[width=0.7\linewidth]{images/tasNetDecoding.png}
+		\includegraphics[width=0.8\linewidth]{images/tasNetDecoding.png}
 	\end{figure}
 \end{minipage}%
 \hfill%
@@ -635,8 +635,8 @@ How to derive similarity matrix from mixed signal: \emph{$X(t) \to W$}?
 	\begin{itemize}
 		\item $w_i = m_i \odot w$: separate weight vectors
 		\item Deconvolution operation to get raw signal: $X_i = w_iB$ 
-		\item $X_i = \text{deconv}_{\hat{\theta}}(w_i)$ with $\hat{\theta}$
-			parameters of deconvolutional layer \cite{ler2010deconvolutional}
+		\item $X_i = \text{deconv}_{\theta_d}(w_i)$ with $\theta_d$
+			parameters of deconvolutional layer 
 		\item Chunks of signal $X_k$ can individually be separated $\to$ 
 		      very \emph{low latency time} when decoding
 	\end{itemize}

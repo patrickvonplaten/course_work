@@ -679,7 +679,7 @@ data $X$ using the short term fourier transform and applying the neural network 
 Analog to \emph{spectral clustering}, we use the \emph{k-means} algorithm by minimizing its inference cost with the following equation: 
 
 \begin{equation} \label{eq:deep_clust_kmeans}
-	\hat{Y} = \text{argmin}_{Y} {V - Y(Y^TY)^{-1}Y^TV}
+	\hat{Y} = \text{argmin}_{Y} || {V - Y(Y^TY)^{-1}Y^TV} ||_F^2
 \end{equation}
 
 $\hat{Y}$ are used as binary masks to separate the sources. So we can lastly apply the
