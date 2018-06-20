@@ -3,12 +3,11 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: vonPlaten_report.aux
 The style file: plain.bst
 Database file #1: vonPlaten_report.bib
-Warning--I didn't find a database entry for "DBLP:journals/cor/OSheaH17"
 Warning--to sort, need author or key in osimodel
 Warning--empty booktitle in Berrou93nearshannon
 You've used 13 entries,
             2118 wiz_defined-function locations,
-            580 strings with 6339 characters,
+            578 strings with 6287 characters,
 and the built_in function-call counts, 4324 in all, are:
 = -- 414
 > -- 199
@@ -47,4 +46,4 @@ warning$ -- 2
 while$ -- 36
 width$ -- 15
 write$ -- 142
-(There were 3 warnings)
+(There were 2 warnings)

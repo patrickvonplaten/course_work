@@ -373,39 +373,33 @@ $\hat{x}(t)$.
 \subsection{Convential System Design}
 
 As already stated in \ref{sec:motivation}, conventional communication systems use 
-a chain of individual blocks each being individually chosen and optimized. 
+a chain of blocks each being individually chosen and optimized. 
 
-The chosen method for the first block - source encoding - strongly depends on the proberties of the set of symbols the information to be sent is made up of. Thus, this method is often dynamically changed depending on what information is to be sent.
+The chosen method for the first block - source encoding - strongly depends on the proberties of the set of symbols the information consists of. Thus, this method is often dynamically changed depending on what information is to be sent.
 Channel encoding and modulation design is much more dependent on the given channel 
-properties. Also, the trade off between error resistant and efficiency of the sent 
-data structures in terms its average codeword length (number of bits), greatly influences
+properties. Especially, the trade-off between wanted error resilience and wanted efficiency in terms of its average codeword length (number of bits), greatly influences
 the methods to be used in channel encoding and modulation. 
 
-In this report, we will use a conventional communication system employing binary
-phase-shift keying modulation and a Hamming (7,4) code for comparison with systems 
-applying deep learning methods.
-A Hamming (7,4) code encodes four bits of data into seven bits for error resiliance. 
+A Hamming (7,4) code for example, encodes four bits of data into seven bits for error resiliance. 
 Doing so, the \emph{Hammming algorithm} can correct any single-bit error, or detect all single-bit and two-bit errors.
-Phase-shift keying modulation is a digital modulation process modulating the phase of 
-the carrier wave at precise time intervals.  
 
 \section{Deep Learning Basics}%
 \label{sec:deep_learning_basics}
 
 This section aims at introducing the reader to the most important concepts of 
-deep learning and how the can be applied to model communication systems.
+deep learning and how they can be applied to model communication systems.
 
 \subsection{Deep Neural Network}%
 \label{sub:deep_neural_network}
 
 Deep neural networks are the essential building blocks in deep learning. 
-They are very powerful mathematical models which aim to map some input $x$ to an 
+They are very powerful mathematical models which map some input $x$ to an 
 output $f_{\theta}(x)$ by learning parameters $\theta$. 
 In other words, they find parameters $\theta$ such that $f_{\theta}(x)$ is the best 
 approximation of some function $f^¿$ \cite{Goodfellow-et-al-2016}. 
 This function can describe many real-world tasks, e.g. classification of objects on a 
 image, transcription of a spoken sentence or translation of a written sequence. 
-This approximation power of deep neural networks accounts for their current success in a
+The approximation power of deep neural networks is the reason for their current success in a
 variety of different applications.
 
 Deep neural networks compose together many different functions (called neurons, nodes or units) in a directed acyclic graph manner. Output of each unit $y_j$ can be represented as a weighted sum of $N$ input units $x_i$ followed by a non-linear function $g$:
@@ -413,16 +407,16 @@ Deep neural networks compose together many different functions (called neurons, 
 	y_j =g(\sum_{i=1}^N x_i w_{j,i}+b_j),
 \]
 where $b_j$ is the bias term leading to the output node $y_j$ and $w_{j,i}$ is weight 
-connecting the input node $x_i$ with the output node $y_j$.
-Inside deep neural networks, information flows only in one direction, from the input x 
+connecting the input node $x_i$ to the output node $y_j$.
+Inside deep neural networks, information flows only in one direction, from the input $x$ 
 through hidden units to the output $f_{\theta}(x)$ without any loops. 
 Hidden units in the network are organized in layers. Stacking more layers results in more abstract, high-level representations of the input data. 
-The adjective ``deep'' thus symbolizes the ability of deep neural networks to 
-``learn'' functions of increasing complexity by adding more layers in the network.
+The adjective ``deep'' symbolizes the ability of deep neural networks to 
+``learn'' functions of increasing complexity by adding more layers to the network.
 
-The so-called ``learning'' of deep neural networks $f_{\theta}$ refers to the optimizing of its parameters $\theta$ to learn a certain function. 
+The so-called ``learning'' of deep neural networks $f_{\theta}$ refers to the optimizationof its parameters $\theta$ to learn a certain function. 
 This is done, by defining a loss or cost function $L(y^{*},\hat{y} = f_{\theta}(x)) \in \mathbb{R}$.
-In deep learning, trainings data is defined as a tuple $(x,y^{*})$ with the input data $x$
+In deep learning, training data is defined as a tuple $(x,y^{*})$ with the input data $x$
 and its corresponding label $y^{*}$. The goal in the ``training'' procedure is 
 then to find parameters $\theta$ that minimize the loss function $L$:
 \[
@@ -432,11 +426,11 @@ for the training data by minimizing the differenc between $\hat{y}$ and $y^{*}$.
 Due to the high number of non-linear activation functions in a deep neural networks,
 this optimization problem is almost always a non-convex problem, thus making it 
 impossible to find an analytical solution for $\theta$.
-Therefore, in training deep neural network algorithm like \emph{gradient descent}
+Therefore, in training algorithms like \emph{gradient descent}
 are used trying to find a ``good'' local optimum \cite{Goodfellow-et-al-2016}.
 
-Since encoding raw data to a more error resiliant and efficient form is essentially a complex
-function $s: d \to d^*$, deep neural networks can be learned to approximate such 
+Since encoding raw data to a more error resiliant and efficient form is essentially a 
+mapping $s: d \to d^*$, deep neural networks can be learned to approximate such 
 a function $s$.
 
 \subsection{Autoencoder}%
@@ -492,7 +486,7 @@ by the decoder function $g: h \to r$. Since the output of the last encoded layer
 hidden layer $h$ modelling 
 the probabilistic nature of the real channel \cite{synch1, DBLP:journals/corr/OSheaH17}.
 Therefore, an autoencoder applied for the physical layer would have $f: x \to h$ as 
-the encoding function of the transmitter network and $g: \widetilde{h} \to r$ with $\widetilde{h}$ being a corrupted/distorted version of $h$ as the decoding function of 
+the encoding function of the transmitter network and $g: \widetilde{h} \to r$ (with $\widetilde{h}$ being a corrupted/distorted version of $h$) as the decoding function of 
 the receiver network. The transformation $c: h \to \widetilde{h}$ represents the 
 channel network and imitiate the behavior of a ``real'' channel.
 Figure \ref{fig:communicationSystemAsAutoencoder} presents an example of such a model.
@@ -504,31 +498,33 @@ Generative adversarial networks belong to the class of generative models and are
 based on differentiable generator networks \cite{Goodfellow-et-al-2016}.
 Generative adversarial networks basically consists of two networks: 
 \begin{itemize}
-	\item The generator network: $g_{\theta^{(g)}}: z \to x_{f}, x_{f},z \in \mathbb{R}$
-	\item The discriminator network: $d_{\theta^{(d)}}: x \to p, p \in \left[0,1\right], x \in \mathbb{R}$
+	\item The generator network: $g_{\theta^{(g)}}: z \to x_{f}: x_{f},z \in \mathbb{R}$
+	\item The discriminator network: $d_{\theta^{(d)}}: x \to p: p \in \left[0,1\right], x \in \mathbb{R}$
 \end{itemize}
 
 The idea of generative adversarial networks is based on a game theoretic scenario in 
 which the \emph{generator} $g_{\theta^{(g)}}$ network must compete against its adversary, the discriminator $d_{\theta^{(d)}}$ network.
 
 The generator network takes random values $z$ as an input to produce ``fake data'' $x_{f}$.
-The discriminator takes this ``fake data'' $x_f$ or real data $x_r$ as input $x$ and emits a 
+The discriminator takes this ``fake data'' $x_f$ or real data $x_r$ as the input $x$ and emits a 
 probability value $p$ indicating whether the data is a real training example or not.
 
 Having this setup, the goal of the generator is to produce data that will be 
 evaluated as real data by the discriminator, while the goal of the discriminator 
-is to distinguish the ``fake data'' produced from the generator from the real 
+is to distinguish the ``fake data'' produced by the generator from the real 
 training examples. 
 
 Learning in generative adversarial networks can best be described 
-as a \emph{zero-sum game}, continious situations in which each networks pay-off (or loss
+as a \emph{zero-sum game}, being continious situations in which each networks pay-off (or loss
 function) is exactly balanced by the pay-off of the utility of the other network.
+
 Generative Adversarial Networks comprise multiple different approaches and can have 
 multiple interpretations \cite{Goodfellow-et-al-2016}, but the ``standard version'' is as follows:
-It consits of alternatively training $g_{\theta^{(g)}}(z) = x_f$ to be similar to $x_r$ and $d_{\theta^{(d)}}(x) = p$ to be as close to 1 for $x=x_r$ and close to 0 for $x=x_f$ leads to the 
-generator to data that is the more and more similar to real training examples.
-Putting in mathematically, we define a pay-off $v_{\theta^{(g)},\theta^{(d)}}$ the 
-discriminator tries to maximize and the generator to minimize.
+It consits of alternatively training $g_{\theta^{(g)}}(z) = x_f$ to be similar to $x_r$ and $d_{\theta^{(d)}}(x) = p$ to be close to 1 for $x=x_r$ and close to 0 for $x=x_f$.
+This training leads to the 
+generator generating data that is more and more similar to real training examples.
+Putting in mathematically, we define a pay-off $v_{\theta^{(g)},\theta^{(d)}}$ which
+the discriminator tries to maximize and the generator to minimize.
 The form of the pay-off $v_{\theta^{(g)},\theta^{(d)}}$ again strongly depends on the 
 model, but is often of the form:
 \[
@@ -548,27 +544,27 @@ data being indistinguishable from real training data, we define $\theta^{(g^{*})
 At convergence, the discriminator has to output $p=\frac{1}{2}, \forall x \in \{x_r,x_f\}$.
 
 Unfortunately, training general adversial networks can be quite difficult. 
-As stated in \cite{Goodfellow-et-al-2016}, convergence in a \emph{zero-sum game} (or minmax game) is not a local optimum in $v_{\theta^{(g)},\theta^{(d)}}$, but ``that are simultaneously minimafor both networks' costs''.
+As stated in \cite{Goodfellow-et-al-2016}, convergence in a \emph{zero-sum game} (or minmax game) is not a local optimum in $v_{\theta^{(g)},\theta^{(d)}}$, but ``are simultaneously minima for both networks' costs''.
 These points are saddle points in $v_{\theta^{(g)},\theta^{(d)}}$ being 
 local minima with respect to the first network parameters and maxima with respect to 
 the second network's parameters. 
 Multiple approaches have been realized trying to overcome this problem, that 
-can be read up on \cite{Goodfellow-et-al-2016}
+can be read up on \cite{Goodfellow-et-al-2016}.
 
-Generative adversarial networks have very succesfully applied to generate images 
+Generative adversarial networks have very succesfully been applied to generate images 
 that look indistinguishable to real images to the human eye in some case 
 \cite{7550880}. 
 As always in machine learning methods, the more and better data we have for 
 training, the better are the results generated by generative adversarial networks.
 
-In section \ref{generative_adversarial_networks_based_communicaton_system}, we will explain in detail how generative adversarial networks can 
+In section \ref{sub:generative_adversarial_networks_based_communicaton_system}, we will explain in detail how generative adversarial networks can 
 be applied in autoencoders for communication systems to imitiate a ``real'' channel 
 response.
 
 \section{Applying deep learning to communication systems}%
 \label{sec:applying_deep_learning_to_communication_systems}
 
-The section is the core of the report. Using the models and methods,
+This section is the core of the report. Using the models and methods,
 we defined in the earlier sections, a communication systems consisting 
 only of artificial neural networks will be described here in detail. 
 
@@ -580,12 +576,11 @@ with artificial neural networks.
 
 \begin{enumerate}
 	\item The ``channel'' layer in the neural network (layer that models the channel response) 
-	      often fails to be a accurate model of the ``real'' channel response. 
+	      often fails to be an accurate model of the ``real'' channel response. 
 	      While the network using the ``channel'' layer shows great results, it 
 	      then fails to do so when applied to a real ``channel'' response \cite{2018ISTSP..12..132D}.
-      \item The receiver network is supposed to work directly on the I/Q-symbols (
-	      compare to equaton \ref{eq:iq_equation} of the demodulated carrier wave and thus has problems to effectively 
-	      synchronize received quadrature samples and transmitted quadrature samples 		when used with ``real'' channels.
+      \item The receiver network is supposed to work directly on the I/Q-symbols (compare to equation \ref{eq:iq_equation} of the demodulated carrier wave and thus has problems to effectively 
+	      synchronize received I/Q symbols and transmitted I/Q symbols 		when used with ``real'' channels.
 \end{enumerate}
 
 In conventional communication systems transmitter and receiver are optimized independent from each other \ref{fig:BlockCommunicationSystem} and therefore do not need to model the channel response. In artificial neural 
@@ -599,10 +594,9 @@ layer of the network (see \ref{fig:communicationSystemAsAutoencoder}).
 In section \ref{sub:generative_adversarial_networks_based_communicaton_system} 
 an autoencoder model implementing \emph{generative adversarial networks} to generate 
 accurate channel responses to overcome the first problem is presented.
-Other approaches, such as a two-phase training strategy where at first both 
-the transmitter and the receiver network are training on a ``channel'' layer and at 
-second only the receiver is finetuned using a ``real'' channel response exist as 
-well \cite{2018ISTSP..12..132D}, but will not be the focus of this report.
+There are other approaches, such as a two-phase training strategy: First, both 
+the transmitter and the receiver network are trained on a ``channel'' layer. Second, 
+only the receiver is finetuned using a ``real'' channel response \cite{2018ISTSP..12..132D}. These approaches will not be further discussed in this report.
 
 As explained in section \ref{sub:structure_of_the_communication_system}, synchronization
 plays an important role in conventional communication systems in order to sample the 
@@ -639,9 +633,9 @@ shown in \ref{fig:communicationSystemAsAutoencoder}.
 The autoencoder is divided into three parts:
 
 \begin{itemize}
-	\item Neural network transmitter
+	\item Transmitter neural network
 	\item Neural network embedding of the channel
-	\item Neural network receiver
+	\item Receiver neural network
 \end{itemize}
 
 The autoencoder takes a one-hot embedded vector $v = \left[v_1,v_2,...v_m\right] \in \mathbb{R}^m$ as input. If $v_i = 1, v_j = 0, \forall j \ne i$, the i-th symbol $s_i$ out of the set of 
@@ -650,12 +644,12 @@ needed to present all the $m$ different symbols.
 Having defined the input, we can directly conclude that there are only $m$ possible 
 different input vectors $v$ of the autoencoder.
 
-The neural network transmitter presents the encoding function $f_{e, \theta_e}: v \to x, x \in \mathbb{R}^n (\text{ or } \mathbb{C}^{\frac{n}{2}})$.
+The transmitter neural network is presented by the encoding function $f_{e, \theta_e}: v \to x, x \in \mathbb{R}^n (\text{ or } \mathbb{C}^{\frac{n}{2}})$.
 
-In the context of a communication systems, we have $n$ different channels we can use 
+In the context of communication systems, we have $n$ different channels we can use 
 to send the symbol $s_i$ presented by $v_i$. Every combination of the $n$ entries in $x=\left[x_1,x_2,...,x_n\right]$ is a data point in the modulation plane (compare to \ref{sub:structure_of_the_communication_system} and \ref{fig:16QAM}). Since quatradure 
-amplitude modulation (see eqaution \ref{eq:iq_equation}) using complex number by 
-modulating the values of $I(t) + iQ(i)$ the output layer $x$ of the neural 
+amplitude modulation (see eqaution \ref{eq:iq_equation}) uses complex numbers to 
+modulate the values of $I(t) + iQ(i)$ the output layer $x$ of the neural 
 network can also be considered having $\frac{n}{2}$ complex output values to 
 be modulated into $\frac{n}{2}$ different carrier waves using the quadrature 
 amplitude modulation. In general though $n$ ``real'' values can be modulated 
@@ -664,19 +658,18 @@ Due to reasons of simplicity, we will stick to $x \in \mathbb{R}^n$.
 
 It is important to notice that the mapping $f_{e, \theta_e}: v \to x$ is deterministic, meaning
 that an input $v_i$ is always mapped to the same $x_i=f_{e}(v_i)$. Since there are only 
-$m$ different input vectors, there are also $m$ different encoded vectors $\left[x_1,...,x_m\right]$ being the modulated representations of the symbols $s_1,...,s_m$.
+$m$ different input vectors, there are also only $m$ different encoded vectors $\left[x_1,...,x_m\right]$ being the modulated representations of the symbols $s_1,...,s_m$.
 
 Let's take for example the case of $n=2$. That would mean that there are two channels to 
-send data. The case of having $n=2$ channels is equivalent to quadrature modulatino where
-the first and second channel would represent the $(x,y)$ data points that can be converted
-to the $(a,\phi)$ data points of amplitude and phase via $a = \sqrt{x^2+y^2}$ and $\phi = \tan(\frac{y}{x})$ as can be seen in \ref{fig:16QAM}.
+send data. The case of having $n=2$ channels is equivalent to quadrature modulation where
+the first and second channel would represent the I/Q symbols as can  be seen in \ref{fig:16QAM}
 
-The neural network transmitter is made up of the input layer $v$ havig $m$ nodes, multiple hidden 
+The transmitter neural network is made up of the input layer $v$ havig $m$ nodes, multiple hidden 
 layers, an output layer having $n$ output nodes and the normalization output layer
 $x$ also havig $n$ output nodes.
 The amount and structure of the hidden layers is not too relevant and depends from 
 paper to paper. Most of the time, there are no more than 3 hidden layers which have 
-$m$ or less nodes \cite{2018ISTSP..12..132D}, \cite{2018arXiv180506350O}, \cite{DBLP:journals/cor/OSheaH17}.
+$m$ or less nodes \cite{2018ISTSP..12..132D}, \cite{2018arXiv180506350O}, \cite{DBLP:journals/corr/OSheaH17}.
 Activation functions are normally either so-called \emph{ReLu}, being of the form 
 $\text{ReLu}(x) = \begin{cases}	0, \text{ if } x<0 \\ x \end{cases}$ 
 or \emph{sigmoid} activation functions, being of the 
@@ -688,7 +681,8 @@ The normalization layer $x$ has some important characteristics: It makes sure th
 the output of $x$ are adapted to certain constraints of the hardware of the transmitter, being e.g. an energy constraint $||x||_2^2$, an amplitude constraint $|x_i|^2 \le a, \forall i$ or an average power constraint $\mathbb{E}(|x_i|^2) \le p, \forall i$. 
 Defining one or more of these or other constraints and applying it to the normalization 
 layer $x$ has huge implications on the way the autoencoder learns to map symbols $s_i$
-to modulation data points $x_i$ as can be seen in \ref{fig:TODO}.
+to modulation data points $x_i$ as can be seen in \ref{fig:learnedModulation} when 
+the energy constraint is applied to the normalization layer.
 
 The neural network embedding of the channel is the so called ``channel'' layer and 
 is a model of the real ``channel response'' needed for end-to-end training of the 
@@ -701,16 +695,16 @@ transmitter neural network. Thus, it can simply be put into:
 with $N$ representing a normal/gaussian distribution of mean $0$ and to be defined 
 variance $\sigma^2$.
 Since the ``channel layer'' is only a model it sometimes does not really imitate 
-``real'' noise of and is the most probable reason why autoencoder communication 
-system fail to show the same results when used in practise. 
-Since more adaptive and more complex models might be needed for the ``channel layer'',\emph{O'Shea and co.} presented an approach using generative adversial networks to 
+``real'' noise and is in general the most probable reason why autoencoder communication 
+systems fail to show the same results when used in practise. 
+Since more adaptive and more complex models might be needed for the ``channel layer'', \emph{O'Shea and co.} presented an approach using generative adversial networks to 
 generate more complex and customized ``channel layers''. This method will 
 be discussed in detail in \ref{sub:generative_adversarial_networks_based_communicaton_system}.
 
 The receiver neural network is the decoder part of the autoencoder: $f_{\theta_d,d}: \hat{x} \to \hat{v}$ with $\hat{v} \in \mathbb{R}^n$. It is composed 
 of a $n$ dimensional input layer $\hat{x}$, has multiple (normally less than 3) 
 hidden layers and finally the output layer $\hat{v} \in \mathbb{R}^m$. A softmax function 
-$s: \hat{v}_i\to \frac{e^{v_i}}{\sum_{j=1}^{n} v_j}$ is applied to every output 
+$s: \hat{v}_i\to \frac{e^{\hat{v}_i}}{\sum_{j=1}^{n} \hat{v}_j}$ is applied to every output 
 node of $\hat{v}$ to normalize the output and hence make $\hat{v}$ a probability 
 distribution. The received symbol $s_i$ is then found by $i = \text{argmax}_j \hat{v}_j$.
 The receiver neural network essentially takes the disturbed output of the transmitter neural network and maps it back to its input. Ideally the output layer
@@ -759,7 +753,7 @@ a local minimum of the loss funciton $L$ is reached. Whereas $\frac{\partial L}{
 constant factor stating ``how much to go in this direction''. $\theta_e$ and 
 $\theta_d$ represent the whole space of trainable parameters for both the encoder and 
 decoder neural networks, namely the weights between the different layers \ref{sub:deep_neural_network}. Therefore the above defined update rules have to be performed 
-individually for every single parameter is $\theta_e$ and $\theta_d$ by calculing 
+individually for every single parameter is $\theta_e$ and $\theta_d$ by calculating 
 the respective gradients. Having $|\theta_e| + |\theta_d|$ trainable parameters 
 means that we also need to calculate $|\theta_e| + |\theta_d|$ different gradients 
 for every training sample $(v_k,\hat{v}_k)$. More details, also about other 
@@ -790,7 +784,7 @@ testing will take place on actual hardware and a ``real'' channel.
 The transmitter and receiver neural networks have to be implemented at the
 transmitter and the receiver respectively. 
 At the transmitter, the values for every of the $n$ channel of the output layer $x$ 
-will be modulated into a carrier wave at sent of the ``real'' channel. 
+will be modulated into a carrier wave of the ``real'' channel. 
 At the receiver the carrier wave is sampled for the $n$ channels and the sampled $n$
 sampled values are plugged into the receiver network to be classified to one of 
 m code symbols. As mentioned before \emph{synchronization} plays an important role 
@@ -831,7 +825,7 @@ increased depth of the ``channel layer'' or by now it should better be called th
 ``channel neural network'' allows for the ability to learn much more complex 
 real world channel behavior.
 
-The loss function for $h_{1,\theta_h}$ is defined as a \emph{Mean-Square Error} loss 
+The loss function for $h_{1,\theta_h}$ is defined as a \emph{mean square error} loss 
 function for $N$ training samples: 
 \[
 	L_0: \sum_{k=1}^N || y_k - \hat{y}_k ||_2^2 = || h_{1, \theta_h}(f_{\theta_f}(s_k)) - h_0(f_{\theta_f}(s_k)) ||_2^2 
@@ -879,9 +873,9 @@ optimized for a certain amount of \emph{steps} each in an alternating fashion.
 First the ``channel network'' $h_{1,\theta_h}$  tries to imitiate the ``real'' channel response. 
 Having a good approximation, the autoencoder networks $f_{\theta_f},g_{\theta_g}$ are trained on the ``channel network'' $h_{1,\theta_h}$ to create more efficient encodings of 
 the symbols $s_k$. 
-Having learned a new encoding scheme, the ``real'' channel response has changed at well, 
+Having learned a new encoding scheme, the ``real'' channel response has changed as well, 
 so that the $h_{1,\theta_h}$ needs to be relearned and so on...
-This training procedure will eventually lead to smaller and smaller changes and converge.
+This training procedure will eventually lead to smaller and smaller changes and converges.
 
 In the papers \cite{2018arXiv180506350O},\cite{2018arXiv180303145O}, it is shown that the system using generative adversial networks 
 is able to adapt to very different ``real'' channels and learns very efficient 
@@ -894,8 +888,7 @@ The systems presented so far in sections \ref{sub:artificial_neural_network_supp
 did not cope with the problem of unsynchronized electrical oscilators. 
 Unsynchronized oscilators lead to a frequency offset and carrier offset forcing the 
 receiver neural network to figure out the offsets of the start and end of a message because it works directly with the sampled values of the carrier wave \cite{synch1}.
-Especially, when using the quadrature amplitude modulation scheme \ref{eq:iq_equation}
-the exact phase of the carrier wave is needed for demodulation. Therefore, the issue 
+Especially, when using the quadrature amplitude modulation scheme \ref{eq:iq_equation}, the exact phase of the carrier wave is needed for demodulation. Therefore, the issue 
 of carrier wave synchronization must be handled somehow in quadrature amplitude 
 modulation systems.
 
@@ -905,7 +898,7 @@ of unsynchronized electrical oscilator will be presented.
 The idea of the system is based on orthogonal frequency-division multiplexing. Orthogonal frequency-division multiplexing will not be discussed in detail here, 
 but can be read upon in \cite{387096}.
 
-The system in \ref{sec:applying_artificial_neural_network_supported_end_to_end_communication_systems_in_real_environment} is extended by two blocks on the transmitter side (``IFFT'' and ``CP Add'') and two blocks on the receiver side (``CP Sync'' and ``FFT''), whereas the transmitter neural network is labeled as ``AETX'' and the receiver 
+The system of section \ref{sub:artificial_neural_network_supported_end_to_end_systems} is extended by two blocks on the transmitter side (``IFFT'' and ``CP Add'') and two blocks on the receiver side (``CP Sync'' and ``FFT''), whereas the transmitter neural network is labeled as ``AETX'' and the receiver 
 neural network is labeled as ``AERX'' as can be seen in figure \ref{fig:synchBlock}.
 
 \begin{figure}[htpb]
@@ -917,8 +910,7 @@ neural network is labeled as ``AERX'' as can be seen in figure \ref{fig:synchBlo
 
 Assuming that the autoencoder has $n$ channels, $n/2$ complex I/Q symbols can be used to encode one symbol $s$ to $x$. 
 Analogue to orthogonal frequency-division multiplexing, multiple encoded messages 
-$x$ are first transformed via the inverse discrete fourier transform before 
-sent to the channel. We define $w_{FFT}$ as the number of messages $x$ 
+$x$ are first transformed via the inverse discrete fourier transform. We define $w_{FFT}$ as the number of messages $x$ 
 that are encoded together. 
 Having these messages $X = (x_1, ..., x_{w_{FFT}}) \in \mathbb{C}^{\frac{n}{2} \times w_{FFT}}$, the inverse discrete fourier 
 transform can be applied over the messages:
@@ -926,7 +918,7 @@ transform can be applied over the messages:
 	X_{OFDM} = \text{IFFT}(X) \in \mathbb{C}^{\frac{n}{2} \times w_{FFT}}
 \]
 In order to be more robust against synchronization errors, a so-called cyclic prefix
-is now added at the beginning of each message $x_i, \forall i \in \{1,...,w_{FFT}\}$
+is then added at the beginning of each message $x_i, \forall i \in \{1,...,w_{FFT}\}$
 for every two messages. Finally, we derive $X_{OFDM} \to X_{OFDM, CP} \in \mathbb{C}^{\frac{n}{2} \times w_{FFT}}$ and $X_{OFDM} \to X_{OFDM, CP} \in \mathbb{C}^{\frac{n+2}{2} \times w_{FFT}}$ at every other message.
 A more visual representation is figure \ref{fig:ifft_synch}.
 
@@ -943,7 +935,7 @@ autocorrelation, also
 called peak detection (synchronization by finding the alignment between the received 
 signal and the known cyclic prefix yielding the highest correlation).
 After synchronization the cyclic prefix can be deleted, which is easy 
-since through autocorrelation it known exactly where it is and the ``inverse 
+since through autocorrelation it is known exactly where it is and the ``inverse 
 inverse discrete fourier transform'' being the discrete fourier transform is applied
 to recover encoded message in the time-domain again.
 At last, the receiver neural network is used to recover the sent symbol $s$.
@@ -955,11 +947,11 @@ using basic methods from conventional communication system design.
 \label{sec:conclusion}
 
 It is very difficult to compare the performance of conventional communication 
-systems to those applying deep learning methods, such as autoencoders \ref{sec:applying_deep_learning_to_communication_system} because of the completely different 
+systems to those applying deep learning methods, such as autoencoders \ref{sec:applying_deep_learning_to_communication_systems} because of the completely different 
 structure and generalization possibilities. 
-Autoencoder systems such as those presented in \ref{sec:applying_deep_learning_to_communication_system} need a predefined amount of channels $n$ and set of symbols 
+Autoencoder systems such as those presented in \ref{sec:applying_deep_learning_to_communication_systems} need a predefined amount of channels $n$ and set of symbols 
 $M$ for the layer dimensions to be trained to build efficient modulation schemes. 
-Conventional systems on the other hand are much more flexible and can be directly 
+Conventional systems on the other hand are much more flexible and can directly 
 be applied without having to learn anything to varying size of channels $n$ and 
 set of symbols $M$.
 In addition, autoencoder systems are trained on ``channel'' models that often only 
@@ -968,12 +960,12 @@ only these kinds of channels which is not really realistic.
 Even though the papers \cite{2018arXiv180303145O}, \cite{synch1}, \cite{DBLP:journals/corr/OSheaH17} do some performance comparisons using the \emph{source-to-noise ratio}
 for example, the question whether these comparisons are realistic remains open.
 
-For once, it has certainly been shown that autoencoder systems are definitely 
+For once, it has certainly been shown that autoencoder systems are 
 able to learn efficient ways to encode symbols $s$ \ref{fig:learnedModulation}.
 Also, we saw that some methods, such as using generative adversial networks to imitate real 
 channel responses, can make autoencoder system applicable to more general conditions.
 
-All in all it has to be said that research in applying deep learning methods 
+All in all it has to be said that research about applying deep learning methods 
 for the physical layer is still in its beginnings and will certainly yield 
 more sophisticated methods in the years to come.
 
