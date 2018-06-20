@@ -23,6 +23,11 @@ Alexander Felix, Sebastian Cammerer, Sebastian D{\"{o}}rner, Jakob Hoydis, and
 \newblock Ofdm-autoencoder for end-to-end learning of communications systems.
 \newblock {\em CoRR}, abs/1803.05815, 2018.
 
+\bibitem{387096}
+B.~Le Floch, M.~Alard, and C.~Berrou.
+\newblock Coded orthogonal frequency division multiplex [tv broadcasting].
+\newblock {\em Proceedings of the IEEE}, 83(6):982--996, Jun 1995.
+
 \bibitem{504941}
 A.~Goldsmith.
 \newblock Joint source/channel coding for wireless channels.

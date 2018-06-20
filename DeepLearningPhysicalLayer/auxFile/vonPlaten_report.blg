@@ -6,45 +6,45 @@ Database file #1: vonPlaten_report.bib
 Warning--I didn't find a database entry for "DBLP:journals/cor/OSheaH17"
 Warning--to sort, need author or key in osimodel
 Warning--empty booktitle in Berrou93nearshannon
-You've used 12 entries,
+You've used 13 entries,
             2118 wiz_defined-function locations,
-            572 strings with 6196 characters,
-and the built_in function-call counts, 3968 in all, are:
-= -- 380
-> -- 181
+            580 strings with 6339 characters,
+and the built_in function-call counts, 4324 in all, are:
+= -- 414
+> -- 199
 < -- 4
-+ -- 74
-- -- 60
-* -- 268
-:= -- 650
-add.period$ -- 37
-call.type$ -- 12
-change.case$ -- 65
++ -- 81
+- -- 66
+* -- 300
+:= -- 710
+add.period$ -- 40
+call.type$ -- 13
+change.case$ -- 71
 chr.to.int$ -- 0
-cite$ -- 14
-duplicate$ -- 158
-empty$ -- 315
-format.name$ -- 60
-if$ -- 842
+cite$ -- 15
+duplicate$ -- 169
+empty$ -- 342
+format.name$ -- 66
+if$ -- 915
 int.to.chr$ -- 0
-int.to.str$ -- 12
-missing$ -- 12
-newline$ -- 64
-num.names$ -- 22
-pop$ -- 75
+int.to.str$ -- 13
+missing$ -- 13
+newline$ -- 69
+num.names$ -- 24
+pop$ -- 79
 preamble$ -- 1
-purify$ -- 54
+purify$ -- 59
 quote$ -- 0
-skip$ -- 120
+skip$ -- 127
 stack$ -- 0
-substring$ -- 218
-swap$ -- 40
+substring$ -- 244
+swap$ -- 41
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 46
+type$ -- 50
 warning$ -- 2
-while$ -- 33
-width$ -- 14
-write$ -- 131
+while$ -- 36
+width$ -- 15
+write$ -- 142
 (There were 3 warnings)

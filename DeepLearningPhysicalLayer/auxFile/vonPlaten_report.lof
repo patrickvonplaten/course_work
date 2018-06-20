@@ -1,7 +1,9 @@
 \select@language {english}
 \contentsline {figure}{\numberline {1}{\ignorespaces Block Diagram Communication System}}{6}{figure.1}
-\contentsline {figure}{\numberline {2}{\ignorespaces Example of QAM modulation scheme: M = 16, L = 3}}{8}{figure.2}
-\contentsline {figure}{\numberline {3}{\ignorespaces Structure of an autoencoder}}{10}{figure.3}
+\contentsline {figure}{\numberline {2}{\ignorespaces Example of QAM modulation scheme: M = 16}}{8}{figure.2}
+\contentsline {figure}{\numberline {3}{\ignorespaces Structure of an autoencoder}}{11}{figure.3}
 \contentsline {figure}{\numberline {4}{\ignorespaces End-to-end communication system as an autoencoder}}{14}{figure.4}
-\contentsline {figure}{\numberline {5}{\ignorespaces Learned outputs of transmitter neural network output layer $x$ of all $m=16$ possible inputs and for $n=2$ channels. The x-Axis is presenting the values of the first output node in $x$ and the y-Axis the second}}{16}{figure.5}
+\contentsline {figure}{\numberline {5}{\ignorespaces Learned outputs of transmitter neural network output layer $x$ of all $m=16$ possible inputs and for $n=2$ channels. The x-Axis is presenting the values of the first output node in $x$ and the y-Axis the second}}{17}{figure.5}
 \contentsline {figure}{\numberline {6}{\ignorespaces Generative adversial network learning a communication system}}{18}{figure.6}
+\contentsline {figure}{\numberline {7}{\ignorespaces Autoencoder system with orthogonal frequency-division multiplexing extension}}{20}{figure.7}
+\contentsline {figure}{\numberline {8}{\ignorespaces Over time autoencoder with ``IFFT''}}{20}{figure.8}

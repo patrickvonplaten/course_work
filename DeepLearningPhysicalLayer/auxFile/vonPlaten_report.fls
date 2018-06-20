@@ -185,6 +185,12 @@ INPUT ./images/learnedModulation.png
 INPUT images/generativeAdvAutoencoder.png
 INPUT ./images/generativeAdvAutoencoder.png
 INPUT ./images/generativeAdvAutoencoder.png
+INPUT images/synchBlock.png
+INPUT ./images/synchBlock.png
+INPUT ./images/synchBlock.png
+INPUT images/ifft_synch.png
+INPUT ./images/ifft_synch.png
+INPUT ./images/ifft_synch.png
 INPUT auxFile/vonPlaten_report.bbl
 INPUT auxFile/vonPlaten_report.bbl
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm

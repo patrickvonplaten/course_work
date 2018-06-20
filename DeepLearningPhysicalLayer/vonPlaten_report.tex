@@ -160,7 +160,7 @@ Today, it is known that the separation of communicaton system design into multip
 individual blocks is \emph{sub-optimal} for many practical 
 channels \cite{141453,504941}.
 
-Continuous rise of deep learning in other fields recently and possible performance 
+The continuous rise of deep learning in other fields and possible performance 
 improvments motivated researchers, such as \emph{T. J. O'Shea}, to apply artificial neural networks to model end-to-end communication systems using autoencoders \ref{sub:autoencoder}. 
 
 In this report, we want to study how conventional systems of the physical layer can 
@@ -177,10 +177,10 @@ Finally a conclusion will be drawn \ref{sec:conclusion}.
 \section{Conventional Communication Systems} 
 \label{sec:communication_systems}
 
-This section aims at explaining what the so-called physical layer is actually made of 
-by describes it function and structure in detail. Later in this section, an example system will be explained and used for performance comparasion with communcation systems applying deep learning methods \ref{sec:applying_deep_learning_to_communication_systems}.
+This section aims to explain what the so-called physical layer is actually composed of 
+by describing its structure in detail. Later in this section, an example system will be explained and used for performance comparasion with communcation systems applying deep learning methods \ref{sec:applying_deep_learning_to_communication_systems}.
 
-In this report, we use the word \emph{communication system} as the \emph{Physical Layer} of the well-know \emph{OSI Model} as a \emph{communication system}.
+In this report, we use the word \emph{communication system} as the \emph{Physical Layer} of the well-known \emph{OSI Model} as a \emph{communication system}.
 As it is defined in \cite{osimodel}, ``the physical layer manages the reception and transmission of the unstructured raw bit stream over a physical medium''. 
 The physical layer therefore comprises transforming the raw bit stream to electromagnetic waves that will be transmitted by an antenna at the transmitter, receiving the 
 electromagnetic waves via an antenna at the receiver and using them to recover the raw bit stream. 
@@ -190,21 +190,19 @@ the receiver will be defined as the \emph{channel}.
 \subsection{Structure of the Communication System}%
 \label{sub:structure_of_the_communication_system}
 
-
-
-The role of the communication system is too two-fold:
+The role of the communication system is two-fold:
 
 \begin{itemize}
 	\item Efficient Transmitting: The raw bit stream should be converted in such a 
 		way that it can be transmitted at a high bit rate in terms of the \emph{Shannon information theory} \cite{Shannon:2001:MTC:584091.584093}
-	\item Reliable Delivery: In case of errors to due noise in the channel, the 
+	\item Reliable Delivery: In case of errors due to noise in the channel, the 
 		communication system must be able to do error detection and error correction. 
 \end{itemize}
 
 This can be achieved by applying sophisticated encoding and decoding schemes also just called ``codes'' to the raw bit stream. Such a ``code'' would for example be the so-called
-``Turbo-Codes'' \cite{Berrou93nearshannon} that use a special encoding and decoding schemeto reach ``near Shannon limit error-correcting coding and decoding'' meaning that the 
+``Turbo-Code'' \cite{Berrou93nearshannon} that use a special encoding and decoding scheme to reach ``near Shannon limit error-correcting coding and decoding'' meaning that the 
 maximum rate at which information can be transmitted over a channel of a specified 
-bandwidth in the presence of noise, being the \emph{Shannon rate}, can nearly be archieved while the methods allows for error correction.
+bandwidth in the presence of noise, being the \emph{Shannon rate}, can nearly be archieved while the methods allow for error correction.
 
 \begin{figure}[htpb]
 	\centering
@@ -222,7 +220,7 @@ including the \emph{source encoder, the channel encoder and the modulator}. The 
 called the ``physical channel'' in \ref{fig:BlockCommunicationSystem}, is considered as a separate part, and lastly the following parts \emph{equilizer/demodulator, channel decoder and the source decoder} are part of the receiver. 
 In the following, in every part it is shortly explained which transformations are 
 applied to the raw bit stream in conventional systems to better understand how \emph{deep
-learning methods} can be used to replace them \ref{sec:applying_deep_learning_to_communication_systems}. A deeper explanation is out of scope for this report. 
+learning methods} can be used to replace them \ref{sec:applying_deep_learning_to_communication_systems}. A more detailed explanation is out of scope for this report. 
 
 \subsubsection{Transmitter}
 
@@ -233,32 +231,32 @@ a set of symbols $S$ with $x(k) \in S$.
 
 Assuming for example that every symbol in $x(k)$ has the same bit 
 length, source coding makes sure that symbols that appear with a higher probability 
-are encoded to a more efficent presentation containing much less bits whereas 
-symbols appearing with a low probability are encoded to symbols of a higher bit rate.
+are encoded to a more efficent presentation containing less bits whereas 
+symbols appearing with a low probability are encoded to symbols made up of more bits.
 This way, the overall average \emph{bit rate} can be optimized. There are multiple 
 procedures, like \emph{Run-length encoding, Huffman encoding, arithmetic coding,...} from which we can choose from. 
-Depending on the coding scheme, both the transmitter and the receiver must know which coding is used to work together.
+Depending on the coding scheme, both the transmitter and the receiver must know which coding scheme is used.
 
 Second, in the block \emph{channel encoding}, the efficient source code presentation $\ubar{X} \in A$ with $A$ being the set of all possible source encoded symbols is now transformed to a more error robust presentation by adding redundant bits.
 There are mainly two procedures for channel coding:
 
 \begin{itemize}
-	\item Forward error control: information bits are protected against errors by the transmitting of extra redundant bits, so that if errors occur during transmission the redundant bits can be used by the decoder to determine where the errors have occurred and how to correct them
-	\item Automatic repeat request: In this method redundant bits are added to the transmitted information and are used by the receiver to detect errors. The receiver then signals a request for a repeat transmission
+	\item Forward error control: information bits are protected against errors by the transmitting of extra redundant bits, so that if errors occur during transmission the redundant bits can be used by the decoder to determine where the errors have occurred and how to correct them.
+	\item Automatic repeat request: In this method redundant bits are added to the transmitted information and are used by the receiver to detect errors. The receiver then signals a request for a repeat transmission.
 \end{itemize}
 
-Some well known procedures are \emph{Hamming code, Convolutional encoding, Turbo code,...}
-Again in order to succesfully apply these channel coding schemes, both the transmitter 
+Some well known procedures are \emph{Hamming code, Convolutional encoding, Turbo-Code,...}
+Again, in order to succesfully apply these channel coding schemes, both the transmitter 
 and the receiver must know which method is used.
 
 Most coding procedures transform the set of symbols $A$ into a code set $M$ having $|M|$ 
 entries, whereas $|M| = 2^{k}$ is a power of two so that exactly $k$ bits are needed to 
-send one symbol.
+transmit one symbol.
 
 Lastly, the channel encoded symbols $\ubar{Y}$ are modulated into a carrier wave 
 to be transmitted over the \emph{channel}. Since the channel is always bandlimited to 
 a certain range of frequency, the signal needs to be transmitted using a carrier that 
-has that frequency. 
+is in that range of frequency. 
 There are three basic modulation schemes:
 
 \begin{itemize}
@@ -270,42 +268,66 @@ There are three basic modulation schemes:
 A signal has three basic properties at every time $t$: frequency, amplitude and phase.
 So, information can be modulated into a carrier wave by one, or more of this properties 
 to represent the information to be transmitted. 
-In this report, we will concentrate on an advanced method, called \emph{Quadrature amplitude modulation}, where both the amplitude and the phase of the carrier wave are changed to modulate information into the carrier wave.
-Thus having a code set $M$ of length $|M|=2^k$, needs $|M|$ differnt amplitude/phase 
-combinations. Having defined $|a|$ distinct amplitude values $a$ and $|\phi|$ distinct phase 
-values $\phi$, the equation $|\phi| \times |a| \ge m$ must hold true.
-Each code symbol $m \in M$ can then be represented by a $(a,\phi)$ point in the complex,
-with $a$ presenting  different unit circles and $\phi$ the angle. Figure \ref{fig:16QAM}
-presents such a scheme with $m=16, |a| = 3, |\phi| = 12$.
+
+In this report, we will concentrate on an advanced method, called \emph{quadrature amplitude modulation}.
+In quadrature amplitude modulation, two symbols $\ubar{Y}_1$ and $\ubar{Y}_2$ are modulated into the 
+amplitude values of two carrier waves having the same frequency, but that are phase-shifted by $\pi/2$.
+These two symbols $\ubar{Y}_1$ and $\ubar{Y}_2$ are then called \emph{I/Q symbols} 
+and will be inserted for $I(t)$ and $Q(t)$ respectevily into the carrier wave $s_c(t)$, 
+such as:
+
+\begin{equation} \label{eq:iq_equation}
+	s_c(t) = \Re((I(t) + iQ(t))e^{-2i \pi f_0 t}) = I(t)\cos{2 \pi f_0 t} - Q(t)\sin{2 \pi f_0 t}
+\end{equation}
+
+Using some trigometric identities, we can also write:
+
+\begin{equation} \label{eq:ampPhase_equation}
+	s_c(t) = \Re(A(t)e^{-2i \pi f_0 t + \varphi(t)i}) = \Re(A(t)i\sin(\varphi(t)) +
+	A(t)\cos(\varphi(t)))
+\end{equation}
+
+with $I(t) = A(t)\cos(\varphi(t))$ being $Q(t) = A(t)i\sin(\varphi(t))$.
+
+So essentially \emph{quadrature amplitude modulation} can also be viewed as 
+just changing the phase and the amplitude of the carrier signal at the same time. 
+
+In practise, when receiving a ``quadrature amplitude modulated'' signal it is 
+demodulated to its $Q(t)$ and $I(t)$ values. 
+
+Thus having a code set $M$ of length $|M|=2^k$, needs $|M|$ differnt \emph{I/Q symbols}.
+combinations. Having defined $|I|$ distinct values $I$ and $|Q|$ distinct values $Q$, the equation $|Q| \times |I| \ge m$ must hold true.
+Each code symbol $m \in M$ can then be represented by a $(Q,I)$ point in the complex plane. Figure \ref{fig:16QAM}
+presents such a scheme with $m=16, |Q| = 4, |I| = 4$ which can viewed as a complex 
+plane with the $|Q|$ values in the complex y-Axis and the $|I|$ values in the x-Axis.
 
 \begin{figure}[htpb]
 	\centering
 	\includegraphics[width=0.5\linewidth]{images/16QAM.png}
-	\caption{Example of QAM modulation scheme: M = 16, L = 3}
+	\caption{Example of QAM modulation scheme: M = 16}
 	\label{fig:16QAM}
 \end{figure}
 
-It can be seen that the arrangement of the points in the grid aims at being being equally
-spaced in a way that maximizes the euclidean distance between each point, given the 
-constraints of $|a| = 3, |\phi| = 12$ and an assumption about the noise in the channel 
+It can be seen that the arrangement of the points in the grid aims at being equally
+spaced in a way that maximizes the euclidean distance between each point and an assumption about the noise in the channel 
 having gaussian properties. 
 The are multiple other modulation schemes each aiming at finding the most efficient and 
 error resistant way to modulate information into a signal considering the probabilistic 
-probabilities of the noise in channel.
+characteristics of the noise in channel.
 
 In section \ref{sec:applying_deep_learning_to_communication_systems}, we will see that autoencoders can automatically learn efficient arrangements that depend not only on the 
 probabilistic characteristics of the ``channel layer'', but also on the layers encoding and decoding the 
-source symbols being the ``transmitter network'' and ``receiver network'' (see \ref{:applying_deep_learning_to_communication_systems}).
+source symbols being the ``transmitter neural network'' and ``receiver neural network'' (see \ref{sec:applying_deep_learning_to_communication_systems}).
 
 \subsubsection{Channel}
  
-The carrier wave $u(t)$ into which the information is modulated is now transmitted 
+The carrier wave $u(t)$ into which the information is modulated into, is then transmitted 
 through the channel. It is important to note that, this part of the communication system
 is the only part, where the outcome is not deterministic. 
 By sending the carrier wave through air as it is done in terrestrial communication 
 systems, other signals interfer with the carrier wave and might disrupt its inherent 
-information. This is mostly always modelled with gaussian noise being added to the 
-carrier wave $v(t) = u(t) + r(t)$ with $r(t)$ representing the noise \& interference in 
+information. This is almost always modelled with gaussian noise being added to the 
+carrier wave $v(t) = u(t) + r(t)$ with $r(t)$ representing the noise and interference in 
 \ref{fig:BlockCommunicationSystem}.
 
 Modelling the channel will later play an important part when applying \emph{deep learning}
@@ -313,14 +335,16 @@ methods to realize a communication system \ref{sec:applying_deep_learning_to_com
 
 \subsubsection{Receiver}
 
-The receiver will then receive $v(t)$, inherently having a probabilistic nature due to the added gaussian noise.
-The demodulator will then extract the information of the carrier wave $v(t)$ using 
-the predefined values the information was modulated into (amplitude, phase). 
+The receiver will receive $v(t)$, inherently having a probabilistic nature due to the added gaussian noise.
+The demodulator then extracts the information of the carrier wave $v(t)$ using 
+the predefined values the information was modulated into (the I/Q values 
+if using quadrature amplitude modulation). 
 This is done by simply sampling the carrier wave at precise time instances $t$ and 
-``reading'' the amplitude and phase from the carrier wave. Finding the exact time 
+``reading'' the I/Q values from the carrier wave. Finding the exact time 
 instances at which the carrier wave should be sampled is known as the synchronization 
 problem. Multiple procedures exist with two famous ones being presented in the 
 following:
+
 \begin{itemize}
 	\item Pilot signal: A signal $i^{*}(t)$ (the pilot signal) is sent with $u(t)$ that 
 	      can easily be recognized by the receiver and indicates that the useful information
@@ -331,18 +355,18 @@ following:
 	      $\ubar{Y}$.
 \end{itemize}
 
-We will revisit the synchronization problem when when applying \emph{deep learning}
+We will revisit the synchronization problem when applying \emph{deep learning}
 methods to realize a communication system \ref{sub:synchronization_problem_when_using_artificial_neural_networks}.
 
 The demodulated stream of information $\ubar{Z}$ will most 
 likely contain some errors due to the probable interference in the channel.
 But having added redundant information using a channel encoding scheme, we can now use 
-the scheme to correct possible errors, which include methods such as \emph{Minimum 
-distance decoding, Syndrome decoding, Maximum Likelihood Decoding,...}.
+the scheme to correct possible errors, which include methods such as \emph{minimum 
+distance decoding, syndrome decoding, maximum Likelihood Decoding,...}.
 The exact working goes too deep into coding theory which is not of big importance in 
 this report, but can easily be read up on in common coding literature.
-We now have, depending on the channel coding methods we chose, a good estimate of the 
-original information $\ubar{\hat{X}}$
+Depending on the channel coding methods that was chosen, a good estimate of the 
+original information $\ubar{\hat{X}}$ can be retrieved.
 Finally, inverting the source encoding scheme, we can decode $\ubar{\hat{X}}$ to get 
 $\hat{x}(t)$.
 
@@ -559,7 +583,8 @@ with artificial neural networks.
 	      often fails to be a accurate model of the ``real'' channel response. 
 	      While the network using the ``channel'' layer shows great results, it 
 	      then fails to do so when applied to a real ``channel'' response \cite{2018ISTSP..12..132D}.
-	\item The receiver network is supposed to work directly on the quadrature samples 		of the demodulated carrier wave and thus has problems to effectively 
+      \item The receiver network is supposed to work directly on the I/Q-symbols (
+	      compare to equaton \ref{eq:iq_equation} of the demodulated carrier wave and thus has problems to effectively 
 	      synchronize received quadrature samples and transmitted quadrature samples 		when used with ``real'' channels.
 \end{enumerate}
 
@@ -626,11 +651,17 @@ Having defined the input, we can directly conclude that there are only $m$ possi
 different input vectors $v$ of the autoencoder.
 
 The neural network transmitter presents the encoding function $f_{e, \theta_e}: v \to x, x \in \mathbb{R}^n (\text{ or } \mathbb{C}^{\frac{n}{2}})$.
+
 In the context of a communication systems, we have $n$ different channels we can use 
-to send the symbol $s_i$ presented by $v_i$. Every combination of the $n$ entries in $x=\left[x_1,x_2,...,x_n\right]$ is a data point in the modulation plane (compare to \ref{sub:structure_of_the_communication_system} and \ref{fig:16QAM}). Since in conventional 
-modulation techniques these ``modulation data points'' are complex values we can 
-also consider the first half of the output layer $x$ of the neural network transmitter to be real valued and the second half to be complex valued. Due to reasons of simplicity, 
-we will stick to $x \in \mathbb{R}^n$.
+to send the symbol $s_i$ presented by $v_i$. Every combination of the $n$ entries in $x=\left[x_1,x_2,...,x_n\right]$ is a data point in the modulation plane (compare to \ref{sub:structure_of_the_communication_system} and \ref{fig:16QAM}). Since quatradure 
+amplitude modulation (see eqaution \ref{eq:iq_equation}) using complex number by 
+modulating the values of $I(t) + iQ(i)$ the output layer $x$ of the neural 
+network can also be considered having $\frac{n}{2}$ complex output values to 
+be modulated into $\frac{n}{2}$ different carrier waves using the quadrature 
+amplitude modulation. In general though $n$ ``real'' values can be modulated 
+into different channels.
+Due to reasons of simplicity, we will stick to $x \in \mathbb{R}^n$.
+
 It is important to notice that the mapping $f_{e, \theta_e}: v \to x$ is deterministic, meaning
 that an input $v_i$ is always mapped to the same $x_i=f_{e}(v_i)$. Since there are only 
 $m$ different input vectors, there are also $m$ different encoded vectors $\left[x_1,...,x_m\right]$ being the modulated representations of the symbols $s_1,...,s_m$.
@@ -729,8 +760,8 @@ constant factor stating ``how much to go in this direction''. $\theta_e$ and
 $\theta_d$ represent the whole space of trainable parameters for both the encoder and 
 decoder neural networks, namely the weights between the different layers \ref{sub:deep_neural_network}. Therefore the above defined update rules have to be performed 
 individually for every single parameter is $\theta_e$ and $\theta_d$ by calculing 
-the respective gradients. Having $|theta_e| + |theta_d|$ trainable parameters 
-means that we also need to calculate $|theta_e| + |theta_d|$ different gradients 
+the respective gradients. Having $|\theta_e| + |\theta_d|$ trainable parameters 
+means that we also need to calculate $|\theta_e| + |\theta_d|$ different gradients 
 for every training sample $(v_k,\hat{v}_k)$. More details, also about other 
 hyper training parameters, such as regularization, batch size, ... can 
 be read upon in \cite{Goodfellow-et-al-2016}.
@@ -740,7 +771,7 @@ parameter but needs to be chosen by the architect of the autoencoder so that the
 
 \begin{figure}[htpb]
 	\centering
-	\includegraphics[width=0.32\linewidth]{images/learnedModulation.png}
+	\includegraphics[width=0.4\linewidth]{images/learnedModulation.png}
 	\caption{Learned outputs of transmitter neural network output layer $x$ of all $m=16$ possible inputs and for $n=2$ channels. The x-Axis is presenting the values of the first output node in $x$ and the y-Axis the second}
 	\label{fig:learnedModulation}
 \end{figure}
@@ -860,38 +891,94 @@ encoding schemes for each of them.
 \label{sub:synchronization_problem_when_using_artificial_neural_networks}
 
 The systems presented so far in sections \ref{sub:artificial_neural_network_supported_end_to_end_systems} and \ref{sub:generative_adversarial_networks_based_communicaton_system} 
-did not cope with the problem of unsynchronized electrical oscilators needed to 
-send the outputs of the transmitter neural network to the receiver neural network.
+did not cope with the problem of unsynchronized electrical oscilators. 
+Unsynchronized oscilators lead to a frequency offset and carrier offset forcing the 
+receiver neural network to figure out the offsets of the start and end of a message because it works directly with the sampled values of the carrier wave \cite{synch1}.
+Especially, when using the quadrature amplitude modulation scheme \ref{eq:iq_equation}
+the exact phase of the carrier wave is needed for demodulation. Therefore, the issue 
+of carrier wave synchronization must be handled somehow in quadrature amplitude 
+modulation systems.
 
 In the following, an approach from the paper \cite{synch1} tackling the problem 
-of unsynchronized electrical oscilator will be presented:
+of unsynchronized electrical oscilator will be presented.
 
+The idea of the system is based on orthogonal frequency-division multiplexing. Orthogonal frequency-division multiplexing will not be discussed in detail here, 
+but can be read upon in \cite{387096}.
 
+The system in \ref{sec:applying_artificial_neural_network_supported_end_to_end_communication_systems_in_real_environment} is extended by two blocks on the transmitter side (``IFFT'' and ``CP Add'') and two blocks on the receiver side (``CP Sync'' and ``FFT''), whereas the transmitter neural network is labeled as ``AETX'' and the receiver 
+neural network is labeled as ``AERX'' as can be seen in figure \ref{fig:synchBlock}.
 
+\begin{figure}[htpb]
+	\centering
+	\includegraphics[width=0.8\linewidth]{images/synchBlock.png}
+	\caption{Autoencoder system with orthogonal frequency-division multiplexing extension}
+	\label{fig:synchBlock}
+\end{figure}
 
-\subsection{Comparison deep learing methods and conventional methods}
+Assuming that the autoencoder has $n$ channels, $n/2$ complex I/Q symbols can be used to encode one symbol $s$ to $x$. 
+Analogue to orthogonal frequency-division multiplexing, multiple encoded messages 
+$x$ are first transformed via the inverse discrete fourier transform before 
+sent to the channel. We define $w_{FFT}$ as the number of messages $x$ 
+that are encoded together. 
+Having these messages $X = (x_1, ..., x_{w_{FFT}}) \in \mathbb{C}^{\frac{n}{2} \times w_{FFT}}$, the inverse discrete fourier 
+transform can be applied over the messages:
+\[
+	X_{OFDM} = \text{IFFT}(X) \in \mathbb{C}^{\frac{n}{2} \times w_{FFT}}
+\]
+In order to be more robust against synchronization errors, a so-called cyclic prefix
+is now added at the beginning of each message $x_i, \forall i \in \{1,...,w_{FFT}\}$
+for every two messages. Finally, we derive $X_{OFDM} \to X_{OFDM, CP} \in \mathbb{C}^{\frac{n}{2} \times w_{FFT}}$ and $X_{OFDM} \to X_{OFDM, CP} \in \mathbb{C}^{\frac{n+2}{2} \times w_{FFT}}$ at every other message.
+A more visual representation is figure \ref{fig:ifft_synch}.
 
-Compare current ``state-of-the-art'' to system using deep learning.
+\begin{figure}[htpb]
+	\centering
+	\includegraphics[width=0.65\linewidth]{images/ifft_synch.png}
+	\caption{Over time autoencoder with ``IFFT''}
+	\label{fig:ifft_synch}
+\end{figure}
 
-\subsubsection{Performance measurement}
+$X_{OFDM, CP}$ is then sent over the channel to the receiver. 
+At the receiver the cyclic prefix is used for frame synchronization through
+autocorrelation, also
+called peak detection (synchronization by finding the alignment between the received 
+signal and the known cyclic prefix yielding the highest correlation).
+After synchronization the cyclic prefix can be deleted, which is easy 
+since through autocorrelation it known exactly where it is and the ``inverse 
+inverse discrete fourier transform'' being the discrete fourier transform is applied
+to recover encoded message in the time-domain again.
+At last, the receiver neural network is used to recover the sent symbol $s$.
 
-Define and introduce Signal-to-noise ration
-
-\subsubsection{Results using deep learning methods}
-
-State attained results. 
+This procedure helps greatly to reduce synchronization errors by 
+using basic methods from conventional communication system design.
 
 \section{Conclusion} % (fold)
 \label{sec:conclusion}
 
-In which cases could deep learning be applicable for communication systems
-Conclude by trying to answer the question, whether it is useful 
-to apply deep learning methods for communication systems (or under which 
-circumstances it might be useful)
+It is very difficult to compare the performance of conventional communication 
+systems to those applying deep learning methods, such as autoencoders \ref{sec:applying_deep_learning_to_communication_system} because of the completely different 
+structure and generalization possibilities. 
+Autoencoder systems such as those presented in \ref{sec:applying_deep_learning_to_communication_system} need a predefined amount of channels $n$ and set of symbols 
+$M$ for the layer dimensions to be trained to build efficient modulation schemes. 
+Conventional systems on the other hand are much more flexible and can be directly 
+be applied without having to learn anything to varying size of channels $n$ and 
+set of symbols $M$.
+In addition, autoencoder systems are trained on ``channel'' models that often only 
+add gaussian noise to the transmitted message and thus are also tested on 
+only these kinds of channels which is not really realistic. 
+Even though the papers \cite{2018arXiv180303145O}, \cite{synch1}, \cite{DBLP:journals/corr/OSheaH17} do some performance comparisons using the \emph{source-to-noise ratio}
+for example, the question whether these comparisons are realistic remains open.
+
+For once, it has certainly been shown that autoencoder systems are definitely 
+able to learn efficient ways to encode symbols $s$ \ref{fig:learnedModulation}.
+Also, we saw that some methods, such as using generative adversial networks to imitate real 
+channel responses, can make autoencoder system applicable to more general conditions.
+
+All in all it has to be said that research in applying deep learning methods 
+for the physical layer is still in its beginnings and will certainly yield 
+more sophisticated methods in the years to come.
 
 % section conclusion (end)
 \newpage
-
 \addcontentsline{toc}{section}{References}
 \bibliographystyle{plain}
 \bibliography{vonPlaten_report}
