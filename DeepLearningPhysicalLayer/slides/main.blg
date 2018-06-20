@@ -1,0 +1,65 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: main.aux
+The style file: i6bibstyle.bst
+Database file #1: references.bib
+`year' is a missing field, not a string, for entry osimodel
+while executing---line 1300 of file i6bibstyle.bst
+Warning--to sort, need author or key in osimodel
+Warning--empty booktitle in Berrou93nearshannon
+Warning--there's no month in Berrou93nearshannon
+`volume' is a missing field, not a string, for entry 2018arXiv180506350O
+while executing---line 1369 of file i6bibstyle.bst
+"" is a string literal, not an integer, for entry 2018arXiv180506350O
+while executing---line 1369 of file i6bibstyle.bst
+`volume' is a missing field, not a string, for entry 2018arXiv180506350O
+while executing---line 1369 of file i6bibstyle.bst
+`volume' is a missing field, not a string, for entry 2018arXiv180303145O
+while executing---line 1369 of file i6bibstyle.bst
+"" is a string literal, not an integer, for entry 2018arXiv180303145O
+while executing---line 1369 of file i6bibstyle.bst
+`volume' is a missing field, not a string, for entry 2018arXiv180303145O
+while executing---line 1369 of file i6bibstyle.bst
+Warning--empty date in osimodel
+You've used 15 entries,
+            2542 wiz_defined-function locations,
+            655 strings with 7177 characters,
+and the built_in function-call counts, 6062 in all, are:
+= -- 585
+> -- 254
+< -- 21
++ -- 83
+- -- 80
+* -- 515
+:= -- 945
+add.period$ -- 46
+call.type$ -- 15
+change.case$ -- 99
+chr.to.int$ -- 14
+cite$ -- 20
+duplicate$ -- 263
+empty$ -- 436
+format.name$ -- 116
+if$ -- 1247
+int.to.chr$ -- 2
+int.to.str$ -- 0
+missing$ -- 15
+newline$ -- 79
+num.names$ -- 42
+pop$ -- 102
+preamble$ -- 1
+purify$ -- 115
+quote$ -- 0
+skip$ -- 204
+stack$ -- 0
+substring$ -- 290
+swap$ -- 78
+text.length$ -- 17
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 116
+warning$ -- 4
+while$ -- 42
+width$ -- 20
+write$ -- 196
+(There were 7 error messages)

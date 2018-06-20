@@ -1,0 +1,200 @@
+% Copyright 2013 by Patrick Lehnen <dreuw@cs.rwth-aachen.de>
+% Copyright 2010 by Philippe Dreuw <dreuw@cs.rwth-aachen.de>
+%
+% 12.7.2013 - basic refactoring making the output similar to the output of NeyDreuwSlides_Oct08.sty
+%
+% This program can be redistributed and/or modified under the terms
+% of the GNU Public License, version 2.
+
+%slight modifications made by Nick Rossenbach 7.04.2016
+
+\ProvidesPackage{beamerthemeAachen}
+
+\usepackage[size=a4,scale=3.5]{beamerposter} % change scale from 3.5 to 1
+
+\definecolor{i6blue}{cmyk}{1,0.305,0,0.06}
+\definecolor{i6blueShaded}{cmyk}{0.2,0.061,0,0.012}
+\definecolor{i6bluedark}{rgb}{0.0156,0.2578,0.5625} 
+
+\definecolor{rot}   {RGB}{204   7  30}
+\definecolor{rwth}   {RGB}{  0  84 159}
+
+%\mode<presentation>
+
+% colors
+
+\setbeamercolor{normal text}{fg=black, bg=white}
+\setbeamercolor{alerted text}{fg=olive}
+\setbeamercolor{structure}{fg=i6bluedark}
+\setbeamercolor{framesubtitle}{fg=i6bluedark}
+
+\setbeamertemplate{itemize item}{\raise1.25pt\hbox{\donotcoloroutermaths$\blacktriangleright$}}
+\setbeamertemplate{itemize subitem}{\raise1.5pt\hbox{\donotcoloroutermaths$\triangleright$}}
+\setbeamertemplate{itemize subsubitem}{\raise1.5pt\hbox{\donotcoloroutermaths$\triangleright$}}
+
+\setbeamerfont{itemize/enumerate body}{}
+\setbeamerfont{itemize/enumerate subbody}{size=\normalsize}
+\setbeamerfont{itemize/enumerate subsubbody}{size=\normalsize}
+
+%% logos
+\setbeamertemplate{headline}{
+\vspace{3ex}
+\hfill
+\Acrobatmenu{FullScreen}{~~~~\vspace{-.7cm}}}
+\setbeamertemplate{footline}{%
+  \hspace{0.5cm}%
+  %%
+  \begin{minipage}{.95\linewidth}
+    \rule{\linewidth}{0.5pt}
+    \rule{0pt}{2.0ex}
+    \mdseries
+    \insertshortauthor :\vphantom{X}\insertshorttitle \hfill
+    \Acrobatmenu{GoToPage}{\insertframenumber/\ref{finalSlide}\hspace{0em}} \hfill
+    %\insertframenumber / \inserttotalframenumber \hfill
+    %\insertpagenumber / \insertpresentationendpage \hfill
+    \insertshortdate\\
+  \end{minipage}%
+  ~~~~~~
+  \begin{minipage}{2cm}
+    \Acrobatmenu{GoBack}{}\\[1ex]
+  \end{minipage}
+} 
+\setbeamertemplate{frametitle}{\begin{center}\strut\insertframetitle\strut\end{center}}
+
+\setbeamertemplate{navigation symbols}[vertical]
+\setbeamerfont{block title}{size={}} 
+\setbeamerfont{frametitle}{series=\bfseries,size=\large}
+\setbeamerfont{math text}{series=\bfseries,family=\rm}
+\setbeamerfont{math text displayed}{series=\bfseries,family=\rm}
+\setbeamerfont{math text inlined}{series=\bfseries,family=\rm}
+
+% fonts %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter 
+\RequirePackage{ucs}
+\RequirePackage[utf8]{inputenc}
+\makeatother
+\RequirePackage[T1]{fontenc}
+\RequirePackage{times}
+%
+% @todo: replace obsolete \usepackage{times} by \usepackage{mathptmx}
+%                                               \usepackage[scaled=.90]{helvet}
+%                                               \usepackage{courier}
+% problem: bold mathfonts; amsmath has a \pmb option for this, but \boldmath is much easier
+%
+\renewcommand*{\familydefault}{\sfdefault}
+\RequirePackage{amsmath,amsthm, amssymb, latexsym}
+%\RequirePackage{sfmath} % for sans serif math fonts; wget http://dtrx.de/od/tex/sfmath.sty
+%\boldmath
+%\bfseries
+
+% use better looking math fonts
+\usefonttheme{professionalfonts}
+
+\renewcommand{\seriesdefault}{\bfdefault} % actually using bold text is really ugly, but someone likes it...
+%\renewcommand{\mathseriesdefault}{\bfdefault}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\setcounter{tocdepth}{2}                    % acrobat and content numbering untill tocdepth
+%\setbeamertemplate{section in toc}[sections numbered]
+%\setbeamertemplate{subsection in toc}[subsections numbered]
+%\setlength{\leftmargini}{4pt}
+\setbeamersize{text margin left=11mm}
+\setbeamersize{text margin right=11mm}
+
+% http://tex.stackexchange.com/questions/14157/how-to-cross-reference-to-sections-in-beamer
+\renewcommand{\insertframenumber}{\theframenumber}
+\renewcommand{\theframenumber}{\arabic{framenumber}}
+\renewcommand{\thesubsectionslide}{\arabic{framenumber}}
+%\mode<beamer>{\AtBeginSubsection{\setcounter{framenumber}{-1}}}
+%\mode<handout>{
+\AtBeginSection{\setcounter{framenumber}{0}}
+%}
+
+\AtBeginSection[]{
+  {
+    \setbeamertemplate{headline}[default] %disable
+   
+\setbeamertemplate{footline}{\hfill\raisebox{5ex}[0mm][0mm]{
+\Acrobatmenu{GoBack}{\includegraphics[height=10mm]{logos/rwth-hks44}\hskip2em}}}
+    %\setbeamercolor{background canvas}{bg=i6blue}
+    %\setbeamertemplate{navigation symbols}{} %disable navigation bar
+
+    %\begin{frame}<*>{Outline}
+      %\vfill
+      %{\LARGE \textcolor{i6blue}{%
+      %    \textbf{\insertsectionhead}\\[-0.5ex]
+      %    \rule{1.2\linewidth}{0.5pt}
+      %    }
+      %}
+      %\tableofcontents[subsectionstyle=show/show/hide]
+      %\vfill
+    %\end{frame}
+  }
+}
+
+% \mode<beamer>{
+% \AtBeginSubsection[]{
+%   {
+%     \setbeamertemplate{headline}[default] %disable
+%    
+%     \setbeamertemplate{footline}{\hfill\raisebox{5ex}[0mm][0mm]{
+%     \Acrobatmenu{GoBack}{\includegraphics[height=10mm]{logos/rwth-hks44}\hskip2em}}}
+%     %\setbeamercolor{background canvas}{bg=i6blue}
+%     %\setbeamertemplate{navigation symbols}{} %disable navigation bar
+% 
+%     \begin{frame}<beamer>{Outline}
+%       %{\LARGE \textcolor{i6blue}{%
+%       %    \textbf{\insertsectionhead}\\[-0.5ex]
+%       %    \rule{1.2\linewidth}{0.5pt}
+%       %    }
+%       %}
+%       \tableofcontents[subsectionstyle=show/shaded/hide]
+%     \end{frame}
+%   }
+% }
+% }
+
+% latex stuff %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Eliminate LaTeX warnings on screen (but put them in the log file):
+\let\GenericWarning\GenericInfo
+% Eliminate warnings about overfull boxes:
+\hfuzz=\maxdimen \vfuzz=\maxdimen
+\newdimen\hfuzz  \let\vfuzz=\hfuzz % prevent resetting by \sloppy
+% Eliminate warnings about underfull boxes:
+\hbadness=10000    \vbadness=10000
+\newcount\hbadness \let\vbadness=\hbadness
+
+\mode<handout>{
+  \setbeamercolor{background canvas}{bg=black!2}
+}
+
+%%% define predefined page layouts %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand*{\email}{\rule{0pt}{0pt}}% all the emails of the work (used for \TitlePage)
+\newcommand*{\mainauthoremail}{}   % presenter mail address(es) (used for \FinalPage)
+\newcommand*{\www}{}               % web address (used for \TitlePage _and_ \FinalPage)
+
+\setbeamertemplate{title page}
+{
+  \vfill
+  \begin{center}
+   \Acrobatmenu{FullScreen}{\usebeamerfont{title}{\color{i6bluedark}{\inserttitle}}}\\[2ex]
+   \large
+   \insertauthor\\
+   \normalsize
+   { \color{i6bluedark} \email }\\[2ex]
+   \insertdate\\[3ex]
+   \insertinstitute\\
+  \end{center}
+  \vfill
+}
+
+\renewcommand{\emph}[1]{\textcolor{i6blue}{#1}}
+\newcommand<>{\empho}[1]{{\color#2{i6blue}#1}}
+
+%%%%%%%%%%%%%%%%%%%%
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-PDF-mode: t
+%%% TeX-master: "slides"
+%%% ispell-local-dictionary: "american"
+%%% End: 

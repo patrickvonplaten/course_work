@@ -1,0 +1,306 @@
+\documentclass[xcolor=table,mathserif,9pt]{beamer}    % ,handout
+% colortbl only defines \rowcolor for a single row. xcolor extends this to multiple rows.
+
+\usetheme{Aachen}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+%\usepackage{tikz-dependency}
+%\usepackage{chronology}
+\usepackage{array, booktabs}
+\newcommand{\foo}{\makebox[0pt]{\textbullet}\hskip+0.5pt\vrule width 5pt\hspace{\labelsep}}
+\usepackage{multirow}
+\usepackage{textcomp}
+\usepackage{media9}
+\usepackage{csquotes}
+\usepackage{amsmath}
+\usepackage[]{algorithm2e}
+\usepackage{lipsum}
+\usepackage{multicol}
+\usepackage{hyperref}
+\setlength{\columnsep}{1cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% tables
+\usepackage{multirow,array,tabularx,rotating}
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+% math
+\usepackage{amsmath,amsthm, amssymb, latexsym, xspace}
+%\usepackage{bbold}
+\usefonttheme[onlymath]{serif}
+\boldmath
+
+
+% misc
+\usepackage{subfigure}
+\usepackage{wasysym}
+\usepackage{nameref}
+\usepackage{xcolor}
+\usepackage{romannum}
+% declare the path(s) where your graphic files are
+\graphicspath{{./nlu/}{./g2p/}{./smt/}}
+% and their extensions so you won't have to specify these with
+% every instance of \includegraphics
+\DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+
+
+%figures
+\usepackage{tikz}
+\usepackage{minibox}
+% change the graphic extentions
+%\usepackage{ifpdf}
+%\ifpdf
+%  \DeclareGraphicsExtensions{.pdf,.png,.jpg}
+%\else
+%  \DeclareGraphicsExtensions{.eps}
+%\fi
+
+\usepackage[np,autolanguage]{numprint}
+\nprounddigits{1}
+
+% helpers
+\newcommand{\argmin}{\operatornamewithlimits{argmin}}
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+\newcommand{\sign}{\operatornamewithlimits{sign}}
+\newcommand{\Eqn}{Equation}
+\newcommand{\Eqns}{Equations}
+\newcommand{\Fig}{Figure}
+\newcommand{\Figs}{Figures}
+\newcommand{\Tab}{Table}
+\newcommand{\Sec}{Section}
+\def\example{{\textit{}{e.g.}}\xspace}
+\def\cad{{\textit{}{i.e.}}\xspace}
+\def\etc{{\textit{etc.}}\xspace}
+\def\apriori{{\textit{a priori}}\xspace}
+
+\newcommand{\NetTalk}{NETtalk\xspace}
+\newcommand{\Celex}{Celex\xspace}
+\newcommand{\Pronlex}{Pronlex\xspace}
+\newcommand{\gtp}{G2P}
+\newcommand{\Seg}{\mathbb{S}}
+\newcommand\BLEU{\textsc{Bleu}\xspace}
+\newcommand\TER{\textsc{Ter}\xspace}
+\newcommand\CTER{\textsc{CTer}\xspace}
+
+\newcommand\AER{\textsc{Aer}\xspace}
+\newcommand\SAER{\textsc{Saer}\xspace}
+\newcommand{\GIZA}{{GIZA\nolinebreak[4]\hspace{-.025em}\raisebox{.2ex}{\small\bf++}}\xspace}
+
+\newcommand{\todo}[1]{\colorbox{yellow}{#1}\xspace}
+\newcommand{\CITE}{\colorbox{yellow}{CITE}\xspace}
+\newcommand{\REF}{\colorbox{yellow}{REF}\xspace}
+\newcommand{\EQ}{\colorbox{yellow}{REF}\xspace}
+\newcommand{\NUMBER}{\colorbox{yellow}{NUMBER}\xspace}
+\newcommand{\Align}{\mathbb{A}}
+%\renewcommand{\emph}[1]{\textcolor{i6blue}{#1}}
+
+
+\newcommand{\aind}[1]{\hspace*{#1ex}}
+\newcommand{\gray}[1]{\textcolor{gray}{#1}}
+
+\newcommand*{\sumw}{\ensuremath{\operatornamewithlimits{sum}}\xspace}
+\newcommand*{\nbest}{\ensuremath{\operatornamewithlimits{nbest}}\xspace}
+
+% Define box and box title style
+\usepackage{tikz}
+\usetikzlibrary{shapes,positioning,fit}
+\tikzstyle{bubble} = [ draw=blue, rectangle, rounded corners, inner sep=3pt, inner ysep=
+10 pt]
+\tikzstyle{fancytitle} =[fill=white, text=black]
+\newenvironment{bubble}[3]{%
+  \begin{tikzpicture}[transform shape, baseline=-0.5 cm]
+  \def\bubbletitle{#1}%
+  \node [bubble] (box)\bgroup
+  \begin{minipage}[t][#3]{#2}%
+}{%
+  \end{minipage}%
+  \egroup;
+  \node[fancytitle] at (box.north) {\bubbletitle};
+  \end{tikzpicture}%
+}
+
+\newenvironment{bubble*}[2]{%
+  \begin{tikzpicture}[transform shape]
+  \node [bubble] (box)\bgroup
+  \begin{minipage}[t][#2]{#1}%
+}{%
+  \end{minipage}%
+  \egroup;
+  \end{tikzpicture}%
+}
+
+% CUSTOM STUFF %%%%%%%%%%%%%%%%%
+%\usepackage{neuralnetworks}
+
+
+% Rounding commands
+\def\roundpositionii{1}
+\newcommand{\rdmii}[1]{\edef\rounded{0}\FPeval\rounded{round(#1,\roundpositionii)}\rounded}
+\def\roundpositioni{1}
+\newcommand{\rdmi}[1]{\edef\rounded{0}\FPeval\rounded{round(#1,\roundpositioni)}\rounded}
+\def\roundposition{0}
+\newcommand{\rdm}[1]{\edef\rounded{0}\FPeval\rounded{round(#1,\roundposition)}\rounded}
+
+\npstyleenglish
+
+\def\roundposition{1}
+\def\roundpositiont{3}
+\edef\rounded{0}
+\newcommand{\rd}[1]{\ifthenelse{\equal{#1}{--}}{--}{\edef\rounded{0}\FPeval\rounded{round(#1,\roundposition)}\rounded}}
+\newcommand{\rdmt}[1]{\edef\rounded{0}\FPeval\rounded{round(#1,\roundpositiont)}\rounded}
+\newcommand{\rp}[1]{%
+  \FPset{\per}{#1}%
+  %\FPmul{\per}{\per}{100}%
+  \FPround{\per}{\per}{1}%
+  \numprint{\per}%
+}%
+
+
+\setbeamercovered{transparent}
+
+\DeclareMathOperator*{\sigmoid}{sigmoid}
+
+\newcommand\T{\rule{0pt}{2.2ex}}       % Top strut
+\usepackage{etoolbox}
+\pretocmd{\section}{\addtocontents{toc}{\vspace{-20pt}}}{}{}
+
+%Table stuff
+\newcommand{\tablesize}{}
+\newcommand{\abovetable}{\vspace{0.6cm}}
+\newcommand{\belowtable}{\vspace{0.13cm}}
+
+
+% Get fond size for system combination picture right
+\usepackage{fix-cm}    
+\makeatletter
+\newcommand\SyscomFontSize{\@setfontsize\small{6}{60}}
+\makeatother   
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\backupbegin}{
+   \newcounter{finalframe}
+   \setcounter{finalframe}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+   \setcounter{framenumber}{\value{finalframe}}
+}
+
+\newcommand{\stoptocwriting}{%
+  \addtocontents{toc}{\protect\setcounter{tocdepth}{-5}}}
+\newcommand{\resumetocwriting}{%
+  \addtocontents{toc}{\protect\setcounter{tocdepth}{2}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand*{\email}{\url{patrick.platen@rwth-aachen.de}}  
+% all email address(es) of the authors (used for \TitlePage)
+
+\title[Seminar]{Deep Learning for the Physical Layer}
+%\subtitle{Presentation Subtitle} % (optional)
+%\setbeamertemplate{section in toc}[sections numbered] 
+%\setbeamertemplate{subsection in toc}[subsections numbered] 
+\setbeamertemplate{navigation symbols}{} %disable {, dotted}navigation bar
+
+%% author and in []: shortauthorChange the scale of beamer from 3.5 to 1
+\author[Patrick von Platen]{Patrick von Platen}
+% - Use the \inst{?} command only if the author7s have different
+%   affiliation.
+\institute[RWTH Aachen University] % (optional, but mostly needed)
+{
+%  \inst{1}%
+  \strut Institute for Theoretical Information Technology\\
+  \strut Univ.-Prof. Dr. rer. nat. Rudolf Mathar%\\
+  %\strut {\tt lehnen@cs.rwth-aachen.de}
+}
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+
+\date[19/7/2018]{July 19th, 2018}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%shit
+% will be set into the PDF document summary
+\hypersetup{
+  pdftitle={\inserttitle}, 
+  pdfauthor={\insertauthor}, 
+  bookmarksdepth=subsubsection,  
+  % enable automatic page transitions: for endless loop edit in
+  % acrobat reader -> preferences -> full screen -> after every X
+  % seconds and after last page
+  %pdfpageduration = 2, 
+  % pdfpagetransition = {Glitter /Di 315 /D 5}  
+  % pdfpagetransition = {Box /M /O /D 1},
+} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[label=titlepage]
+  \titlepage
+\end{frame}
+
+\begin{frame}
+	\frametitle{Outline}
+	\tableofcontents
+        %\tableofcontents[currentsection, subsectionstyle=show/show/hide]
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Introduction}%
+\label{sec:introduction}
+\begin{frame}{Introduction}
+
+\end{frame}
+
+\begin{frame}[label=finalSlide]
+  \label{LastPage}%
+  \begin{center}
+    \vfill
+    {\Large
+    \textcolor{i6bluedark}{Thank you for your attention}
+    }
+%     \vfill
+%     \inserttitle
+    \vfill
+    {\insertauthor}
+
+    \vspace{10mm}
+    \url{patrick.platen@rwth-aachen.de}
+  \end{center}
+\end{frame}
+
+\nocite{*}
+
+\stoptocwriting
+\section{Appendix}
+\resumetocwriting
+
+%\backupbegin
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Appendix}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[allowframebreaks]
+  \centerline{Reference}
+ %\bibliographystyle{ieeetr}
+ \bibliographystyle{i6bibstyle}
+ \bibliography{references}
+\end{frame}
+
+%\backupend
+
+\end{document}
+

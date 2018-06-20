@@ -1,0 +1,92 @@
+\begin{thebibliography}{}
+
+\bibitem[\protect{Berrou \& Glavieux$^+$} 93]{Berrou93nearshannon}
+C.~Berrou, A.~Glavieux, P.~Thitimajshima.
+\newblock Near shannon limit error-correcting coding and decoding.
+\newblock pp. 1064--1070, 1993.
+
+\bibitem[\protect{{Dorner} \& {Cammerer}$^+$} 18]{2018ISTSP..12..132D}
+S.~{Dorner}, S.~{Cammerer}, J.~{Hoydis}, S.~t. {Brink}.
+\newblock {Deep Learning Based Communication Over the Air}.
+\newblock {\em IEEE Journal of Selected Topics in Signal Processing}, Vol.~12,
+  pp.~132--143, Feb. 2018.
+
+\bibitem[\protect{Felix \& Cammerer$^+$} 18]{synch1}
+A.~Felix, S.~Cammerer, S.~D{\"{o}}rner, J.~Hoydis, S.~ten Brink.
+\newblock Ofdm-autoencoder for end-to-end learning of communications systems.
+\newblock {\em CoRR}, Vol. abs/1803.05815, 2018.
+
+\bibitem[\protect{Floch \& Alard$^+$} 95]{387096}
+B.~L. Floch, M.~Alard, C.~Berrou.
+\newblock Coded orthogonal frequency division multiplex [tv broadcasting].
+\newblock {\em Proceedings of the IEEE}, Vol.~83, No.~6, pp.~982--996, Jun
+  1995.
+
+\bibitem[\protect{Goldsmith} 95]{504941}
+A.~Goldsmith.
+\newblock Joint source/channel coding for wireless channels.
+\newblock In {\em 1995 IEEE 45th Vehicular Technology Conference. Countdown to
+  the Wireless Twenty-First Century}, Vol.~2, pp. 614--618 vol.2, Jul 1995.
+
+\bibitem[\protect{Goodfellow \& Bengio$^+$} 16]{Goodfellow-et-al-2016}
+I.~Goodfellow, Y.~Bengio, A.~Courville.
+\newblock {\em Deep Learning}.
+\newblock MIT Press, 2016.
+\newblock \url{http://www.deeplearningbook.org}.
+
+\bibitem[\protect{Kataoka \& Matsubara$^+$} 16]{7550880}
+Y.~Kataoka, T.~Matsubara, K.~Uehara.
+\newblock Image generation using generative adversarial networks and attention
+  mechanism.
+\newblock In {\em 2016 IEEE/ACIS 15th International Conference on Computer and
+  Information Science (ICIS)}, pp. 1--6, June 2016.
+
+\bibitem[\protect{O'Shea \& Erpek$^+$} 17]{8262721}
+T.~J. O'Shea, T.~Erpek, T.~C. Clancy.
+\newblock Physical layer deep learning of encodings for the mimo fading
+  channel.
+\newblock In {\em 2017 55th Annual Allerton Conference on Communication,
+  Control, and Computing (Allerton)}, pp. 76--80, Oct 2017.
+
+\bibitem[\protect{O'Shea \& Hoydis} 17]{DBLP:journals/corr/OSheaH17}
+T.~J. O'Shea, J.~Hoydis.
+\newblock An introduction to machine learning communications systems.
+\newblock {\em CoRR}, Vol. abs/1702.00832, 2017.
+
+\bibitem[\protect{O'Shea \& Pemula$^+$} 16]{synchAttention}
+T.~J. O'Shea, L.~Pemula, D.~Batra, T.~C. Clancy.
+\newblock Radio transformer networks: Attention models for learning to
+  synchronize in wireless systems.
+\newblock {\em CoRR}, Vol. abs/1605.00716, 2016.
+
+\bibitem[\protect{{O'Shea} \& {Roy}$^+$} 18a]{2018arXiv180506350O}
+T.~J. {O'Shea}, T.~{Roy}, N.~{West}.
+\newblock {Approximating the Void: Learning Stochastic Channel Models from
+  Observation with Variational Generative Adversarial Networks}.
+\newblock {\em ArXiv e-prints}, Vol., May 2018.
+
+\bibitem[\protect{{O'Shea} \& {Roy}$^+$} 18b]{2018arXiv180303145O}
+T.~J. {O'Shea}, T.~{Roy}, N.~{West}, B.~C. {Hilburn}.
+\newblock {Physical Layer Communications System Design Over-the-Air Using
+  Adversarial Networks}.
+\newblock {\em ArXiv e-prints}, Vol., March 2018.
+
+\bibitem[\protect{osi}]{osimodel}
+Osimodel.
+\newblock
+  \url{https://docs.microsoft.com/fr-fr/windows-hardware/drivers/network/windows-network-architecture-and-the-osi-model}.
+\newblock Accessed: 2018-06-15.
+
+\bibitem[\protect{Shannon} 01]{Shannon:2001:MTC:584091.584093}
+C.~E. Shannon.
+\newblock A mathematical theory of communication.
+\newblock {\em SIGMOBILE Mob. Comput. Commun. Rev.}, Vol.~5, No.~1, pp.~3--55,
+  Jan. 2001.
+
+\bibitem[\protect{Zehavi} 92]{141453}
+E.~Zehavi.
+\newblock 8-psk trellis codes for a rayleigh channel.
+\newblock {\em IEEE Transactions on Communications}, Vol.~40, No.~5,
+  pp.~873--884, May 1992.
+
+\end{thebibliography}
