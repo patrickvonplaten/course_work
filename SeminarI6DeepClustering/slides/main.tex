@@ -509,10 +509,11 @@ How to derive similarity matrix from mixed signal: \emph{$X(t) \to W$}?
 
 \begin{itemize}
 	\item $v_1, ..., v_n$ are clustered using \emph{K-means loss function} 
-	\item \emph{$Y^* = \text{argmin}_{Y} {V - YUF}$}
+	\item \emph{$Y^* = \text{argmin}_{Y} |{V - YUF}|_F^2$}
 		\begin{itemize}
 			\item $Y = (y_1,... ,y_n)^T \in \mathbb{R}^{n \times C}$
 			\item $ y_i \in \mathbb{R}^{C}$. $y_i$ is cluster assignment of i-th (f,t) bin 
+			\item Frobenius norm: $|E|^2_F = \sum_{i,j} E(i,j)^2$ 
 			\item Normalizer $U = (Y^TY)^{-1} \in \mathbb{R}^{C \times C}$
 			\item Accumalator $F = Y^TV \in \mathbb{R}^{C \times K}$
 		\end{itemize}
@@ -527,7 +528,6 @@ How to derive similarity matrix from mixed signal: \emph{$X(t) \to W$}?
 	\textbf{Minimize cost function $C(\theta)$}
 	\begin{itemize}
 		\item $C(\theta) = |VV^T - \hat{Y}\hat{Y}^T|_F^2$
-		\item Frobenius norm: $|E|^2_F = \sum_{i,j} E(i,j)^2$ 
 		\item $VV^T \in \mathbb{R}^{n \times n}$ estimated affinity matrix 
 		\item $\hat{Y}\hat{Y}^T \in \mathbb{R}^{n \times n}$ labeled affinity matrix
 		\item Intuitive presentation: 
