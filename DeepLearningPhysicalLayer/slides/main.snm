@@ -1,6 +1,7 @@
 \beamer@slide {titlepage<1>}{1}
 \beamer@slide {titlepage}{1}
-\beamer@slide {sec:introduction}{3}
-\beamer@slide {finalSlide<1>}{4}
-\beamer@slide {finalSlide}{4}
-\beamer@slide {LastPage}{4}
+\beamer@slide {sec:literature}{3}
+\beamer@slide {sec:introduction}{4}
+\beamer@slide {finalSlide<1>}{16}
+\beamer@slide {finalSlide}{16}
+\beamer@slide {LastPage}{16}
