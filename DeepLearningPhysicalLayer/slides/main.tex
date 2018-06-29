@@ -10,6 +10,8 @@
 \newcommand{\foo}{\makebox[0pt]{\textbullet}\hskip+0.5pt\vrule width 5pt\hspace{\labelsep}}
 \usepackage{multirow}
 \usepackage{textcomp}
+\usepackage{accents}
+\newcommand{\ubar}[1]{\underaccent{\bar}{#1}}
 \usepackage{media9}
 \usepackage{csquotes}
 \usepackage{amsmath}
@@ -259,25 +261,34 @@
 
 \begin{frame}{Literature}
 \begin{description}
-\item [Z. Chen:] Single Channel auditory source separation with neural network. {\em thesis 2017}.
+\item [Timothy J. O'Shea and Jakob Hoydis:] An introduction to machine learning commu- nications systems. {\em Intro to DL for CommSystems 2017}.
   \begin{itemize}
-  \item Output permutation problem  
-  \item Output dimension problem 
-  \item Deep clustering
+  \item Autoencoder as Communication System 
+  \end{itemize}
+\end{description}
+\begin{description}
+\item [T. J. O'Shea, T. Roy, N. West, and B. C. Hilburn:] Physical Layer Communications System Design Over-the-Air Using Adversarial Networks. {\em Adversarial Networks for CommSystems 2018}.
+  \begin{itemize}
+  \item Generative Adversial Networks for Communication Systems 
+  \end{itemize}
+\end{description}
+\begin{description}
+\item [Alexander Felix, Sebastian Cammerer, Sebastian Doerner, Jakob Hoydis, and Stephan ten Brink:] Ofdm-autoencoder for end-to-end learning of communications systems. {\em OFDM Autoencoder 2018}.
+  \begin{itemize}
+  \item Synchronization in Autoencoders 
+  \end{itemize}
+\end{description}
+\begin{description}
+\item [Ian Goodfellow, Yoshua Bengio, and Aaron Courville:] Deep Learning. {\em Basicsfor Deep Learning 2016}.
+  \begin{itemize}
+  \item Basics in Machine Learning 
   \end{itemize}
 \end{description}
 \end{frame}
 
 \section{Introduction}%
 \label{sec:introduction}
-\begin{frame}{Introduction}
-
-\begin{itemize}
-	\item Apply deep learning to the physical layer of communcation systems
-	\item Explain motivation
-\end{itemize}
-
-\textbf{Deep Learning for the Physical Layer}
+\begin{frame}{Introduction - Deep Learning for the Physical Layer}
 
 \begin{figure}[htpb]
 	\centering
@@ -285,27 +296,85 @@
 	\caption{Block diagram for conventional physical layer}
 \end{figure}
 
+\begin{itemize}
+	\item Rise of Deep Learning in multiple different fields of research
+	\item Training data can be generated 
+	\item Conventional Systems are optimized block by block
+\end{itemize}
+
+
 \end{frame}
 
 \section{Source and Channel Encoding}%
 \begin{frame}{Source and Channel Encoding}
 
-explain Source and Channel Encoding
+\centering{\underline{Source Encoding}}
+\vspace{1em}
+\begin{itemize}
+	\item Symbols to be encoded to efficient code: $x(k) \to \ubar{X}$
+	\item Remove redundancy in code (Shannon code theory)
+	\item \emph{Huffman-Coding, Run-Length-Coding, Arithmetic-Coding,...}
+\end{itemize}
+
+\vspace{2em}
+
+\centering{\underline{Channel Encoding}}
+\vspace{1em}
+\begin{itemize}
+	\item Source encoded bits to channel encoded bits: $\ubar{X} \to \ubar{Y}$
+	\item Redundancy is added to bits to make them more error resistant
+	\item \emph{Hamming code, Convolutional encoding, Turbo-Code,...}
+\end{itemize}
+
 \end{frame}
 
-\section{Physical Channel and Modulation}%
+\section{Modulation}%
 \begin{frame}{IQ - Modulation}
 
-exlapin Channel
-explain I/Q Modulation use picture
+\begin{itemize}
+	\item Channel encoded bits modulated into carrier wave $\ubar{Y} \to u(t)$
+\end{itemize}
+
+\begin{figure}[htpb]
+	\centering
+	\includegraphics[width=0.4\linewidth]{images/16QAM.png}
+	\caption{16 Quadrature Amplitude Modulation}
+	\label{fig:16QAM}
+\end{figure}
+
+\end{frame}
+
+\section{Physical Channel and Receiver}
+\begin{frame}{Source and Channel Encoding}
+
+\centering{\underline{Physical Channel}}
+\vspace{1em}
+\begin{itemize}
+	\item Carrier wave is transmitted via medium $u(t) \to v(t)$
+	\item $v(t) = u(t) + n(t)$ with $n(t)$ being some noise 
+\end{itemize}
+
+\vspace{2em}
+
+\centering{\underline{Receiver}}
+\vspace{1em}
+\begin{itemize}
+	\item Received carrier wave to decoded source symbols $v(t) \to \hat{x(t)}$
+	\item Demodulation 
+	\item Channel decoding 
+\end{itemize}
 
 \end{frame}
 
 \section{Autoencoder as Communication System}
 \begin{frame}{Autoencoder as Communication System (1)}
 
-Intro -> show pictures
-Explain structure
+\begin{figure}[htpb]
+	\centering
+	\includegraphics[width=1\linewidth]{images/autoencoder.png}
+	\caption{Autoencoder as Communication System}
+	\label{fig:autoencoder}
+\end{figure}
 
 \end{frame}
 
@@ -318,28 +387,35 @@ Training with gradient descent
 
 \begin{frame}{Autoencoder as Communication System (3)}
 
-Learned Modulation Schemes and results
-\end{frame}
+Learned Modulation Schemes and problems when applying to real world systems
+\begin{itemize}
+	\item Modelling of the physical channel not always accurate
+	\item Synchronization
+\end{itemize}
 
-\section{Problem when using Neural Networks for Communication Systems}
-\begin{frame}{Problem when using Neural Networks for Communication Systems}
-
-- Modelling of the Physical channel not always accurate
-- Synchronization
 
 \end{frame}
 
 \section{Generative Adversial Networks for Communication Systems}
 \begin{frame}{Generative Adversial Networks for Communication Systems (1)}
 
-Idea
-Picture
 General Idea of Generative Adversial Networks
+\begin{figure}[htpb]
+	\centering
+	\includegraphics[width=0.8\linewidth]{images/adversialNN.png}
+	\caption{Generative Adversial Networks for Communication Systems}
+\end{figure}
 
 \end{frame}
 
 \begin{frame}{Generative Adversial Networks for Communication Systems (2)}
 
+Mathematics
+\begin{figure}[htpb]
+	\centering
+	\includegraphics[width=0.8\linewidth]{images/trainingAlgo.png}
+	\caption{Training Procedure Generative Adversial Networks for Communication System}
+\end{figure}
 Training
 
 \end{frame}
@@ -347,13 +423,20 @@ Training
 \section{Synchronization in Autoencoders}
 \begin{frame}{Synchronization in Autoencoders (1)}
 
-show first picture
-
+\begin{figure}[htpb]
+	\centering
+	\includegraphics[width=0.8\linewidth]{images/synchBlock.png}
+	\caption{Autoencoder for Communication Systems with Synchronization}
+\end{figure}
 \end{frame}
 
 \begin{frame}{Synchronization in Autoencoders (2)}
 
-show second picture
+\begin{figure}[htpb]
+	\centering
+	\includegraphics[width=0.8\linewidth]{images/synchMethod.png}
+	\caption{FFT for Synchronization in autoencoders}
+\end{figure}
 
 \end{frame}
 

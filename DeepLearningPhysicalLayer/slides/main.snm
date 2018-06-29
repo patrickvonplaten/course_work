@@ -2,6 +2,8 @@
 \beamer@slide {titlepage}{1}
 \beamer@slide {sec:literature}{3}
 \beamer@slide {sec:introduction}{4}
+\beamer@slide {fig:16QAM}{6}
+\beamer@slide {fig:autoencoder}{8}
 \beamer@slide {finalSlide<1>}{16}
 \beamer@slide {finalSlide}{16}
 \beamer@slide {LastPage}{16}

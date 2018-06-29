@@ -8,11 +8,11 @@
 \vspace {-20pt}
 \beamer@sectionintoc {3}{Source and Channel Encoding}{5}{0}{3}
 \vspace {-20pt}
-\beamer@sectionintoc {4}{Physical Channel and Modulation}{6}{0}{4}
+\beamer@sectionintoc {4}{Modulation}{6}{0}{4}
 \vspace {-20pt}
-\beamer@sectionintoc {5}{Autoencoder as Communication System}{7}{0}{5}
+\beamer@sectionintoc {5}{Physical Channel and Receiver}{7}{0}{5}
 \vspace {-20pt}
-\beamer@sectionintoc {6}{Problem when using Neural Networks for Communication Systems}{10}{0}{6}
+\beamer@sectionintoc {6}{Autoencoder as Communication System}{8}{0}{6}
 \vspace {-20pt}
 \beamer@sectionintoc {7}{Generative Adversial Networks for Communication Systems}{11}{0}{7}
 \vspace {-20pt}

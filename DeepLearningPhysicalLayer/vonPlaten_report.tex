@@ -207,7 +207,7 @@ bandwidth in the presence of noise, being the \emph{Shannon rate}, can nearly be
 \begin{figure}[htpb]
 	\centering
 	\includegraphics[width=0.8\linewidth]{images/CommunicationSystem.png}
-	\caption{Block Diagram Communication System}
+	\caption{Block Diagram Communication System \cite{CommTech}}
 	\label{fig:BlockCommunicationSystem}
 \end{figure}
 
@@ -304,7 +304,7 @@ plane with the $|Q|$ values in the complex y-Axis and the $|I|$ values in the x-
 \begin{figure}[htpb]
 	\centering
 	\includegraphics[width=0.5\linewidth]{images/16QAM.png}
-	\caption{Example of QAM modulation scheme: M = 16}
+	\caption{Example of QAM modulation scheme: M = 16 \cite{CommTech}}
 	\label{fig:16QAM}
 \end{figure}
 
@@ -335,7 +335,7 @@ methods to realize a communication system \ref{sec:applying_deep_learning_to_com
 
 \subsubsection{Receiver}
 
-The receiver will receive $v(t)$, inherently having a probabilistic nature due to the added gaussian noise.
+The receiver will receive $v(t)$, inherently having a probabilistic nature due to the added noise.
 The demodulator then extracts the information of the carrier wave $v(t)$ using 
 the predefined values the information was modulated into (the I/Q values 
 if using quadrature amplitude modulation). 
@@ -448,8 +448,8 @@ Figure \ref{fig:autoencoder1} presents a compact view of an autoencoder.
 
 \begin{figure}[htpb]
 	\centering
-	\includegraphics[width=0.2\linewidth]{images/autoencoder1.png}
-	\caption{Structure of an autoencoder}
+	\includegraphics[width=0.95\linewidth]{images/autoencoder1.png}
+	\caption{Structure of an autoencoder \cite{Goodfellow-et-al-2016}}
 	\label{fig:autoencoder1}
 \end{figure}
 
@@ -579,12 +579,10 @@ with artificial neural networks.
 	      often fails to be an accurate model of the ``real'' channel response. 
 	      While the network using the ``channel'' layer shows great results, it 
 	      then fails to do so when applied to a real ``channel'' response \cite{2018ISTSP..12..132D}.
-      \item The receiver network is supposed to work directly on the I/Q-symbols (compare to equation \ref{eq:iq_equation} of the demodulated carrier wave and thus has problems to effectively 
-	      synchronize received I/Q symbols and transmitted I/Q symbols 		when used with ``real'' channels.
+      \item   The receiver network is supposed to work directly on the I/Q-symbols (compare to equation \ref{eq:iq_equation}). Synchronization is an important part when demodulating the received carrier wave and also needs to be tackled by a system using autoencoders.
 \end{enumerate}
 
-In conventional communication systems transmitter and receiver are optimized independent from each other \ref{fig:BlockCommunicationSystem} and therefore do not need to model the channel response. In artificial neural 
-network supported end-to-end approaches, the system as a whole is optimized, meaning 
+In artificial neural network supported end-to-end approaches, the system as a whole is optimized, meaning 
 that parameters of the receiver affect the paramaters of 
 the transmitter. Thus, when applying gradient descent \ref{sec:deep_learning_basics} 
 the gradient needs to be able to ``flow'' from the output of the end of the network 
@@ -627,7 +625,7 @@ shown in \ref{fig:communicationSystemAsAutoencoder}.
 \begin{figure}[htpb]
 	\centering
 	\includegraphics[width=1.05\linewidth]{images/communicationSystemAsAutoencoder.png}
-	\caption{End-to-end communication system as an autoencoder}
+	\caption{End-to-end communication system as an autoencoder \cite{synch1}}
 	\label{fig:communicationSystemAsAutoencoder}
 \end{figure}
 The autoencoder is divided into three parts:
@@ -647,22 +645,22 @@ different input vectors $v$ of the autoencoder.
 The transmitter neural network is presented by the encoding function $f_{e, \theta_e}: v \to x, x \in \mathbb{R}^n (\text{ or } \mathbb{C}^{\frac{n}{2}})$.
 
 In the context of communication systems, we have $n$ different channels we can use 
-to send the symbol $s_i$ presented by $v_i$. Every combination of the $n$ entries in $x=\left[x_1,x_2,...,x_n\right]$ is a data point in the modulation plane (compare to \ref{sub:structure_of_the_communication_system} and \ref{fig:16QAM}). Since quatradure 
-amplitude modulation (see eqaution \ref{eq:iq_equation}) uses complex numbers to 
-modulate the values of $I(t) + iQ(i)$ the output layer $x$ of the neural 
-network can also be considered having $\frac{n}{2}$ complex output values to 
-be modulated into $\frac{n}{2}$ different carrier waves using the quadrature 
-amplitude modulation. In general though $n$ ``real'' values can be modulated 
-into different channels.
-Due to reasons of simplicity, we will stick to $x \in \mathbb{R}^n$.
+to send the symbol $s_i$ presented by $v_i$. Every combination of the $n$ entries in $x=\left[x_1,x_2,...,x_n\right]$ is a data point in the modulation plane (compare to \ref{sub:structure_of_the_communication_system} and \ref{fig:16QAM}). Since modulation is often done by using complex numbers, as for example in quadrature amplitude modulation, when 
+modulating the values of $I(t) + iQ(i)$, the output layer $x$ of the neural 
+network can also be considered having $\frac{n}{2}$ complex output values. be modulated into $\frac{n}{2}$ different carrier waves using the quadrature 
+amplitude modulation. In general though $n$ ``real'' values are the output of the transmitter neural network to be used for modulation and due to reasons of simplicity, 
+we will stick to $x \in \mathbb{R}^n$.
+When having multiple $n>2$ channels, methods such as \emph{Orthogonal frequency-division multiplexing} can be used. Section \ref{} is devoted to 
+extending a autoencoder system to one including \emph{Orthogonal frequency-division multiplexing} to handle modulation and synchronization of $n>2$ channels.
+For now, the autoencoder system is explained without going into detail how to modulate $n>2$ real output values from the transmiter neural network.
 
 It is important to notice that the mapping $f_{e, \theta_e}: v \to x$ is deterministic, meaning
 that an input $v_i$ is always mapped to the same $x_i=f_{e}(v_i)$. Since there are only 
 $m$ different input vectors, there are also only $m$ different encoded vectors $\left[x_1,...,x_m\right]$ being the modulated representations of the symbols $s_1,...,s_m$.
 
-Let's take for example the case of $n=2$. That would mean that there are two channels to 
-send data. The case of having $n=2$ channels is equivalent to quadrature modulation where
-the first and second channel would represent the I/Q symbols as can  be seen in \ref{fig:16QAM}
+Let's assume in the beginning that $n=2$. That would mean that there are two channels to 
+send data. When having $n=2$ channels, quadrature modulation where
+the first and second channel would represent the I/Q symbols as can be seen in \ref{fig:16QAM} can be used.
 
 The transmitter neural network is made up of the input layer $v$ havig $m$ nodes, multiple hidden 
 layers, an output layer having $n$ output nodes and the normalization output layer
@@ -688,6 +686,7 @@ The neural network embedding of the channel is the so called ``channel'' layer a
 is a model of the real ``channel response'' needed for end-to-end training of the 
 network. All it does is usually to add random gaussian noise to the output values $x$ of the 
 transmitter neural network. Thus, it can simply be put into:
+
 \[
 	f_{c,\sigma^2}: x \to \hat{x} = x + u, u \sim N(0,\sigma^2)
 \]
@@ -766,7 +765,7 @@ parameter but needs to be chosen by the architect of the autoencoder so that the
 \begin{figure}[htpb]
 	\centering
 	\includegraphics[width=0.4\linewidth]{images/learnedModulation.png}
-	\caption{Learned outputs of transmitter neural network output layer $x$ of all $m=16$ possible inputs and for $n=2$ channels. The x-Axis is presenting the values of the first output node in $x$ and the y-Axis the second}
+	\caption{Learned outputs of transmitter neural network output layer $x$ of all $m=16$ possible inputs and for $n=2$ channels. The x-Axis is presenting the values of the first output node in $x$ and the y-Axis the second \cite{DBLP:journals/corr/OSheaH17}}
 	\label{fig:learnedModulation}
 \end{figure}
 
@@ -814,7 +813,7 @@ encoding schemes using the parameters of $h_{1,\theta_h}$.
 \begin{figure}[htpb]
 	\centering
 	\includegraphics[width=1\linewidth]{images/generativeAdvAutoencoder.png}
-	\caption{Generative adversial network learning a communication system}
+	\caption{Generative adversial network learning a communication system \cite{2018arXiv180506350O}}
 	\label{fig:generativeAdvAutoencoder}
 \end{figure}
 
@@ -904,7 +903,7 @@ neural network is labeled as ``AERX'' as can be seen in figure \ref{fig:synchBlo
 \begin{figure}[htpb]
 	\centering
 	\includegraphics[width=0.8\linewidth]{images/synchBlock.png}
-	\caption{Autoencoder system with orthogonal frequency-division multiplexing extension}
+	\caption{Autoencoder system with orthogonal frequency-division multiplexing extension \cite{synch1}}
 	\label{fig:synchBlock}
 \end{figure}
 
@@ -925,7 +924,7 @@ A more visual representation is figure \ref{fig:ifft_synch}.
 \begin{figure}[htpb]
 	\centering
 	\includegraphics[width=0.65\linewidth]{images/ifft_synch.png}
-	\caption{Over time autoencoder with ``IFFT''}
+	\caption{Over time autoencoder with ``IFFT'' \cite{synch1}}
 	\label{fig:ifft_synch}
 \end{figure}
 
@@ -946,24 +945,46 @@ using basic methods from conventional communication system design.
 \section{Conclusion} % (fold)
 \label{sec:conclusion}
 
-It is very difficult to compare the performance of conventional communication 
-systems to those applying deep learning methods, such as autoencoders \ref{sec:applying_deep_learning_to_communication_systems} because of the completely different 
-structure and generalization possibilities. 
-Autoencoder systems such as those presented in \ref{sec:applying_deep_learning_to_communication_systems} need a predefined amount of channels $n$ and set of symbols 
+It has been shown that systems using autoencoder models can very well yield 
+comparable or even better results than the conventional systems.
+The paper \cite{DBLP:journals/corr/OSheaH17} compares different autoencoder 
+to conventional methods using the block error rate metric (BLER) defined as: 
+\[
+	\text{BLER} = \frac{\text{Erroneous Blocks}}{\text{Total Blocks}}
+\]
+
+In our case blocks corresponds to a symbol $s$ that was decoded, sent and 
+received. Wrongly classified symbols therefore correspond to \emph{Erroneous Blocks}.
+
+\begin{figure}[htpb]
+	\centering
+	\includegraphics[width=0.65\linewidth]{images/BLERComp.png}
+	\caption{BLER versus $\frac{E_b}{N_0}$ for the autoencoder and 3 baseline conventional communication schemes}
+	\label{fig:BLERComp}
+\end{figure}
+
+The figure \ref{fig:BLERComp}, a $(7,4)$ autoencoder having $7$ channels to send $2^4 = 16$ different possible messages is compared with conventional communication systems using:
+
+\begin{enumerate}
+	\item binary phase-shift keying modulation
+	\item a Hamming (7,4) code with binary hard decision coding 
+	\item a Hamming (7,4) code with maximum likelihood decoding
+\end{enumerate}
+
+The comparison is done over a range of different \emph{energy per bit to noise power} 
+($\frac{E_b}{N_0}$) ratios.
+As can be seen, the $(7,4)$ autoencoder is as good as the conventional best system 
+for all possible $\frac{E_b}{N_0}$ values.
+
+
+Other papers \cite{synch1},\cite{2018arXiv180506350O} report similar or even better 
+results when applying autoencoders to model communication systems.
+
+One drawback is that autoencoder systems such as those presented in \ref{sec:applying_deep_learning_to_communication_systems} need a predefined amount of channels $n$ and set of symbols 
 $M$ for the layer dimensions to be trained to build efficient modulation schemes. 
 Conventional systems on the other hand are much more flexible and can directly 
 be applied without having to learn anything to varying size of channels $n$ and 
 set of symbols $M$.
-In addition, autoencoder systems are trained on ``channel'' models that often only 
-add gaussian noise to the transmitted message and thus are also tested on 
-only these kinds of channels which is not really realistic. 
-Even though the papers \cite{2018arXiv180303145O}, \cite{synch1}, \cite{DBLP:journals/corr/OSheaH17} do some performance comparisons using the \emph{source-to-noise ratio}
-for example, the question whether these comparisons are realistic remains open.
-
-For once, it has certainly been shown that autoencoder systems are 
-able to learn efficient ways to encode symbols $s$ \ref{fig:learnedModulation}.
-Also, we saw that some methods, such as using generative adversial networks to imitate real 
-channel responses, can make autoencoder system applicable to more general conditions.
 
 All in all it has to be said that research about applying deep learning methods 
 for the physical layer is still in its beginnings and will certainly yield 

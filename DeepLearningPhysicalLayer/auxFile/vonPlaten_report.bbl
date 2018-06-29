@@ -40,6 +40,11 @@ Ian Goodfellow, Yoshua Bengio, and Aaron Courville.
 \newblock MIT Press, 2016.
 \newblock \url{http://www.deeplearningbook.org}.
 
+\bibitem{CommTech}
+Prof. Dr.-Ing.~Peter Jax.
+\newblock {\em Kommunikationstechnik}.
+\newblock Institut für Kommunikationssysteme, Summer 2017.
+
 \bibitem{7550880}
 Y.~Kataoka, T.~Matsubara, and K.~Uehara.
 \newblock Image generation using generative adversarial networks and attention

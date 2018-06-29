@@ -191,6 +191,9 @@ INPUT ./images/synchBlock.png
 INPUT images/ifft_synch.png
 INPUT ./images/ifft_synch.png
 INPUT ./images/ifft_synch.png
+INPUT images/BLERComp.png
+INPUT ./images/BLERComp.png
+INPUT ./images/BLERComp.png
 INPUT auxFile/vonPlaten_report.bbl
 INPUT auxFile/vonPlaten_report.bbl
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm

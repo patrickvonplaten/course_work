@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.17)  24 JUN 2018 22:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.17)  25 JUN 2018 12:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1370,6 +1370,14 @@ Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
 )
+(/usr/local/texlive/2016/texmf-dist/tex/latex/bezos/accents.sty
+Package: accents 2006/05/12 v1.3 Math Accent Tools
+\cc@skew=\dimen262
+\cc@wd=\dimen263
+\cc@code=\count173
+\cc@group=\count174
+\cc@skewchar=\count175
+)
 (/usr/local/texlive/2016/texmf-dist/tex/latex/media9/media9.sty
 (/usr/local/texlive/2016/texmf-dist/tex/latex/l3kernel/expl3.sty
 Package: expl3 2016/05/18 v6512 L3 programming layer (loader) 
@@ -1384,31 +1392,31 @@ L3 Module: l3tl 2016/03/26 v6465 L3 Token lists
 L3 Module: l3str 2016/03/24 v6441 L3 Strings
 L3 Module: l3seq 2015/08/05 v5777 L3 Sequences and stacks
 L3 Module: l3int 2016/03/24 v6441 L3 Integers
-\c_max_int=\count173
-\l_tmpa_int=\count174
-\l_tmpb_int=\count175
-\g_tmpa_int=\count176
-\g_tmpb_int=\count177
+\c_max_int=\count176
+\l_tmpa_int=\count177
+\l_tmpb_int=\count178
+\g_tmpa_int=\count179
+\g_tmpb_int=\count180
 L3 Module: l3quark 2015/08/17 v5855 L3 Quarks
 L3 Module: l3prg 2015/11/01 v6216 L3 Control structures
-\g__prg_map_int=\count178
+\g__prg_map_int=\count181
 L3 Module: l3clist 2015/09/02 v5901 L3 Comma separated lists
 L3 Module: l3token 2016/04/03 v6470 L3 Experimental token manipulation
 L3 Module: l3prop 2016/01/05 v6366 L3 Property lists
 L3 Module: l3msg 2016/03/26 v6464 L3 Messages
 L3 Module: l3file 2016/03/25 v6458 L3 File and I/O operations
-\l_iow_line_count_int=\count179
-\l__iow_target_count_int=\count180
-\l__iow_current_line_int=\count181
-\l__iow_current_word_int=\count182
-\l__iow_current_indentation_int=\count183
+\l_iow_line_count_int=\count182
+\l__iow_target_count_int=\count183
+\l__iow_current_line_int=\count184
+\l__iow_current_word_int=\count185
+\l__iow_current_indentation_int=\count186
 L3 Module: l3skip 2016/01/05 v6366 L3 Dimensions and skips
-\c_zero_dim=\dimen262
-\c_max_dim=\dimen263
-\l_tmpa_dim=\dimen264
-\l_tmpb_dim=\dimen265
-\g_tmpa_dim=\dimen266
-\g_tmpb_dim=\dimen267
+\c_zero_dim=\dimen264
+\c_max_dim=\dimen265
+\l_tmpa_dim=\dimen266
+\l_tmpb_dim=\dimen267
+\g_tmpa_dim=\dimen268
+\g_tmpb_dim=\dimen269
 \c_zero_skip=\skip60
 \c_max_skip=\skip61
 \l_tmpa_skip=\skip62
@@ -1422,18 +1430,18 @@ L3 Module: l3skip 2016/01/05 v6366 L3 Dimensions and skips
 \g_tmpa_muskip=\muskip16
 \g_tmpb_muskip=\muskip17
 L3 Module: l3keys 2015/11/17 v6284 L3 Key-value interfaces
-\g__keyval_level_int=\count184
-\l_keys_choice_int=\count185
+\g__keyval_level_int=\count187
+\l_keys_choice_int=\count188
 L3 Module: l3fp 2016/03/26 v6465 L3 Floating points
-\c__fp_leading_shift_int=\count186
-\c__fp_middle_shift_int=\count187
-\c__fp_trailing_shift_int=\count188
-\c__fp_big_leading_shift_int=\count189
-\c__fp_big_middle_shift_int=\count190
-\c__fp_big_trailing_shift_int=\count191
-\c__fp_Bigg_leading_shift_int=\count192
-\c__fp_Bigg_middle_shift_int=\count193
-\c__fp_Bigg_trailing_shift_int=\count194
+\c__fp_leading_shift_int=\count189
+\c__fp_middle_shift_int=\count190
+\c__fp_trailing_shift_int=\count191
+\c__fp_big_leading_shift_int=\count192
+\c__fp_big_middle_shift_int=\count193
+\c__fp_big_trailing_shift_int=\count194
+\c__fp_Bigg_leading_shift_int=\count195
+\c__fp_Bigg_middle_shift_int=\count196
+\c__fp_Bigg_trailing_shift_int=\count197
 L3 Module: l3box 2015/08/09 v5822 L3 Experimental boxes
 \c_empty_box=\box53
 \l_tmpa_box=\box54
@@ -1442,13 +1450,13 @@ L3 Module: l3box 2015/08/09 v5822 L3 Experimental boxes
 \g_tmpb_box=\box57
 L3 Module: l3coffins 2016/05/17 v6508 L3 Coffin code layer
 \l__coffin_internal_box=\box58
-\l__coffin_internal_dim=\dimen268
-\l__coffin_offset_x_dim=\dimen269
-\l__coffin_offset_y_dim=\dimen270
-\l__coffin_x_dim=\dimen271
-\l__coffin_y_dim=\dimen272
-\l__coffin_x_prime_dim=\dimen273
-\l__coffin_y_prime_dim=\dimen274
+\l__coffin_internal_dim=\dimen270
+\l__coffin_offset_x_dim=\dimen271
+\l__coffin_offset_y_dim=\dimen272
+\l__coffin_x_dim=\dimen273
+\l__coffin_y_dim=\dimen274
+\l__coffin_x_prime_dim=\dimen275
+\l__coffin_y_prime_dim=\dimen276
 \c_empty_coffin=\box59
 \l__coffin_aligned_coffin=\box60
 \l__coffin_aligned_internal_coffin=\box61
@@ -1457,33 +1465,33 @@ L3 Module: l3coffins 2016/05/17 v6508 L3 Coffin code layer
 \l__coffin_display_coffin=\box64
 \l__coffin_display_coord_coffin=\box65
 \l__coffin_display_pole_coffin=\box66
-\l__coffin_display_offset_dim=\dimen275
-\l__coffin_display_x_dim=\dimen276
-\l__coffin_display_y_dim=\dimen277
+\l__coffin_display_offset_dim=\dimen277
+\l__coffin_display_x_dim=\dimen278
+\l__coffin_display_y_dim=\dimen279
 L3 Module: l3color 2014/08/23 v5354 L3 Experimental color support
 L3 Module: l3sys 2015/09/25 v6087 L3 Experimental system/runtime functions
 L3 Module: l3candidates 2016/05/13 v6484 L3 Experimental additions to l3kernel
-\l__box_top_dim=\dimen278
-\l__box_bottom_dim=\dimen279
-\l__box_left_dim=\dimen280
-\l__box_right_dim=\dimen281
-\l__box_top_new_dim=\dimen282
-\l__box_bottom_new_dim=\dimen283
-\l__box_left_new_dim=\dimen284
-\l__box_right_new_dim=\dimen285
+\l__box_top_dim=\dimen280
+\l__box_bottom_dim=\dimen281
+\l__box_left_dim=\dimen282
+\l__box_right_dim=\dimen283
+\l__box_top_new_dim=\dimen284
+\l__box_bottom_new_dim=\dimen285
+\l__box_left_new_dim=\dimen286
+\l__box_right_new_dim=\dimen287
 \l__box_internal_box=\box67
-\l__coffin_bounding_shift_dim=\dimen286
-\l__coffin_left_corner_dim=\dimen287
-\l__coffin_right_corner_dim=\dimen288
-\l__coffin_bottom_corner_dim=\dimen289
-\l__coffin_top_corner_dim=\dimen290
-\l__coffin_scaled_total_height_dim=\dimen291
-\l__coffin_scaled_width_dim=\dimen292
+\l__coffin_bounding_shift_dim=\dimen288
+\l__coffin_left_corner_dim=\dimen289
+\l__coffin_right_corner_dim=\dimen290
+\l__coffin_bottom_corner_dim=\dimen291
+\l__coffin_top_corner_dim=\dimen292
+\l__coffin_scaled_total_height_dim=\dimen293
+\l__coffin_scaled_width_dim=\dimen294
 L3 Module: l3luatex 2016/03/26 v6465 L3 Experimental LuaTeX-specific functions
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/l3kernel/l3pdfmode.def
 File: l3pdfmode.def 2016/03/26 v6465 L3 Experimental driver: PDF mode
-\l__driver_color_stack_int=\count195
+\l__driver_color_stack_int=\count198
 \l__driver_tmp_box=\box68
 ))
 (/usr/local/texlive/2016/texmf-dist/tex/latex/l3experimental/l3str/l3regex.sty
@@ -1492,16 +1500,16 @@ Package: l3regex 2016/05/14 v6492 L3 Experimental regular expressions
 (/usr/local/texlive/2016/texmf-dist/tex/latex/l3experimental/l3str/l3tl-build.s
 ty
 Package: l3tl-build 2016/05/14 v6492 L3 Experimental token list construction
-\l__tl_build_start_index_int=\count196
-\l__tl_build_index_int=\count197
+\l__tl_build_start_index_int=\count199
+\l__tl_build_index_int=\count266
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/l3experimental/l3str/l3tl-analysi
 s.sty
 Package: l3tl-analysis 2016/03/24 v6443 L3 Experimental token lists analysis
-\l__tl_analysis_normal_int=\count198
-\l__tl_analysis_index_int=\count199
-\l__tl_analysis_nesting_int=\count266
-\l__tl_analysis_type_int=\count267
+\l__tl_analysis_normal_int=\count267
+\l__tl_analysis_index_int=\count268
+\l__tl_analysis_nesting_int=\count269
+\l__tl_analysis_type_int=\count270
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/l3experimental/l3str/l3flag.sty
 Package: l3flag 2016/05/14 v6492 L3 Experimental flags
@@ -1510,56 +1518,56 @@ Package: l3flag 2016/05/14 v6492 L3 Experimental flags
 t.sty
 Package: l3str-convert 2016/03/24 v6443 L3 Experimental string encoding convers
 ions
-\l__str_internal_int=\count268
-\c__str_replacement_char_int=\count269
+\l__str_internal_int=\count271
+\c__str_replacement_char_int=\count272
 )
-\l__regex_internal_a_int=\count270
-\l__regex_internal_b_int=\count271
-\l__regex_internal_c_int=\count272
-\l__regex_balance_int=\count273
-\l__regex_group_level_int=\count274
-\l__regex_mode_int=\count275
-\l__regex_catcodes_int=\count276
-\l__regex_default_catcodes_int=\count277
-\c__regex_catcode_D_int=\count278
-\c__regex_catcode_S_int=\count279
-\c__regex_catcode_L_int=\count280
-\c__regex_catcode_O_int=\count281
-\c__regex_catcode_A_int=\count282
-\c__regex_all_catcodes_int=\count283
-\l__regex_show_lines_int=\count284
-\l__regex_min_state_int=\count285
-\l__regex_max_state_int=\count286
-\l__regex_left_state_int=\count287
-\l__regex_right_state_int=\count288
-\l__regex_capturing_group_int=\count289
-\l__regex_min_pos_int=\count290
-\l__regex_max_pos_int=\count291
-\l__regex_current_pos_int=\count292
-\l__regex_start_pos_int=\count293
-\l__regex_success_pos_int=\count294
-\l__regex_current_char_int=\count295
-\l__regex_current_catcode_int=\count296
-\l__regex_last_char_int=\count297
-\l__regex_case_changed_char_int=\count298
-\l__regex_current_state_int=\count299
-\l__regex_step_int=\count300
-\l__regex_min_active_int=\count301
-\l__regex_max_active_int=\count302
-\l__regex_replacement_csnames_int=\count303
-\l__regex_match_count_int=\count304
-\l__regex_submatch_int=\count305
-\l__regex_zeroth_submatch_int=\count306
+\l__regex_internal_a_int=\count273
+\l__regex_internal_b_int=\count274
+\l__regex_internal_c_int=\count275
+\l__regex_balance_int=\count276
+\l__regex_group_level_int=\count277
+\l__regex_mode_int=\count278
+\l__regex_catcodes_int=\count279
+\l__regex_default_catcodes_int=\count280
+\c__regex_catcode_D_int=\count281
+\c__regex_catcode_S_int=\count282
+\c__regex_catcode_L_int=\count283
+\c__regex_catcode_O_int=\count284
+\c__regex_catcode_A_int=\count285
+\c__regex_all_catcodes_int=\count286
+\l__regex_show_lines_int=\count287
+\l__regex_min_state_int=\count288
+\l__regex_max_state_int=\count289
+\l__regex_left_state_int=\count290
+\l__regex_right_state_int=\count291
+\l__regex_capturing_group_int=\count292
+\l__regex_min_pos_int=\count293
+\l__regex_max_pos_int=\count294
+\l__regex_current_pos_int=\count295
+\l__regex_start_pos_int=\count296
+\l__regex_success_pos_int=\count297
+\l__regex_current_char_int=\count298
+\l__regex_current_catcode_int=\count299
+\l__regex_last_char_int=\count300
+\l__regex_case_changed_char_int=\count301
+\l__regex_current_state_int=\count302
+\l__regex_step_int=\count303
+\l__regex_min_active_int=\count304
+\l__regex_max_active_int=\count305
+\l__regex_replacement_csnames_int=\count306
+\l__regex_match_count_int=\count307
+\l__regex_submatch_int=\count308
+\l__regex_zeroth_submatch_int=\count309
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
 Package: l3keys2e 2016/05/18 v6512 LaTeX2e option processing using LaTeX3 keys
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
 Package: xparse 2016/05/18 v6512 L3 Experimental document command parser
-\l__xparse_current_arg_int=\count307
-\l__xparse_m_args_int=\count308
-\l__xparse_mandatory_args_int=\count309
-\l__xparse_processor_int=\count310
-\l__xparse_v_nesting_int=\count311
+\l__xparse_current_arg_int=\count310
+\l__xparse_m_args_int=\count311
+\l__xparse_mandatory_args_int=\count312
+\l__xparse_processor_int=\count313
+\l__xparse_v_nesting_int=\count314
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/atenddvi.sty
 Package: atenddvi 2016/05/16 v1.2 At end DVI hook (HO)
@@ -1573,7 +1581,7 @@ Package zref Info: New property list: main on input line 759.
 Package zref Info: New property: default on input line 760.
 Package zref Info: New property: page on input line 761.
 )
-\c@abspage=\count312
+\c@abspage=\count315
 Package zref Info: New property: abspage on input line 62.
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/zref-lastpage.sty
@@ -1581,38 +1589,38 @@ Package: zref-lastpage 2016/05/16 v2.25 Module lastpage for zref (HO)
 Package zref Info: New property list: LastPage on input line 55.
 ))
 Package: media9 2016/03/22 v0.68 acrobat-9/X compatible media
-\g_mix_pkgresizeflag_int=\count313
+\g_mix_pkgresizeflag_int=\count316
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/media9/pdfbase.sty
 Package: pdfbase 2016/03/22 v0.8 driver independent access to low-level PDF fea
 tures
-\g_pbs_oc_int=\count314
+\g_pbs_oc_int=\count317
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/ocgx2/ocgbase.sty
 Package: ocgbase 2016/03/11 v0.6 support package for ocgx2.sty
 )
 \l_mix_poster_box=\box69
-\g_mix_wd_dim=\dimen293
-\g_mix_ht_dim=\dimen294
-\g_mix_dp_dim=\dimen295
-\g_mix_rmcnt_int=\count315
-\l_mix_viewcnt_int=\count316
-\g@mix@page@int=\count317
-\g_mix_resizeflag_int=\count318
-\l_mix_lineno_int=\count319
+\g_mix_wd_dim=\dimen295
+\g_mix_ht_dim=\dimen296
+\g_mix_dp_dim=\dimen297
+\g_mix_rmcnt_int=\count318
+\l_mix_viewcnt_int=\count319
+\g@mix@page@int=\count320
+\g_mix_resizeflag_int=\count321
+\l_mix_lineno_int=\count322
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
 . Defining command \addmediapath with sig. 'm' on line 818.
 .................................................
 \l_mix_pbtn_box=\box70
-\mix@btn@dim=\dimen296
+\mix@btn@dim=\dimen298
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
 . Defining command \includemedia with sig. 'O{}mm' on line 1210.
 .................................................
-\g_mix_mbtncnt_int=\count320
+\g_mix_mbtncnt_int=\count323
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
@@ -1624,14 +1632,14 @@ Package: csquotes 2016/01/31 v5.1g context-sensitive quotations (JAW)
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2015/08/02 v2.2a e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count321
+\etb@tempcnta=\count324
 )
-\csq@reset=\count322
-\csq@gtype=\count323
-\csq@glevel=\count324
-\csq@qlevel=\count325
-\csq@maxlvl=\count326
-\csq@tshold=\count327
+\csq@reset=\count325
+\csq@gtype=\count326
+\csq@glevel=\count327
+\csq@qlevel=\count328
+\csq@maxlvl=\count329
+\csq@tshold=\count330
 \csq@ltx@everypar=\toks52
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/csquotes/csquotes.def
@@ -1645,7 +1653,7 @@ File: csquotes.cfg
 ))
 (/usr/local/texlive/2016/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
 Package: algorithm2e 2013/01/06 v5.00 algorithms environments
-\c@AlgoLine=\count328
+\c@AlgoLine=\count331
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
@@ -1673,12 +1681,12 @@ subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
 \skiplength=\skip72
 \algomargin=\skip73
 \skipalgocfslide=\skip74
-\algowidth=\dimen297
-\inoutsize=\dimen298
-\inoutindent=\dimen299
-\interspacetitleruled=\dimen300
-\interspacealgoruled=\dimen301
-\interspacetitleboxruled=\dimen302
+\algowidth=\dimen299
+\inoutsize=\dimen300
+\inoutindent=\dimen301
+\interspacetitleruled=\dimen302
+\interspacealgoruled=\dimen303
+\interspacetitleboxruled=\dimen304
 \algocf@ruledwidth=\skip75
 \algocf@inoutbox=\box71
 \algocf@inputbox=\box72
@@ -1694,34 +1702,34 @@ subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
 \algoheightrule=\skip81
 \algotitleheightruledefault=\skip82
 \algotitleheightrule=\skip83
-\c@algocfline=\count329
-\c@algocfproc=\count330
-\c@algocf=\count331
+\c@algocfline=\count332
+\c@algocfproc=\count333
+\c@algocf=\count334
 \algocf@algoframe=\box77
 \algocf@algobox=\box78
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/lipsum/lipsum.sty
 Package: lipsum 2014/07/27 v1.3 150 paragraphs of Lorem Ipsum dummy text
-\c@lips@count=\count332
+\c@lips@count=\count335
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2016/04/07 v1.8p multicolumn formatting (FMi)
-\c@tracingmulticols=\count333
+\c@tracingmulticols=\count336
 \mult@box=\box79
-\multicol@leftmargin=\dimen303
-\c@unbalance=\count334
-\c@collectmore=\count335
-\doublecol@number=\count336
-\multicoltolerance=\count337
-\multicolpretolerance=\count338
-\full@width=\dimen304
-\page@free=\dimen305
-\premulticols=\dimen306
-\postmulticols=\dimen307
+\multicol@leftmargin=\dimen305
+\c@unbalance=\count337
+\c@collectmore=\count338
+\doublecol@number=\count339
+\multicoltolerance=\count340
+\multicolpretolerance=\count341
+\full@width=\dimen306
+\page@free=\dimen307
+\premulticols=\dimen308
+\postmulticols=\dimen309
 \multicolsep=\skip84
 \multicolbaselineskip=\skip85
 \partial@page=\box80
 \last@line=\box81
-\maxbalancingoverflow=\dimen308
+\maxbalancingoverflow=\dimen310
 \mult@rightbox=\box82
 \mult@grightbox=\box83
 \mult@gfirstbox=\box84
@@ -1743,28 +1751,28 @@ Package: multicol 2016/04/07 v1.8p multicolumn formatting (FMi)
 \@tempa=\box100
 \@tempa=\box101
 \@tempa=\box102
-\c@columnbadness=\count339
-\c@finalcolumnbadness=\count340
-\last@try=\dimen309
-\multicolovershoot=\dimen310
-\multicolundershoot=\dimen311
+\c@columnbadness=\count342
+\c@finalcolumnbadness=\count343
+\last@try=\dimen311
+\multicolovershoot=\dimen312
+\multicolundershoot=\dimen313
 \mult@nat@firstbox=\box103
 \colbreak@box=\box104
-\mc@col@check@num=\count341
+\mc@col@check@num=\count344
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/tools/tabularx.sty
 Package: tabularx 2016/02/03 v2.11 `tabularx' package (DPC)
-\TX@col@width=\dimen312
-\TX@old@table=\dimen313
-\TX@old@col=\dimen314
-\TX@target=\dimen315
-\TX@delta=\dimen316
-\TX@cols=\count342
+\TX@col@width=\dimen314
+\TX@old@table=\dimen315
+\TX@old@col=\dimen316
+\TX@target=\dimen317
+\TX@delta=\dimen318
+\TX@cols=\count345
 \TX@ftn=\toks53
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/rotating.sty
 Package: rotating 2016/05/22 v2.16c rotated objects in LaTeX
-\c@r@tfl@t=\count343
+\c@r@tfl@t=\count346
 \rotFPtop=\skip86
 \rotFPbot=\skip87
 \rot@float@box=\box105
@@ -1778,14 +1786,14 @@ Package: beamerfontthemeserif 2010/06/17  (rcs-revision d02a7cf4d8ae)
 Package: subfigure 2002/03/15 v2.1.5 subfigure package
 \subfigtopskip=\skip88
 \subfigcapskip=\skip89
-\subfigcaptopadj=\dimen317
+\subfigcaptopadj=\dimen319
 \subfigbottomskip=\skip90
-\subfigcapmargin=\dimen318
+\subfigcapmargin=\dimen320
 \subfiglabelskip=\skip91
-\c@subfigure=\count344
-\c@lofdepth=\count345
-\c@subtable=\count346
-\c@lotdepth=\count347
+\c@subfigure=\count347
+\c@lofdepth=\count348
+\c@subtable=\count349
+\c@lotdepth=\count350
 
 ****************************************
 * Local config file subfigure.cfg used *
@@ -1806,7 +1814,7 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count348
+\c@section@level=\count351
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/romannum/romannum.sty
 Package: romannum 2009/09/03 v1.0b roman numerals
@@ -1830,8 +1838,8 @@ File: pgfmoduleplot.code.tex 2015/08/03  (rcs-revision 1.13)
 (/usr/local/texlive/2016/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
 -0-65.sty
 Package: pgfcomp-version-0-65 2007/07/03 v3.0.1a (rcs-revision 1.7)
-\pgf@nodesepstart=\dimen319
-\pgf@nodesepend=\dimen320
+\pgf@nodesepstart=\dimen321
+\pgf@nodesepend=\dimen322
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
 -1-18.sty
@@ -1846,8 +1854,8 @@ Package: pgfcomp-version-1-18 2007/07/23 v3.0.1a (rcs-revision 1.1)
 Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
 
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
-\pgffor@iter=\dimen321
-\pgffor@skip=\dimen322
+\pgffor@iter=\dimen323
+\pgffor@skip=\dimen324
 \pgffor@stack=\toks55
 \pgffor@toks=\toks56
 ))
@@ -1858,32 +1866,32 @@ Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothan
 dlers.code.tex
 File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
-\pgf@plot@mark@count=\count349
-\pgfplotmarksize=\dimen323
+\pgf@plot@mark@count=\count352
+\pgfplotmarksize=\dimen325
 )
-\tikz@lastx=\dimen324
-\tikz@lasty=\dimen325
-\tikz@lastxsaved=\dimen326
-\tikz@lastysaved=\dimen327
-\tikzleveldistance=\dimen328
-\tikzsiblingdistance=\dimen329
+\tikz@lastx=\dimen326
+\tikz@lasty=\dimen327
+\tikz@lastxsaved=\dimen328
+\tikz@lastysaved=\dimen329
+\tikzleveldistance=\dimen330
+\tikzsiblingdistance=\dimen331
 \tikz@figbox=\box107
 \tikz@figbox@bg=\box108
 \tikz@tempbox=\box109
 \tikz@tempbox@bg=\box110
-\tikztreelevel=\count350
-\tikznumberofchildren=\count351
-\tikznumberofcurrentchild=\count352
-\tikz@fig@count=\count353
+\tikztreelevel=\count353
+\tikznumberofchildren=\count354
+\tikznumberofcurrentchild=\count355
+\tikz@fig@count=\count356
 
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.cod
 e.tex
 File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
-\pgfmatrixcurrentrow=\count354
-\pgfmatrixcurrentcolumn=\count355
-\pgf@matrix@numberofcolumns=\count356
+\pgfmatrixcurrentrow=\count357
+\pgfmatrixcurrentcolumn=\count358
+\pgf@matrix@numberofcolumns=\count359
 )
-\tikz@expandcount=\count357
+\tikz@expandcount=\count360
 
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibrarytopaths.code.tex
@@ -1891,15 +1899,15 @@ File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
 )))
 (/usr/local/texlive/2016/texmf-dist/tex/latex/minibox/minibox.sty
 Package: minibox 2013/06/21 v0.2a Another type of box.
-\l_minibox_rule_dim=\dimen330
-\l_minibox_pad_dim=\dimen331
+\l_minibox_rule_dim=\dimen332
+\l_minibox_pad_dim=\dimen333
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/numprint/numprint.sty
 Package: numprint 2012/08/20 v1.39 Print numbers (HH)
-\c@nprt@mantissa@digitsbefore=\count358
-\c@nprt@mantissa@digitsafter=\count359
-\c@nprt@exponent@digitsbefore=\count360
-\c@nprt@exponent@digitsafter=\count361
+\c@nprt@mantissa@digitsbefore=\count361
+\c@nprt@mantissa@digitsafter=\count362
+\c@nprt@exponent@digitsbefore=\count363
+\c@nprt@exponent@digitsafter=\count364
 \nprt@digitwidth=\skip94
 \nprt@sepwidth=\skip95
 \nprt@decimalwidth=\skip96
@@ -1907,12 +1915,12 @@ Package: numprint 2012/08/20 v1.39 Print numbers (HH)
 \nprt@digittoks=\toks57
 \nprt@pretoks=\toks58
 \nprt@posttoks=\toks59
-\nprt@thisdigit=\count362
-\nprt@curpos=\count363
-\nprt@rndpos=\count364
-\c@nprt@digitsfirstblock=\count365
-\c@nprt@blockcnt=\count366
-\c@nprt@cntprint=\count367
+\nprt@thisdigit=\count365
+\nprt@curpos=\count366
+\nprt@rndpos=\count367
+\c@nprt@digitsfirstblock=\count368
+\c@nprt@blockcnt=\count369
+\c@nprt@cntprint=\count370
 
 No configuration file `numprint.cfg' found.)
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
@@ -2003,13 +2011,13 @@ File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
 ))
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 234.
+(hyperref)                removing `\<def>-command' on input line 236.
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\inst' on input line 234.
+(hyperref)                removing `\inst' on input line 236.
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 234.
+(hyperref)                removing `\<def>-command' on input line 236.
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\and' on input line 234.
+(hyperref)                removing `\and' on input line 236.
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
@@ -2017,29 +2025,29 @@ Package csquotes Info: Redefining alias 'default' -> 'english'.
  (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 240.
-LaTeX Font Info:    ... okay on input line 240.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 240.
-LaTeX Font Info:    ... okay on input line 240.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 240.
-LaTeX Font Info:    ... okay on input line 240.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 240.
-LaTeX Font Info:    ... okay on input line 240.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 240.
-LaTeX Font Info:    ... okay on input line 240.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 240.
-LaTeX Font Info:    ... okay on input line 240.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 240.
-LaTeX Font Info:    ... okay on input line 240.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 240.
-LaTeX Font Info:    ... okay on input line 240.
-LaTeX Font Info:    Try loading font information for T1+phv on input line 240.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 242.
+LaTeX Font Info:    ... okay on input line 242.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 242.
+LaTeX Font Info:    ... okay on input line 242.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 242.
+LaTeX Font Info:    ... okay on input line 242.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 242.
+LaTeX Font Info:    ... okay on input line 242.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 242.
+LaTeX Font Info:    ... okay on input line 242.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 242.
+LaTeX Font Info:    ... okay on input line 242.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 242.
+LaTeX Font Info:    ... okay on input line 242.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 242.
+LaTeX Font Info:    ... okay on input line 242.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 242.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <21.89> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 240.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 242.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -2077,16 +2085,16 @@ LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <21.89> not available
 
 (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count368
-\scratchdimen=\dimen332
+\scratchcounter=\count371
+\scratchdimen=\dimen334
 \scratchbox=\box131
-\nofMPsegments=\count369
-\nofMParguments=\count370
+\nofMPsegments=\count372
+\nofMParguments=\count373
 \everyMPshowfont=\toks60
-\MPscratchCnt=\count371
-\MPscratchDim=\dimen333
-\MPnumerator=\count372
-\makeMPintoPDFobject=\count373
+\MPscratchCnt=\count374
+\MPscratchDim=\dimen335
+\MPnumerator=\count375
+\makeMPintoPDFobject=\count376
 \everyMPtoPDFconversion=\toks61
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -2104,10 +2112,10 @@ e
 ))
 ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box132
-Package hyperref Info: Link coloring OFF on input line 240.
-LaTeX Info: Redefining \ref on input line 240.
-LaTeX Info: Redefining \pageref on input line 240.
-LaTeX Info: Redefining \nameref on input line 240.
+Package hyperref Info: Link coloring OFF on input line 242.
+LaTeX Info: Redefining \ref on input line 242.
+LaTeX Info: Redefining \pageref on input line 242.
+LaTeX Info: Redefining \nameref on input line 242.
  (./main.out) (./main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
@@ -2137,45 +2145,45 @@ Dictionary: translator-numbers-dictionary, Language: English
 r-theorem-dictionary/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \includegraphics on input line 240.
+LaTeX Info: Redefining \includegraphics on input line 242.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 ) (./main.nav)
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10.56> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 240.
-LaTeX Font Info:    Calculating math sizes for size <10.56> on input line 240.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 242.
+LaTeX Font Info:    Calculating math sizes for size <10.56> on input line 242.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7.39195> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 240.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 242.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5.28> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 240.
-LaTeX Font Info:    Try loading font information for U+wasy on input line 240.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 242.
+LaTeX Font Info:    Try loading font information for U+wasy on input line 242.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2003/10/30 v2.0 Wasy-2 symbol font definitions
 )
 LaTeX Font Warning: Font shape `U/wasy/b/n' in size <7.39195> not available
-(Font)              Font shape `U/wasy/m/n' tried instead on input line 240.
+(Font)              Font shape `U/wasy/m/n' tried instead on input line 242.
 LaTeX Font Warning: Font shape `U/wasy/b/n' in size <5.28> not available
-(Font)              Font shape `U/wasy/m/n' tried instead on input line 240.
+(Font)              Font shape `U/wasy/m/n' tried instead on input line 242.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <31.53> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 245.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 247.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <26.28> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 245.
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 245.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 247.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 247.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
 LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <21.89> not available
-(Font)              Font shape `T1/pcr/b/n' tried instead on input line 245.
-LaTeX Font Info:    Calculating math sizes for size <21.89> on input line 245.
+(Font)              Font shape `T1/pcr/b/n' tried instead on input line 247.
+LaTeX Font Info:    Calculating math sizes for size <21.89> on input line 247.
 LaTeX Font Warning: Font shape `U/wasy/b/n' in size <21.89> not available
-(Font)              size <20.74> substituted on input line 245.
+(Font)              size <20.74> substituted on input line 247.
 LaTeX Font Warning: Font shape `U/wasy/b/n' in size <15.32292> not available
-(Font)              size <14.4> substituted on input line 245.
+(Font)              size <14.4> substituted on input line 247.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <4> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 245.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 247.
  [1
 
 {/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./main
@@ -2183,9 +2191,9 @@ LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <4> not available
 
 ]
 LaTeX Font Info:    Font shape `T1/phv/bx/it' in size <21.89> not available
-(Font)              Font shape `T1/phv/b/it' tried instead on input line 269.
+(Font)              Font shape `T1/phv/b/it' tried instead on input line 287.
 LaTeX Font Info:    Font shape `T1/phv/b/it' in size <21.89> not available
-(Font)              Font shape `T1/phv/b/sl' tried instead on input line 269.
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 287.
 
 [3
 
@@ -2193,45 +2201,86 @@ LaTeX Font Info:    Font shape `T1/phv/b/it' in size <21.89> not available
 File: images/blocksComSystems.png Graphic file (type png)
 
 <use images/blocksComSystems.png>
-Package pdftex.def Info: images/blocksComSystems.png used on input line 288.
+Package pdftex.def Info: images/blocksComSystems.png used on input line 306.
 (pdftex.def)             Requested size: 469.47519pt x 243.25285pt.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <18.25> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 288.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 306.
  [4
 
  <./images/blocksComSystems.png>] [5
 
 ]
+<images/16QAM.png, id=143, 348.30125pt x 303.1325pt>
+File: images/16QAM.png Graphic file (type png)
+ <use images/16QAM.png>
+Package pdftex.def Info: images/16QAM.png used on input line 345.
+(pdftex.def)             Requested size: 312.97551pt x 272.40044pt.
+
 [6
 
-] [7
+ <./images/16QAM.png>] [7
 
-] [8
+]
+<images/autoencoder.png, id=166, 715.67375pt x 258.9675pt>
+File: images/autoencoder.png Graphic file (type png)
 
-] [9
+<use images/autoencoder.png>
+Package pdftex.def Info: images/autoencoder.png used on input line 379.
+(pdftex.def)             Requested size: 782.45071pt x 283.1462pt.
+ [8
+
+ <./images/autoencoder.png>] [9
 
 ] [10
 
-] [11
+]
+<images/adversialNN.png, id=198, 623.32875pt x 251.94125pt>
+File: images/adversialNN.png Graphic file (type png)
 
-] [12
+<use images/adversialNN.png>
+Package pdftex.def Info: images/adversialNN.png used on input line 409.
+(pdftex.def)             Requested size: 625.96295pt x 253.00934pt.
+ [11
 
-] [13
+ <./images/adversialNN.png>]
+<images/trainingAlgo.png, id=209, 689.57625pt x 396.48125pt>
+File: images/trainingAlgo.png Graphic file (type png)
 
-] [14
+<use images/trainingAlgo.png>
+Package pdftex.def Info: images/trainingAlgo.png used on input line 421.
+(pdftex.def)             Requested size: 625.96295pt x 359.90916pt.
+ [12
 
-] [15
+ <./images/trainingAlgo.png>]
+<images/synchBlock.png, id=221, 523.9575pt x 181.67876pt>
+File: images/synchBlock.png Graphic file (type png)
+
+<use images/synchBlock.png>
+Package pdftex.def Info: images/synchBlock.png used on input line 431.
+(pdftex.def)             Requested size: 625.96295pt x 217.05421pt.
+ [13
+
+ <./images/synchBlock.png>]
+<images/synchMethod.png, id=233, 445.665pt x 263.98625pt>
+File: images/synchMethod.png Graphic file (type png)
+
+<use images/synchMethod.png>
+Package pdftex.def Info: images/synchMethod.png used on input line 441.
+(pdftex.def)             Requested size: 625.96295pt x 370.81483pt.
+ [14
+
+ <./images/synchMethod.png>] [15
 
 ] [16
 
-] (./main.bbl) [17
+]
+(./main.bbl) [17
 
  </usr/local/texlive/2016/texmf-dist/tex/latex/beamer/art/beamericonarticle.pdf
 >] [18
 
 
-]
-[19
+] [19
 
 
 ]
@@ -2249,39 +2298,42 @@ Package atenddvi Info: Last page = 20.
 \tf@snm=\write8
 \openout8 = `main.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 409.
-Package atveryend Info: Executing hook `AfterLastShipout' on input line 409.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 492.
+Package atveryend Info: Executing hook `AfterLastShipout' on input line 492.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 409.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 409.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 492.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 492.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A5792CDF977D72440A9D1F0F91241BDA;631.
+(rerunfilecheck)             Checksum: 6142858A5C49334195EA20BC3F2771FB;579.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.15pt have occurred.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 409.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 492.
  )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 36341 strings out of 493014
- 719597 string characters out of 6133351
- 948750 words of memory out of 5000000
- 39044 multiletter control sequences out of 15000+600000
+ 36417 strings out of 493014
+ 720896 string characters out of 6133351
+ 948554 words of memory out of 5000000
+ 39108 multiletter control sequences out of 15000+600000
  36604 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,13n,76p,10362b,8052s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc
-}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10
-.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></u
-sr/local/texlive/2016/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/loca
-l/texlive/2016/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/local/texl
-ive/2016/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on main.pdf (20 pages, 249784 bytes).
+}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb
+></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb>
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.
+pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></us
+r/local/texlive/2016/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local
+/texlive/2016/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/local/texli
+ve/2016/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on main.pdf (20 pages, 1057150 bytes).
 PDF statistics:
- 357 PDF objects out of 1000 (max. 8388607)
- 310 compressed objects within 4 object streams
- 74 named destinations out of 1000 (max. 500000)
- 128 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 383 PDF objects out of 1000 (max. 8388607)
+ 321 compressed objects within 4 object streams
+ 76 named destinations out of 1000 (max. 500000)
+ 158 words of extra memory for PDF output out of 10000 (max. 10000000)
 
