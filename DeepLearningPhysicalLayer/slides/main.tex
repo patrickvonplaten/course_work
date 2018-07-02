@@ -288,18 +288,20 @@
 
 \section{Introduction}%
 \label{sec:introduction}
-\begin{frame}{Introduction - Deep Learning for the Physical Layer}
+\begin{frame}{Introduction - Deep Learning for the physical layer}
 
 \begin{figure}[htpb]
 	\centering
 	\includegraphics[width=.6\textwidth]{images/blocksComSystems.png}
-	\caption{Block diagram for conventional physical layer}
+	\caption{Block diagram for conventional physical layer \cite{CommTech}}
 \end{figure}
 
+\centering{\underline{Motivation for applying deep learning to the physical layer}}
+\vspace{1em}
 \begin{itemize}
-	\item Rise of Deep Learning in multiple different fields of research
-	\item Training data can be generated 
-	\item Conventional Systems are optimized block by block
+	\item Rise of deep learning in multiple different fields of research
+	\item Data needed for training can be generated since input data equals output data
+	\item Conventional systems are optimized block by block and not as one
 \end{itemize}
 
 
@@ -333,15 +335,22 @@
 
 \begin{itemize}
 	\item Channel encoded bits modulated into carrier wave $\ubar{Y} \to u(t)$
+	\item Two values $\ubar{Y}_1$ and $\ubar{Y}_2$ are modulated as \emph{I/Q values} into the amplitude of two carrier 
+	      waves $s_c$ of same frequency $f_o$ with a phase-shift $\frac{\pi}{2}$
+	\begin{itemize}
+		\item $s_c(t) = \Re{(I(t) + Q(t))e^{-2\pi f_0 t}}$
+		\item ... $ = \Re{(A(t)i\sin(\varphi(t)) + A(t)cos(\varphi(t)))e^{-2\pi i f_o t}}$ with $I(t) = A(t)\cos(\varphi(t))$ and $Q(t) = A(t)i\sin(\varphi(t))$
+	\end{itemize}
+	\item IQ - Modulation is essentially the same as combined modulation of phase and amplitude
+	\item Modulation scheme can be viewed in complex plane
 \end{itemize}
 
 \begin{figure}[htpb]
 	\centering
-	\includegraphics[width=0.4\linewidth]{images/16QAM.png}
-	\caption{16 Quadrature Amplitude Modulation}
+	\includegraphics[width=0.35\linewidth]{images/16QAM.png}
+	\caption{16 Quadrature Amplitude Modulation \cite{CommTech}}
 	\label{fig:16QAM}
 \end{figure}
-
 \end{frame}
 
 \section{Physical Channel and Receiver}
@@ -351,7 +360,8 @@
 \vspace{1em}
 \begin{itemize}
 	\item Carrier wave is transmitted via medium $u(t) \to v(t)$
-	\item $v(t) = u(t) + n(t)$ with $n(t)$ being some noise 
+	\item $v(t) = u(t) + n(t)$ with $n(t)$ being some noise caused by interference. 
+	\item $n(t)$ is mostly modelled by gaussian noise.
 \end{itemize}
 
 \vspace{2em}
@@ -360,8 +370,9 @@
 \vspace{1em}
 \begin{itemize}
 	\item Received carrier wave to decoded source symbols $v(t) \to \hat{x(t)}$
-	\item Demodulation 
-	\item Channel decoding 
+	\item Demodulated code $\ubar{Z}$ is encoded using methods such as \emph{minimum distance decoding, syndrome decoding, maximum
+		likelihood Decoding}$\to \ubar{\hat{X}}$
+	\item $\ubar{\hat{X}}$ is decoded back to $\hat{x}(t)$ 
 \end{itemize}
 
 \end{frame}

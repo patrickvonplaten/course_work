@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.17)  25 JUN 2018 12:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.17)  2 JUL 2018 11:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2201,31 +2201,31 @@ LaTeX Font Info:    Font shape `T1/phv/b/it' in size <21.89> not available
 File: images/blocksComSystems.png Graphic file (type png)
 
 <use images/blocksComSystems.png>
-Package pdftex.def Info: images/blocksComSystems.png used on input line 306.
+Package pdftex.def Info: images/blocksComSystems.png used on input line 308.
 (pdftex.def)             Requested size: 469.47519pt x 243.25285pt.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <18.25> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 306.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 308.
  [4
 
  <./images/blocksComSystems.png>] [5
 
 ]
-<images/16QAM.png, id=143, 348.30125pt x 303.1325pt>
+<images/16QAM.png, id=145, 348.30125pt x 303.1325pt>
 File: images/16QAM.png Graphic file (type png)
  <use images/16QAM.png>
-Package pdftex.def Info: images/16QAM.png used on input line 345.
-(pdftex.def)             Requested size: 312.97551pt x 272.40044pt.
+Package pdftex.def Info: images/16QAM.png used on input line 354.
+(pdftex.def)             Requested size: 273.86252pt x 238.35732pt.
 
 [6
 
  <./images/16QAM.png>] [7
 
 ]
-<images/autoencoder.png, id=166, 715.67375pt x 258.9675pt>
+<images/autoencoder.png, id=170, 715.67375pt x 258.9675pt>
 File: images/autoencoder.png Graphic file (type png)
 
 <use images/autoencoder.png>
-Package pdftex.def Info: images/autoencoder.png used on input line 379.
+Package pdftex.def Info: images/autoencoder.png used on input line 390.
 (pdftex.def)             Requested size: 782.45071pt x 283.1462pt.
  [8
 
@@ -2234,38 +2234,38 @@ Package pdftex.def Info: images/autoencoder.png used on input line 379.
 ] [10
 
 ]
-<images/adversialNN.png, id=198, 623.32875pt x 251.94125pt>
+<images/adversialNN.png, id=202, 623.32875pt x 251.94125pt>
 File: images/adversialNN.png Graphic file (type png)
 
 <use images/adversialNN.png>
-Package pdftex.def Info: images/adversialNN.png used on input line 409.
+Package pdftex.def Info: images/adversialNN.png used on input line 420.
 (pdftex.def)             Requested size: 625.96295pt x 253.00934pt.
  [11
 
  <./images/adversialNN.png>]
-<images/trainingAlgo.png, id=209, 689.57625pt x 396.48125pt>
+<images/trainingAlgo.png, id=213, 689.57625pt x 396.48125pt>
 File: images/trainingAlgo.png Graphic file (type png)
 
 <use images/trainingAlgo.png>
-Package pdftex.def Info: images/trainingAlgo.png used on input line 421.
+Package pdftex.def Info: images/trainingAlgo.png used on input line 432.
 (pdftex.def)             Requested size: 625.96295pt x 359.90916pt.
  [12
 
  <./images/trainingAlgo.png>]
-<images/synchBlock.png, id=221, 523.9575pt x 181.67876pt>
+<images/synchBlock.png, id=225, 523.9575pt x 181.67876pt>
 File: images/synchBlock.png Graphic file (type png)
 
 <use images/synchBlock.png>
-Package pdftex.def Info: images/synchBlock.png used on input line 431.
+Package pdftex.def Info: images/synchBlock.png used on input line 442.
 (pdftex.def)             Requested size: 625.96295pt x 217.05421pt.
  [13
 
  <./images/synchBlock.png>]
-<images/synchMethod.png, id=233, 445.665pt x 263.98625pt>
+<images/synchMethod.png, id=237, 445.665pt x 263.98625pt>
 File: images/synchMethod.png Graphic file (type png)
 
 <use images/synchMethod.png>
-Package pdftex.def Info: images/synchMethod.png used on input line 441.
+Package pdftex.def Info: images/synchMethod.png used on input line 452.
 (pdftex.def)             Requested size: 625.96295pt x 370.81483pt.
  [14
 
@@ -2298,42 +2298,43 @@ Package atenddvi Info: Last page = 20.
 \tf@snm=\write8
 \openout8 = `main.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 492.
-Package atveryend Info: Executing hook `AfterLastShipout' on input line 492.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 503.
+Package atveryend Info: Executing hook `AfterLastShipout' on input line 503.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 492.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 492.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 503.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 503.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 6142858A5C49334195EA20BC3F2771FB;579.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.15pt have occurred.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 492.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 503.
  )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 36417 strings out of 493014
- 720896 string characters out of 6133351
- 948554 words of memory out of 5000000
- 39108 multiletter control sequences out of 15000+600000
+ 36446 strings out of 493014
+ 721768 string characters out of 6133351
+ 949594 words of memory out of 5000000
+ 39136 multiletter control sequences out of 15000+600000
  36604 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,13n,76p,10362b,8052s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,13n,76p,10362b,8056s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc
 }</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb
-></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb>
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.
-pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></us
-r/local/texlive/2016/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local
-/texlive/2016/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/local/texli
-ve/2016/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on main.pdf (20 pages, 1057150 bytes).
+></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
+/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><
+/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.p
+fb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr
+/local/texlive/2016/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/
+texlive/2016/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/local/texliv
+e/2016/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on main.pdf (20 pages, 1070575 bytes).
 PDF statistics:
- 383 PDF objects out of 1000 (max. 8388607)
- 321 compressed objects within 4 object streams
- 76 named destinations out of 1000 (max. 500000)
+ 390 PDF objects out of 1000 (max. 8388607)
+ 327 compressed objects within 4 object streams
+ 77 named destinations out of 1000 (max. 500000)
  158 words of extra memory for PDF output out of 10000 (max. 10000000)
 

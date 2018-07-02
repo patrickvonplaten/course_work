@@ -21,45 +21,45 @@ while executing---line 1369 of file i6bibstyle.bst
 `volume' is a missing field, not a string, for entry 2018arXiv180303145O
 while executing---line 1369 of file i6bibstyle.bst
 Warning--empty date in osimodel
-You've used 15 entries,
+You've used 16 entries,
             2542 wiz_defined-function locations,
-            655 strings with 7177 characters,
-and the built_in function-call counts, 6062 in all, are:
-= -- 585
-> -- 254
-< -- 21
-+ -- 83
-- -- 80
-* -- 515
-:= -- 945
-add.period$ -- 46
-call.type$ -- 15
-change.case$ -- 99
-chr.to.int$ -- 14
-cite$ -- 20
-duplicate$ -- 263
-empty$ -- 436
-format.name$ -- 116
-if$ -- 1247
+            661 strings with 7284 characters,
+and the built_in function-call counts, 6329 in all, are:
+= -- 608
+> -- 262
+< -- 22
++ -- 85
+- -- 82
+* -- 531
+:= -- 989
+add.period$ -- 49
+call.type$ -- 16
+change.case$ -- 103
+chr.to.int$ -- 15
+cite$ -- 21
+duplicate$ -- 279
+empty$ -- 461
+format.name$ -- 119
+if$ -- 1302
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 15
-newline$ -- 79
-num.names$ -- 42
-pop$ -- 102
+missing$ -- 17
+newline$ -- 84
+num.names$ -- 45
+pop$ -- 110
 preamble$ -- 1
-purify$ -- 115
+purify$ -- 121
 quote$ -- 0
-skip$ -- 204
+skip$ -- 215
 stack$ -- 0
-substring$ -- 290
-swap$ -- 78
+substring$ -- 296
+swap$ -- 80
 text.length$ -- 17
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 116
+type$ -- 120
 warning$ -- 4
-while$ -- 42
-width$ -- 20
-write$ -- 196
+while$ -- 44
+width$ -- 21
+write$ -- 208
 (There were 7 error messages)

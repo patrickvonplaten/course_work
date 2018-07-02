@@ -34,6 +34,11 @@ I.~Goodfellow, Y.~Bengio, A.~Courville.
 \newblock MIT Press, 2016.
 \newblock \url{http://www.deeplearningbook.org}.
 
+\bibitem[\protect{Jax} mmer 2017]{CommTech}
+P.~D.-I.~P. Jax.
+\newblock {\em Kommunikationstechnik}.
+\newblock Institut für Kommunikationssysteme, Summer 2017.
+
 \bibitem[\protect{Kataoka \& Matsubara$^+$} 16]{7550880}
 Y.~Kataoka, T.~Matsubara, K.~Uehara.
 \newblock Image generation using generative adversarial networks and attention
