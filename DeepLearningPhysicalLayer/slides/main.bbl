@@ -76,12 +76,6 @@ T.~J. {O'Shea}, T.~{Roy}, N.~{West}, B.~C. {Hilburn}.
   Adversarial Networks}.
 \newblock {\em ArXiv e-prints}, Vol., March 2018.
 
-\bibitem[\protect{osi}]{osimodel}
-Osimodel.
-\newblock
-  \url{https://docs.microsoft.com/fr-fr/windows-hardware/drivers/network/windows-network-architecture-and-the-osi-model}.
-\newblock Accessed: 2018-06-15.
-
 \bibitem[\protect{Shannon} 01]{Shannon:2001:MTC:584091.584093}
 C.~E. Shannon.
 \newblock A mathematical theory of communication.

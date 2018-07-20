@@ -34,7 +34,7 @@
 
 
 % misc
-\usepackage{subfigure}
+\usepackage{subfig}
 \usepackage{wasysym}
 \usepackage{nameref}
 \usepackage{xcolor}
@@ -273,13 +273,13 @@
   \end{itemize}
 \end{description}
 \begin{description}
-\item [Alexander Felix, Sebastian Cammerer, Sebastian Doerner, Jakob Hoydis, and Stephan ten Brink:] Ofdm-autoencoder for end-to-end learning of communications systems. {\em OFDM Autoencoder 2018}.
+\item [Alexander Felix, Sebastian Cammerer, Sebastian Doerner] Ofdm-autoencoder for end-to-end learning of communications systems. {\em OFDM Autoencoder 2018}.
   \begin{itemize}
   \item Synchronization in Autoencoders 
   \end{itemize}
 \end{description}
 \begin{description}
-\item [Ian Goodfellow, Yoshua Bengio, and Aaron Courville:] Deep Learning. {\em Basicsfor Deep Learning 2016}.
+\item [Ian Goodfellow, Yoshua Bengio, and Aaron Courville:] Deep Learning. {\em Basics for Deep Learning 2016}.
   \begin{itemize}
   \item Basics in Machine Learning 
   \end{itemize}
@@ -292,7 +292,7 @@
 
 \begin{figure}[htpb]
 	\centering
-	\includegraphics[width=.6\textwidth]{images/blocksComSystems.png}
+	\includegraphics[width=.6\textwidth]{images/CommunicationSystem.png}
 	\caption{Block diagram for conventional physical layer \cite{CommTech}}
 \end{figure}
 
@@ -338,8 +338,8 @@
 	\item Two values $\ubar{Y}_1$ and $\ubar{Y}_2$ are modulated as \emph{I/Q values} into the amplitude of two carrier 
 	      waves $s_c$ of same frequency $f_o$ with a phase-shift $\frac{\pi}{2}$
 	\begin{itemize}
-		\item $s_c(t) = \Re{(I(t) + Q(t))e^{-2\pi f_0 t}}$
-		\item ... $ = \Re{(A(t)i\sin(\varphi(t)) + A(t)cos(\varphi(t)))e^{-2\pi i f_o t}}$ with $I(t) = A(t)\cos(\varphi(t))$ and $Q(t) = A(t)i\sin(\varphi(t))$
+		\item $s_c(t) = \Re{(I(t) + iQ(t))e^{-2\pi f_0 t}}$
+		\item ... $ = \Re{(A(t)e^{-2\pi i f_o t + \varphi(t) i})}$ with $I(t) = A(t)\cos(\varphi(t))$ and $Q(t) = A(t)i\sin(\varphi(t))$
 	\end{itemize}
 	\item IQ - Modulation is essentially the same as combined modulation of phase and amplitude
 	\item Modulation scheme can be viewed in complex plane
@@ -377,57 +377,149 @@
 
 \end{frame}
 
+\section{Autoencoder}
+\begin{frame}{Autoencoder}
+
+	\begin{figure}[htpb]
+		\centering
+		\includegraphics[width=0.6\linewidth]{images/autencod.png}
+		\caption{Autoencoder}
+	\end{figure}
+
+\begin{itemize}
+	\item Encoder: $f_e: x \to y, |y| < |x|$ maps input to a \emph{code} that 
+	      has a lower dimension than the input.
+	\item Decoder: $f_d: y \to \hat{x}$ maps code to the output.
+	\item Network tries to learn compact representation of input (code) and tries 
+	      to reconstruct input from the code.
+	\item Network is trained on input data. Loss function $L_a = L(f_d(f_e(x)),x)$              computes difference between input and reconstructed input.
+\end{itemize}
+\end{frame}
+
 \section{Autoencoder as Communication System}
 \begin{frame}{Autoencoder as Communication System (1)}
 
+\centering{\underline{Applying an autoencoder to a communication system}}
+\vspace{1em}
 \begin{figure}[htpb]
 	\centering
-	\includegraphics[width=1\linewidth]{images/autoencoder.png}
-	\caption{Autoencoder as Communication System}
-	\label{fig:autoencoder}
+	\includegraphics[width=0.8\linewidth]{images/IntroCommunicationSystemAsNeuralNetwork.png}
 \end{figure}
 
 \end{frame}
 
 \begin{frame}{Autoencoder as Communication System (2)}
 
-Mathematic's
-Training with gradient descent
+\begin{figure}[htpb]
+	\centering
+	\includegraphics[width=0.8\linewidth]{images/communicationSystemAsAutoencoder.png}
+	\caption{Autoencoder as Communication System \cite{synch1}}
+	\label{fig:autoencoder}
+\end{figure}
+
+\begin{itemize}
+	\item Transmitter Neural Network (NN): \emph{$f_{\theta_t}: s \to x$} with $s \in \mathbb{R}^m, x \in \mathbb{R}^n$
+	\begin{itemize}
+		\item $s = \left[s_1,...,s_n\right]$: one-hot encoded vector with $s_i$ being the i-th symbol 
+	\end{itemize}
+	\item Channel NN: \emph{$f_{c, \sigma^2}: x \to y$} with $y \in \mathbb{R}^n$
+	\begin{itemize}
+		\item $x \in \mathbb{R}^n$: $n$ values to be modulated into carrier wave, $y \in \mathbb{R}^n$ received demodulated values
+	\end{itemize}
+	\item Receiver NN: \emph{$f_{\theta_r}: y \to \hat{s}$} with $\hat{s} \in \mathbb{R}^m$
+	\begin{itemize}
+		\item $\text{argmax}_i\hat{s}$ gives decoded symbol
+	\end{itemize}
+\end{itemize}
 
 \end{frame}
 
 \begin{frame}{Autoencoder as Communication System (3)}
 
-Learned Modulation Schemes and problems when applying to real world systems
+	\centering{\underline{Architecture}}
+	\vspace{1em}
+	\begin{itemize}
+		\item $f_{\theta_t}$: contains multiple hidden layers, an output layer $ \in \mathbb{R}^n$ and a normalization layer, having one or more contraints:
+		\begin{itemize}
+			\item amplitude constraint $|x_i| \le a, \forall i$, average power constraint $E(|x_i|^2) \le p, \forall i$ 
+		\end{itemize}
+		\item $f_{c, \sigma^2}: x \to x + v = y$ with $v \sim \mathcal{N}(0,\,\sigma^{2})$
+		\item $f_{\theta_r}$: contains multiple hidden layers, output layer with \emph{softmax function $\hat{s}_i = \frac{e^{s_i^{'}}}{\sum_{j=1}^m e^{s_j^{'}}}$ 
+			with $s^{'}$ output of the output layer before applying softmax}
+	\end{itemize}
+
+	\vspace{1em}
+	\centering{\underline{Training}}
+	\vspace{1em}
+	\begin{itemize}
+		\item $f_{c, \sigma^2}$ is needed for training so that transmitter NN and receiver NN can be trained together
+		\item Training is done using gradient descent:
+			\begin{itemize}
+				\item $\theta_t \leftarrow \theta_t - \alpha \frac{\partial L(f_{\theta_r}(f_{c, \sigma^2}(f_{\theta_t}(s))),s)}{\partial \theta_t}$ 
+				\item $\theta_r \leftarrow \theta_r - \alpha \frac{\partial L(f_{\theta_r}(y),s)}{\partial \theta_r}$ 
+				\item \emph{learning rate} $\alpha$ and \emph{loss function} $L$
+			\end{itemize}
+		
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Autoencoder as Communication System (4)}
+
+	\begin{itemize}
+		\item Autoencoder is able to learn \emph{efficient modulation schemes}
+	\end{itemize}
+	\vspace{1em}
+
+\begin{figure}
+  \centering
+	\subfloat[Learned Modulation Scheme for n=2, m=16 with Energy constraint \label{fig:a}]{\includegraphics[height=7cm,width=9cm]{images/learnedModulation.png}}\qquad
+  \subfloat[Learned Modulation Scheme for n=2, m=16 with Amplitude constraint\label{fig:b}]{\includegraphics[height=7cm,width=9cm]{images/learnedModulation2.png}}
+\end{figure}
+
 \begin{itemize}
-	\item Modelling of the physical channel not always accurate
-	\item Synchronization
+	\item Transmitter NN parameters $\theta_t$ is used at transmitter for encoding
+	\item Receiver NN parameters $\theta_r$ is used at receiver for decoding
+	\item Modulation of $x = f_{\theta_t}$ into carrier wave and demodulation coupled with synchronization is not taken care of 
+	      using basic approach.	
+	\item Channel layer approximation $f_{c, \sigma^2}$ is sometimes modelling real world channel behaviour badly.
 \end{itemize}
 
 
 \end{frame}
 
 \section{Generative Adversial Networks for Communication Systems}
-\begin{frame}{Generative Adversial Networks for Communication Systems (1)}
+\begin{frame}{Generative Adversial Networks for Comm. Systems (1)}
 
-General Idea of Generative Adversial Networks
 \begin{figure}[htpb]
 	\centering
-	\includegraphics[width=0.8\linewidth]{images/adversialNN.png}
-	\caption{Generative Adversial Networks for Communication Systems}
+	\includegraphics[width=0.85\linewidth]{images/generativeAdvAutoencoder.png}
+	\caption{Generative Adversial Networks for Comm. Systems \cite{2018arXiv180303145O}}
 \end{figure}
+
+\begin{itemize}
+	\item Channel Approximation $h_{I, \theta_h}: x \to y$ 
+	\item Real world channel $h_0: x \to y$
+	\item Transmitter $f_{\theta_f}: s \to x $
+	\item Receiver $g_{\theta_g}: y \to \hat{s}$
+\end{itemize}
 
 \end{frame}
 
-\begin{frame}{Generative Adversial Networks for Communication Systems (2)}
+\begin{frame}{Generative Adversial Networks for Comm. Systems (2)}
 
-Mathematics
 \begin{figure}[htpb]
 	\centering
-	\includegraphics[width=0.8\linewidth]{images/trainingAlgo.png}
+	\includegraphics[width=0.7\linewidth]{images/trainingAlgo.png}
 	\caption{Training Procedure Generative Adversial Networks for Communication System}
 \end{figure}
-Training
+
+\begin{itemize}
+	\item $\alpha_0$ is learning rate
+	\item $L_0$ is loss function comparing 
+		channel approximation output $y_k$ and real world output $\hat{y_k}$ using \emph{squared mean loss}
+	\item $L_1$ is loss function comparing input $s_k$ and output $\hat{s_k}$ using \emph{cross entropy loss}
+\end{itemize}
 
 \end{frame}
 
@@ -436,25 +528,69 @@ Training
 
 \begin{figure}[htpb]
 	\centering
-	\includegraphics[width=0.8\linewidth]{images/synchBlock.png}
-	\caption{Autoencoder for Communication Systems with Synchronization}
+	\includegraphics[width=0.5\linewidth]{images/synchBlock.png}
+	\caption{Autoencoder for Communication Systems with Synchronization \cite{synch1}} 
 \end{figure}
+
+\begin{itemize}
+	\item Autoencoder system is extended by four new blocks to a \emph{OFDM} like system:
+		\begin{itemize}
+			\item ``IFFT'' block performing an inverse fourier transform
+			\item ``CP Add'' block adding a cyclic prefix as pilot symbol
+			\item ``CP Synch'' block synchronizing the received carrier wave by detecting the cyclic prefix
+			\item ``FFT'' block performing a fourier transform
+		\end{itemize}
+	\item ``CP Synch'' block is made up of NN having trainable parameters and that is \emph{trained jointly} with ``Transmitter NN'' and ``Receiver NN''
+	\item ``IFFT'', ``CP Add'' and ``FFT'' have no trainable parameters 
+\end{itemize}
+
 \end{frame}
 
 \begin{frame}{Synchronization in Autoencoders (2)}
 
 \begin{figure}[htpb]
 	\centering
-	\includegraphics[width=0.8\linewidth]{images/synchMethod.png}
-	\caption{FFT for Synchronization in autoencoders}
+	\includegraphics[width=0.5\linewidth]{images/ifft_synch.png}
+	\caption{FFT for Synchronization in autoencoders \cite{synch1}}
 \end{figure}
 
+\begin{itemize}
+	\item A single message $s$ is represented by $\frac{n}{2}$ complex-valued I/Q symbols.
+	\item $w_{\text{FFT}}$ independent autoencoder symbols $x$ form a single \emph{OFDM symbol} $X_{\text{OFDM}} \in \mathbb{C}^{\frac{n}{2} \times w_{\text{FFT}}}$
+	\item After every $n$ complex-valued I/Q symbols (2 complete messages) a cyclic prefix is added so $X_{2 \times\text{OFDM,CP}} \in \mathbb{C}^{(n + 1) \times w_{\text{FFT}}}$
+	\item Training should be done in batches over $\ge 2w_{\text{FFT}}$ complete messages including a cyclic prefix
+\end{itemize}
+
+
+
 \end{frame}
+
+\begin{frame}{Results}
+
+\begin{figure}[htpb]
+	\centering
+	\includegraphics[width=0.4\linewidth]{images/BLERComp.png}
+	\caption{Autoencoder and 3 Baseline Conventional Communication Schemes Comparison using BLER \cite{DBLP:journals/corr/OSheaH17}}
+\end{figure}
+
+\begin{itemize}
+	\item energy per bit to noise power: $\frac{E_b}{N_0}$
+	\item block error rate (BLER): $\frac{\text{Erroneous Blocks}}{\text{Total Blocks}}$
+	\item Autoencoder $(7,4)$ has $n=7$ channels and $m=2^4=16$ possible input nodes
+	\item Comparison with Hamming $(7,4)$ codes (hard decision coding and maximum likelihood decoding) and 
+	      binary phase-shift keying modulation (BPSK)
+\end{itemize}
+\end{frame}
+
 
 \section{Conclusion}
 \begin{frame}{Conclusion}
 
-draw conclusion
+\begin{itemize}
+	\item It has been shown that communication systems using autoencoder architectures perform as good or better than conventional systems
+	\item Autoencoders always must be trained and tuned before there can be applied 
+	\item Still very young field of research with many new architectures and methods invented in the last two years
+\end{itemize}
 
 \end{frame}
 

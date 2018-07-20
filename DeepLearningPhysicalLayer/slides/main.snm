@@ -3,7 +3,9 @@
 \beamer@slide {sec:literature}{3}
 \beamer@slide {sec:introduction}{4}
 \beamer@slide {fig:16QAM}{6}
-\beamer@slide {fig:autoencoder}{8}
-\beamer@slide {finalSlide<1>}{16}
-\beamer@slide {finalSlide}{16}
-\beamer@slide {LastPage}{16}
+\beamer@slide {fig:autoencoder}{10}
+\beamer@slide {fig:a}{12}
+\beamer@slide {fig:b}{12}
+\beamer@slide {finalSlide<1>}{19}
+\beamer@slide {finalSlide}{19}
+\beamer@slide {LastPage}{19}

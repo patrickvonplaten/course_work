@@ -929,10 +929,16 @@ A more visual representation is figure \ref{fig:ifft_synch}.
 \end{figure}
 
 $X_{OFDM, CP}$ is then sent over the channel to the receiver. 
-At the receiver the cyclic prefix is used for frame synchronization through
-autocorrelation, also
-called peak detection (synchronization by finding the alignment between the received 
-signal and the known cyclic prefix yielding the highest correlation).
+
+Usually in \emph{OFDM}, autocorrelation, also called peak detection (synchronization by finding the alignment between the received osignal and the known cyclic prefix yielding the highest correlation) is used for frame synchronization.
+
+In this setup, however a neural network, the block ``CP Sync'', that learns to correctly detect the cyclic prefix is applied.
+It consists of multiple layers, where as its parameters are learned jointly with the parameters of the receiver and transmitter neural network. 
+It is important to notice here that since the ``IFFT'' and ``FFT'' block apply a fourier transform over $w_{FFT}$ symbols, the batch-size used for training 
+has to of size $k \times (w_{FFT} + 1)$ with k being a natural number. The $1$ corresponds to the cyclic prefix that is send with the \emph{OFDM} symbol.  
+
+Even though the other blocks ``IFFT'', ``FFT'' and ``CP Add'' don't have any trainable parameters, backpropagation can still be applied. 
+
 After synchronization the cyclic prefix can be deleted, which is easy 
 since through autocorrelation it is known exactly where it is and the ``inverse 
 inverse discrete fourier transform'' being the discrete fourier transform is applied

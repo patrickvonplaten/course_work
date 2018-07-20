@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.17)  4 JUL 2018 16:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.17)  19 JUL 2018 08:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1781,26 +1781,42 @@ Package: rotating 2016/05/22 v2.16c rotated objects in LaTeX
 (/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/themes/font/beamerfontthem
 eserif.sty
 Package: beamerfontthemeserif 2010/06/17  (rcs-revision d02a7cf4d8ae)
-)
-(/usr/local/texlive/2016/texmf-dist/tex/latex/subfigure/subfigure.sty
-Package: subfigure 2002/03/15 v2.1.5 subfigure package
-\subfigtopskip=\skip88
-\subfigcapskip=\skip89
-\subfigcaptopadj=\dimen319
-\subfigbottomskip=\skip90
-\subfigcapmargin=\dimen320
-\subfiglabelskip=\skip91
-\c@subfigure=\count347
-\c@lofdepth=\count348
-\c@subtable=\count349
-\c@lotdepth=\count350
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/subfig/subfig.sty
+Package: subfig 2005/06/28 ver: 1.3 subfig package
 
-****************************************
-* Local config file subfigure.cfg used *
-****************************************
-(/usr/local/texlive/2016/texmf-dist/tex/latex/subfigure/subfigure.cfg)
-\subfig@top=\skip92
-\subfig@bottom=\skip93
+(/usr/local/texlive/2016/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/02/04 v1.7-139 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen319
+\captionmargin@=\dimen320
+\captionwidth=\dimen321
+\caption@tempdima=\dimen322
+\caption@indent=\dimen323
+\caption@parindent=\dimen324
+\caption@hangindent=\dimen325
+)
+\c@ContinuedFloat=\count347
+Package caption Info: beamer document class.
+Package caption Info: hyperref package is loaded.
+Package caption Info: Hyperref support is turned off
+(caption)             because hyperref has stopped early.
+Package caption Info: rotating package is loaded.
+)
+\c@KVtest=\count348
+\sf@farskip=\skip88
+\sf@captopadj=\dimen326
+\sf@capskip=\skip89
+\sf@nearskip=\skip90
+\c@subfigure=\count349
+\c@subfigure@save=\count350
+\c@depth=\count351
+\c@subtable=\count352
+\c@subtable@save=\count353
+\sf@top=\skip91
+\sf@bottom=\skip92
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/wasysym/wasysym.sty
 Package: wasysym 2003/10/30 v2.0 Wasy-2 symbol support package
@@ -1814,7 +1830,7 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count351
+\c@section@level=\count354
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/romannum/romannum.sty
 Package: romannum 2009/09/03 v1.0b roman numerals
@@ -1838,8 +1854,8 @@ File: pgfmoduleplot.code.tex 2015/08/03  (rcs-revision 1.13)
 (/usr/local/texlive/2016/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
 -0-65.sty
 Package: pgfcomp-version-0-65 2007/07/03 v3.0.1a (rcs-revision 1.7)
-\pgf@nodesepstart=\dimen321
-\pgf@nodesepend=\dimen322
+\pgf@nodesepstart=\dimen327
+\pgf@nodesepend=\dimen328
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
 -1-18.sty
@@ -1854,8 +1870,8 @@ Package: pgfcomp-version-1-18 2007/07/23 v3.0.1a (rcs-revision 1.1)
 Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
 
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
-\pgffor@iter=\dimen323
-\pgffor@skip=\dimen324
+\pgffor@iter=\dimen329
+\pgffor@skip=\dimen330
 \pgffor@stack=\toks55
 \pgffor@toks=\toks56
 ))
@@ -1866,32 +1882,32 @@ Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothan
 dlers.code.tex
 File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
-\pgf@plot@mark@count=\count352
-\pgfplotmarksize=\dimen325
+\pgf@plot@mark@count=\count355
+\pgfplotmarksize=\dimen331
 )
-\tikz@lastx=\dimen326
-\tikz@lasty=\dimen327
-\tikz@lastxsaved=\dimen328
-\tikz@lastysaved=\dimen329
-\tikzleveldistance=\dimen330
-\tikzsiblingdistance=\dimen331
+\tikz@lastx=\dimen332
+\tikz@lasty=\dimen333
+\tikz@lastxsaved=\dimen334
+\tikz@lastysaved=\dimen335
+\tikzleveldistance=\dimen336
+\tikzsiblingdistance=\dimen337
 \tikz@figbox=\box107
 \tikz@figbox@bg=\box108
 \tikz@tempbox=\box109
 \tikz@tempbox@bg=\box110
-\tikztreelevel=\count353
-\tikznumberofchildren=\count354
-\tikznumberofcurrentchild=\count355
-\tikz@fig@count=\count356
+\tikztreelevel=\count356
+\tikznumberofchildren=\count357
+\tikznumberofcurrentchild=\count358
+\tikz@fig@count=\count359
 
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.cod
 e.tex
 File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
-\pgfmatrixcurrentrow=\count357
-\pgfmatrixcurrentcolumn=\count358
-\pgf@matrix@numberofcolumns=\count359
+\pgfmatrixcurrentrow=\count360
+\pgfmatrixcurrentcolumn=\count361
+\pgf@matrix@numberofcolumns=\count362
 )
-\tikz@expandcount=\count360
+\tikz@expandcount=\count363
 
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibrarytopaths.code.tex
@@ -1899,28 +1915,28 @@ File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
 )))
 (/usr/local/texlive/2016/texmf-dist/tex/latex/minibox/minibox.sty
 Package: minibox 2013/06/21 v0.2a Another type of box.
-\l_minibox_rule_dim=\dimen332
-\l_minibox_pad_dim=\dimen333
+\l_minibox_rule_dim=\dimen338
+\l_minibox_pad_dim=\dimen339
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/numprint/numprint.sty
 Package: numprint 2012/08/20 v1.39 Print numbers (HH)
-\c@nprt@mantissa@digitsbefore=\count361
-\c@nprt@mantissa@digitsafter=\count362
-\c@nprt@exponent@digitsbefore=\count363
-\c@nprt@exponent@digitsafter=\count364
-\nprt@digitwidth=\skip94
-\nprt@sepwidth=\skip95
-\nprt@decimalwidth=\skip96
-\nprt@blockwidth=\skip97
+\c@nprt@mantissa@digitsbefore=\count364
+\c@nprt@mantissa@digitsafter=\count365
+\c@nprt@exponent@digitsbefore=\count366
+\c@nprt@exponent@digitsafter=\count367
+\nprt@digitwidth=\skip93
+\nprt@sepwidth=\skip94
+\nprt@decimalwidth=\skip95
+\nprt@blockwidth=\skip96
 \nprt@digittoks=\toks57
 \nprt@pretoks=\toks58
 \nprt@posttoks=\toks59
-\nprt@thisdigit=\count365
-\nprt@curpos=\count366
-\nprt@rndpos=\count367
-\c@nprt@digitsfirstblock=\count368
-\c@nprt@blockcnt=\count369
-\c@nprt@cntprint=\count370
+\nprt@thisdigit=\count368
+\nprt@curpos=\count369
+\nprt@rndpos=\count370
+\c@nprt@digitsfirstblock=\count371
+\c@nprt@blockcnt=\count372
+\c@nprt@cntprint=\count373
 
 No configuration file `numprint.cfg' found.)
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
@@ -2085,16 +2101,16 @@ LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <21.89> not available
 
 (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count371
-\scratchdimen=\dimen334
+\scratchcounter=\count374
+\scratchdimen=\dimen340
 \scratchbox=\box131
-\nofMPsegments=\count372
-\nofMParguments=\count373
+\nofMPsegments=\count375
+\nofMParguments=\count376
 \everyMPshowfont=\toks60
-\MPscratchCnt=\count374
-\MPscratchDim=\dimen335
-\MPnumerator=\count375
-\makeMPintoPDFobject=\count376
+\MPscratchCnt=\count377
+\MPscratchDim=\dimen341
+\MPnumerator=\count378
+\makeMPintoPDFobject=\count379
 \everyMPtoPDFconversion=\toks61
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -2149,7 +2165,11 @@ LaTeX Info: Redefining \includegraphics on input line 242.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
-) (./main.nav)
+)
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: End \AtBeginDocument code.
+ (./main.nav)
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10.56> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 242.
 LaTeX Font Info:    Calculating math sizes for size <10.56> on input line 242.
@@ -2197,95 +2217,207 @@ LaTeX Font Info:    Font shape `T1/phv/b/it' in size <21.89> not available
 
 [3
 
+] <images/CommunicationSystem.png, id=124, 348.30125pt x 189.70876pt>
+File: images/CommunicationSystem.png Graphic file (type png)
+
+<use images/CommunicationSystem.png>
+Package pdftex.def Info: images/CommunicationSystem.png used on input line 308.
+
+(pdftex.def)             Requested size: 469.47519pt x 255.72234pt.
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <18.25> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 308.
+ [4
+
+ <./images/CommunicationSystem.png>]
+[5
+
+] <images/16QAM.png, id=152, 341.275pt x 285.065pt>
+File: images/16QAM.png Graphic file (type png)
+ <use images/16QAM.png>
+Package pdftex.def Info: images/16QAM.png used on input line 354.
+(pdftex.def)             Requested size: 273.86252pt x 228.77pt.
+
+[6
+
+ <./images/16QAM.png>] [7
+
 ]
-LaTeX Warning: File `images/blocksComSystems.png' not found on input line 308.
+<images/autencod.png, id=178, 625.33624pt x 354.32375pt>
+File: images/autencod.png Graphic file (type png)
+
+<use images/autencod.png>
+Package pdftex.def Info: images/autencod.png used on input line 397.
+(pdftex.def)             Requested size: 469.47519pt x 266.01788pt.
+ [8
+
+ <./images/autencod.png>]
+<images/IntroCommunicationSystemAsNeuralNetwork.png, id=189, 708.6475pt x 477.7
+85pt>
+File: images/IntroCommunicationSystemAsNeuralNetwork.png Graphic file (type png
+)
+ <use images/IntroCommunicationSystemAsNeuralNetwork.png>
+Package pdftex.def Info: images/IntroCommunicationSystemAsNeuralNetwork.png use
+d on input line 409.
+(pdftex.def)             Requested size: 625.96295pt x 422.04869pt.
+ [9
+
+ <./images/IntroCommunicationSystemAsNeuralNetwork.png>]
+<images/communicationSystemAsAutoencoder.png, id=200, 1046.91125pt x 415.5525pt
+>
+File: images/communicationSystemAsAutoencoder.png Graphic file (type png)
+ <use images/communicationSystemAsAutoencoder.png>
+Package pdftex.def Info: images/communicationSystemAsAutoencoder.png used on in
+put line 435.
+(pdftex.def)             Requested size: 625.96295pt x 248.47107pt.
+LaTeX Font Info:    Calculating math sizes for size <18.25> on input line 435.
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <9.125> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 435.
+LaTeX Font Warning: Font shape `U/wasy/b/n' in size <18.25> not available
+(Font)              size <17.28> substituted on input line 435.
+LaTeX Font Warning: Font shape `U/wasy/b/n' in size <12.77493> not available
+(Font)              size <12> substituted on input line 435.
+LaTeX Font Warning: Font shape `U/wasy/b/n' in size <9.125> not available
+(Font)              Font shape `U/wasy/m/n' tried instead on input line 435.
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <15.32292> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 435.
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10.94499> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 435.
+ [10
+
+ <./images/communicationSystemAsAutoencoder.png>] [11
+
+]
+<images/learnedModulation.png, id=228, 298.11375pt x 258.9675pt>
+File: images/learnedModulation.png Graphic file (type png)
+
+<use images/learnedModulation.png>
+Package pdftex.def Info: images/learnedModulation.png used on input line 489.
+(pdftex.def)             Requested size: 256.09079pt x 199.17638pt.
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <15.21> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 489.
+
+<images/learnedModulation2.png, id=229, 160.6pt x 150.5625pt>
+File: images/learnedModulation2.png Graphic file (type png)
+
+<use images/learnedModulation2.png>
+Package pdftex.def Info: images/learnedModulation2.png used on input line 489.
+(pdftex.def)             Requested size: 256.08302pt x 199.18878pt.
+ [12
+
+ <./images/learnedModulation.png> <./images/learnedModulation2.png>]
+<images/generativeAdvAutoencoder.png, id=244, 637.38126pt x 286.06876pt>
+File: images/generativeAdvAutoencoder.png Graphic file (type png)
+
+<use images/generativeAdvAutoencoder.png>
+Package pdftex.def Info: images/generativeAdvAutoencoder.png used on input line
+ 507.
+(pdftex.def)             Requested size: 665.08788pt x 298.50407pt.
+ [13
+
+ <./images/generativeAdvAutoencoder.png>] <images/trainingAlgo.png, id=259, 715
+.67375pt x 402.50375pt>
+File: images/trainingAlgo.png Graphic file (type png)
+
+<use images/trainingAlgo.png>
+Package pdftex.def Info: images/trainingAlgo.png used on input line 524.
+(pdftex.def)             Requested size: 547.7131pt x 308.05562pt.
+ [14
+
+ <./images/trainingAlgo.png>]
+<images/synchBlock.png, id=271, 521.95pt x 174.6525pt>
+File: images/synchBlock.png Graphic file (type png)
+
+<use images/synchBlock.png>
+Package pdftex.def Info: images/synchBlock.png used on input line 547.
+(pdftex.def)             Requested size: 391.22536pt x 130.91176pt.
+ [15
+
+ <./images/synchBlock.png>]
+<images/ifft_synch.png, id=284, 449.68pt x 275.0275pt>
+File: images/ifft_synch.png Graphic file (type png)
+
+<use images/ifft_synch.png>
+Package pdftex.def Info: images/ifft_synch.png used on input line 566.
+(pdftex.def)             Requested size: 391.22536pt x 239.28458pt.
+ [16
+
+ <./images/ifft_synch.png>]
+<images/BLERComp.png, id=299, 346.29375pt x 272.01625pt>
+File: images/BLERComp.png Graphic file (type png)
+
+<use images/BLERComp.png>
+Package pdftex.def Info: images/BLERComp.png used on input line 583.
+(pdftex.def)             Requested size: 312.97551pt x 245.85pt.
+ [17
+
+ <./images/BLERComp.png>] [18
+
+] [19
+
+] (./main.bbl)
+[20
+
+ </usr/local/texlive/2016/texmf-dist/tex/latex/beamer/art/beamericonarticle.pdf
+>] [21
 
 
-! Package pdftex.def Error: File `images/blocksComSystems.png' not found.
+] [22
 
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.308 \end{frame}
-                 
-? X
- 
+
+]
+Package atenddvi Info: Last page = 23.
+ [23
+
+
+]
+\tf@nav=\write6
+\openout6 = `main.nav'.
+
+\tf@toc=\write7
+\openout7 = `main.toc'.
+
+\tf@snm=\write8
+\openout8 = `main.snm'.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 639.
+Package atveryend Info: Executing hook `AfterLastShipout' on input line 639.
+ (./main.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 639.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 639.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: C15E1EDFD49D67DE5B69AD2AD9D44590;627.
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 1.15pt have occurred.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 639.
+ )
+(\end occurred inside a group at level 1)
+
+### simple group (level 1) entered at line 1061 ({)
+### bottom level 
 Here is how much of TeX's memory you used:
- 36241 strings out of 493014
- 716623 string characters out of 6133351
- 944594 words of memory out of 5000000
- 38987 multiletter control sequences out of 15000+600000
- 33874 words of font info for 78 fonts, out of 8000000 for 9000
+ 37557 strings out of 493014
+ 742702 string characters out of 6133351
+ 972044 words of memory out of 5000000
+ 40224 multiletter control sequences out of 15000+600000
+ 50422 words of font info for 110 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,13n,76p,10362b,7815s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Navigation15} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{Navigation13} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{Navigation11} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{Navigation8} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{Navigation7} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{Navigation6} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{Navigation5} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{Navigation4} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{finalSlide} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{Navigation20} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.10} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.9} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.8} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.7} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.6} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.5} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.4} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.3} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{Outline0.2} has been referenced but does not exist,
- replaced by a fixed one
-
-{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/tex
-live/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local
-/texlive/2016/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/local/texlive
-/2016/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2016/t
-exmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/local/texlive/2016/texmf-d
-ist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on main.pdf (3 pages, 49344 bytes).
+ 61i,13n,96p,10362b,8880s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc
+}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb
+></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
+/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
+usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></
+usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pf
+b></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm1
+0.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></
+usr/local/texlive/2016/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/loc
+al/texlive/2016/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/local/tex
+live/2016/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on main.pdf (23 pages, 1658294 bytes).
 PDF statistics:
- 145 PDF objects out of 1000 (max. 8388607)
- 119 compressed objects within 2 object streams
- 30 named destinations out of 1000 (max. 500000)
- 111 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 455 PDF objects out of 1000 (max. 8388607)
+ 370 compressed objects within 4 object streams
+ 85 named destinations out of 1000 (max. 500000)
+ 191 words of extra memory for PDF output out of 10000 (max. 10000000)
 

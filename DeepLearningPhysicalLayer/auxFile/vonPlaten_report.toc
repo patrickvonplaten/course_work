@@ -18,4 +18,4 @@
 \contentsline {subsection}{\numberline {4.2}Generative Adversarial Networks to model the channel}{18}{subsection.4.2}
 \contentsline {subsection}{\numberline {4.3}Synchronization using artificial neural networks}{20}{subsection.4.3}
 \contentsline {section}{\numberline {5}Conclusion}{22}{section.5}
-\contentsline {section}{References}{23}{Item.5}
+\contentsline {section}{References}{24}{Item.5}
