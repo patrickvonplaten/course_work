@@ -1,0 +1,30 @@
+\section*{1)} % (fold)
+\label{sec:1_}
+Probability of sentence $w_{1}^{N}$ under distant bigram language model $P(w_{1}^{N}) = \displaystyle\prod_{1}^{N}P(w_{n}|w_{n-2})$ where $P(w_{1}|w_{-1}) = P(w_{1}|\$)$ and $P(w_{2}|w_{0}) = P(w_{2}|\$)$ with given training text $w_{1}^{T}$. 
+\subsection*{a)} % (fold)
+\label{sub:a_}
+Language model log-likelihood of the distant bigram of training text is following:  
+
+\begin{align*}
+    \log P(w_{1}^{T}) &= \sum\limits_{n=1}^{T}\log  P(w_{n}|w_{n-2}) 
+\end{align*}
+
+% subsection a_ (end)
+
+\subsection*{b)} % (fold)
+\label{sub:b_}
+
+We can define the relative frequency for $P(w_{n-2}|w_n) = \frac{N(w_{n}, * ,w_{n-2})}{N(w_{n-2})}$
+with $N(w_{n_2}, * ,w_n)$ being the count of the word pairs $w_{n-2}, w_n$ where the ' * ' represents a word skip in our case 
+and $N(w_{n-2})$ being the count of a single word $w_{n-2}$.
+
+Let's rewrite the log-function: 
+
+\begin{align*}
+    \log P(w_{1}^{T}) &= \sum\limits_{n=1}^{T}\log \frac{N(w_{n}, * ,w_{n-2})}{N(w_{n-2})} \\
+    				  &= \sum_{(u,v) \in V^2} N(u, * ,v) \log \frac{N(u, * ,v)}{N(v)} \\
+\end{align*}
+
+% subsection b_ (end)
+
+% section 1_ (end)

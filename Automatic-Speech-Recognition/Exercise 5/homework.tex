@@ -1,0 +1,48 @@
+\documentclass[12pt,oneside,a4paper]{article}
+
+\usepackage{./top/custom}
+
+\newcommand{\todo}[1]{[{\color{red} TODO : } #1]}
+
+\newcommand{\prob}{\mathbb{P}}
+\renewcommand{\labelitemi}{$\bullet$}
+\addto\captionsenglish{
+  \renewcommand{\labelitemi}{$\bullet$}
+}
+% \usepackage[backend=biber]{biblatex}
+% \addbibresource{./biblio.bib}
+
+\begin{document}
+% title (fold)
+\begin{center}
+{\LARGE \bfseries 
+ 5. Exercise Sheet  \\[0.1cm] 
+}
+{ \large \bfseries
+ Automatic Speech Recognition \\[0.3cm] % (if uncommented, switch above to [0.1cm])
+}
+{\large
+  \textsc{RWTH Aachen} --- Patrick von Platen, Jiyoung An, Jose Monge ---\\[0.3cm]
+}
+{\normalsize
+  Prof. Dr.Ing H. \textsc{Ney} \\[0.92cm] % (if uncommented, switch 3rd premise to [0.3cm])
+}
+\end{center}
+% title (end)
+
+{
+\underline{\textbf{Please note:}}
+Since 1d) is a pure programming exercises, we only write about the exercise 1a), (a little about 1b) since it's also a programming exercise) and 1c) in this pdf. The 
+coding solution for a) and c) will be sent attached in the respective format with this exercise.
+}
+  
+\input{./src/exo1} \newpage
+\input{./src/exo2}
+
+% \addcontentsline{toc}{part}{References}
+% \nocite{*}
+% \hypersetup{urlcolor=black}
+% \printbibliography
+% \newpage
+
+\end{document}

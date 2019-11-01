@@ -1,0 +1,385 @@
+\section*{1)} % (fold)
+
+\subsection*{a)} % (fold)
+\label{sub:a}
+
+\subsubsection*{i)} % (fold)
+\label{ssub:i_}
+
+In the following the \emph{HMM Model} using the word model is presented. 
+
+\begin{tikzpicture}[font=\small\sffamily,shorten >=1pt,->,auto,node distance=4cm,
+semithick]
+  
+  \tikzset{my_state/.style={state,    
+                                     minimum size=0.75cm,
+                                     minimum width=0.5cm,
+                                     line width=0.5mm,
+                                     fill=gray!60!white}}
+  \newcommand{\firstState}{}
+      \newcommand{\prev}{}
+      \newcommand{\prevv}{}                   
+
+
+
+
+
+  \newcommand{\drawSixState}[8]{
+
+      % #1 = below state 
+      % #2 = sil state name
+      % #3 = first two states
+      % #4 = second two states
+      % #5 = third two states
+      % #6 = flag silence state yes = {1} | silence state no = {}
+        % #7 = finishes with sil?
+        % #8 = name for empty states
+
+      \def \distN {0.5}
+
+      % is starting state or not?
+      \ifx&#1&
+        \node[state, draw=none] (#82){};
+      \else 
+        \node[state, below = 2 of #1, draw=none] (#82){...};
+      \fi
+
+      % is there a silence state?
+      \ifx&#6&
+        \renewcommand{\firstState}{#8}
+      \else 
+        \node[my_state, right = \distN of #82] (#22) {0};
+        \renewcommand{\firstState}{#2}
+      \fi
+
+      \foreach \x in {#3,#4,#5} {
+        \node[my_state, right = \distN of \firstState2] (\x1) {\x};  
+        \node[my_state, right = \distN of \x1] (\x2) {\x}; 
+        \global\let\firstState\x
+      }
+
+      \ifx&#7&
+        \node[state, right = \distN of #52, draw=none] (#83){...};
+        \node[state, right = \distN of #83, draw=none] (#84){...};
+      \else 
+        \node[my_state, right = \distN of #52] (#83){0};
+        \node[state, right = \distN of #83, draw=none] (#84){...};
+        \node[state, right = \distN of #84, draw=none] (#85){...};
+      \fi
+
+      
+        
+     % Transition Prob
+     \ifx&#6&
+     \else 
+       \path (#22) edge [out=120,in=60, looseness=6] node [loop above] {0.5} (#22)
+                  edge node {0.5} (#31);
+     \fi
+           
+     \ifx&#7&
+
+        \renewcommand{\prev}{#83}
+        \renewcommand{\prevv}{#84}
+
+        \foreach \x in {#52, #51, #42, #41, #32, #31} {
+         \path (\x) edge [out=120,in=60, looseness=5] node [loop above] {0.2} (\x)
+          (\x) edge node {0.6} (\prev)
+          (\x) edge [out=330,in=300, looseness=1] node {0.2} (\prevv);
+
+          \global\let\prevv\prev
+          \global\let\prev\x
+        }
+
+      \else 
+
+        \renewcommand{\prev}{#51}
+        \renewcommand{\prevv}{#52}
+
+        \foreach \x in {#42, #41, #32, #31} {
+         \path (\x) edge [out=120,in=60, looseness=5] node [loop above] {0.2} (\x)
+          (\x) edge node {0.6} (\prev)
+          (\x) edge [out=330,in=300, looseness=1] node {0.2} (\prevv);
+
+          \global\let\prevv\prev
+          \global\let\prev\x
+        }
+
+        \path (#51) edge node {0.6} (#52);
+        \path (#51) edge [out=120,in=60, looseness=5] node [loop above] {0.2} (#51);
+        \path (#52) edge [out=120,in=60, looseness=5] node [loop above] {0.2} (#52);
+        \path (#52) edge node {0.3} (#83);
+        \path (#52) edge [out=330,in=300, looseness=1] node {0.5} (#84);
+        \path (#52) edge [out=330,in=300, looseness=2] node {0.1} (#85);
+        \path (#51) edge [out=330,in=300, looseness=1] node {0.1} (#83);
+        \path (#51) edge [out=330,in=300, looseness=2] node {0.1} (#84);
+        \path (#83) edge node {0.5} (#84);
+        \path (#83) edge [out=120,in=60, looseness=6] node [loop above] {0.5} (#83);
+
+      \fi
+      
+
+      \ifx&#1&
+      \else 
+        \path (#82) edge [out=330,in=300, looseness=1] node {0.2} (#32);
+        \path (#82) edge [out=330,in=300, looseness=2] node {0.2} (#31);
+        \path (#82) edge node {0.6} (#31);
+      \fi
+
+
+  }
+
+\drawSixState{}{Sil1}{37}{38}{39}{1}{}{Empty1}
+\drawSixState{Sil12}{Sil2}{40}{41}{42}{}{}{Empty2}
+\drawSixState{Empty22}{Sil3}{43}{44}{45}{}{1}{Empty3}
+\drawSixState{Empty32}{Sil4}{46}{47}{48}{}{}{Empty4}
+\drawSixState{Empty42}{Sil2}{49}{50}{51}{}{}{Empty5}
+\drawSixState{Empty52}{Sil3}{52}{53}{54}{}{1}{Empty6}
+
+\end{tikzpicture}
+
+  
+% subsubsection i_ (end)
+
+\newpage
+
+\subsubsection*{ii)} % (fold)
+\label{ssub:ii_}
+
+% subsubsection ii_ (end)
+
+In the following the \emph{HMM Model} using the phoneme model is presented. We hope that the model is ``over the lines'' 
+understandable.
+
+\begin{tikzpicture}[font=\small\sffamily,shorten >=1pt,->,auto,node distance=4cm,
+semithick]
+  
+  \tikzset{my_state/.style={state,    
+                                     minimum size=0.75cm,
+                                     minimum width=0.5cm,
+                                     line width=0.5mm,
+                                     fill=gray!60!white}}
+                                     
+  % State
+
+
+
+  \newcommand{\drawSixState}[8]{
+
+      % #1 = below state 
+      % #2 = sil state name
+      % #3 = first two states
+      % #4 = second two states
+      % #5 = third two states
+      % #6 = flag silence state yes = {1} | silence state no = {}
+        % #7 = finishes with sil?
+        % #8 = name for empty states
+
+      \def \distN {0.5}
+
+      % is starting state or not?
+      \ifx&#1&
+        \node[state, draw=none] (#82){};
+      \else 
+        \node[state, below = 2 of #1, draw=none] (#82){...};
+      \fi
+
+      % is there a silence state?
+      \ifx&#6&
+        \renewcommand{\firstState}{#8}
+      \else 
+        \node[my_state, right = \distN of #82] (#22) {0};
+        \renewcommand{\firstState}{#2}
+      \fi
+
+      \foreach \x in {#3,#4,#5} {
+        \node[my_state, right = \distN of \firstState2] (\x1) {\x};  
+        \node[my_state, right = \distN of \x1] (\x2) {\x}; 
+        \global\let\firstState\x
+      }
+
+      \ifx&#7&
+        \node[state, right = \distN of #52, draw=none] (#83){...};
+        \node[state, right = \distN of #83, draw=none] (#84){...};
+      \else 
+        \node[my_state, right = \distN of #52] (#83){0};
+        \node[state, right = \distN of #83, draw=none] (#84){...};
+        \node[state, right = \distN of #84, draw=none] (#85){...};
+      \fi
+
+      
+        
+     % Transition Prob
+     \ifx&#6&
+     \else 
+       \path (#22) edge [out=120,in=60, looseness=6] node [loop above] {0.5} (#22)
+                  edge node {0.5} (#31);
+     \fi
+           
+     \ifx&#7&
+
+        \renewcommand{\prev}{#83}
+        \renewcommand{\prevv}{#84}
+
+        \foreach \x in {#52, #51, #42, #41, #32, #31} {
+         \path (\x) edge [out=120,in=60, looseness=5] node [loop above] {0.2} (\x)
+          (\x) edge node {0.6} (\prev)
+          (\x) edge [out=330,in=300, looseness=1] node {0.2} (\prevv);
+
+          \global\let\prevv\prev
+          \global\let\prev\x
+        }
+
+      \else 
+
+        \renewcommand{\prev}{#51}
+        \renewcommand{\prevv}{#52}
+
+        \foreach \x in {#42, #41, #32, #31} {
+         \path (\x) edge [out=120,in=60, looseness=5] node [loop above] {0.2} (\x)
+          (\x) edge node {0.6} (\prev)
+          (\x) edge [out=330,in=300, looseness=1] node {0.2} (\prevv);
+
+          \global\let\prevv\prev
+          \global\let\prev\x
+        }
+
+        \path (#51) edge node {0.6} (#52);
+        \path (#51) edge [out=120,in=60, looseness=5] node [loop above] {0.2} (#51);
+        \path (#52) edge [out=120,in=60, looseness=5] node [loop above] {0.2} (#52);
+        \path (#52) edge node {0.3} (#83);
+        \path (#52) edge [out=330,in=300, looseness=1] node {0.5} (#84);
+        \path (#52) edge [out=330,in=300, looseness=2] node {0.1} (#85);
+        \path (#51) edge [out=330,in=300, looseness=1] node {0.1} (#83);
+        \path (#51) edge [out=330,in=300, looseness=2] node {0.1} (#84);
+        \path (#83) edge node {0.5} (#84);
+        \path (#83) edge [out=120,in=60, looseness=6] node [loop above] {0.5} (#83);
+
+      \fi
+      
+
+      \ifx&#1&
+      \else 
+        \path (#82) edge [out=330,in=300, looseness=1] node {0.2} (#32);
+        \path (#82) edge [out=330,in=300, looseness=2] node {0.2} (#31);
+        \path (#82) edge node {0.6} (#31);
+      \fi
+
+
+  }
+
+  \drawSixState{}{Sil1}{10}{11}{12}{1}{}{Empty1}
+  \drawSixState{Sil12}{Sil2}{31}{32}{33}{}{}{Empty2}
+  \drawSixState{Empty22}{Sil3}{37}{38}{39}{}{1}{Empty3}
+  \drawSixState{Empty32}{Sil4}{10}{11}{12}{}{}{Empty4}
+  \drawSixState{Empty42}{Sil2}{7}{8}{9}{}{}{Empty5}
+  \drawSixState{Empty52}{Sil3}{49}{50}{51}{}{1}{Empty6}
+
+\end{tikzpicture}
+
+% subsection a (end)
+
+\subsection*{b)} % (fold)
+\label{sub:b_}
+
+We created the file ``alignment.word.count'' and plottet it using the following code in bash. Gnuplot needs 
+to be installed in order for it to work. Please look at the comments to understand the code.
+We will send the file alignment.word.count as well as the graph with this pdf.
+
+\begin{lstlisting}
+  # count unique words frequency and write to new file
+  cat alignment.word | tr ' ' '\n'| sort | uniq -c | awk '{print $2" "$1}' > alignment.word.count
+  # sort by descending order
+  sort -k2 -n -r  alignment.word.count > alignment.word.count1
+  mv alignment.word.count1 alignment.word.count
+
+  # plot with gnuplot (needs to be downloaded to use it)
+  gnuplot -e 'set style data lines;plot "alignment.word.count" using 2:xticlabels(1)'
+\end{lstlisting}
+
+The resulting plot looks like this: 
+
+\includegraphics[scale=0.4]{taskb)_plot.pdf}
+
+It can be seen that, the state \emph{0} is by far the most frequent and most of the other states are similarly frequent except 
+for around 8 other states which have the lowest frequency. So, there are ``3 different frequency classes''.
+
+% subsection b_ (end)
+
+\subsection*{c)} % (fold)
+\label{sub:c_}
+
+We created the file ``alignment.phoneme'' as well as ``alignment.phoneme.count'' using a lexicon file created before ``phonemeWholeWord.lexicon'' and plottet it using the following code in bash. 
+We will send all the mentioned files as well as the graph with this pdf.
+
+\begin{lstlisting}
+  #replace phonemes with indices 
+awk 'NR==FNR{first=$1;$1="";a[first]=$0;next}{for(i=2;i<=NF;++i)$i=a[$i]}1' phoneme.models digits.lexicon > temp
+
+#replace words with indices 
+awk 'NR==FNR{first=$1;$1="";a[first]=$0;next}{$1=a[$1]}1' whole-word.models temp > phonemeWholeWord.lexicon.temp
+rm temp
+
+# assign to each word indice the corresponding phoneme indice
+awk '{a = NF / 2;for(i=1;i<=a;++i) print $i" "$(i+a)}' phonemeWholeWord.lexicon.temp > phonemeWholeWord.lexicon
+# add 0 0 since it is not in the lexicon
+echo "0 0" >> phonemeWholeWord.lexicon
+rm phonemeWholeWord.lexicon.temp
+
+# replace all word indices by phoneme indices in the file
+awk 'NR==FNR{a[$1]=$2;next}{for(i=1;i<=NF;++i)$i=a[$i]}1' phonemeWholeWord.lexicon alignment.word > alignment.phoneme 
+
+# create digits.phoneme.ref
+awk 'NR==FNR{first=$1;$1="";a[first]=$0;next}{for(i=1;i<=NF;++i)$i=a[$i]}1' digits.lexicon digit.ref > digit.phoneme.ref
+
+# do the same as in b)
+cat alignment.phoneme | tr ' ' '\n'| sort | uniq -c | awk '{print $2" "$1}' > alignment.phoneme.count
+sort -k2 -n -r  alignment.phoneme.count > alignment.phoneme.count1
+mv alignment.phoneme.count1 alignment.phoneme.count
+
+#run gnuplot
+gnuplot -e 'set style data lines;plot "alignment.phoneme.count" using 2:xticlabels(1)'
+\end{lstlisting}
+
+The resulting plot looks like this: 
+
+\includegraphics[scale=0.5]{taskc)_plot.pdf}
+
+It can be seen that the graph is much smoother than the one we obtained in b), which is good meaning that be get much more training data per HMM - Model.
+
+% subsection c_ (end)
+
+\subsection*{d)} % (fold)
+\label{sub:d_}
+
+We will solve the exercise d) using pseudo code, since the by far most important thing is to understand how to do.
+The implementation will be easy afterwards.
+
+\begin{lstlisting}
+Use the file phoneme.models and append the key/value pair 0 0 to it. Now delete all columns > 2 from the file. Use the column 2 as your key and the column 1 as your pair. 
+Now use this file as your key/value pair and replace all occurances of the key in file alignment.phoneme with the respective value.
+Delete all numeric values > 0. 
+Now use a loop to run through all distinct words (with i = 1 to end) and create a triphone of the format value[i]{value[i-1],value[i+1]}. 
+If i+1 > end replace value with 0. Now delete all triphones of the format 0{a,b} and set all 0 contex to blank values {0} -> {}.
+Now sort all the triphones lexically: S{K,V} < S{N,EH}.... Now put each distinct triphone in one row in the first column and starting at the top 
+always write 3 numbers as the indecis in the 2nd, 3rd and 4th column starting with AH{W,N} 58 59 60. Create a new file with the count of each triphone using the format S{K,V} -> K S V (replace emtpy {} with 0 again). Create a count file and plot it.
+\end{lstlisting}
+
+% subsection d_ (end)
+
+\subsection*{e)} % (fold)
+\label{sub:e_}
+
+We will solve the exercise d) using pseudo code, since the by far most important thing is to understand how to do.
+The implementation will be easy afterwards.
+
+\begin{lstlisting}
+Using the previous count file, add all triphones occuring less than 300 times together in the center triphone. Create a new list 
+with a) triphones occuring more than 300 times and b) just created monophones with indices of exercise c) and put it in a new file 
+tiedTriphones.models. In this file the format should be as follows: For a) 58 59 60 W AH N and for b) 10 11 12 F with the blank {} being replaced by 0. Now we will create the key/value pairs: 
+Take the first tree columns as the value and the remaining columns as the key. 
+Now first replace all occurances (here we should use sed in bash) of the key that has values > 57 in the file digits.ref.phoneme0 that was created before and includes all phonemes as well as 0's. So now we have replaced all occurances of triphones with their respective indices. For all the remaining phonemes we will now use the key/value pairs with values < 58 and replace them. Now delete all remaining 0 that might be left. We can again count the occurances of different indices and plot the result.
+\end{lstlisting}
+
+% subsection e_ (end)
+
+% section 1 (end)

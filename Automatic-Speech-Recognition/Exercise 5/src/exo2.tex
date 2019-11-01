@@ -1,0 +1,44 @@
+\section*{Exercise 1c)} % (fold)
+\label{sec:Exercise 1c)}
+
+First, let's define $N_{a,b}$ to be the amount of data points between the two segments $a$ and $b$. Since, we use whole integers for a and b including both a and b, we can state: $N_{a,b} = b+1 - a$.
+
+Expanding the term inside the cost function $h(a,b)$:
+
+\begin{align} 
+    h(a,b) &= \sum_{t=a}^{b}(x_t-\mu_{a,b})^2 \\
+           &= \sum_{t=a}^{b}(x_t^2-2\mu_{a,b}x_t+\mu_{a,b}^2) \\
+           &= \mu_{a,b}^2N_{a,b} + \sum_{t=a}^{b}x_t^2 -2\mu_{a,b}\sum_{t=a}^{b}x_t \\
+           &= \mu_{a,b}^2N_{a,b} + \sum_{t=a}^{b}x_t^2 -2\mu_{a,b}^2N_{a,b} \\
+           &= \sum_{t=a}^{b}x_t^2 -\mu_{a,b}^2N_{a,b} 
+\end{align} 
+
+By defining $S_k$ and $Q_k$ as the respective cumulative sum of the data points and cumulative sum of the squared of the data points and the mean in terms of $S_k$:
+\begin{align} 
+    S_k &= \sum_{t=0}^{k}x_t \\
+    Q_k &= \sum_{t=0}^{k}x_t^2 \\
+    \mu_{a,b} &= \frac{S_b - S_{a-1}}{N_{a,b}}
+\end{align} 
+
+Then the cost function $h(a,b)$ in terms of $S_k$ and $Q_k$ results from substitution on equation (5):
+
+\begin{align} 
+    h(a,b) &= Q_b - Q_{a-1} -\frac{(S_b - S_{a-1})^2}{N_{a,b}} \\
+\end{align} 
+
+We can see that we can now store the values of $S_k$ and $Q_k$ to avoid redoing the same calculations.
+An implementation of the pseudo code would look like this: 
+\begin{lstlisting}
+for t in range(0, T):
+    S[t] = S[t-1] + test[t]  # stores the cumulative sum of the data
+    Q[t] = Q[t-1] + (test[t]**2)  # stores the cumulative sum of the square
+
+def computeErrorFast(begin, end):
+    return Q[end] - Q[begin-1] - ((S[end] - S[begin-1])**2)/(end-begin+1)
+\end{lstlisting}
+
+Here, Improvement is made in calculating local cost h, while computing an error('computeError' to 'computeErrorFast').
+With it, time complexity has improved from $O(T*T)$ to linear time $O(T)$. And the entire complexity of global cost also improved accordingly. 
+Memory complexity is increased by 2T by saving the intermediate cumulative values into two lists with the length of T. Thus time complexity is $O(KT^2)$. \\ 
+
+% section Exercise 1c) (end)

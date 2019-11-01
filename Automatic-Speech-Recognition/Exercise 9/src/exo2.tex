@@ -1,0 +1,119 @@
+\section*{2)} % (fold)
+\label{sec:2}
+
+\subsection*{a)} % (fold)
+\label{sub:a}
+
+
+
+We saw in the lecture that the recursion formula in the case where we don't allow skip transitions at word boundaries looks at follows: 
+
+\[
+Q(t,s;w) = 
+\begin{cases}
+	\max_{s' \in \{ s-2, s-1, s\}, s' \geq 0}\{Q(t-1,s';w) p(x_t,s|s',w)\} \text{, if } s \in \{1,S(w)\} \\
+	p(w)\max_{v \in VOCAB}\{Q(t, S(v);v)\} \text{, else if s = 0}
+\end{cases}
+\]
+
+To be clearer: 
+\begin{itemize}
+	\item This model assumes a unigram word model: $p(w)$ is the probability of word w.
+	\item $p(x_t,s|s',w)$ can be split into $p(s|s',w) p(x_t|s,s',w) = p(s|s',w) p(x_t|s,w) $ being the transition and emission probabilities 
+	respectively.
+	\item $S(v)$ describes the last state of the word v
+	\item ${s' \in \{ s-2, s-1, s\} s' \geq 0}$ makes sure that we use the {0,1,2} model and that from a state $s=1$ we can only reach again state $s=1$ or $s=0$, but 
+	there is no state $s=-1$.
+	\item It is important to notice that a word w has the states $s \in \{1,S(w)\}$ and that the state $s = 0$ describes \emph{one} help state that is used to model
+	that the transitions at word boundaries. 
+	\item ${v \in VOCAB}$: ``VOCAB'' just describes the set of all words in the defined vocabulary.
+\end{itemize}
+
+Now, we are able to define our new recursion formula $Q'$ that allows skip transitions at word boundaries. Our new recursion formula looks at follows:
+
+\[
+Q'(t,s;w) = 
+\begin{cases}
+	\max_{s' \in \{ s-2, s-1, s\}}\{Q'(t-1,s';w) p(x_t,s|s',w)\} \text{, if } s \in \{1,S(w)\} \\
+	p(w)\max_{v \in VOCAB}\{Q'(t, S(v);v) \} \text{, else if s = 0} \\
+	p(w)\max_{v \in VOCAB}\{Q'(t, S(v) - 1;v) \} \text{, else if s = -1} 
+\end{cases}
+\]
+
+The difference to the model before is that we now have a new help state ($s = - 1$) that is there to take into account the skip transition 
+from a state $s = S(v) - 1$ of a word v to the state $s=1$ of a word w. Thus we don't need the restriction $s' \geq 0$ since the case $s' = -1$ is
+covered by our new help state and describes exactly the newly allowed skip transitions at word boundaries.
+
+% subsection a (end)
+
+\subsection*{b)} % (fold)
+\label{sub:b}
+
+In order to store both the best word boundaries time frames $[t_{s}(w),t_{t}(w)]$ for the best word w and the best word word w for the best word boundaries, two 
+traceback arrays were introduced in the lecture. Therefore $B(t)$ describes for the best starting time for the best word at time t. So we can say that $B(t) = 
+t_{s}(w), \forall t \text{, such that } W(t) = w$. From that we can easily conclude that $t_{t}(w) = t_{s}(v) - 1$, with v being the successor word of w.
+
+\[
+W(t) := \argmax_w\{Q(t,S(w);w)\},
+\]
+
+\[
+B(t) := B(t,S(W(t));W(t))
+\]
+
+with 
+
+\[
+B(t,s;w) = 
+\begin{cases}
+	B(t-1,\arg_{s' \in \{ s-2, s-1, s\}}Q(t,s;w) \text{, if } s \in \{1,S(w)\} \\
+	t \text{, else if s=0}
+\end{cases}
+\]
+
+and 
+
+\[
+Q(t) := \max_w\{Q(t,S(w);w)\}
+\]
+
+
+Plese not that $Q(t,s;w)$ is already defined above and that $\arg_{s'}Q(t,s;w)$ just means that we replace the ``$\max_{s' \in \{ s-2, s-1, s\}}$'' in 
+$Q(t,s;w)$ with $argmax_{s' \in \{ s-2, s-1, s\}}$, so that we get the best state instead of the best score
+
+Now we want to replace these formulas so that they fit with they new $Q(t,S(w);w)$ that we defined in 2a).
+
+So we simply take the $\argmax$ over all w and the $\max$ over $S(w)$ and $S(w) - 1$, since $S(w) - 1$ can also present the last state of a word
+with the allowed word boundary transition.
+
+So we arrive at: 
+
+\[
+W(t) := \argmax_w\max_{s' \in \{S(w),S(w)-1\}}\{Q'(t,s';w)\},
+\]
+
+\[
+B(t) := \max_{s' \in \{S(W(t)),S(W(t))-1\}}B(t,s';W(t))
+\]
+
+with 
+
+\[
+B(t,s;w) = 
+\begin{cases}
+	B(t-1,\arg_{s' \in \{ s-2, s-1, s\}}Q'(t,s;w) \text{, if } s \in \{1,S(w)\} \\
+	t \text{, else if } s \in \{-1,0\}
+\end{cases}
+\]
+
+and 
+
+\[
+Q(t) := \max_w\max_{s' \in \{S(w),S(w)-1\}}\{Q(t,s';w)\}
+\]
+
+
+
+% subsection 2b (end)
+
+% section 2 (end)

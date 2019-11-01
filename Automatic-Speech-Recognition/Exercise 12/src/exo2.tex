@@ -1,0 +1,34 @@
+\section*{2)} % (fold)
+\label{sec:2_}
+
+\subsection*{a)} % (fold)
+\label{sub:a_}
+
+Given $p(s|x)$ we are able to calculate $p(s)$.
+\[
+p(s) = \sum_i^N p(s|x_{i}) p(x_{i})
+\]
+
+$N$ presents here the number of data samples available for traninig.
+We see that we need $p(x)$ in addition to $p(s|x)$ to calculate $p(s)$.
+% subsection a_ (end)
+
+\subsection*{b)} % (fold)
+\label{sub:b_}
+
+In practise $p(s)$ is calculate using the relative frequency, 
+so we have $p(s)$ = $\frac{\text{\# of state s}}{\text{\# of all states}}$.
+
+In practise it is
+\begin{enumerate}
+	\item much more time and memory consuming to calculate $p(s)$ using
+the formula from a), since integration is hard for computing.
+	\item We have no access for p(x) or need to be modeled separately.
+\end{enumerate}
+
+In conclusion it is much better to calculate $p(s)$ as the relative frequency,
+so that we can also classify data not seen in training. 
+ 
+
+% subsection b_ (end)
+% section 2_ (end)

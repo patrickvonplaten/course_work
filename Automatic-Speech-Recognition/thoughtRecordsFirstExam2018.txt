@@ -1,0 +1,48 @@
+100 points - 13 tasks
+
+1) Explain and define:
+- Speech recognition
+- Speech understanding
++2 others 
+
+2) Define 
+- Word Error Rate and Levenshtein distance
+- Edit distance + operations of edit distance
+
+3) Minimal Distance
+- Derive Recursion of minimal distance between sequence of vectors formula
+- Properties of distance measure (symmetry, triangle, d(x,y) = 0) with application
+
+4) 5 steps for MFCC 
+
+5) Define Q(t,s,w) in own words: what does it stand for?
+  
+6) p(x|s) assuming single gaussian distribution - taking log() - comparison to distance measure
+
+7) Language model trigram - maximum likelihood to derive optimal p(w|v,u) -> N(w,v,u)/N(w,v)
+
+8) 
+- Neural Network: How to get p(x|s) from p(s|x) (which is output of Hybrid model in NN)
+- Why is output layer of Neural Network of language model so big? What can you do against it?
+
+9)
+- Difference linear search and tree search?
+- Why is tree search with beam search better? 
+
+10) 
+- Fourier transformation of s(t) = exp(-|t|)
+
+11) 
+- Fourier transformation of function that is more complex using result of 11) and convolution theorem and 
+some other properties of Fourier transformation
+
+12) 
+- What to pay attention for when choosing a window function for DFT having a given amount of samples of signal
+
+13)
+- Derive cepstral coefficents - how does that help to separate s[n] from h[n]
+
+That's all I remember - the tasks might not be in the right order. 
+
+
+

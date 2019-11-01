@@ -1,0 +1,143 @@
+\section*{Exercise 3} % (fold)
+\label{sec:exercise_3}
+
+\subsection*{a)} % (fold)
+\label{sub:a}
+
+\textbf{First of all, it has to be noted that the given ``distant measure'' is in fact no distant measure because 
+it does not fullfill the triange equality, f.e for $D=1, K=1$
+\[
+d(7,2) = 25 > d(7,5) + d(5,3) = 13
+\]
+We will nevertheless verify whether we have shift invariance and translation invariance}.
+
+Let x be a column vector
+$x = \begin{bmatrix}
+x_{1}\\ 
+x_{2}\\ 
+..\\ 
+x_{d} \\ 
+\end{bmatrix}$
+and y be a column vector
+$y = \begin{bmatrix}
+y_{1}\\ 
+y_{2}\\ 
+..\\ 
+y_{d} \\ 
+\end{bmatrix}$.
+
+Then $K^{-1}$, the inverse of the diagonalized covariance matrix $C$ can be denoted as, 
+$K^{-1}= diag(var(x_{1}), var(x_{2}), ..., var(x_{n})^{-1})^{-1} = diag(\frac{1}{var(x_{1})}, \frac{1}{var(x_{2})}, ..., \frac{1}{var(x_{n})})$ \\
+
+Finally, $d(x,y): \mathbb{R}^D \times \mathbb{R}^D \to \mathbb{R}$ can be denoted as following: \newline 
+
+\begin{align*}
+d(x,y) &=\begin{bmatrix}
+x_{1}-y_{1}	& x_{2}-y_{2} & ... & x_{d}-y_{d} \\ 
+\end{bmatrix}
+\begin{bmatrix}
+\frac{1}{var(x_{1})} & 0 &  ...& 0 \\ 
+0&  \frac{1}{var(x_{2})}& ... &0 \\ 
+..& ... &  ..& 0\\ 
+0& 0& 0 & \frac{1}{var(x_{d})} \\ 
+\end{bmatrix}
+\begin{bmatrix}
+x_{1}-y_{1}\\ 
+x_{2}-y_{2}\\ 
+..\\ 
+x_{d}-y_{d}\\
+\end{bmatrix} \\
+&= \sum_{i=1}^{D}\frac{(x_i - y_i)^2}{var(x_i)} \\
+\end{align*}
+
+
+% \begin{bmatrix}
+% \frac{(x_{1}-y_{1})^{2}}{var(X_{1})} & 0 &  ...& 0\\
+% 0&  \frac{(x_{2}-y_{2})^{2}}{var(X_2)}& ... &0 \\
+% ..& ... &  ..& 0\\
+% 0& 0& 0 & \frac{(x_d-y_d)^2}{var(X_d)} \\
+% \end{bmatrix}
+
+
+%Tried to simplify...
+%In other words,\\
+%distance measure
+%$d(x,y)=\sum_{i=1}^{d}(\frac{x_{i}-y_{i%}}{sd_(i)})^{2}$
+
+\subsubsection*{shift invariant} % (fold)
+\label{ssub:shift invariant}
+d(x,y) is shift invariant i.f.f. \\ 
+$d({x}',{y}') := d(x-a,y-a) = d(x,y)$  
+when 
+let ${x}' \rightarrow x + a$ and ${y}' \rightarrow y + a$ where $x, \in R^{D}$. \newline 
+\begin{align}
+d(x-a,y-a) 
+&=\sum_{i=1}^{D}\frac{(x_i - a - (y_i - a))^2}{var(x_i-a)} \\
+\text{(using that var of constant is zero)} &=\sum_{i=1}^{D}\frac{(x_i - y_i)^2}{var(x_i)} \\
+&= d(x,y) \\
+\end{align}
+
+Thus, d(x,y) is invariant under translation.
+
+% subsubsection shift invariant (end)
+
+\subsubsection*{scale invariant} % (fold)
+\label{ssub:scale invariant}
+d(x,y) is scale invariant i.f.f. \newline
+$d({x}',{y}') := d(x,y)$
+where  $x \rightarrow {x}' =
+\begin{bmatrix}
+	c_{1}x_{1}\\ 
+	c_{2}x_{2}\\ 
+	..\\ 
+	c_{d}x_{d} \\ 
+\end{bmatrix}$
+and 
+$y \rightarrow {y}' = 
+\begin{bmatrix}
+	c_{1}y_{1}\\ 
+	c_{2}y_{2}\\ 
+	..\\ 
+	c_{d}y_{d} \\ 
+\end{bmatrix}$
+with $c_{d} \in \reals$. \newline
+
+\begin{align}
+d({x}',{y}') &= \sum_{i=1}^{D}\frac{({c_i}x_i - {c_i}y_i)^2}{var({c_i}x_i)}\\
+&= \sum_{i=1}^{D}\frac{{c_i}^2(x_i - y_i)^2}{{c_i}^2var(x_i)} \\
+&= \sum_{i=1}^{D}\frac{(x_i - y_i)^2}{var(x_i)}\frac{{c_i}^2}{{c_i}^2} \\
+&= \sum_{i=1}^{D}\frac{(x_i - y_i)^2}{var(x_i)} \\
+&= d(x,y) \\
+\end{align}
+
+ % &=\begin{bmatrix}
+% \frac{(c_{1} \cdot (x_{1}-y_{1}))^{2}}{var(c_{2} \cdot X_{1})} & 0 &  ...& 0\\
+% 0&  \frac{(c_{2} \cdot (x_{2}-y_{2}))^{2}}{var(c_{2} \cdot X_2)}& ... &0 \\
+% ..& ... &  ..& 0\\
+% 0& 0& 0 & \frac{(c_{d} \cdot (x_{d}-y_{d}))^{2}}{var(c_{d} \cdot X_d)} \\
+% \end{bmatrix}\\
+% &= \begin{bmatrix}
+% \% frac{c_{1}^{2}}{c_{1}^{2}}\cdot  \frac{(x_{1}-y_{1})^{2}}{var(X_{1})} & 0 &  ...& 0\\
+% 0&  \frac{c_{2}^{2}}{c_{2}^{2}}\cdot  \frac{(x_{2}-y_{2})^{2}}{var(X_2)}& ... &0 \\
+% ..& ... &  ..& 0\\
+% 0& 0& 0 & \frac{c_{d}^{2}}{c_{d}^{2}}\cdot \frac{(x_d-y_d)^2}{var(X_d)} \\
+% \end{bmatrix}\\
+% &=\begin{bmatrix}
+% \frac{(x_{1}-y_{1})^{2}}{var(X_{1})} & 0 &  ...& 0\\
+% 0&  \frac{(x_{2}-y_{2})^{2}}{var(X_2)}& ... &0 \\
+% ..& ... &  ..& 0\\
+% 0& 0& 0 & \frac{(x_d-y_d)^2}{var(X_d)} \\
+% \end{bmatrix}\\
+% &=d(x,y)
+
+
+
+Thus, d(x,y) is scale invariant.
+This example shows the case where we take the \emph{Mahalanobis distance} (while forgetting the square root) and 
+do the transformation $x \rightarrow {x}' = U^{T}x$ and $y \rightarrow {y}' = U^{T}y$, so that $K = U^{T}CU$ is 
+the diagonalized covariance matrix.
+
+% subsubsection scale invariant (end)
+% subsection a (end)
+
+% section exercise_3 (end)

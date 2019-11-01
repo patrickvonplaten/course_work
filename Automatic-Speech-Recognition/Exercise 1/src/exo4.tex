@@ -1,0 +1,78 @@
+\section*{Exercise 4} % (fold)
+\label{sec:section_name}
+
+\subsection*{a)} % (fold)
+\label{sub:a}	
+
+The word error rate performance metric or Levenshtein word edit distance compares a reference sequence of words that is known to be 
+correct to an sequence of word hypothesis and is defined as the ratio between the sum of number of word substitutions (S), word 
+deletions (D) and 
+word insertions (I) needed by the hypothesis to be transformed to the reference divided by the length of the longest word sequence 
+between hypothesis (H) and reference (R):
+\[
+	WER = \frac{S_{word} + D_{word} + I_{word}}{R_{length}}
+\]
+
+% subsection a (end)
+
+\subsection*{b)} % (fold)
+\label{sub:b}
+
+The WER definition operates at the word level, measuring word errors rather than the CER definition which operates at the phoneme 
+level. Working at the phoneme level requires a character level of speech processing. Since a word has at least one character or 
+more, the CER might have same amount or more reference characters as the WER has reference words for the same input reference text 
+making the CER a more precise performance metric than the WER. Therefore we consider here a sequence of characters as reference and 
+hypothesis.
+The CER is commonly used for character based languages (i.e. Chinese) instead of the WER, even as the language model still might be 
+word based. 
+
+\[
+	CER = \frac{S_{character} + D_{character} + I_{character}}{R_{length}}
+\]
+
+
+% subsection b (end)
+
+\subsection*{c)} % (fold)
+\label{sub:c}
+
+
+The same way words and characters can be used as units for measuring performance for an ASR system, sentences can be compared as 
+larger chunks of speech and compared between hypothesis and reference. Since a sentence has at least one or more words, this means 
+the WER and CER have the same amount or more of references (words and characters respectively), than SER has sentence references for 
+the same input reference text making the SER a broader metric than WER. Therefore we consider here a sequence of sentences as 
+reference and 
+hypothesis.
+
+\[
+	SER = \frac{\text{false sentencens in H}}{\text{sentences in R}}
+\]
+
+
+\subsection*{d)} % (fold)
+\label{sub:d}
+
+We know that the CER is more precise than the WER, which is more precise than the SER. 
+Let's take the following reference word sequence: ``This is she''.
+Taking the hypothetical word sequence: ``This is shy'' would produce:
+
+\[
+	WER = \frac{1}{3} > CER = \frac{1}{9}
+\]
+
+Taking the hypothetical word sequence: ``dish is she'' would produce: 
+
+\[
+	WER = \frac{1}{3} < CER = \frac{4}{9}
+\]
+
+This example and the fact that these metrics depend on the language used (as stated with the Chinese example using CER) between WER, 
+CER and SER, make it hard to find a \textbf{general quantitative relationship}.
+
+Since a well trained speech recognition system would most likely put out the hypothetical word sequence ``This is she'' than 
+``dish is she'' and it is rare that all characters of a word are wrong when all other words are correct
+we can say though that in most cases: 
+
+\centering \( SER \geq WER \geq CER \)
+
+% section section_name (end)

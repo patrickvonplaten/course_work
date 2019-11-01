@@ -1,0 +1,67 @@
+\section*{1b)} % (fold)
+\label{sec:1b}
+
+We take the result of the Log-Likelihood Function, we derived in 1a) and write out the normal density function:
+
+\begin{align}
+\mathcal{L}\mathcal{L}(x_1^T; \mu_m, \sigma_m^2, m = 1,2,3) &= \sum_{m=1}^{3}\sum_{i=s_m}^{e_m}log(\mathcal{N}(x_i; \mu_m, \sigma_m^2)) \\
+&= \sum_{m=1}^{3}\sum_{i=s_m}^{e_m}(log(\frac{1}{\sqrt{2\pi\sigma_m^2}}e^{-\frac{(x_i - \mu_m)^2}{2\sigma_m^2}}) \\
+&= -\frac{1}{2}\sum_{m=1}^{3}\sum_{i=s_m}^{e_m}(log(2\pi\sigma_m^2)+\frac{(x_i - \mu_m)^2}{\sigma_m^2}))
+\end{align}
+
+In order to calculate the maximum likelihood estimation of a parameter, we will derive $\mathcal{L}\mathcal{L}$ by the parameter in 
+question and set the equation to zero. 
+
+\subsection*{Case 1: Parameter = $\mu_m$} % (fold)
+\label{sub:_mu}
+
+\begin{align}
+\frac{\partial\mathcal{L}\mathcal{L}(x_1^T; \mu_m, \sigma_m^2, m = 1,2,3)}{\partial\mu_m} &= \frac{\partial(-\frac{1}{2}\sum_{m=1}^{3}\sum_{i=s_m}^{e_m}(log(2\pi\sigma_m^2)+\frac{(x_i - \mu_m)^2)}{\sigma_m^2}))}{\partial\mu_m} \\
+&= -\frac{1}{2}\sum_{i=s_m}^{e_m}(-2\frac{x_i - \mu_m}{\sigma_m^2}) \\
+&= \sum_{i=s_m}^{e_m}(\frac{x_i}{\sigma_m^2}) - (e_m - s_m + 1)( \frac{\mu_m}{\sigma_m^2}) \\
+&!= 0
+\end{align}
+
+So we get:
+
+\[
+\hat{\mu}_m = \frac{1}{e_m - s_m + 1}\sum_{i=s_m}^{e_m}x_i
+\]
+
+
+
+% subsection _mu (end)
+
+\subsection*{Case 2: Parameter = $\sigma_m^2$} % (fold)
+\label{sub:_sigma_m}
+
+\begin{align}
+\frac{\partial\mathcal{L}\mathcal{L}(x_1^T; \mu_m, \sigma_m^2, m = 1,2,3)}{\partial\sigma_m^2} &= \frac{\partial(-\frac{1}{2}\sum_{m=1}^{3}\sum_{i=s_m}^{e_m}(log(2\pi\sigma_m^2)+\frac{(x_i - \mu_m)^2)}{\sigma_m^2}))}{\partial\sigma_m^2} \\
+&= -\frac{1}{2}\sum_{i=s_m}^{e_m}\frac{1}{\sigma_m^2} - \frac{(x_i - \mu_m)^2}{\sigma_m^4}) \\
+&= -\frac{1}{2\sigma_m^2}((e_m - s_m + 1) - \frac{1}{\sigma_m^2}\sum_{i=s_m}^{e_m}(x_i - \mu_m)^2) \\
+&!= 0
+\end{align}
+
+So we get: 
+
+\[
+\hat{\sigma}_m^2 = \frac{\sum_{i=s_m}^{e_m}(x_i - \mu_m)^2}{e_m - s_m + 1}
+\]
+
+\subsection*{Case 3: Parameter = $\sigma^2$} % (fold)
+\label{sub:_sigma}
+
+\begin{align}
+\frac{\partial\mathcal{L}\mathcal{L}(x_1^T; \mu_m, \sigma_m^2, m = 1,2,3)}{\partial\sigma^2} &= \frac{\partial(-\frac{1}{2}\sum_{m=1}^{3}\sum_{i=s_m}^{e_m}(log(2\pi\sigma_m^2)+\frac{(x_i - \mu_m)^2)}{\sigma_m^2}))}{\partial\sigma^2} \\
+&= -\frac{1}{2}\sum_{m=1}^{3}\sum_{i=s_m}^{e_m}\frac{1}{\sigma^2} - \frac{(x_i - \mu_m)^2}{\sigma^4}) \\
+&= -\frac{1}{2\sigma^2}((T) - \frac{1}{\sigma^2}\sum_{m=1}^{3}\sum_{i=s_m}^{e_m}(x_i - \mu_m)^2) \\
+&!= 0
+\end{align}
+
+So we get: 
+
+\[
+\hat{\sigma}^2 = \frac{\sum_{m=1}^{3}\sum_{i=s_m}^{e_m}(x_i - \mu_m)^2}{T}
+\]
+
+% section 1b (end)

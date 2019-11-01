@@ -1,0 +1,202 @@
+\section*{Exercise 2} % (fold)
+\label{sec:section_name}
+
+\subsection*{a)}
+\label{sub:subsection_name}
+
+We define the vector of the reference signal as: $s \in \reals^{13} \text{ and } t \in \reals^{21}$ as the vector of the hypothesis.
+Given from the design, we have: 
+
+\begin{align} 
+s =& \left[\begin{array}{ccccccccccccc} 0 & 2 & 2 & 1 & 3 & 4 & 5 & 5 & 4 & 1 & 2 & 1 & 0 \end{array}\right]^{T} \\
+t =& \left[\begin{array}{ccccccccccccccccccccc} 0 & 0 & 0 & 2 & 2 & 2 & 1 & 3 & 4 & 5 & 4 & 2 & 1 & 1 & 1 & 2 & 2 & 2 & 1 & 0 \end{array}\right]^{T}	
+\end{align}
+
+In the following we will show the matrix of the local distances $M \in \reals^{13} \times \reals^{21}$, where as the matrix 
+is defined as: $m_{ij} = |s_{i} - t_{i}| $.
+
+So our final result is: 
+
+\[ M = 
+\left[
+\begin{array}{cccccccccccccccccccccc}
+ 0 & 0 & 0 & 2 & 2 & 2 & 1 & 3 & 4 & 5 & 4 						& 3 & 2 & 1 & 1 & 1 & 2 & 2 & 2 & 1 & \fbox{0} \\
+ 2 & 2 & 2 & 0 & 0 & 0 & 1 & 1 & 2 & 3 & 2 						& 1 & 0 & 1 & 1 & 1 & 0 & 0 & 0 & \fbox{1} & 2 \\
+ 2 & 2 & 2 & 0 & 0 & 0 & 1 & 1 & 2 & 3 & 2 						& 1 & 0 & 1 & 1 & 1 & \fbox{0} & \fbox{0} & \fbox{0} & 1 & 2 \\
+ 1 & 1 & 1 & 1 & 1 & 1 & 0 & 2 & 3 & 4 & 3 						& 2 & 1 & \fbox{0} & \fbox{0} & \fbox{0} & 1 & 1 & 1 & 0 & 1 \\
+ 3 & 3 & 3 & 1 & 1 & 1 & 2 & 0 & 1 				 & 2 & 1 		& \fbox{0} & \fbox{1} & 2 & 2 & 2 & 1 & 1 & 1 & 2 & 3 \\
+ 4 & 4 & 4 & 2 & 2 & 2 & 3 & 1 & 0 & 1 & 			   \fbox{0}	& 1 & 2 & 3 & 3 & 3 & 2 & 2 & 2 & 3 & 4 \\
+ 5 & 5 & 5 & 3 & 3 & 3 & 4 & 2 & 1 & 			   \fbox{0} & 1	& 2 & 3 & 4 & 4 & 4 & 3 & 3 & 3 & 4 & 5 \\
+ 5 & 5 & 5 & 3 & 3 & 3 & 4 & 2 & 1 						& 0 & 1	& 2 & 3 & 4 & 4 & 4 & 3 & 3 & 3 & 4 & 5 \\
+ 4 & 4 & 4 & 2 & 2 & 2 & 3 & \fbox{1} & \fbox{0} 		& 1 & 0	& 1 & 2 & 3 & 3 & 3 & 2 & 2 & 2 & 3 & 4 \\
+ 1 & 1 & 1 & 1 & 1 & 1 & \fbox{0} & 2 & 3 & 4 				& 3	& 2 & 1 & 0 & 0 & 0 & 1 & 1 & 1 & 0 & 1 \\
+ 2 & 2 & 2 & \fbox{0} & \fbox{0} & \fbox{0} & 1 & 1 & 2 & 3 & 2	& 1 & 0 & 1 & 1 & 1 & 0 & 0 & 0 & 1 & 2 \\
+ 1 & 1 & 1 & 1 & 1 & 1 & 0 & 2 & 3 & 4 						& 3	& 2 & 1 & 0 & 0 & 0 & 1 & 1 & 1 & 0 & 1 \\
+ \fbox{0} & \fbox{0} & \fbox{0} & 2 & 2 & 2 & 1 & 3 & 4 & 5 & 4 & 3 & 2 & 1 & 1 & 1 & 2 & 2 & 2 & 1 & 0 \\
+\end{array}
+\right]
+\]
+
+% subsection a (end)
+
+\subsection*{b)} % (fold)
+\label{sub:b}
+
+We looking at the matrix from a), we can see the marked path in following the $\fbox{x}$.
+
+% subsection b (end)
+
+\subsection*{c)} % (fold)
+\label{sub:c}
+\subsubsection*{Recursive formula for path specification (C)}
+\label{subsub:ci}
+The recursion formula is derived by minimizing the total distance over both time axis $s$ and $t$:
+\begin{align}
+    D(t,s) &= \min_{l\to (t(l),s(l))}\left\{\sum_{l=1}^{\lambda}d(x_t(l)),y_s(l)) : (t(\lambda),s(\lambda)) = (t,s)\right\}
+\end{align}
+
+Following the logic of the recursive formula's for the path specifications from the lecture, we arrive at: 
+
+Finally obtaining the recursive formula by considering the previous grid points and their previous distance:
+\[
+D(t,s) = d(x_t,y_s) + \min \{ D(t-2,s-1) + d(x_{t-1},y_s), D(t-1,s-1), D(t-1,s-2) + d(x_t,y_{s-1}) \}
+\]
+
+
+\subsubsection*{Recursive formula for path specification (D)}
+\label{subsub:cii}
+
+In this case, the calculation for the recursive formula requires the same first 2 steps as in previous case. Then it is just required to take the minimum over the accumulated distance sums for the 3 possible previous paths over the previous grid-points (t-1,s-2), (t-1,s-1) and (t-2,s-1). So we obtain the recursive formula taking the minimum over the previous 3 accumulated distances (i.e. each sum):
+
+\[
+D(t,s) = d(x_t,y_s) + \min \{ D(t-2,s-1), D(t-1,s-1), D(t-1,s-2)) \}
+\]
+
+
+% subsection c (end)
+
+\subsection*{d)} % (fold)
+\label{sub:d}
+
+In the following we are going to draw the matrix from whereas a grid point marked with $X$ is a grid point that has to be searched 
+and a grid point marked with a $O$ is a grid point that does not have to be searched for the given path specification. 
+
+We define the lattice for the search space as $L_{search}^i$.
+
+\subsubsection*{path specification A} % (fold)
+\label{ssub:path_specification_a}
+
+\[ L_{search}^A = 
+\left[
+\begin{array}{ccccccccccccccccccccc}
+ X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X \\
+ X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X \\
+ X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X \\
+ X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X \\
+ X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X \\
+ X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X \\
+ X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X \\
+ X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X \\
+ X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X \\
+ X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X \\
+ X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X \\
+ X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X \\
+ X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X \\
+\end{array}
+\right]
+\]
+
+For the path specification $A$, we can see that both the movements ``one-up'' and the movement ``one-to-the-right'' are allowed, 
+so we have to consider all possible gridpoints in our calculation: \textbf{$13*21=273$}.
+
+% subsubsection path_specification_a (end)
+
+\subsubsection*{path specification B} % (fold)
+\label{ssub:path_specification_a}
+
+\[ L_{search}^B = 
+\left[
+\begin{array}{cccccccccccccccccccccc}
+ O & O & O & O & O & O & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X \\
+ O & O & O & O & O & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & O \\
+ O & O & O & O & O & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & O \\
+ O & O & O & O & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & O & O \\
+ O & O & O & O & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & O & O \\
+ O & O & O & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & O & O & O \\
+ O & O & O & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & O & O & O \\
+ O & O & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & O & O & O & O \\
+ O & O & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & O & O & O & O \\
+ O & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & O & O & O & O & O \\
+ O & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & O & O & O & O & O \\
+ X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & O & O & O & O & O & O \\
+ X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & O & O & O & O & O & O \\
+\end{array}
+\right]
+\]
+
+For the path specification $A$, we can see that we cannot do the ``one-up'' movement anymore. Thus, our search is limited to: \textbf{$273-42-36=195$}.
+
+% subsubsection path_specification_b (end)
+
+\subsubsection*{path specification C} % (fold)
+\label{ssub:path_specification_c}
+
+\[ L_{search}^C = 
+\left[
+\begin{array}{cccccccccccccccccccccc}
+ O & O & O & O & O & O & O & O & O & O & O & O & O & O & O & O & O & O & O & X & X \\ 
+ O & O & O & O & O & O & O & O & O & O & O & O & O & O & O & O & O & X & X & X & X \\ 
+ O & O & O & O & O & O & O & O & O & O & O & O & O & O & O & X & X & X & X & X & O \\ 
+ O & O & O & O & O & O & O & O & O & O & O & O & O & X & X & X & X & X & X & O & O \\ 
+ O & O & O & O & O & O & O & O & O & O & O & X & X & X & X & X & X & X & O & O & O \\ 
+ O & O & O & O & O & O & O & O & O & X & X & X & X & X & X & X & O & O & O & O & O \\ 
+ O & O & O & O & O & O & O & X & X & X & X & X & X & X & O & O & O & O & O & O & O \\ 
+ O & O & O & O & O & X & X & X & X & X & X & X & O & O & O & O & O & O & O & O & O \\ 
+ O & O & O & X & X & X & X & X & X & X & O & O & O & O & O & O & O & O & O & O & O \\ 
+ O & 0 & X & X & X & X & X & X & O & O & O & O & O & O & O & O & O & O & O & O & O \\ 
+ O & X & X & X & X & X & O & O & O & O & O & O & O & O & O & O & O & O & O & O & O \\ 
+ X & X & X & X & O & O & O & O & O & O & O & O & O & O & O & O & O & O & O & O & O \\ 
+ X & X & O & O & O & O & O & O & O & O & O & O & O & O & O & O & O & O & O & O & O \\ 
+\end{array}
+\right]
+\]
+
+Since, we neither have a ``one-up'' nor a ``one-to-the-right'' movement anymore, it is 
+quite obvious that our search is much more limited now. There are only \todo{Count the gridpoints!} gridpoints 
+left that need to be considered by our algorithm.
+
+% subsubsection path_specification_c (end)
+
+\subsubsection*{path specification D} % (fold)
+\label{ssub:path_specification_d}
+
+\[ L_{search}^D = 
+\left[
+\begin{array}{cccccccccccccccccccccc}
+ O & O & O & O & O & O & O & O & O & O & O & O & O & O & O & O & O & O & O & O & X \\
+ O & O & O & O & O & O & O & O & O & O & O & O & O & O & O & O & O & O & X & X & O \\
+ O & O & O & O & O & O & O & O & O & O & O & O & O & O & O & O & X & X & X & X & O \\
+ O & O & O & O & O & O & O & O & O & O & O & O & O & O & X & X & X & X & X & O & O \\
+ O & O & O & O & O & O & O & O & O & O & O & O & X & X & X & X & X & X & O & O & O \\
+ O & O & O & O & O & O & O & O & O & O & X & X & X & X & X & X & O & O & O & O & O \\
+ O & O & O & O & O & O & O & O & X & X & X & X & X & X & O & O & O & O & O & O & O \\
+ O & O & O & O & O & O & X & X & X & X & X & X & O & O & O & O & O & O & O & O & O \\
+ O & O & O & O & X & X & X & X & X & X & O & O & O & O & O & O & O & O & O & O & O \\
+ O & O & X & X & X & X & X & X & O & O & O & O & O & O & O & O & O & O & O & O & O \\
+ O & X & X & X & X & X & O & O & O & O & O & O & O & O & O & O & O & O & O & O & O \\
+ X & X & X & X & O & O & O & O & O & O & O & O & O & O & O & O & O & O & O & O & O \\
+ X & X & O & O & O & O & O & O & O & O & O & O & O & O & O & O & O & O & O & O & O \\
+\end{array}
+\right]
+\]
+
+The last path specification even limits the lattice-to-be-searched a little bit more than in $C$, 
+giving us only \todo{Count the gridpoints!} gridpoints left that need to be considered by our algorithm.
+
+% subsubsection path_specification_d (end)
+
+% subsubsection subsubsection_name (end)
+
+% subsection d (end)
+
+% section section_name (end)

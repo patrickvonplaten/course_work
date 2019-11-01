@@ -1,0 +1,273 @@
+\section*{1)} % (fold)
+
+In the following exercise, we will describe the pseudo code needed to solve the exercises.
+
+\subsection*{a)} % (fold)
+\label{sub:a}
+
+The following pseude code describes an algorithm to create a phonetic prefix tree using 
+an input file format as in the attached file \lstinline|lexicon.xml|.
+
+\begin{python}
+class ListOfWords():
+	def __init__(self, file):
+		self.listOfWords = self.makeListOfWords(file)
+		#return sum of all phonemes of all list of phonemes
+		self.totalAmountOfPhonemes = self.getTotalPhonemes() 
+		#return count of words with len(word) <= 2
+		self.totalWordsMore1Phoneme = self.countWords(2)
+		#return count of words with len(word) <= 3 
+		self.totalWordsMore2Phonemes = self.countWords(3) 
+
+	def makeListOfWords(self, file):
+		list = []
+
+		# read in all distinct words containing lemmas as string
+		for line in file:
+			#split lines by space to a list: 'a bc d' -> [a,bc,d]
+			list.append(line.split()) 
+		return list
+		
+class Tree():
+	def __init__(self):
+		self.root = new Node('si')
+		self.edgesForSearch = 0
+		self.edgesForSeachUntil2 = 0
+		self.edgesForSearchUntil3 = 0
+
+	def insertPhonemList(self, phonemeList): 
+		len = len(phonemeList)
+		node = self.root
+
+		for i in range(len):
+			child = node.find(phonemeList[i])
+
+			if(child == None):
+				newChild = newNode(value)
+				child.insertNode(newChild)
+				node = newChild
+
+				self.edgesForSearch += 1
+				if(i < 3):
+					self.edgesForSearch3 +=1 
+					if(i < 2):
+						self.edgesForSearch2 +=1
+
+			else:
+				node = child
+
+class Node():
+   def __init__(self, value):
+   	   self.value = value
+       self.children = [] 
+
+   def insertNode(self, value):
+   	   self.children.add(new Node(value));
+
+   def find(self, value):
+   	   for child in self.children: 
+   	   		if(child.value == value): 
+   	   			return child;
+   	   return None;
+\end{python}
+
+\subsection*{b)} % (fold)
+\label{sub:b}
+
+Using the written code to 1) create the lexical prefix tree and 
+2) to print out the desired compression ratio, we need to write the 
+following code:
+
+\begin{python}
+if __name__ == "__main__":
+	listOfWordsAsPhonemes = new ListOfWords('lexicon.xml')
+	lexiconPrefixTree = new Tree()
+
+	for phonemeList in listOfWordsAsPhonemes:
+		lexiconPrefixTree.insertPhonemList(phonemeList)
+
+	#3 since there are 3 states per word
+	print('(i)', 3 * listOfWordsAsPhonemes.totalPhonemes/
+		3 * lexiconPrefixTree.edgesToSearch) 
+	print('(ii)', 3 * listOfWordsAsPhonemes.totalWordsMore1Phoneme/
+		3 * lexiconPrefixTree.edgesForSeachUntil2)
+	print('(iii)', 3 * listOfWordsAsPhonemes.totalWordsMore2Phonemes/
+		3 * lexiconPrefixTree.edgesForSeachUntil3)
+\end{python}
+
+It can clearly be seen that, especially for the first two levels the the compression factor is enormous.
+Even for the whole tree, we can see a compression factor of around $\simeq 2.691$.
+
+\begin{itemize}
+	\item (i) Complete tree: $\frac{241389}{89694} = 2.6913$
+	\item (ii) First 2 Levels: $\frac{83142}{1932} = 43.0341$
+	\item (iii) First 3 Levels: $\frac{123747}{11637} = 10.6339$
+\end{itemize}
+
+
+% subsection subsection_name (end)
+
+\subsection*{c)} % (fold)
+\label{sub:c_}
+
+The difference now is that, we will have a list of triphones instead of monophones. So our list of words instead of looking like:
+
+\begin{python}
+[
+	['jh','uw','l'],
+	......
+]
+\end{python}
+
+
+looks more like
+
+\begin{python}
+[
+	['jh{#+uw}','uw{jh+l}','l{uw+#}'],
+	......
+]
+\end{python}
+
+So we need to make a new \lstinline|self.makeListOfWords| functinon:
+
+\begin{python}
+def makeListOfWords(self, file):
+		list = []
+
+		# read in all distinct words containing lemmas as string
+		for line in file:
+			phonemeList = []
+			phonemes = line.split();
+
+			for i in range(phonemes):
+				prev = '#'
+				next = '#'
+				if(i > 0):
+					prev = line[i-1]
+				if(i < len(line) - 1)
+					next = line[i+1]
+				phonemeList.append(phonemes[i]+ '{' + prev + '+' next + '}')
+
+			list.append(phonemeList)
+		return list
+\end{python}
+
+Having obviously more nodes now, the compression factor will be 
+much lower so that we get a compression factor of $\simeq 1.863$
+
+
+\begin{itemize}
+	\item (i) Complete tree: $\frac{241389}{129546} = 1.863$
+	\item (ii) First 2 Levels: $\frac{83142}{12192} = 6.189$
+	\item (iii) First 3 Levels: $\frac{123747}{33837} = 3.657$
+\end{itemize}
+
+% subsection c_ (end)
+
+\subsection*{d)} % (fold)
+\label{sub:d_}
+
+Now we tied the triphones to different clusters. This strongly limits the search complexity and also makes it possible to 
+assign triphones not seen in the training data to a given cluster using the CART that created the tied triphones. 
+
+To be able to create a lexical prefix tree with the given triphone clusters, we need to modify our code since now we want to 
+save the index of a given triphone cluster instead of the triphones itself as the \lstinline|node.value|. The indices of the clusters can be found in the file: 
+\lstinline|cart.phone|. So instead of saving a ``list of list of phonemes'', we need to save a ``list of list of indices''.
+
+So our modified class \lstinline|ListOfWords| looks as follows:
+
+\begin{python}
+class ListOfWords():
+	def __init__(self, lexicon, phonemeCluster):
+		self.phonemeIndexDict = self.makePhonemeIndexDict(phonemeCluster)
+		self.listOfWords = self.makeListOfWords(lexicon)
+		#return sum of all phonemes of all list of phonemes
+		self.totalAmountOfPhonemes = self.getTotalPhonemes() 
+		#return count of words with len(word) <= 2
+		self.totalWordsMore1Phoneme = self.countWords(2)
+		#return count of words with len(word) <= 3 
+		self.totalWordsMore2Phonemes = self.countWords(3) 
+
+	def makePhonemeIndexDict(self, phonemeCluster):
+		phoIdxDict = {}
+		for line in phonemeCluster: 
+			phoIdxDict[line.split[0]] = line.split[1];
+
+	def makeListOfWords(self, lexicon):
+		list = []
+
+		# read in all distinct words containing lemmas as string
+		for line in file:
+			indexList = []
+			phonemes = line.split();
+
+			for i in range(phonemes):
+				prev = '#'
+				next = '#'
+				if(i > 0):
+					prev = line[i-1]
+				if(i < len(line) - 1)
+					next = line[i+1]
+				phoneme = phonemes[i] + '{' + prev + '+' next + '}'
+				indexList.append(self.phonemeIndexDict[phoneme])
+
+			#indexList: e.g [123, 224, 13, 25]
+			list.append(indexList)
+		return list
+\end{python}
+
+We would expect the compression factor to go up again since we can merge certain nodes having the same 
+indices. The result is: 
+
+\begin{itemize}
+	\item (i) Complete tree: $\frac{241389}{94674} = 2.5497$
+	\item (ii) First 2 Levels: $\frac{83142}{2919} = 28.4830$
+	\item (iii) First 3 Levels: $\frac{123747}{13446} = 9.2032$
+\end{itemize}
+
+\subsection*{e)} % (fold)
+\label{sub:e_}
+
+Before a triphone corresponded to exactly one cluster and thus one index. Now since, we look more closely and give a different index to 
+every state of a triphone. A triphone has three states. Hence an index now corresponds to the first, second or third state of multiple 
+triphones. So we need to save three indexes as the value per node. For that we slightly need to change the function 
+\lstinline|makeListOfWords| of class \lstinline|ListOfWords|:
+
+\begin{python}
+def makeListOfWords(self, lexicon):
+	list = []
+
+	# read in all distinct words containing lemmas as string
+	for line in file:
+		indexList = []
+		phonemes = line.split();
+
+		for i in range(phonemes):
+			prev = '#'
+			next = '#'
+			if(i > 0):
+				prev = line[i-1]
+			if(i < len(line) - 1)
+				next = line[i+1]
+			phoneme = phonemes[i] + '{' + prev + '+' next + '}'
+
+			indexList.append([self.phonemeIndexDict[phoneme + '.0'],self.phonemeIndexDict[phoneme + '.1'],
+			self.phonemeIndexDict[phoneme + '.2']])
+
+		#indexList: e.g [[123,13,569], [23,734,78], [224,13,25]]
+		list.append(indexList)
+	return list
+\end{python}
+
+Since the lexical prefix tree already includes the states, we don't need to multiply by 3 anymore. Instead we have to count the indices per node.
+
+The result is a minor decrease in compression factor: 
+
+\begin{itemize}
+	\item (i) Complete tree: $\frac{241389}{107168} = 2.2524$
+	\item (ii) First 2 Levels: $\frac{83142}{3270} = 15.7765$
+	\item (iii) First 3 Levels: $\frac{123747}{19732} = 6.271$
+\end{itemize}
+
+% section 1 (end)

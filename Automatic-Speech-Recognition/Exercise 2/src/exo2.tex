@@ -1,0 +1,198 @@
+\section*{Exercise 2} % (fold)
+\label{sec:section_name}
+
+We want to check whether all distance functions $d_n, \forall n \in \{1,2,3\}$ are distance measures by verifying each of the 
+following properties:
+
+\begin{itemize}
+	\item $d(x,y)=0 <=> x=y$
+	\item $d(x,y) = d(y,x)$
+	\item $d(x,y) \leq d(x,z) + d(z,y)$
+\end{itemize}
+
+If all properties are fulfilled, the distance function is called a distance measure.
+After we will see which of the distance measures is shift, rotation or scale invariant.
+\subsection*{i)} % (fold)
+\label{sub:i}
+
+Let's check all properties for $d_1: \mathbb{R} \times \mathbb{R} \to \mathbb{R}, d_1(x,y) = |x^2 - y^2|$:
+
+\subsubsection*{zero distance} % (fold)
+\label{ssub:zero_distance}
+\[
+d_1(-3,3) = |(-3)^2 - 3^2| = 0, \text{ but } x \neq y
+\]
+
+% subsubsection zero_distance (end)
+
+\subsubsection*{symmetry} % (fold)
+\label{ssub:symmetry}
+
+\[
+d_1(y,x) = |y^2 - x^2| = |-(x^2 - y^2)| = |x^2 - y^2|
+\]
+
+% subsubsection symmetry (end)
+
+\subsubsection*{triangle inequality} % (fold)
+\label{ssub:triangle_inequality}
+
+\[
+d_1(x,y) = |x^2 - y^2| = |x^2 - z^2 + z^2 - y^2|.
+\] 
+Let's define:
+\[
+a,b \in \mathbb{R}: a = x^2 - z^2, b = z^2 - y^2. 
+\]
+Using the triangle inequality, we know that 
+\[
+|a| + |b| \geq |a+b| <=> |x^2 - y^2| \leq |x^2 - z^2| + |z^2 - y^2|
+\]
+
+Since the ``zero distance'' property is not fulfilled, \textbf{$d_1$ is not 
+a distance measure}.
+% subsubsection triangle_inequality (end)
+
+% subsection i (end)
+
+\subsection*{ii)} % (fold)
+\label{sub:ii}
+
+Let's check all properties for $d_2: \left[0,\pi\right]^D \times \left[0,\pi\right]^D \to \mathbb{R}$
+and $d_2(x,y) = \sqrt{\sum_{i=1}^{D}(cos(x_i)-cos(y_i))^2}$:
+
+\subsubsection*{zero distance} % (fold)
+\label{ssub:zero_distance}
+Let's define $a_i := (cos(x_i) - cos(y_i))^2$. Since $a_i \geq 0$, it is obvious that $\sum_{i=1}^{D}a_i = 0 <=> a_i = 0, \forall i \in \{1,...,D\}$.
+Since $f(x) = cos(x)$ is a strictly monotonic function over the interval $\left[0,\pi\right]$, we can conclude 
+that $cos(x_i)-cos(y_i) = 0 <=> x_i = y_i$. Hence the distance function fulfills the ``zero distance'' property.
+
+% subsubsection zero_distance (end)
+
+\subsubsection*{symmetry} % (fold)
+\label{ssub:symmetry}
+
+\begin{align}
+    d_2(y,x) &= \sqrt{\sum_{i=1}^{D}(cos(y_i)-cos(x_i))^2}\\
+     &= \sqrt{\sum_{i=1}^{D}(-1)^2(cos(x_i)-cos(y_i))^2}\\
+     &= \sqrt{\sum_{i=1}^{D}(cos(x_i)-cos(y_i))^2}\\
+     &= d_2(x,y)
+\end{align}
+
+We can see that symmetry is fulfilled.
+
+% subsubsection symmetry (end)
+
+\subsubsection*{triangle inequality} % (fold)
+\label{ssub:triangle_inequality}
+
+To prove the triangle inequality in this case, 
+we will use the cauchy-schwarz inequality for vectors
+which is as follows \href{https://en.wikipedia.org/wiki/Cauchy%E2%80%93Schwarz_inequality}{\textit{\underline{Cauchy-Schwarz}}}:
+\[
+|\sum_{i=1}^{n}u_iv_i|^2 \leq |\sum_{i=1}^{n}u_i|^2|\sum_{i=1}^{n}v_i|^2.
+\] 
+
+The function $f(x) = \sqrt(x), \forall x \geq 0$ is a monotonic function and thus:
+
+\[
+|\sum_{i=1}^{n}u_iv_i| \leq |\sum_{i=1}^{n}u_i||\sum_{i=1}^{n}v_i|.
+\] 
+
+Now we define the $L^2$-Norm as: $||\text{\textbf{a}}|| := \sqrt(|\sum_{i=1}^{n}a_ia_i|))$, $\text{\textbf{a}}$ as the vector a and $\text{\textbf{ab}} = \sum_{i=1}^{n}a_ib_i$
+as the vector product. 
+
+\textbf{Note:} If we have a scalar in the norm: 
+\[
+||\text{\textbf{ab}}|| = ||a_1b_1 + a_2b_2 + ... + a_nb_n|| = \sqrt((a_1b_1 + a_2b_2 + ... + a_nb_n)^2) = a_1b_1 + a_2b_2 + ... + a_nb_n
+\]
+
+We show that:
+
+\begin{align}
+||\text{\textbf{x} + \textbf{y}}||^2 &= (\textbf{x} + \textbf{y})(\textbf{x} + \textbf{y}) \\
+			&= ||\text{\textbf{x}}||^2 + 2(\textbf{x}\textbf{y}) + ||\text{\textbf{y}}||^2 \\
+			& \leq ||\text{\textbf{x}}||^2 + 2||\text{\textbf{xy}}|| + ||\text{\textbf{y}}||^2 \\
+\text{(using Cauchy-Schwarz)} &\leq ||\text{\textbf{x}}||^2 + 2||\textbf{x}||||\textbf{y}|| + ||\text{\textbf{y}}||^2\\
+			&= (||\text{\textbf{x}}|| + ||\text{\textbf{y}}||)^2
+\end{align}
+
+So:
+
+\begin{equation}
+||\text{\textbf{x} + \textbf{y}}|| \leq ||\text{\textbf{x}}|| + ||\text{\textbf{y}}||
+\end{equation}
+
+Applying the inequality to our case:
+
+\begin{align}
+d_2(x,y) &= ||cos(\text{\textbf{x}}) - cos(\text{\textbf{y}})|| \text{ whereas } n = D \\
+	   &= ||cos(\text{\textbf{x}}) - cos(\text{\textbf{z}}) + cos(\text{\textbf{z}}) - cos(\text{\textbf{y}})|| \\
+(\text{using (10)})	   & \leq ||cos(\text{\textbf{x}}) - cos(\text{\textbf{z}})|| + ||cos(\text{\textbf{z}}) - cos(\text{\textbf{y}})|| \\
+	   &= d_2(x,z) + d_2(z,y)
+\end{align}
+ 
+We see that all properties are fulfilled, hence \textbf{$d_2$ is 
+a distance measure}.
+% subsubsection triangle_inequality (end)
+
+% subsection ii (end)
+
+\subsection*{iii)} % (fold)
+\label{sub:iii}
+
+Let's check all properties for $d_3: \mathbb{R}^D \times \mathbb{R}^D \to \mathbb{R}$
+and $d_3(x,y) = \sum_{i=1}^{D}|x_{i}-y_{i}|^3$:
+
+\subsubsection*{zero distance} % (fold)
+\label{ssub:zero_distance}
+It is fairly easy to see that the only way that $\sum_{i=1}^{D}|x_{i}-y_{i}|^3 = 0$ is when $x_i = y_i, \forall i \in \{1,...,D\}$.
+Therefore $d_3(x,y) = 0 <=> x=y$ and the ``zero distance'' property is fulfilled. 
+
+% subsubsection zero_distance (end)
+
+\subsubsection*{symmetry} % (fold)
+\label{ssub:symmetry}
+
+\begin{align}
+    d_3(y,x) &= {\sum_{i=1}^{D}|y_i - x_i|^3}\\
+     &= {\sum_{i=1}^{D}|-(x_i - y_i)|^3}\\
+     &= {\sum_{i=1}^{D}|x_i - y_i|^3}\\
+     &= d_3(x,y)
+\end{align}
+
+We can see that symmetry is fulfilled.
+
+% subsubsection symmetry (end)
+
+\subsubsection*{triangle inequality} % (fold)
+\label{ssub:triangle_inequality}
+
+We can easily show that the triangle inequality does not hold true for $d_3$.
+Let's assume that $D=1, x_1 = 7, y_1 = 3, z_1 = 5$.
+So we have:
+
+\[
+d_3(x,y)= |7 - 3|^3 = 64 > 16 = |7-5|^3 + |5-3|^3 = d_3(x,z) + d_3(z,y)
+\]
+
+Thus $d_3(x,y) \leq d_3(x,z) + d_3(z,y)$ does not hold true. 
+ 
+We see that not all the properties are fulfilled and consequently \textbf{$d_3$ is 
+not a distance measure}.
+% subsubsection triangle_inequality (end)
+
+% subsection iii (end)
+
+\subsection*{Note} % (fold)
+\label{sub:note}
+
+In case I falsely understood the question and it is in fact asked to verify the metric properties like shift invariance, rotation 
+invariant and scale invariant, we can state that: 
+
+Since (i) and (iii) are no distance measures, it is not necessary to check for these properties. 
+(ii) is neither shift, nor rotation, nor scale invariant.
+
+% subsection note (end)
+
+% section section_name (end)

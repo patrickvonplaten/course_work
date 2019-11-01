@@ -1,0 +1,33 @@
+\section*{Exercise 2} % (fold)
+\label{sec:section_name}
+
+\subsection*{a)}
+\label{sub:subsection_name}
+
+In the case of continuous speech recognition, we have to consider all the possible combinations of words in the vocabulary $V$ for a 
+given $N$-long word sequence. 
+Thus, the computational complexity for hypothesizing all possible word sequences would be 
+$\mathcal{O}(N) = |V|^N$.
+
+% subsection a (end)
+
+\subsection*{b)} % (fold)
+\label{sub:b}
+
+Assuming an isolated speech recognitino task where as the words are \emph{dependent} on each other, we get a complexity of: 
+$\mathcal{O}(N) = |V|^N$.
+If, on the other hand, the words are \emph{independent} on each other, the complexity can be reduced to $\mathcal{O}(N) = N|V|$.
+
+% subsection b (end)
+
+\subsection*{c)} % (fold)
+\label{sub:c}
+
+We can see that in the case where the words are dependent on each other, we have the same complexity for both \emph{isolated 
+speech recognition} and \emph{continous speech recognition}: $\mathcal{O}(N) = |V|^N$.
+The task will still be different, since we already know the word boundaries for \emph{isolated speech recognition}, where as we 
+still need to find the word boundaries for \emph{continous speech recognition}.
+
+% subsection c (end)
+
+% section section_name (end)

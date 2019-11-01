@@ -1,0 +1,147 @@
+\section*{1)} % (fold)
+\newcommand{\emlog}[1]{\emph{log}}
+\newcommand{\scalemath}[2]{\scalebox{#1}{\mbox{\ensuremath{\displaystyle{#2}}}}}
+\label{sec:1}
+HMM generating syllable sequences made up of four syllables, 'sim,'sa','la','bim'.\\
+\begin{tikzpicture}[font=\small\sffamily,label=monopoly,->,>=stealth',shorten >=1pt,auto,node distance=4cm,
+semithick]
+  \tikzset{observ/.style={state, 
+                                     minimum width=1.3cm,
+                                     line width=0.13mm,
+                                     fill=gray!20!white}}
+  \tikzset{my_state/.style={state, 
+                                     minimum width=1.3cm,
+                                     line width=0.4mm,
+                                     fill=gray!60!white}}
+                                     
+ 
+  
+  % State
+  \node[my_state, ] (Start) {0};  
+  \node[my_state, right = 2 of Start] (One) {1};  
+  \node[my_state, right = 2 of One] (Two) {2};  
+  \node[my_state, right = 2 of Two] (Three) {3};  
+
+  % Observations
+  \node[observ, below = 4  of Start] (Sim) {sim};  	
+  \node[observ, right = 2 of Sim] (Sa) {sa};  
+  \node[observ, right = 2 of Sa] (La) {la};  
+  \node[observ, right = 2 of La] (Bim) {bim};  
+  
+ % Transition Prob
+ \path (Start) edge node {0.5} (One)
+               edge [out=70,in=120, looseness=1] node {0.5} (Two)
+       (One) edge [out=120,in=60, looseness=5] node [loop above] {0.1} (One)
+             edge node {0.6} (Two)
+             edge[out=70,in=120, looseness=1] node {0.3} (Three) 
+       (Two) edge [out=120,in=60, looseness=5] node [loop above =16,min distance=30mm] {0.5} (Two)
+             edge node {0.5} (Three)
+       (Three) edge [out=120,in=60, looseness=5] node [loop above =16,min distance=30mm] {1} (Three);
+        
+ % EmissionProb
+ \path [dashed] (One) edge [draw=blue] node [above =0.2, label={[red]}] {0.6} (Sim)
+             edge [draw=blue] node [above =0.2] {0.2} (Sa)
+             edge [draw=blue] node [above =0.2] {0.1} (La)
+             edge [draw=blue] node [above =0.2] {0.1} (Bim);
+\path [dashed] (Two) edge [draw=red] node {0.4} (Sim)
+edge [draw=red] node {0.2} (Sa)
+edge [draw=red] node {0.4} (La) ;
+\path [dashed] (Three) edge  [draw=green] node [below left =0.6] {0.3} (Sa)
+edge [draw=green] node [below =0.6] {0.3} (La)
+edge [draw=green] node [below =0.6] {0.4} (Bim);             
+\end{tikzpicture}
+
+\newpage
+
+\subsection*{a)} % (fold)
+9 different paths are possible(0-1-1-1-3, 0-1-1-2-3, 0-1-1-3-3, 0-1-2-2-3, 0-1-2-3-3, 0-1-3-3-3, 0-2-2-2-3, 0-2-2-3-3, 0-2-3-3-3):
+Note that the following diagram is not correct since all paths must end in state 3. So we have to delete the paths leading to "bim" at state 1 and 2.
+Also note that in the first exercise, the produced sequence does not have to be "sim","sa","la","bim" but can be whatever (f.e. "sim","sim","sim","la")
+So we should just use the labels (t1 - t4) for the x-axis.
+ 
+\label{sub:a}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{./img/1a.png}
+	\caption{Unfolded automaton and resulting grid}
+\end{figure}
+
+
+
+%\begin{tikzpicture}[darkstyle/.style={circle,draw,fill=gray!40,minimum size=20}]
+%\foreach \i in {1,...,25}
+%{
+%	\pgfmathtruncatemacro{\y}{(\i - 1) / 5}
+%	\pgfmathtruncatemacro{\x}{\i - 5 * \y}
+%	\pgfmathtruncatemacro{\label}{\x + 5 * (4 - \y)}
+%	\node[darkstyle,minimum size=20] (\label) at (1.5*\x,1.5*\y)
+%	{\label};
+%}
+%
+%% Horizontal connections
+%
+%\foreach \x in {1,...,4}
+%\foreach \y in {0,...,4}
+%{
+%	\pgfmathtruncatemacro{\cur}{\x + 5* \y}
+%	\pgfmathtruncatemacro{\next}{\cur + 1}
+%	\draw (\cur) -- (\next);
+%}
+%
+%% Vertical connections
+%\foreach \start in {1,...,20}
+%{
+%	\pgfmathtruncatemacro{\down}{\start+5}
+%	\draw (\start) -- (\down);  
+%}
+%
+%\end{tikzpicture}
+
+% subsection a (end)
+
+\subsection*{b)} % (fold)
+\label{sub:b}
+
+$
+\scalemath{0.75}{
+\begin{array}
+	{ | l | l | l | l | l | l | l | l | l | l | l | l | }
+	\hline
+	paths & s0 & sim & sa & la & bim & p(0)  & p(s1|0) \cdot p(t1|s1)  & p(s2|s1) \cdot p(t2|s2) & p(s3|s2) \cdot p(t3|s3)  & p(s4|s3) \cdot p(t4|s4)  & \  \\ \hline
+	1 & 0 & 1 & 1 & 1 & 3 & 1 & 0.3 & 0.02 & 0.01 & 0.12 & 0.0000072 \\ \hline
+	2 & 0 & 1 & 1 & 2 & 3 & 1 & 0.3 & 0.02 & 0.24 &	0.2 &	0.000288 \\ \hline
+	3 & 0 & 1 & 1 & 3 & 3 & 1 & 0.3 & 0.02 & 0.09 & 0.4 & 0.000216 \\ \hline
+	4 & 0 & 1 & 2 & 2 & 3 & 1 & 0.3 & 0.12 & 0.2 & 0.2 & 0.00144 \\ \hline
+	5 & 0 & 1 & 2 & 3 & 3 & 1 & 0.3 & 0.12 & 0.15 & 0.4 & 0.00216 \\ \hline
+	6 & 0 & 1 & 3 & 3 & 3 & 1 & 0.3 & 0.09 & 0.3 & 0.4 & 0.00324 \\ \hline
+	7 & 0 & 2 & 2 & 2 & 3 & 1 & 0.2 & 0.1 & 0.2 & 0.2 & 0.0008 \\ \hline
+	8 & 0 & 2 & 2 & 3 & 3 & 1 & 0.2 & 0.1 & 0.15 & 0.4 & 0.0012 \\ \hline
+	9 & 0 & 2 & 3 & 3 & 3 & 1 & 0.2 & 0.15 & 0.3 & 0.4 & 0.0036 \\ \hline
+\end{array}
+}
+$
+
+\begin{align*}
+\sum_\text{Possible paths}  \prod_{t=1} P(X_{t}|S_{t-1}) \cdot P(S_{t}|S_{t-1}) = 12.9 \cdot 10^{-3}
+\end{align*}
+% subsection b (end)
+
+\subsection*{c)} % (fold)
+\label{sub:c}
+\begin{align*}	
+	\text{Max} _\text{Possible paths} {\prod_{t=1}P(X_{t}|S_{t-1}) \cdot P(S_{t}|S_{t-1})} = 3.6 \cdot 10^{-3}
+\end{align*}
+Approximated hidden sequence of states from observation 'sim-sa-la-bim' is '0-2-3-3-3' with the approximative probability of $3.6 \cdot 10^{-3}$. 
+
+% subsection c (end)
+
+\subsection*{d)} % (fold)
+\label{sub:d}
+The big advantage of Viterbi is that we can use the \emlog~ function to simplify the equation because we only need to find the maximum value of a product, so taking 
+the \emlog~ of this equation will yield the same maximum value (\emlog~ is monoton). Taking the \emlog~ of an equation with a sum does not really help to 
+simplify the equation. In addition the Viterbi approximation ensures somewhat numerical stability. In the case of not using the Viterbi approximation, if the markov 
+chains get longer, very low probabilities are added to the overall sum which can cause problems with ``float'' in Python for example.
+The disadvantage of using the viterbi approximation is obviously that it is an approximation and thus could lead to a wrong result.
+% subsection d (end)
+
+% section 1 (end)

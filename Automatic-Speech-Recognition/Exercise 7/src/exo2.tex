@@ -1,0 +1,73 @@
+\section*{2)} % (fold)
+\label{sec:2}
+
+Report the mean, variance and the membership of each point for each split (L times).
+Plot the observations for each split.
+
+\subsection*{Split 0)}
+Initial density:
+\begin{lstlisting}
+Mean: [4.134615384615384, 4.273076923076923]
+Variance: [3.96303 25443786987, 3.3327366863905326]
+\end{lstlisting}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./img/plot1".png}
+    \caption{First iteration plot (no split yet).}
+    \label{fig:plot1}
+\end{figure}
+Console results:
+\begin{lstlisting}
+Mean:  [array([ 4.13461538,  4.27307692])]
+Var:  [3.9630325443786987, 3.3327366863905326]
+Membership:  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] 
+\end{lstlisting}
+\pagebreak 
+\subsection*{Split 1)}
+\label{subsection:Split 1}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./img/plot2".png}
+    \caption{Second iteration: $1^{st}$ split.}
+    \label{fig:plot2}
+\end{figure}
+
+Console results:
+\begin{lstlisting}
+Mean:  [array([ 5.06111111,  5.32777778]), array([ 2.05,  1.9 ])]
+Var:  [3.9630325443786987, 3.3327366863905326]
+Membership:  [1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+\end{lstlisting}
+\pagebreak 
+\subsection*{Split 2)}
+\label{subsection:Split 2}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./img/plot3.png}
+    \caption{Third iteration: $2^{nd}$ split.}
+    \label{fig:plot2}
+\end{figure}
+Console results:
+\begin{lstlisting}
+Mean:  [array([ 2.05,  1.9 ]), array([ 6.18333333,  4.8       ]), array([ 2.81666667,   6.38333333])]
+Var:  [3.9630325443786987, 3.3327366863905326]
+Membership:  [0, 0, 0, 0, 2, 0, 0, 0, 2, 2, 0, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+\end{lstlisting}
+\pagebreak 
+\subsection*{Split 3)}
+\label{subsection:Split 4}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./img/plot4.png}
+    \caption{Fourth iteration: $3^{rd}$ split.}
+    \label{fig:plot2}
+\end{figure}
+Console results:
+\begin{lstlisting}
+Mean:  [array([ 2.05,  1.9 ]), array([ 2.81666667,  6.38333333]), array([ 6.6       ,  5.53333333]), array([ 5.76666667,  4.06666667])]
+Var:  [3.9630325443786987, 3.3327366863905326]
+Membership:  [0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 3, 3, 3, 3, 3, 2, 2, 2, 3, 2, 2, 2]
+\end{lstlisting}
+
+% section 2 (end)

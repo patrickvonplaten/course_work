@@ -1,0 +1,43 @@
+\section*{Exercise 2} % (fold)
+\label{sec:Exercise 2}
+
+\subsection*{d)} % (fold)
+\label{sub:d}
+The number of computation that we could get from samples ref.data and test.data using recursive, memoize, iterative algorithm are each 19238, 75, 76. 
+(Global distance were same as 3101.0 for all algorithms). \\
+
+Recursive algorithm is naive implementation of recursive approach- dividing big problem into sub problems.It repeats functions calls until the base condition is satisfied.
+
+\begin{lstlisting}
+...
+   D = dist(test[t],ref[s]) + min([_memoize(t-1,s)+jumpPen[0],                       _memoize(t-1,s-1)+jumpPen[1], _memoize(t-1,s-2)+jumpPen[2]])
+...
+\end{lstlisting}
+
+For Memoize algorithm, we cached the intermediate result using dictionary, thus saved the redundant calculation. 
+\begin{lstlisting}
+ if (t,s) in __cache:
+    return __cache[(t,s)]
+ else
+   ...
+   proceed in recursive way, register the intermediate result in cache by
+    __cache[(t,s)] = dist(test[t],ref[s]) + min(_memoize(t-1,s)+jumpPen[0], _memoize(t-1,s-1)+jumpPen[1], _memoize(t-1,s-2)+jumpPen[2]])
+   ...
+   return __cache[(t,s)]
+\end{lstlisting}
+
+For Iterative algorithm, instead of calling functions for multiple times, looping statement takes part. 
+\begin{lstlisting}
+...
+    for s in range(2,S):
+        min_t = int(np.floor((s+1)/2))
+    	for t in range(min_t,T):
+   			 D[t,s] = dist(test[t],ref[s]) + min([D[t-1,s]+jumpPen[0], D[t-1,s-1]+jumpPen[1], D[t-1,s-2]+jumpPen[2]])
+    return D[T-1,S-1] 
+\end{lstlisting}
+
+
+
+% subsection d (end)
+
+% section Exercise 2 (end)

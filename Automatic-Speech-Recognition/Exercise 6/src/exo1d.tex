@@ -1,0 +1,24 @@
+\section*{1d)} % (fold)
+\label{sec:1d}
+
+We take the negative Log-Likelihood Function for a single segment $m$, based on part 1b) and make $x_1^T=x_{s_m}^{e_m}$, $ \mu_m=\hat{\mu}_m$, $\sigma_m^2=\hat{\sigma}_m^2$:
+
+\begin{align}
+-\mathcal{L}\mathcal{L}(x_{s_m}^{e_m}; \hat{\mu}_m, \hat{\sigma}_m^2) &= \frac{1}{2}\sum_{i=s_m}^{e_m}(log(2\pi)+log(\hat{\sigma}_m^2)+\frac{(x_i - \hat{\mu}_m)^2}{\hat{\sigma}_m^2}))
+\end{align}
+
+Also from part b) we calculate optimal values for variance and mean parameters:
+\[
+\hat{\sigma}_m^2 = \frac{\sum_{i=s_m}^{e_m}(x_i - \hat{\mu}_m)^2}{e_m - s_m + 1}
+\]
+
+Substituting $\hat{\sigma}_m^2$ on equation (19) and taking $log(2\pi)+log(\hat{\sigma}_m^2)$ out of the sum:
+\begin{align*}
+-\mathcal{L}\mathcal{L}(x_{s_m}^{e_m}; \hat{\mu}_m, \hat{\sigma}_m^2) &= \\
+&= \frac{1}{2}(e_m - s_m + 1)\Bigg[log(2\pi)+log(\frac{\sum_{i=s_m}^{e_m}(x_i - \hat{\mu}_m)^2}{e_m - s_m + 1})\Bigg] + \frac{1}{2}\sum_{i=s_m}^{e_m}(\frac{(x_i - \hat{\mu}_m)^2}{\hat{\sigma}_m^2})\\
+&= \frac{1}{2}(e_m - s_m + 1)\Bigg[log(2\pi)+log(\frac{\sum_{i=s_m}^{e_m}(x_i - \hat{\mu}_m)^2}{e_m - s_m + 1})\Bigg] + \frac{1}{2}(\frac{\sum_{i=s_m}^{e_m}(x_i - \hat{\mu}_m)^2}{\frac{\sum_{i=s_m}^{e_m}(x_i - \hat{\mu}_m)^2}{e_m - s_m + 1}}) \\
+&= \frac{1}{2}(e_m - s_m + 1)\Bigg[log(2\pi)+log(\frac{\sum_{i=s_m}^{e_m}(x_i - \hat{\mu}_m)^2}{e_m - s_m + 1}) + 1\Bigg]
+\end{align*}
+
+
+% section 1d (end)

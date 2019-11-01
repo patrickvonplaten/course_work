@@ -1,0 +1,262 @@
+\section*{2)} % (fold)
+\label{sec:2_}
+
+\subsection*{a)} % (fold)
+\label{sub:a_}
+
+First we will describe the recombination at word boundaries using a bigram class based LM with a diagram.
+
+\begin{itemize}
+	\item $g_i$ presents the i-th word class
+	\item $p(g_i|g_j)$ presents the probability that a word from class $g_i$ follows a word from class $g_j$
+	\item $p(w_{j}^{g_i}|g_i)$ presents the probability that the j-th word of class i is chosen from all words of class i
+\end{itemize}
+
+Let's derive our probability $p(w|v) = p(w|g_w)p(g_w|g_v)$:
+
+\[
+p(w|v) = \sum_g p(w,g|v) = \sum_g p(g|v)p(w|v,g) = p(g_w|v)p(w|v,g_w) = p(w|g_w)p(g_w|g_v)
+\]
+
+,since $p(w|v,g) \ne 0 \text{ if } g=g_w$.
+
+\textbf{Remember:}
+Q(t,s,w) is the probability of the best path at time \textbf{t} leading to 
+state \textbf{s} fo word \textbf{n}.
+
+\begin{tikzpicture}[font=\small\sffamily,shorten >=1pt,->,auto,node distance=4cm,
+semithick]
+  
+  \tikzset{my_state/.style={state,    
+                                     minimum size=0.75cm,
+                                     minimum width=0.5cm,
+                                     line width=0.5mm,
+                                     fill=gray!60!white}}
+
+  \tikzset{my_rect/.style={state,
+  									minimum size=0.4cm,
+  									minimum width=0.4cm,
+  									line width=0.5mm,
+  									rectangle}}
+
+
+
+  \newcommand{\drawWord}[3]{
+
+
+  	% is starting state or not?
+      \ifx&#2&
+        \node[my_state, ] (#1_start) {#1};
+      \else 
+        \node[my_state, below = 4 of #2_start] (#1_start) {#1};
+      \fi
+
+  	% State
+	  
+	  \node[my_state, right = 4 of #1_start] (#1_mid) {#1};
+	  \node[my_rect, above right = 1 and 2 of #1_mid] (#1_rect1) {};
+	  \node[my_rect, above right = 0 and 2 of #1_mid] (#1_rect2) {};
+	  \node[my_rect, above right = -1 and 2 of #1_mid,draw=none] (#1_rectE) {...};
+	  \node[my_rect, above right = -2 and 2 of #1_mid] (#1_rect3) {};
+	  \node[my_state, right = 7 of #1_mid] (#1_end) {#1};
+
+	  % Node
+	  \path[->] (#1_start) edge node[below] {$p(#3|#3)$} (#1_mid);
+
+	  \begin{scope}[every node/.style={scale=.5}]
+	  	\path[->] (#1_mid) edge node {$p(w_{1}^{#3})|#3)$} (#1_rect1)
+	 			  (#1_mid) edge node {} (#1_rect2)
+	  			  (#1_mid) edge node {$p(w_{n_1}^{#3})|#3)$} (#1_rect3);
+	  \end{scope}
+
+	  \begin{scope}[every node/.style={scale=1}]
+	  	\path[->] (#1_rect1) edge node {$w_1^{#3}$} (#1_end)
+	  			  (#1_rect2) edge node {$w_2^{#3}$} (#1_end)
+	 			  (#1_rect3) edge node {$w_{n_1}^{#3}$} (#1_end)
+	 			  (#1_end) edge [out=120,in=60, looseness=5] node [loop above] {Sil} (#1_end);
+	  \end{scope}
+	  	\draw [->, dotted] (#1_end) to[out=10,in=60, looseness=1] (#1_start);
+
+  }
+   
+  \drawWord{g1}{}{g_1}     
+  \drawWord{g2}{g1}{g_2} 
+
+  \node[state, below = 2 of g2_start,draw=none] (empty_start) {...}; 
+  \node[state, right = 4 of empty_start,draw=none] (empty_mid) {...};
+  \node[state, right = 7 of empty_mid,draw=none] (empty_end) {...};
+
+  \drawWord{gn}{g2}{g_n}
+
+  \begin{scope}[every node/.style={scale=0.75}]
+	  \path[->] (g1_start) edge node {$p(g_2|g_1)$} (g2_mid);                       
+	  \path[->] (g1_start) edge node {$p(g_n|g_1)$} (gn_mid); 
+
+	  \path[->] (g2_start) edge node {$p(g_1|g_2)$} (g1_mid);                       
+	  \path[->] (g2_start) edge node {$p(g_n|g_2)$} (gn_mid);
+
+	  \path[->] (gn_start) edge node {$p(g_1|g_n)$} (g1_mid);                       
+	  \path[->] (gn_start) edge node {$p(g_2|g_n)$} (g2_mid);   
+  \end{scope}                    
+
+\end{tikzpicture}
+
+This model presents the general idea of class based LM. We should also add a first silence state at the bottom, 
+that leads to every other class.
+
+\newpage
+
+Now we will redefine the recursive function at the word boundary. 
+Let $g: \mathbb{W} \to \mathbb{G}$ be the determinant function that maps all words to their corresponding 
+word class.
+
+The recursive function at the word boundary is defined as follows: 
+
+\[
+Q(t-1,s=0;w) = \max_v\{Q(t-1,S(v);v)p(w|v)\}
+\]
+
+We know that $p(w|v) = p(w|g_w)p(g_w|g_v) = p(w|g(w))p(g(w)|g(v))$. So our recursive function becomes:
+
+\begin{align*}
+	Q(t-1,s=0;w) &= \max_v\{Q(t-1,S(v);v)p(w|g(w))p(g(w)|g(v))\} \\
+	&= p(w|g(w))\max_v\{Q(t-1,S(v);v)p(g(w)|g(v))\} \\
+	&= p(w|g(w))\max_g\{p(g_w|g)\max_{v \in g}\{Q(t-1,S(v);v)\}\}
+\end{align*}
+
+% subsection a_ (end)
+
+\subsection*{b)} % (fold)
+\label{sub:b_}
+
+\textbf{Remember:}
+$Q_v(t,s,w)$ is the probability of the best path at time \textbf{t} leading to 
+state \textbf{s} of word \textbf{w} with predecessor word \textbf{v}.
+
+Describing the recombination at word boundaries using a trigram class based LM is very similar to the graph above.
+The recombination equation at the word boundary looks in the ``normal'' trigram LM as follows:
+
+\[
+Q_v(t-1,s=0;w) = \max_u\{Q_u(t-1,S(v);v)p(w|u,v)\}
+\]
+
+We know that $p(w|u,v) = p(w|g_w)p(g_w|g_u,g_v) = p(w|g(w))p(g(w)|g(u),g(v))$. So our recursive function becomes:
+
+\begin{align*}
+	Q_g(t-1,s=0;w) &= \max_u\{Q_u(t-1,S(v);v)p(w|g(w))p(g(w)|g(u),g(v))\} \\ 
+	&= p(w|g(w))\max_u\{Q_u(t-1,S(v);v)p(g(w)|g(u),g(v))\} \\
+	&= p(w|g(w))\max_{g'}\{p(g_w|g,g')\max_{v \in g}\{Q_{g'}(t-1,S(v),v)\}\} \\
+\end{align*}
+
+To better understand the following derivation: 
+\textbf{Remember:}
+$Q_g(t,s,w)$ is the probability of the best path at time \textbf{t} leading to 
+state \textbf{s} of word \textbf{w} with predecessor word class \textbf{g}.
+
+\subsubsection*{Within words} % (fold)
+\label{ssub:within_words}
+
+\begin{align*}
+	Q_g(t,s;w) &= \max_{\substack{n, w_1^n, s_1^{t} \\ s_{t}=s \\ s_1^{t} : w_1^{n} \\ w_n = w \\ c(w_{n-1}) = g}} \{ p(w_1^n)p(x_1^t, s_1^t | w_1^n)\} \\ 
+	&= \max_{\substack{n, w_1^n, s_1^{t} \\ s_{t}=s \\ s_1^{t} : w_1^{n} \\ w_n = w \\ c(w_{n-1}) = g}} \{\prod_{m=1}^n p(w_n|w_{m-2},w_{m-1}) \prod_{i=1}^{t} p(x_i, s_i | s_{i-1})\} \\
+	&= \max_o \{ \max_{\substack{ n, w_1^n, s_1^{t-1} \\ s_{t-1}=o \\ s_1^t : w_1^n \\ w_n = w \\ c(w_{n-1}) = g}} \{\prod_{m=1}^n p(w_n|w_{m-2},w_{m-1})\prod_{i=1}^{t-1} p(x_i, s_i | s_{i-1}) p(x_t, s|o)       \}\}\\
+	&= \max_o \{Q_g(t-1,o;w) p(x_t, s|o) \}
+\end{align*}
+
+% subsubsection within_words (end)
+
+\subsubsection*{Word boundary} % (fold)
+\label{ssub:word_boundary}
+
+\begin{align*}
+	Q_g(t,0;w) &= \max_{\substack{n, w_1^n, s_1^{t} \\ s_{t}=0 \\ s_1^{t} : w_1^{n} \\ w_n = w \\ c(w_{n-1}) = g}} \{ p(w_1^n)p(x_1^t, s_1^t | w_1^n)\} \\
+			   &= \max_{\substack{n, w_1^n, s_1^{t} \\ s_{t}=0 \\ s_1^{t} : w_1^{n} \\ w_n = w \\ c(w_{n-1}) = g}} \{\prod_{m=1}^n p(w_n|w_{m-2},w_{m-1}) \prod_{i=1}^{t} p(x_i, s_i | s_{i-1})\} \\
+			   &= \max_{\substack {n-1, w_1^{n-1}, s_1^{t-1} \\ s_{t-1} = S(v) = o \\ w_{n-1} = v \\ c(w_{n-1}) = g \\ c(w_{n-2}) = g'}} \{\prod_{m=1}^{n-1} p(w_n|w_{m-2},w_{m-1}) \prod_{i=1}^{t-1}p(x_i, s_i | s_{i-1}) p(w | v, w_{n-2}) p(x_t, 0 | o)\} \\
+			   &= \max_{\substack {s_{t-1} = S(v) = o \\ w_{n-1} = v \\ c(w_{n-1}) = g \\ c(w_{n-2}) = g'}} \{Q_g(t-1,o;v) p(w | v, w_{n-2}) p(x_t, 0 | o)\} \\
+			   &= \max_{g'} \{ \max_{v \in g} \{ Q_g(t-1,S(v);v) p(w|g_w)p(g_w|g,g') p(x_t, 0 | S(v)) \} \} \\
+			   & (p(x_t, 0 | S(v)) = 1 \text{ since } S(v) \to 0 \text{ (first state of w) for sure (see Ex.8)} \\ 
+			   &= p(w|g_w) \max_{g'} \{ p(g_w|g,g') \max_{v \in g} \{ Q_g(t-1,S(v);v) \} \}
+\end{align*}
+
+% subsubsection word_boundary (end)
+
+
+% subsection b_ (end)
+
+\subsection*{c)} % (fold)
+\label{sub:c_}
+
+Let's define: 
+
+\begin{itemize}
+	\item T: number of time frames of test utterance
+	\item W: number of acoustic reference words
+	\item The 1 stands for the additional silence model
+	\item G: number of word classes 
+	\item H: average number of words per word class $g_i$
+\end{itemize}
+
+Let's do some calculations. For the bigram the calculation is as follows:
+For every time frame T we have to find the best word out of the word class $g_i$. 
+Additionally we have to find the most probable word class for every previous word class. 
+So we arrive at $\mathcal{O}(\text{class based bigram}) = \mathcal{O}(T \times H \times G \times (G + 1)) = \mathcal{O}(T \times W \times (G+1))$ .
+Using the same reasoning for the class based trigram, we arrive at $\mathcal{O}(class based trigram) = \mathcal{O}(T \times H \times G \times (G^2 + 1)) = \mathcal{O}(T \times W \times (G^2 + 1))$.
+
+Putting it all in a table we get
+
+\begin{center}
+\begin{tabular}{ c | c | c }
+  & Bigram & Trigram \\ 
+ \hline
+ normal LM & $T \times W \times (W + 1)$ & $T \times W \times (W^2 + 1)$ \\  
+ class based LM & $T \times W \times (G + 1)$ & $T \times W \times (G^2 + 1)$    
+\end{tabular}
+\end{center} 
+
+We can see that the time complexity for the bigram is improved by a factor of $\frac{W}{G} = H$ and in the case of the trigram 
+this factor is $\frac{W^2}{G^2} = H^2$. One can see that the improvement is proportional to the number of words per word classes and 
+thus can be influenced by deciding which critera should be used to put words in a word class. If the criteria is relatively ``loose'',
+the time complexity can be improved by quite a lot. The trade-off is then obviously the accuracy because the looser the criteria, the less alike 
+will the words be in one class and the less alike will the model be.
+
+Now taking the complexity for the acoustic model into consideration: 
+
+\begin{itemize}
+	\item Using a bigram, the complexity will not change since we don't need to "carry" any information about words 
+	within words for the language model recombination
+	\item Using a trigram, the complexity is $\mathcal{O}(3TG \times (WS + W)$.
+\end{itemize}
+
+We can also state the complexity for the case ``within words'': $\mathcal{O}(TW^2G)$.
+% subsection c_ (end)
+
+\subsection*{Template for n-gram recursive formula for DP} % (fold)
+\label{sub:template_for_recursive_formula_for_dp}
+
+\subsubsection*{Word Boundary}
+
+\begin{align*}
+	Q_{w_2^{n-1}}(t,0;w_n) &= \max_{w_1} \{ Q_{w_1^{n-2}}(t,S(w_{n-1}),w_{n-1}) p(w_n|w_1^{n-1}) \} 
+\end{align*}
+
+This template can also be used for language models where the current word $w_n$ only depends on the word $w_{n-3}$ 
+so we have $p(w_n|w_{n-3})$ just assuming  it is 4-gram model where instead of $p(w_n|w_{n-3}^{n-1})$ we use $p(w_n|w_{n-3})$.
+
+So our complexity for the Word Boundary Dynamic Programming in case of an n-gram is $T*W*(W^{n-1}+1)$.
+Check out slide 342 to see complexities for 1 to 3-gram models!
+
+\subsubsection*{In Words} % (fold)
+\label{ssub:in_words}
+
+\begin{align*}
+	Q_{w_2^{n-1}}(t,s;w_n) &= \max_{o=s_{t-1}} \{ Q_{w_2^{n-1}}(t-1,o;w_n) p(x_t,s|o) \} 
+\end{align*}
+
+So our complextiy in this case is given by $3*T\*W*(W^{n-2}*\overline{S}+W)$.
+
+% subsubsection in_words (end)
+
+
+% subsection template_for_recursive_formula_for_dp (end)
+
+% section 2_ (end)

@@ -1,0 +1,46 @@
+	\section*{1c)} % (fold)
+\label{sec:1c}
+Global cost function $H$ that we got from exercise5 is as following: 
+\begin{align*}
+	H=\sum_{K=1}^{3}\sum_{t=t_{K-1}+1}^{t_K}(x_t-\mu_{t_{K-1}+1,t_K})^2  
+\end{align*}
+Replacing our boundaries ${t_K}$ and $t_{K-1}+1$ with $e_k$ and $s_k$ as done in this exercise, we can rewrite the global cost function $H$ to:
+
+\begin{align}
+	H=\sum_{k=1}^{3}\sum_{i=s_k}^{e_k}(x_i-\mu_{s_k,e_k})^2  \label{global_cost_exo_5}
+\end{align}
+
+Thus now we want to find the boundaries $e_k$ and $s_k$ for $k \in \{1,2,3\}$ to minimise H:
+
+\begin{align*}
+	\arg \min_{e_k,s_k}(H)= \arg \min_{e_k,s_k}\sum_{k=1}^{3}\sum_{i=s_k}^{e_k}(x_i-\mu_{s_k,e_k})^2
+\end{align*}
+
+
+
+Now, let's look at the negative log-likelihood of model (A). 
+$-\mathcal{L}\mathcal{L}$ function is defined as follows: 
+\begin{align*}
+	-\mathcal{L}\mathcal{L}(x_1^T; \mu_m, \sigma^2, m = 1,2,3) &= -log(\prod_{m=1}^{3}\prod_{i=s_m}^{e_m}\mathcal{N}(x_i; \mu_m, \sigma^2)) \\
+	&= -\sum_{m=1}^{3}\sum_{i=s_m}^{e_m}log(\mathcal{N}(x_i; \mu_m, \sigma^2)) \\
+	&= -\sum_{m=1}^{3}\sum_{i=s_m}^{e_m}(log(\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x_i - \mu_m)^2}{2\sigma^2}}) \\
+	&= \frac{1}{2}(\sum_{m=1}^{3}\sum_{i=s_m}^{e_m}(log(2\pi\sigma^2)+\frac{(x_i - \mu_m)^2)}{\sigma^2})) \\
+	&= \frac{3T}{2}log(2\pi\sigma^2) + \frac{1}{2\sigma^2}(\sum_{m=1}^{3}\sum_{i=s_m}^{e_m}(x_i - \mu_m)^2)) 
+\end{align*}
+
+So we want to minimise $\frac{3T}{2}log(2\pi\sigma^2) + \frac{1}{2\sigma^2}(\sum_{m=1}^{3}\sum_{i=s_m}^{e_m}(x_i - \mu_m)^2)$ by choosing the 
+best $e_m$ and $s_m$ for $m \in \{1,2,3\}$. We can see directly that the terms $\frac{3T}{2}log(2\pi\sigma^2)$ and $\frac{1}{2\sigma^2}$ are the same for  
+every $e_m$ and $s_m$ we choose. So we can write: 
+\[
+\arg \min_{e_m,s_m}\frac{3T}{2}log(2\pi\sigma^2) + \frac{1}{2\sigma^2}(\sum_{m=1}^{3}\sum_{i=s_m}^{e_m}(x_i - \mu_m)^2) = \arg \min_{e_m,s_m}\sum_{m=1}^{3}\sum_{i=s_m}^{e_m}(x_i - \mu_{m})^2
+\]
+
+Now let's put in our maximum likelihood estimation for $\mu_m$, which is $\hat{\mu}_m = \frac{1}{e_m - s_m + 1}\sum_{i=s_m}^{e_m}x_i$, which
+is the ``average over all energy signals between $s_m$ and $e_m$''.We see that this is the equal to $\mu_{s_k,e_k}$ from exercise 5, see~\eqref{global_cost_exo_5}. So our equation becomes: 
+\[
+\arg \min_{e_m,s_m}\sum_{m=1}^{3}\sum_{i=s_m}^{e_m}(x_i - \mu_{s_k,e_k})^2
+\]
+
+We see that this function is the same $\arg \min$ function as the one of exercise5 and thus will always yield the same result.
+
+% section 1c (end)

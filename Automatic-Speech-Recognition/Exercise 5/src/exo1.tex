@@ -1,0 +1,115 @@
+\section*{Exercise 1a)} % (fold)
+\label{sec:Exercise 1a)}
+
+To begin with, we want to define the global cost function:
+Let $0 = t_0 ,t_1,...,t_i,...,t_K = T, t_i \in \mathbb{N}, \forall i \in \{0,...,K\}$ be the segments boundaries and 
+$h(x_t;\mu_{i,j})$ the local cost function. 
+We can then define the global cost $H$ with $\mu_{a,b}$ being the empirical mean from a to b:
+ 
+\begin{align} 
+	H =& \sum_{t=0}^{T}(h(x_t;\mu_{0,t_1})+h(x_t;\mu_{t_{1}+1,t_2})+...+h(x_t;\mu_{t_{K-1}+1,t_K})) \\
+	  =& \sum_{t=0}^{t_1}(x_t-\mu_{0,t_1})^2 + \sum_{t=t_1+1}^{t_2}(x_t-\mu_{t_1+1,t_2})^2 + ...  + \sum_{t=t_{K-1}+1}^{t_K}(x_t-\mu_{t_{K-1}+1,t_K})^2 
+\end{align}
+
+Now let's define a dynamic programming formula to set $K$ segment boundaries in a way that minimizes the global cost $H$.
+Let $h(a,b) = \sum_{t=a}^{b}(x_t-\mu_{a,b})^2 $ be the cost between the segment boundaries a and b
+
+\[
+H(k,t) = 
+	\begin{cases}
+		\min_{s \in \{1,...,t-2\}}\{H(k-1,s) + h(s+1,t)\}, \text{ if } k > 1 \\
+		h(0,t), \text{ if } k = 1
+	\end{cases}
+\]
+
+Whereas we can find the optimal solution by inserting $H(K=3,t=T)$.
+
+% section Exercise 1a) (end)
+
+\section*{Exercise 1b)} % (fold)
+\label{sec:Exercise 1b)}
+\begin{lstlisting}
+for k in range(1, K + 1):
+	for t in range(1, T):
+		if(k == 1):
+		DHelp[k][0][t] = computeError(0, t)
+		D[k] = DHelp[k][0]
+			for s in range(t+1,T): 
+				DHelp[k][t][s] = computeError(t,s)
+		else:
+			minDist = float('inf')
+			bestPosition = 0
+			for s in range(2, t-1):
+				dist = D[k-1][s-1] + DHelp[1][s][t]
+				if(dist < minDist):
+				minDist = dist
+				bestPosition = s - 1
+			B[k - 1][t] = bestPosition
+			D[k][t] = minDist  
+\end{lstlisting}
+
+For computing an error we take a step below: \\
+\begin{lstlisting}
+def computeMean(begin, end):
+return sum(test[begin: end+1])/(end + 1 - begin)
+
+def computeError(begin, end):
+mean = computeMean(begin, end)
+return sum([(x - mean)**2 for x in test[begin: end + 1]])	
+\end{lstlisting}
+
+Let's imagine the time complexity of algorithm in terms of K and T as if we wouldn't have 
+stored the values for ``DHelp[1][t][s]'', but recalculated the cost for $h(0,t)$ again everytime.
+The time complexity would have been as below:  
+
+\begin{align}
+C =& \sum_{k=1}^{K}\sum_{t=1}^{T}\sum_{m=1}^{t}(1 + h(s,t)) \\
+  =& \sum_{k=1}^{K}\sum_{t=1}^{T}\sum_{m=1}^{t}(1 + t-m) \\
+  =& \sum_{k=1}^{K}\sum_{t=1}^{T}(t^2- \frac{t(t+1)}{2}) => \\
+\mathcal{O}(C) =& \mathcal{O}(KT^3)
+\end{align}
+
+So the global time complexity is $\mathcal{O}(KT^3)$.
+
+Cost function: 
+\[h(x_t;\mu_{i,j})=
+\begin{cases}
+(x_t-\mu_{i,j})^2 & \text{, } i\leq t\leq j\\
+0 & \text{, otherwise}
+\end{cases}\]
+
+\[\min_{\substack{t_1^K:\\t_1\in]0,T[\\t_2\in[t_1+1,T[}}
+{\left\{\sum_{s=1}^{K}
+{\sum_{i=t_{s-1}+1}^{t_s}
+{\left(x_i-\mu_{[t_{s-1}+1,t_s]}\right)^2}}\right\}}\]
+Subproblem: error of the best decomposition of the partial sequence \(x_1^t\) into k segments.
+\[D(K,t)=\min_{t_1^K:t_k=t}
+{\left\{\sum_{s=1}^{K}
+{\sum_{i=t_{s-1}+1}^{t_s}
+{\left(x_i-\mu_{[t_{s-1}+1,t_s]}\right)^2}}\right\}}\]
+D(K,T) = global cost.
+
+Now we need to decopose D(k,t) to get some recursive function.
+
+\begin{equation*}
+\begin{aligned}
+D(k,t)&=\min_{t_1^k:t_k=t}
+{\left\{\sum_{s=1}^{k-1}
+{\sum_{i=t_{s-1}+1}^{t_s}
+{\left(x_i-\mu_{[t_{s-1}+1,t_s]}\right)^2+
+\sum_{i=t_{k-1}+1}^{t}
+{\left(x_i-\mu_{[t_{k-1}+1,t]}\right)^2}}}\right\}}\\
+&=\min_{m}
+{\left\{\min_{t_1^{k-1}:t_{k-1}=m}
+{\left(\sum_{s=1}^{k-1}
+{\sum_{i=t_{s-1}+1}^{t_s}
+{\left(x_i-\mu_{[t_{s-1}+1,t_s]}\right)^2+
+\sum_{i=m+1}^{t}
+{\left(x_i-\mu_{[m+1,t]}\right)^2}}}\right)}\right\}}\\
+&=\min_{m}{\left\{D(k-1,m)+
+\sum_{i=m+1}^{t}
+{\left(x_i-\mu_{[m+1,t]}\right)^2}\right\}}
+\end{aligned}
+\end{equation*}
+
+% section Exercise 1b) (end)

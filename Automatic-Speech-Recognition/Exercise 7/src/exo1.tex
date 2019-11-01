@@ -1,0 +1,159 @@
+\section*{1)} % (fold)
+\label{sec:1}
+For given pdf $p(x)$, we need to calculate mean(1), variance(2), and verify the normalization constant(3). 
+\begin{enumerate}
+	\item $ \int_{-\infty}^{\infty}xp(x)dx$ \\
+	\item $  \int_{-\infty}^{\infty}(x-\mu)^2p(x)dx$ \\
+	\item $ \int_{-\infty}^{\infty}p(x)dx=1$\\
+\end{enumerate}
+
+\subsection*{Exercise 1a)} % (fold)
+\label{subsection:Exercise 1a)}
+\[
+p(x)=
+\begin{cases}
+1/2a, \text{ if } x \in [-a, a], a \in	 R^+ \\
+0 \text{ else } 
+\end{cases}
+\]
+\begin{enumerate}
+	\item \begin{align*} \int_{-\infty}^{\infty}xp(x)dx = \int_{-a}^{a}\frac{x}{2a}dx=0 
+	\end{align*}	 \\
+	\item 
+	\begin{align*} 
+		 \int_{-\infty}^{\infty}(x-\mu)^2p(x)dx &=  \int_{-a}^{a}\frac{x^2}{2a}dx \\ &= [\frac{x^3}{6a}]_{-a}^{a} = 2[\frac{x^3}{6a}]_{0}^{a} = \frac{a^2}{3}
+	\end{align*} 
+	\item 
+	\begin{align*}   \int_{-\infty}^{\infty}p(x)dx &=  \int_{-a}^{a}\frac{1}{2a}dx \\ &= [\frac{x}{2a}]_{-a}^{a} = 2[\frac{x}{2a}]_{0}^{a} = 1
+	\end{align*}
+\end{enumerate}
+
+\newpage
+% subsection Exercise 1a) (end)
+\subsection*{Exercise 1b)} % (fold)
+\label{subsection:Exercise 1b)}
+\[
+p(x)= \frac{1}{\sqrt{2\pi\sigma^2}}e^\frac{-(x-\mu)^2}{2\sigma^2}
+\]
+	
+	\subsubsection*{Mean} % (fold)
+	\label{ssub:mean}
+	
+	% subsubsection mean (end)
+
+	 \begin{align*} \int_{-\infty}^{\infty}xp(x)dx &= \int_{-\infty}^{\infty}\frac{x}{\sqrt{2\pi\sigma^2}}e^\frac{-(x-\mu)^2}{2\sigma^2}dx,  \\ 
+	  (x \to x + \mu) 
+	  &= \int_{-\infty}^{\infty}\frac{x+\mu}{\sqrt{2\pi\sigma^2}}e^\frac{-x^2}{2\sigma^2}dx \\ 
+	  &= \int_{-\infty}^{\infty}\frac{x}{\sqrt{2\pi\sigma^2}}e^\frac{-x^2}{2\sigma^2}dx + \int_{-\infty}^{\infty}\frac{\mu}{\sqrt{2\pi\sigma^2}}e^\frac{-x^2}{2\sigma^2}dx \\ 
+	  \text { (int. of odd func. over sym. interval )} 
+	  &= 0 + \int_{-\infty}^{\infty}\frac{\mu}{\sqrt{2\pi\sigma^2}}e^\frac{-x^2}{2\sigma^2}dx \\
+	  (x \to x \sigma, \text{ int. by sub., add } \sigma) 
+	  &= \mu\int_{-\infty}^{\infty}\frac{\sigma}{\sqrt{2\pi\sigma^2}}e^{\frac{-x^2}{2}}dx \\ 
+	  &= \frac{\mu}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{\frac{-x^2}{2}}dx \\ 
+	  &= \frac{\mu}{\sqrt{2\pi}}\sqrt{2\pi} \\ 
+	  &= \mu\cdot1 = \mu \\
+	\end{align*}
+
+	\subsubsection*{Variance} % (fold)
+	\label{ssub:variance}
+
+	\begin{align*}  \int_{-\infty}^{\infty}(x-\mu)^2p(x)dx &=  \int_{-\infty}^{\infty}\frac{(x-\mu)^2}{\sqrt{2\pi\sigma^2}}e^\frac{-(x-\mu)^2}{2\sigma^2}dx \\ (x \to x + \mu) &= 
+	\int_{-\infty}^{\infty}\frac{x^2}{\sqrt{2\pi\sigma^2}}e^\frac{-x^2}{2\sigma^2}dx \\ 
+	(x \to x \sigma, \text{ int. by sub., add } \sigma)
+	&= \int_{-\infty}^{\infty}\sigma\frac{(x\sigma)^2}{\sqrt{2\pi\sigma^2}}e^\frac{-(x\sigma)^2}{2\sigma^2}dx \\
+    &= \frac{\sigma^2}{\sqrt{2\pi}}\int_{-\infty}^{\infty}x^2(e^\frac{-x^2}{2})dx \text { (int. by parts } u(x) = x, v'(x) = xe^\frac{-x^2}{2}\\ &=
+	\frac{\sigma^2}{\sqrt{2\pi}}([-xe^{\frac{-x^2}{2}}]_{-\infty}^{\infty}-\int_{-\infty}^{\infty}-e^{\frac{-x^2}{2}}dx) \\ &=
+	\frac{\sigma^2}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{\frac{-x^2}{2}}dx \\ &=
+	\frac{\sigma^2}{\sqrt{2\pi}}\sqrt{2\pi} \\ &=
+	\sigma^2
+	\end{align*} 
+
+	\subsubsection*{Normalization} % (fold)
+	\label{ssub:normalization}
+
+	\begin{align*}   
+	\int_{-\infty}^{\infty}p(x)dx &=  \int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi\sigma^2}}e^\frac{-(x-\mu)^2}{2\sigma^2}dx \\
+	(x \to x \sigma + \mu, \text{ int. by sub., add } \sigma) 
+	&= \int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi}}e^\frac{-(x)^2}{2}dx \\ 
+	&= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^\frac{-(x)^2}{2}dx \\
+	&= \frac{1}{\sqrt{2\pi}}\sqrt{2\pi} \\ 
+	&= 1
+	\end{align*}
+
+% subsection Exercise 1b) (end)
+
+% \subsection*{Exercise 1c)} % (fold)
+% \label{subsection:Exercise 1c)}
+% \[
+% p(x)=
+% \begin{cases}
+% c\sqrt{a^2-x^2}, \text{ if } \left | x \right | < a, a \in R^+ \\
+% 0 \text{ else } 
+% \end{cases}
+% \]
+
+% \begin{enumerate}
+% 	\item 
+% 	\begin{align*} \int_{-\infty}^{\infty}xp(x)dx &= \int_{-a}^{a}cx\sqrt{a^2-x^2}dx \\ &= [\frac{c(a^2-x^2)^{\frac{3}{2}}}{3}]_{-a}^{a}
+% 	\\ &= 0 
+% 	\end{align*}	 
+% 	\item 
+% 	\begin{align*}  \int_{-\infty}^{\infty}(x-\mu)^2p(x)dx &=  \int_{-a}^{a}x^{2}c\sqrt{a^2-x^2}dx \\ &= 
+% 	[\frac{c\left(a^4\arcsin\left(\frac{x}{\left|a\right|}\right)-2x\left(a^2-x^2\right)^\frac{3}{2}+a^2x\sqrt{a^2-x^2}\right)}{8}
+% 	]_{-a}^{a} \\ &= 
+% 	\frac{{\pi}a^4c}{8}
+% 	\end{align*} 
+% 	\item 
+% 	\begin{align*}   
+% 		\int_{-\infty}^{\infty}p(x)dx &= \int_{-a}^{a}c\sqrt{a^2-x^2}dx \\ &= [\frac{c\left(a^2\arcsin\left(\frac{x}{a}\right)+x\sqrt{a^2-x^2}\right)}{2}]_{-a}^{a}
+% 		\\ &=
+% 		 \frac{a^2c\pi}{2} \\ &= 1 \\
+% 	\end{align*}
+%    	normalization constant c is $c = \frac{2}{a^2\pi}$
+% \end{enumerate}
+% % subsection Exercise 1c) (end)
+
+\subsection*{1c)} % (fold)
+\label{subsection:1c Presented)}
+\[
+p(x)=
+\begin{cases}
+c\sqrt{a^2-x^2}, \text{ if } \left | x \right | < a, a \in R^+ \\
+0 \text{ else } 
+\end{cases}
+\]
+
+\begin{enumerate}
+	\item 
+	We introduce substitution variable  $\theta$ where $x = a\sin\theta$ and $dx = a\cos\theta d\theta$ within new boundary $-\frac{\pi}{2}<\theta<\frac{\pi}{2}$.  \\
+	\begin{align*}   
+	\int_{-\infty}^{\infty}p(x)dx &= \int_{-a}^{a}c\sqrt{a^2-x^2}dx \\ &=
+	\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}c\sqrt{a^2-a^2\sin^{2}\theta}a\cos\theta d\theta \\ &= 
+	\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}ca^2\cos^{2}\theta d\theta \\ &= 
+	ca^2\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\frac{1-cos2\theta}{2} d\theta \\ &= 
+	\frac{ca^2}{2}[\theta]_{-\frac{\pi}{2}}^{\frac{\pi}{2}} + 0 \text{ (integration of odd function over symmetric interval)} \\ &= 
+	\frac{a^2c\pi}{2} \\ &= 1 
+	\end{align*}	 
+	normalization constant c is $c = \frac{2}{a^2\pi}$
+	\item 
+	\begin{align*}   
+	\int_{-\infty}^{\infty}xp(x)dx &= \int_{-a}^{a}cx\sqrt{a^2-x^2}dx
+	\\ &= \int_{-a}^{a}\frac{2}{a^2\pi}x\sqrt{a^2-x^2}dx
+    \\ &= 0  	\text { (integration of odd function within symetric interval) }
+	\end{align*} 
+	\item 
+	\begin{align*}  
+	\int_{-\infty}^{\infty}(x-\mu)^2p(x)dx &=  \int_{-a}^{a}x^{2}c\sqrt{a^2-x^2}dx 
+	\\ &= \int_{-a}^{a}x^{2}\frac{2}{a^2\pi}\sqrt{a^2-x^2}dx 
+	\\ &= \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\frac{2}{a^2\pi}a^2\sin^2\theta  \sqrt{a^2-a^2\sin^{2}\theta}a\cos\theta d\theta 
+	\\ &= \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\frac{2}{\pi}\sin^2\theta a^2\cos^2\theta d\theta 
+	\\ &= \frac{2a^2}{\pi}\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\frac{(1+\cos2\theta)}{2} \frac{(1-\cos2\theta)}{2}d\theta 
+	\\ &= \frac{2a^2}{\pi}\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\frac{(1-\cos^22\theta)}{4} d\theta 
+	\\ &= \frac{2a^2}{\pi}\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\frac{(1-\cos4\theta)}{4\cdot2} d\theta
+	\\ &= \frac{a^2}{4\pi}[\theta]_{-\frac{\pi}{2}}^{\frac{\pi}{2}} + 0 \text{ (integration of odd function over symmetric interval)}
+	\\ &= -\frac{a^{2}}{4}
+	\end{align*}
+\end{enumerate}
+
+% subsection 1c Presented) (end)
+% section 1 (end)

@@ -1,0 +1,30 @@
+\section*{1a)} % (fold)
+\label{sec:1a}
+
+The Likelihood function of a parameter $\theta$ and a sequence of observations $\{x_1,x_2,...x_T\}$ is given by:
+\[
+	\mathcal{L} := \prod_{i=1}^{T}f_{\theta}(x_i)
+\], whereas $f_{\theta}(x)$ is the density function with which x should be modeled.
+
+Therefore we have in our case:
+\[
+	\mathcal{L}(x_1^T; \mu_m, \sigma_m^2, m = 1,2,3) := \prod_{i=1}^{T}\mathcal{N}(x_i; \mu_m, \sigma_m^2)
+\]
+
+Since we want to split the sequence into $m=3$ segments, we can rewrite $\mathcal{L}$, whereas $s_m$ is the starting time index and $e_m$ is the ending time index of segment m.
+
+\[
+	\mathcal{L}(x_1^T; \mu_m, \sigma_m^2, m = 1,2,3) := \prod_{m=1}^{3}\prod_{i=s_m}^{e_m}\mathcal{N}(x_i; \mu_m, \sigma_m^2)
+\]
+
+Since the Log-Likelihood function, $\mathcal{L}\mathcal{L}:= log(\mathcal{L})$ is a monoton function and thus will yield the same $arg max$ as $\mathcal{L}$, we 
+can use $\mathcal{L}\mathcal{L}$ to calculate the ``best parameters''.
+
+\begin{align}
+	\mathcal{L}\mathcal{L}(x_1^T; \mu_m, \sigma_m^2, m = 1,2,3) &= log(\prod_{m=1}^{3}\prod_{i=s_m}^{e_m}\mathcal{N}(x_i; \mu_m, \sigma_m^2)) \\
+	&= \sum_{m=1}^{3}log(\prod_{i=s_m}^{e_m}\mathcal{N}(x_i; \mu_m, \sigma_m^2))\\
+	&= \sum_{m=1}^{3}\sum_{i=s_m}^{e_m}log(\mathcal{N}(x_i; \mu_m, \sigma_m^2))
+\end{align}
+
+
+% section 1a (end)

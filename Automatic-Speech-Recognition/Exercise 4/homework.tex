@@ -1,0 +1,48 @@
+\documentclass[12pt,oneside,a4paper]{article}
+
+\usepackage{./top/custom}
+
+\newcommand{\todo}[1]{[{\color{red} TODO : } #1]}
+
+\newcommand{\prob}{\mathbb{P}}
+\renewcommand{\labelitemi}{$\bullet$}
+\addto\captionsenglish{
+  \renewcommand{\labelitemi}{$\bullet$}
+}
+% \usepackage[backend=biber]{biblatex}
+% \addbibresource{./biblio.bib}
+
+\begin{document}
+% title (fold)
+\begin{center}
+{\LARGE \bfseries 
+ 4. Exercise Sheet  \\[0.1cm] 
+}
+{ \large \bfseries
+ Automatic Speech Recognition \\[0.3cm] % (if uncommented, switch above to [0.1cm])
+}
+{\large
+  \textsc{RWTH Aachen} --- Patrick von Platen, Jiyoung An, Jose Monge ---\\[0.3cm]
+}
+{\normalsize
+  Prof. Dr.Ing H. \textsc{Ney} \\[0.92cm] % (if uncommented, switch 3rd premise to [0.3cm])
+}
+\end{center}
+% title (end)
+
+{
+\underline{\textbf{Please note:}}
+Since the $2^{nd}$ exercise is a programming exercise, we only write about the exercise 2 d) in this pdf and send the 
+coding solution in the respective format with this exercise.
+}
+  
+\input{./src/exo1} \newpage
+\input{./src/exo2}
+
+% \addcontentsline{toc}{part}{References}
+% \nocite{*}
+% \hypersetup{urlcolor=black}
+% \printbibliography
+% \newpage
+
+\end{document}

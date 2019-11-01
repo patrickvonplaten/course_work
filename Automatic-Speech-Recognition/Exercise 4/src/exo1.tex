@@ -1,0 +1,146 @@
+\section*{Exercise 1} % (fold)
+\label{sec:Exercise 1}
+
+First, we define some variables: 
+
+\begin{itemize}
+	\item We want to find the ordering that minimises the 
+	``computational cost'' calculating the sequence of $n$ matrices: $M_{1}M_{2}...M_{n}$.
+	\item $M_i$ is the matrix at the $i^{th}$ position with $i \in \{1,..,n\}$.
+	\item $M_i^1$ is the number of columns, and $M_i^2$ is the number of rows of the matrix $M_i$. Thus $(M_i^1,M_i^2)$ is equal to $dim(M_i)$.
+	\item The sequence of the matrix has obviously to be ordered so that $M_i^2 = M_{i+1}^1 \forall i \in \{1,...,n-1\}$.
+	\item $(M_{1}M_{2})M_{3}$ means that we calculate first $M_{1,2} := M_{1}M_{2}$ which gives a computational cost of $M_1^{1}M_1^{2}M_2^{1}$ 
+		  and then $M_{1,2}M_{3} = M_1^{1}M_2^{2}M_3^{2}$.
+    \item $c(i,j)$ calculates the minimal computational cost needed to calculate the matrix sequence $M_{i}...M_{j}, i \geq j$. Using a backpointer 
+		  can be used to remember the order in which the matrix sequence can be calculated in an optimum way.
+\end{itemize}
+
+Now we define a recursive formula $c(i,j)$ that gives the minimal computational cost.
+
+\begin{align*}
+	c(i,j) &= min_{k \in \{i,..,j-1\}}\{c(i,k) + c(k+1,j) + M_i^{1}M_k^{2}M_j^{2}\} \\
+	& \\
+	c(l,l+1) &= M_l^{1}M_l^{2}M_{l+1}^{2}, l \in {i,...,j-1} \\
+	& \\
+	c(l,l) &= 0, l \in {i,...,j}
+\end{align*}
+
+Using this formula we can now solve the following matrix sequence: 
+$M_{1}M_{2}M_{3}M_{4}M_{5}$ with 
+\begin{align*}
+	M_1^{1} &= {10}^1   \\
+	M_2^{1} &= {10}^2   \\
+	M_3^{1} &= {10}^3   \\
+	M_4^{1} &= {10}^1   \\
+	M_5^{1} &= {10}^0   \\
+	M_5^{2} &= {10}^7   \\
+\end{align*}
+
+\todo{THIS EXERCISE HAS TO BE SOLVED BY HAND DURING THE EXAM OBVIOUSLY, BY DOING ALL $(M_i,M_j)$, THEN ALL $(M_i,M_j,M_k)$ USING THE MIN RESULT FROM $(M_i,M_j)$ AND SO ON UNTIL WE ARRIVE AT $(M_i,M_j,M_k,M_l,M_n)$}
+Since, doing the exercise by hand can be quite exhausting, we wrote a program (that will be send with the solution) to solve the problem. We use some kind of backpointer that will be used to show in detail how the algorithm solves the problem.
+We want to show the result of our little backpointer ``print'': 
+\begin{itemize}
+	\item Every time, the algorithmus ``tries out a k'' that splits the 
+Matrix sequence into 2 sequences whereas the length of the non-spitted sequence is bigger than 2.
+	\item Every line in the following ``print snippet'' shows 
+$[a,b,c,d]$ with $a=(a_1)(a_2)$, whereas $a_1$ and $a_2$ show the splitted sequences.
+	\item $b$ is equal to the ``level'' where the algorithm is in at the moment. A ``level'' of i means that the sequence to be considered is a part of the original sequence that has been splitted i times.
+	\item  $c$ (our ``small backpointer'') is either empty ('') or that has '*i' whereas the sequence with the highest i from all the sequences 
+having the same matrices in $a$ produces the minimum computational cost shown in $d$. 
+\end{itemize}
+
+
+\begin{lstlisting}
+	['(M1)(M2,M3,M4,M5)', 0, '*1', 11000110000] 
+	['(M1,M2)(M3,M4,M5)', 0, '', 110001010000]  
+	['(M1,M2,M3)(M4,M5)', 0, '*2', 1101010000]  
+	['(M1,M2,M3,M4)(M5)', 0, '*3', 100111000]   
+	['(M2)(M3,M4,M5)', 1, '*1', 1010000010000]  
+	['(M2,M3)(M4,M5)', 1, '*2', 10101000000]    
+	['(M2,M3,M4)(M5)', 1, '*3', 1000110000]     
+	['(M3)(M4,M5)', 1, '*1', 100100000000]      
+	['(M3,M4)(M5)', 1, '*2', 10000010000]       
+	['(M1)(M2,M3)', 1, '*1', 1010000]           
+	['(M1,M2)(M3)', 1, '', 1100000]             
+	['(M1)(M2,M3,M4)', 1, '*1', 111000]         
+	['(M1,M2)(M3,M4)', 1, '', 1020000]          
+	['(M1,M2,M3)(M4)', 1, '', 1010100]          
+	['(M3)(M4,M5)', 2, '*1', 100100000000]      
+	['(M3,M4)(M5)', 2, '*2', 10000010000]       
+	['(M2)(M3,M4)', 2, '*1', 110000]            
+	['(M2,M3)(M4)', 2, '', 1001000]             
+	['(M2)(M3,M4)', 2, '*1', 110000]            
+	['(M2,M3)(M4)', 2, '', 1001000]             
+	['(M1)(M2,M3)', 2, '*1', 1010000]           
+	['(M1,M2)(M3)', 2, '', 1100000]
+\end{lstlisting}
+
+In the code snippet we have ordered the prints by their level to see better what happened. 
+The best sequence is to split the sequence $M_{1}M_{2}M_{3}M_{4}M_{5}$ to $M_{1}$
+and $M_{2}M_{3}M_{4}M_{5}$ (line 4). Before the algorithm calucalted that $M_{2}M_{3}M_{4}M_{5}$ can 
+best be split into $M_{2}M_{3}M_{4}$ and $M_{5}$ (line 7). Before we got $M_{2}$ and $M_{3}M_{4}$ as the best 
+splitting for $M_{2}M_{3}M_{4}$ (line 17). Putting it all together, the best order is 
+\[
+	(M_{1}(M_{2}(M_{3}M_{4})))M_{5}
+\]
+which gives a computational cost of $100111000 \approx {10}^8$ (line 4).
+
+Calculating the sequence $(M_{1}(M_{2}(M_{3}(M_{4}M_{5}))))$, which is the normal way one 
+would do it not having set brackets, gives us a result of $1110100000000 \approx {10}^{12}$, which 
+is propably the worst possible result (we assume that this is the ``right-to-left'' ordering).
+
+We assume that the sequence $((((M_{1}M_{2})M_{3})M_{4})M_{5})$, is the ``left-to-right'' ordering.
+This ordering gives a computational cost of $101100010 \approx {10}^8$
+
+We can see that the optimal solution is only a little bit better (only $\approx 1.01$ times better than the ``left-to-right'' ordering), 
+which would make no difference when wanting to use a computer to calculate the solution. The ``right-to-left'' ordering is much worse though 
+and is 1000 times as ``expensive'' as the optimal one. Calculating this ordering instead of the optimal solution could take \textbf{much} more
+time than calculating the optimal ordering.
+
+\subsection*{Doing it by hand}
+Using dynamic programming: 
+
+First, computation of cost for multiplication of two matrices, after that multiplication of three matrices, finding the best result for each combination, and so on.
+\(c((i_1,i_2),j)\) means cost for multiplication \(M_i=M_{i_1}M_{i_2}\) plus cost for \(M_iM_j\).
+
+First multiplication of only two matrices:
+\[c(1,2)=10^6\]
+\[c(2,3)=10^6\]
+\[c(3,4)=10^4\]
+\[c(4,5)=10^8\]
+
+Three matrices:
+\[c((1,2),3)=10^6+10^5\]
+\[c(1,(2,3))=10^6+10^4\]
+\[c((2,3),4)=10^6+10^3\]
+\[c(2,(3,4))=10^4+10^5\]
+\[c((3,4),5)=10^4+10^{10}\]
+\[c(3,(4,5))=10^8+10^{11}\]
+
+Summarized (finding best result for each combination): 
+\[c(1,2,3)=10^6+10^4\]
+\[c(2,3,4)=10^4+10^5\]
+\[c(3,4,5)=10^4+10^{10}\]
+
+Four matrices:
+\[c((1,2),(3,4))=10^6+10^4+10^4\]
+\[c((1,2,3),4)=10^6+10^4+10^2\]
+\[c(1,(2,3,4))=10^5+10^4+10^3\]
+\[c((2,3),(4,5))=10^{10}+10^8+10^6\]
+\[c(2,(3,4,5))=10^{12}+10^{10}+10^4\]
+\[c((2,3,4),5)=10^9+10^5+10^4\]
+
+Summarized (finding best result for each combination):
+\[c(1,2,3,4)=10^5+10^4+10^3\]
+\[c(2,3,4,5)=10^9+10^5+10^4\]
+
+Five matrices:
+\[c((1,2,3,4),5)=10^8+10^5+10^4+10^3\]
+\[c(1,(2,3,4,5))=10^{10}+10^9+10^5+10^4\]
+\[c((1,2,3),(4,5))=10^8+10^7+10^6+10^4\]
+\[c((1,2),(3,4,5))=10^{11}+10^{10}+10^6+10^4\]
+
+Summarized (finding best result for this combination): 
+\[c((1,2,3,4),5)=10^8+10^5+10^4+10^3\]
+
+% section Exercise 1 (end)

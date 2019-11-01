@@ -1,0 +1,191 @@
+\section*{1)} % (fold)
+
+\subsection*{a)} % (fold)
+\label{sub:a_}
+
+We define the following operators: 
+
+\begin{itemize}
+	\item $\astrosun$ : element-wise multiplication
+	\item $\otimes$ : dot product 
+	\item $\oplus$ : element-wise sum
+	\item $\sigma$ : sigmoid activation function
+	\item $t$ : tanh activation function
+\end{itemize}
+
+Also we define the follwoing paramaters to be trained as:
+\[
+W, M \in \mathbb{R}^{m \times n}, b,d \in \mathbb{R}^{m}. 
+\].
+
+In addition $x \in \mathbb{R}^{n}$.
+
+\begin{tikzpicture}[font=\small\sffamily,shorten >=1pt,->,auto,node distance=4cm,
+semithick]
+
+
+\tikzset{input_state/.style={state,    
+                                 minimum size=1cm,
+                                 minimum width=0.5cm,
+                                 line width=0.5mm,
+                                 fill=gray!80!white}}
+  
+\tikzset{param_state/.style={state,    
+                                 minimum size=1cm,
+                                 minimum width=0.5cm,
+                                 line width=0.5mm,
+                                 fill=gray!30!white}}
+
+\tikzset{operator_state/.style={state,    
+                                 minimum size=1cm,
+                                 minimum width=0.5cm,
+                                 line width=0.5mm}}
+
+\node[param_state, ] (weight_W) {W};
+\node[input_state, below = 3 of weight_W] (x) {x};
+\node[param_state, below = 3 of x] (weight_M) {M};
+
+\node[operator_state, below right = 1 and 1 of weight_W] (times_1) {$\otimes$};
+\node[operator_state, below right = 1 and 1 of x] (times_2) {$\otimes$};
+
+\node[operator_state, right = 2 of times_1] (sum_1) {$\oplus$};
+\node[operator_state, right = 2 of times_2] (sum_2) {$\oplus$};
+
+\node[param_state, right = 3 of weight_W] (b) {b};
+\node[param_state, right = 3 of weight_M] (d) {d};
+
+\node[param_state, right = 2 of sum_1] (tanh) {$t$};
+\node[param_state, right = 2 of sum_2] (sigmoid) {$\sigma$};
+
+\node[operator_state, below = 1 of tanh] (elem_wise) {$\astrosun$};
+
+\node[param_state, right = 1 of elem_wise] (h) {h};
+
+\begin{scope}[every node/.style={scale=0.75}]
+	\path[->] (weight_W) edge node {} (times_1);                       
+	\path[->] (x) edge node {} (times_1); 
+
+	\path[->] (weight_M) edge node {} (times_2);                       
+	\path[->] (x) edge node {} (times_2);
+
+	\path[->] (times_1) edge node {} (sum_1);                       
+	\path[->] (times_2) edge node {} (sum_2); 
+
+	\path[->] (b) edge node {} (sum_1);                       
+	\path[->] (d) edge node {} (sum_2); 
+
+	\path[->] (sum_1) edge node {} (tanh);                       
+	\path[->] (sum_2) edge node {} (sigmoid);
+
+	\path[->] (tanh) edge node {} (elem_wise);                       
+	\path[->] (sigmoid) edge node {} (elem_wise);
+
+	\path[->] (elem_wise) edge node {} (h);
+\end{scope}
+\end{tikzpicture}
+% subsection a_ (end)
+
+\subsection*{b)} % (fold)
+\label{sub:b_}
+
+To make the calculation easier, we define some variables. 
+To be sure $\textbf{A}_(i,j)$ presents the elemnent of the i-th row and 
+the j-th column of matrix $\textbf{A}$.
+
+We define: 
+
+\newcommand{\zm}{\mathbf{z_m}}
+\newcommand{\zw}{\mathbf{z_w}}
+\newcommand{\yw}{\mathbf{y_w}}
+\newcommand{\ym}{\mathbf{y_m}}
+\newcommand{\pfr}[2]{\frac{\partial #1}{\partial #2}}
+
+\begin{itemize}
+	\item $\zw = \textbf{Wx} + \textbf{b}$
+	\item $\zm = \textbf{Mx} + \textbf{d}$
+	\item $\yw = tanh(\zw)$
+	\item $\ym = \sigma (\zm)$
+	\item $\mathbf{h} = \yw \astrosun \ym $
+	\item $\mathbf{\delta} = \frac{\partial E}{\partial \mathbf{h}}$
+\end{itemize}
+
+Let's first derive $\pfr{E}{\mathbf{W}_{(i,j)}}$:
+
+\[
+\pfr{E}{\mathbf{W}_{(i,j)}} = \pfr{E}{\mathbf{h}_{(i)}}\pfr{\mathbf{h}_{(i)}}{\mathbf{W}_{(i,j)}} = \mathbf{\delta}_{(i)}\pfr{\yw_{(i)}}{\mathbf{W}_{(i,j)}}\ym{(i)} = \ym{(i)}\mathbf{\delta}_{(i)}\pfr{\yw_{(i)}}{\zw_{(i)}}\pfr{\zw_{(i)}}{\mathbf{W}_{(i,j)}}
+\]
+
+So deriving the different parts, we get: 
+
+\begin{align*}
+    \pfr{\yw_{(i)}}{\zw_{(i)}} &= (1 - tanh^2(\zw_{(i)})) \\
+    \pfr{\zw_{(i)}}{\mathbf{W}_{(i,j)}} &= \mathbf{x}_{(j)}\\
+\end{align*}
+
+So finally: 
+
+\[
+\pfr{E}{\mathbf{W}_{(i,j)}} = \ym{(i)}\mathbf{\delta}_{(i)}(1 - tanh^2(\zw_{(i)}))\mathbf{x}_{(j)}
+\]
+
+Deriving $M_{(i,j)}$ follows the same logic. The only difference is that $\pfr{\ym_{(i)}}{\zw_{(i)}} = \sigma(\zm_{(i)}) (1 - \sigma(\zm_{(i)}))$ 
+and we get $\pfr{E}{\mathbf{M}_{(i,j)}} = \yw{(i)}\mathbf{\delta}_{(i)}\sigma(\zm_{(i)}) (1 - \sigma(\zm_{(i)}))\mathbf{x}_{(j)}$.
+
+Deriving $\pfr{E}{\mathbf{b}_{(i)}}$:
+
+\[
+\pfr{E}{\mathbf{b}_{(i)}} = \pfr{E}{\mathbf{h}_{(i)}}\pfr{\mathbf{h}_{(i)}}{\mathbf{b}_{(i)}} = \mathbf{\delta}_{(i)}\pfr{\yw_{(i)}}{\mathbf{b}_{(i)}}\ym{(i)} = \ym{(i)}\mathbf{\delta}_{(i)}\pfr{\yw_{(i)}}{\zm_{(i)}}\pfr{\zm_{(i)}}{\mathbf{b}_{(i)}}
+\]
+
+So instead of $\pfr{\zm_{(i)}}{\mathbf{W}_{(i,j)}} = \mathbf{x}_j$, we now have $\pfr{\zm_{(i)}}{\mathbf{b}_{(i)}} = 1$ 
+and our final result looks like:
+
+\[
+\pfr{E}{\mathbf{b}_{(i)}} = \ym{(i)}\mathbf{\delta}_{(i)}(1 - tanh^2(\zw_{(i)}))
+\]
+
+Analogous for $\pfr{E}{\mathbf{d}_{(i)}}$, we get:
+
+\[
+\pfr{E}{\mathbf{d}_{(i)}} = \yw{(i)}\mathbf{\delta}_{(i)}\sigma(\zm_{(i)}) (1 - \sigma(\zm_{(i)}))
+\]
+
+% subsection b_ (end)
+
+\subsection*{c)} % (fold)
+\label{sub:c_}
+
+Assuming that we have multiple layers, we need to perform multiple ``layer transformations''. Thus, x could also be intepreted 
+as the output of the previous layer. So let's derive $\pfr{E}{\mathbf{x}_{(i)}}$:
+
+The difference now is that $\pfr{E}{\mathbf{x}_{(i)}}$ depends not only on $\mathbf{h}_{(i)}$ but also on 
+all the other $\mathbf{h}_{(j)}, j \ne i$. So we need to write:
+
+\begin{align*}
+    \pfr{E}{\mathbf{x}_{(i)}} &= \sum_j^m \pfr{E}{\mathbf{h}_{(j)}}\pfr{\mathbf{h}_{(j)}}{x_{(i)}} \\
+    &= \sum_j^m \mathbf{\delta}_{(j)} (\pfr{\yw_{(j)}}{x_{(i)}}\ym_{(j)} + \pfr{\ym_{(j)}}{x_{(i)}}\yw_{(j)})\\
+    &= \sum_j^m \mathbf{\delta}_{(j)} (\pfr{\yw_{(j)}}{\zw_{(j)}}\pfr{\zw_{(j)}}{x_{(i)}}\ym_{(j)} + \pfr{\ym_{(j)}}{\zm_{(j)}}\pfr{\zm_{(j)}}{x_{(i)}}\yw_{(j)}) \\
+\end{align*}
+
+Let's derive $\pfr{\zw_{(j)}}{x_{(i)}}$ and $\pfr{\zm_{(j)}}{x_{(i)}}$:
+ 
+\begin{align*}
+    \pfr{\zw_{(j)}}{x_{(i)}} &= \mathbf{W}_{(j,i)} \\
+    \pfr{\zm_{(j)}}{x_{(i)}} &= \mathbf{M}_{(j,i)} \\
+\end{align*}.
+
+So we finally get: 
+
+\[
+\pfr{E}{\mathbf{x}_{(i)}} = \sum_j^m \mathbf{\delta}_{(j)} ((1 - tanh^2(\zw_{(j)}))\mathbf{W}_{(j,i)}\ym_{(j)} + \sigma(\zm_{(j)}) (1 - \sigma(\zm_{(j)}))\mathbf{M}_{(j,i)}\yw_{(j)})
+\]
+
+% subsection c_ (end)
+
+
+
+
+
+
+
+
